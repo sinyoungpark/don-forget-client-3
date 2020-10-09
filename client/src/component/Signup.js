@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { withRouter } from "react-router-dom";
 import './Signup.css'
 import Sample from '../Sample.png'
 
-function Signup() {
+const axios = require('axios');
+
+function Signup({ history }) {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -24,17 +27,30 @@ function Signup() {
     console.log(text);
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (reg.test(text) === false) {
-      console.log("Email is Not Correct");
       return false;
     } else {
-      console.log("Email is Correct");
       return true;
     }
   }
 
   const signUpBtnHandler = () => {
-    // 진행 중
     console.log(email, name, password, passwordCheck);
+
+    if (validate(email) && (password === passwordCheck)) {
+      axios.post('https://api.cakes.com/user/signin', {
+        email: email,
+        name: name,
+        password: password,
+        // password_question_id: password_question_id,
+        // password_answer: password_answer
+      })
+        .then(res => res.json())
+        .then(json => console.log(json.message))
+        .then(() => { history.push('/signin') })
+    } else {
+      validate(email) ? console.log(true) : alert("유효하지 않은 이메일입니다");
+      (password === passwordCheck && password !== "") ? console.log(true) : alert("비밀번호가 일치하지 않습니다");
+    }
   }
 
   return (
@@ -66,4 +82,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default withRouter(Signup);
