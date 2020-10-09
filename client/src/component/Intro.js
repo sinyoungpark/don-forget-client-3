@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
+import { withRouter } from "react-router-dom";
 import './Intro.css';
 import Sample from '../Sample.png'
 
-function Intro() {
-  const [click, setClick] = useState(false);
-  console.log(click);
+function Intro({ history }) {
 
   return (
     <div className="intro">
       <button
         className="loginBtn"
-        onClick={() => setClick(!click)}
+        onClick={() => { history.push('/signin') }}
       >LOGIN</button>
       <div className="full_page">
         <div className="title_content">
@@ -23,4 +22,4 @@ function Intro() {
   );
 }
 
-export default Intro;
+export default withRouter(Intro);

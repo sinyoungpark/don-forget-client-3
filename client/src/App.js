@@ -5,7 +5,7 @@ import Signin from "./component/Signin";
 import Signup from "./component/Signup";
 import Home from "./component/Home";
 import Box from '@material-ui/core/Box';
-import {withStyles} from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 
 function App() {
 
@@ -23,8 +23,14 @@ function App() {
   })
 
   return (
-    <div className= "App">
+    <div className="App">
       <Switch>
+        <Route exact path="/intro" render={() => {
+          if (isLogin) {
+            return <Home />
+          }
+          return <Intro />
+        }} />
         <Route path="/signin" render={() => {
           if (isLogin) {
             return <Redirect to="/" />
@@ -45,7 +51,7 @@ function App() {
           if (isLogin) {
             return <Redirect to="/home" />
           }
-          return <Redirect to="/signin" />
+          return <Redirect to="/intro" />
         }} />
       </Switch>
     </div>
