@@ -1,0 +1,69 @@
+.signup{
+    position: relative;
+    height: 100vh;
+    background-color: #3b23a6;
+    margin: 0;
+}
+
+/* 흰 배경 꽉 차도록(우선 98vh로 작업, 라우팅 후 수정) */
+.signup .full_page {
+    position: absolute;
+    margin-top: 2vh;
+    width: 100%;
+    height: 98vh;
+    border-radius: 60px;
+    box-shadow: -5px -5px 10px 0 rgba(0, 0, 0, 0.5);
+    background-color: #ffffff;
+}
+
+/* 전체 콘텐츠 틀 */
+.signup_content {
+    margin: auto;
+    position:absolute;
+    top:50%; 
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+.signup_content .logo_sample {
+    width: 100px;
+    display: block;
+    margin: 0px auto;
+}
+.signup_content .signup_title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+.signup_content label {
+    display: block;
+    margin-top: 1rem;
+    color: #4a4a4a;
+}
+.signup_content input {
+    display: block;
+    width: 15rem;
+    height: 1rem;
+    margin-bottom: 1px;
+}
+.signup_content select {
+    display: block;
+    width: 15.4rem;
+    height: 1.4rem;
+    margin-bottom: 1px;
+}
+.signup_content input[type="checkbox"] {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 4px;
+}
+.signup_content label[for="agree"] {
+    display: inline-block;
+    font-size: 0.8rem;
+}
+.signup_content button {
+    display: block;
+    width: 15rem;
+    height: 1.4rem;
+}
