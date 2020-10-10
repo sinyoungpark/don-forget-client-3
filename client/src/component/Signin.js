@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import "./Signin.css"
+import { CSSTransitionGroup } from "react-transition-group";
+
 const axios = require('axios');
 
 
@@ -33,24 +35,30 @@ export default function Signin(props) {
 
     return (
         <div className="signin">
-            <Avatar style={{ backgroundColor: '#3b23a6' }}>
-                <LockOutlinedIcon />
-            </Avatar>
-            <h1>
-                Login
+            <CSSTransitionGroup
+                transitionName="signinTransition"
+                transitionAppear={true}
+                transitionAppearTimeout={500}
+                transitionEnter={false}
+                transitionLeave={false}>
+                   <Avatar style={{ backgroundColor: '#3b23a6' }}>
+                        <LockOutlinedIcon />
+                    </Avatar>
+                    <h1>
+                        Login
                  </h1>
-            <form className="inputValue">
-                <input type="text" placeholder="Email Address *" label="Email Address" onChange={(e) => inputEmail(e.target.value)} />
-                <input type="text" placeholder="password *" label="password" onChange={(e) => inputPW(e.target.value)} />
-                <button className="login_btn" onClick={handleLoginBtn}>LOGIN</button>
-                <a href="#"> 비밀번호 찾기 </a>
-                <a href="/signup" className="signinLink">회원가입 </a>
-            </form>
-            <span>
-                <button className="kakao">Kakao</button>
-                <button className="naver">Naver</button>
-            </span>
-
+                    <form className="inputValue">
+                        <input type="text" placeholder="Email Address *" label="Email Address" onChange={(e) => inputEmail(e.target.value)} />
+                        <input type="text" placeholder="password *" label="password" onChange={(e) => inputPW(e.target.value)} />
+                        <button className="login_btn" onClick={handleLoginBtn}>LOGIN</button>
+                        <a href="#"> 비밀번호 찾기 </a>
+                        <a href="/signup" className="signinLink">회원가입 </a>
+                    </form>
+                    <span>
+                        <button className="kakao">Kakao</button>
+                        <button className="naver">Naver</button>
+                    </span>
+            </CSSTransitionGroup>
         </div>
     )
 }

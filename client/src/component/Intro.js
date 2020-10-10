@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { withRouter } from "react-router-dom";
 import './Intro.css';
-import Sample from '../Sample.png'
+import Sample from '../Sample.png';
 
-function Intro({ history }) {
+
+function Intro() {
 
   return (
     <div className="intro">
-      <button
-        className="loginBtn"
-        onClick={() => { history.push('/signin') }}
-      >LOGIN</button>
       <div className="full_page">
         <div className="title_content">
           <img className="logo_sample" src={Sample} alt="Sample" />
