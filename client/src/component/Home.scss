@@ -1,20 +1,5 @@
-.home{
-    position: relative;
-    height: 100vh;
-    background-color: #3b23a6;
-    margin: 0;
-}
 
-/* 흰 배경 옆으로 */
-.home .full_page {
-    position: absolute;
-    margin-left: 10%;
-    width: 90%;
-    height: 98vh;
-    border-radius: 60px;
-    box-shadow: -5px -5px 10px 0 rgba(0, 0, 0, 0.5);
-    background-color: #ffffff;
-}
+
 
 .Calendar{
     user-select: none;

@@ -10,7 +10,7 @@ import { CSSTransitionGroup } from "react-transition-group";
 
 function App(props) {
 
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
 
@@ -28,7 +28,7 @@ function App(props) {
   return (
       <div className="App">
         <Nav />
-        <div className="background">
+        <div className={props.location.pathname==="/signin" ||props.location.pathname==="/intro" || props.location.pathname==="/signup" ? "background" : "sideBackground"}>
           <Switch>
             <Route exact path="/intro" render={() => {
               if (isLogin) {

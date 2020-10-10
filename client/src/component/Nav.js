@@ -8,33 +8,33 @@ import EventIcon from '@material-ui/icons/Event';
 import SearchIcon from '@material-ui/icons/Search';
 import SettingsIcon from '@material-ui/icons/Settings';
 
-function Nav({ history, isLogin , location}) {
+function Nav({ history, isLogin, location }) {
     return (
-        <div className={location.pathname==="/signin" || location.pathname ==="/signup" ? "none" : "topnav"} >
-                <a class="active" href="#home">
-                    <Avatar style={{ backgroundColor: '#3b23a6' }}>
-                        <HomeIcon />
-                    </Avatar>
-                </a>
-                <a href="#news">
-                    <Avatar style={{ backgroundColor: '#3b23a6' }}>
-                        <EventIcon />
-                    </Avatar>
-                </a>
-                <a href="#contact">
-                    <Avatar style={{ backgroundColor: '#3b23a6' }}>
-                        <SearchIcon />
-                    </Avatar>
-                </a>
-                <a href="#about">
-                    <Avatar style={{ backgroundColor: '#3b23a6' }}>
-                        <SettingsIcon />
-                    </Avatar>
-                </a>
-                <button
-                    className="loginBtn"
-                    onClick={() => { history.push('/signin') }}
-                >LOGIN</button>
+        <div className={location.pathname === "/signin" || location.pathname === "/signup" ? "none" : (location.pathname === "/intro" ? "topnav" : "sidenav")} >
+            <a href="/home">
+                <Avatar className={location.pathname==="/home" ? "cur" : "no"} style={{ backgroundColor: '#3b23a6', marginBottom: "100px" }}>
+                    <HomeIcon />
+                </Avatar>
+            </a>
+            <a href="/home">
+                <Avatar className="icon" style={{ backgroundColor: '#3b23a6', marginBottom: "100px" }}>
+                    <EventIcon />
+                </Avatar>
+            </a>
+            <a href="#contact">
+                <Avatar className="icon" style={{ backgroundColor: '#3b23a6', marginBottom: "100px" }}>
+                    <SearchIcon />
+                </Avatar>
+            </a>
+            <a href="#about">
+                <Avatar className="icon" style={{ backgroundColor: '#3b23a6', marginBottom: "100px" }}>
+                    <SettingsIcon />
+                </Avatar>
+            </a>
+            <button
+                className="loginBtn"
+                onClick={() => { history.push('/signin') }}
+            >LOGIN</button>
         </div>
 
     )
