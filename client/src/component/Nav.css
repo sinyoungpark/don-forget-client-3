@@ -5,6 +5,7 @@ div.topnav {
     background-color: #3b23a6;
     border-radius: 60px 60px 0px 0px;
     height: 150px;
+    z-index:1;
   }
   
   .topnav a {

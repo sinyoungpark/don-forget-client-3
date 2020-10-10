@@ -8,10 +8,9 @@ import EventIcon from '@material-ui/icons/Event';
 import SearchIcon from '@material-ui/icons/Search';
 import SettingsIcon from '@material-ui/icons/Settings';
 
-function Nav({ history, isLogin }) {
-
+function Nav({ history, isLogin , location}) {
     return (
-        <div className="topnav">
+        <div className={location.pathname==="/signin" || location.pathname ==="/signup" ? "none" : "topnav"} >
                 <a class="active" href="#home">
                     <Avatar style={{ backgroundColor: '#3b23a6' }}>
                         <HomeIcon />

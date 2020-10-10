@@ -55,28 +55,25 @@ function Signup({ history }) {
 
   return (
     <div className="signup">
-      <div className="full_page">
-        <div className="signup_content">
-          <img className="logo_sample" src={Sample} alt="Sample" />
-          <div className="signup_title">Sign up</div>
-          <label>Email: *</label>
-          <input type="text" name="email" onChange={onChangeHandler} />
-          <label>Name: *</label>
-          <input type="text" name="name" onChange={onChangeHandler} />
-          <label>Password: *</label>
-          <input type="password" name="password" onChange={onChangeHandler} />
-          <input type="password" name="passwordCheck" onChange={onChangeHandler} />
-          <label>Password Hint: *</label>
+      <div className="signup_content">
+        <img className="logo_sample" src={Sample} alt="Sample" />
+        <h1>Sign up</h1>
+        <form className="inputValue">
+          <input type="text" name="email" onChange={onChangeHandler} placeholder="Email Address *" label="Email Address" />
+          <input type="text" name="name" onChange={onChangeHandler} placeholder="Name *" label="Name *" />
+          <input type="password" name="password" placeholder="password *" label="password" onChange={onChangeHandler} />
+          <input type="password" name="password" placeholder="passwordCheck *" label="passwordCheck" onChange={onChangeHandler} />
           <select>
+            <option value="" disabled selected>Password Hint: *</option>
             <option value="1">가장 기억에 남는 선생님 성함은?</option>
             <option value="2">내가 존경하는 인물은?</option>
             <option value="3">나의 노래방 애창곡은?</option>
           </select>
-          <input type="text" />
+          <input type="text" placeholder="Answer *" label="Answer" />
           <input name="agree" type="checkbox"></input>
           <label htmlFor="agree">개인정보 수집 동의</label>
           <button onClick={signUpBtnHandler}>회원가입</button>
-        </div>
+        </form>
       </div>
     </div>
   );

@@ -5,9 +5,10 @@ import Signin from "./component/Signin";
 import Signup from "./component/Signup";
 import Home from "./component/Home";
 import Nav from "./component/Nav";
+import "./App.css"
+import { CSSTransitionGroup } from "react-transition-group";
 
-
-function App() {
+function App(props) {
 
   const [isLogin, setIsLogin] = useState(false);
   const [email, setEmail] = useState("");
@@ -22,10 +23,13 @@ function App() {
     }
   })
 
+  console.log(props.location.pathname);
+
   return (
-    <div className="App">
-      <Nav isLogin={isLogin} />
-      <Switch>
+      <div className="App">
+        <Nav />
+        <div className="background">
+          <Switch>
             <Route exact path="/intro" render={() => {
               if (isLogin) {
                 return <Home />
@@ -54,8 +58,9 @@ function App() {
               }
               return <Redirect to="/intro" />
             }} />
-      </Switch>
-    </div>
+          </Switch>
+        </div>
+      </div>
   );
 }
 
