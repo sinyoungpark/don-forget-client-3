@@ -35,3 +35,39 @@ div.topnav {
     float: right;
 }
 
+
+/*sidenav css*/
+
+div.sidenav {
+  position: absolute;
+  overflow: hidden;
+  background-color: #3b23a6;
+  border-radius: 60px 0px 0px 60px;
+  height: 110vh;
+  z-index:1;
+  width: 10%;
+  top: 100px;
+}
+
+.sidenav a {
+  position: relative;
+  float: top;
+  left : 15%;
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 17px;
+  top:200px;
+}
+
+.sidenav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.sidenav .loginBtn {
+  display:none;
+}
+
+.sidenav .cur{
+  font-size: 100px;
+}

@@ -41,7 +41,7 @@ export default function Signin(props) {
                 transitionAppearTimeout={500}
                 transitionEnter={false}
                 transitionLeave={false}>
-                   <Avatar style={{ backgroundColor: '#3b23a6' }}>
+                   <Avatar style={{ backgroundColor: '#3b23a6', position: "relative", left:"45%"}}>
                         <LockOutlinedIcon />
                     </Avatar>
                     <h1>
