@@ -10,7 +10,7 @@ import { CSSTransitionGroup } from "react-transition-group";
 
 function App(props) {
 
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
 
