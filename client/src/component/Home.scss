@@ -18,14 +18,13 @@
 
 .Calendar{
     user-select: none;
-    margin: 10%;
-    width: 80%;
-    height: 80%;
+    margin: 5vh;
+    max-height: 90vh;
     .head{
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 8px;
+      padding: 0px 12px;
       button{
         cursor: pointer;
         outline: none;
@@ -58,10 +57,13 @@
         .row{
           display: flex;
           cursor: pointer;
+          min-height: 100px;
+          max-height: 100px;
           &:first-child{
             cursor: initial;
-            .box{
-              font-weight: bold;
+            .box span.text{
+              border-top: none;
+              align-items: center;
             }
             .box:hover > span.text{
               background-color: white;
@@ -71,11 +73,10 @@
             position: relative;
             display: inline-flex;
             width: calc(100%/7);
-            height: 0;
-            padding-bottom: calc(100%/7);
-            font-size: 12pt;
+            font-size: 10pt;
+            margin-bottom: 0.5rem;
             &:first-child{
-              color: red;
+              color: rgb(255, 136, 61);
             }
             &:last-child{
               color: #588dff;
@@ -90,17 +91,15 @@
             }
             &.selected{
               span.text{
-                background-color: #588dff;
-                color: white;
+                border: gray 1px solid;
               }
             }
             span.text{
-              border-radius: 100%;
+              border-top: gray 1px solid;
               display: inline-flex;
-              justify-content: center;
-              align-items: center;
-              width: 60%;
-              height: 60%;
+              // align-items: center;
+              width: 90%;
+              height: 100%;
               position: absolute;
               top: 50%;
               left: 50%;

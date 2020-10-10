@@ -5,6 +5,8 @@ import moment, { Moment as MomentTypes } from 'moment';
 
 function Home({ history }) {
 
+  const [selectedDate, setSelectedDate] = useState(moment())
+
   const generate = () => {
     const today = moment();
     const startWeek = today.clone().startOf('month').week();
