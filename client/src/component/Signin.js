@@ -35,13 +35,7 @@ export default function Signin(props) {
 
     return (
         <div className="signin">
-            <CSSTransitionGroup
-                transitionName="signinTransition"
-                transitionAppear={true}
-                transitionAppearTimeout={500}
-                transitionEnter={false}
-                transitionLeave={false}>
-                   <Avatar style={{ backgroundColor: '#3b23a6', position: "relative", left:"45%"}}>
+                   <Avatar style={{ backgroundColor: '#3b23a6'}}>
                         <LockOutlinedIcon />
                     </Avatar>
                     <h1>
@@ -58,7 +52,6 @@ export default function Signin(props) {
                         <button className="kakao">Kakao</button>
                         <button className="naver">Naver</button>
                     </span>
-            </CSSTransitionGroup>
         </div>
     )
 }
