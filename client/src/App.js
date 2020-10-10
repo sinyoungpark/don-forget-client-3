@@ -4,8 +4,7 @@ import Intro from "./component/Intro";
 import Signin from "./component/Signin";
 import Signup from "./component/Signup";
 import Home from "./component/Home";
-import Box from '@material-ui/core/Box';
-import { withStyles } from '@material-ui/core';
+
 
 function App() {
 
