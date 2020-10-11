@@ -1,10 +1,10 @@
+
 import React, { useState } from "react"
 import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import "./Signin.css"
 import { CSSTransitionGroup } from "react-transition-group";
 import axios from "axios";
-
 
 export default function Signin(props) {
 
@@ -18,9 +18,8 @@ export default function Signin(props) {
             email: email,
             password: password
         })
+        .then((response) => response.data)
             .then((response) => {
-                setIsLogin(true);
-
                 window.sessionStorage.setItem("id", response.id);
                 window.sessionStorage.setItem("email", response.email);
                 window.sessionStorage.setItem("name", response.name);
@@ -29,6 +28,7 @@ export default function Signin(props) {
                 setName(response.name);
                 inputEmail("");
                 inputPW("");
+                setIsLogin(true);
             })
             .catch((err) => console.log(err));
     }
@@ -40,7 +40,7 @@ export default function Signin(props) {
             </Avatar>
             <h1>
                 Login
-                 </h1>
+</h1>
             <form className="inputValue">
                 <input type="text" placeholder="Email Address *" label="Email Address" onChange={(e) => inputEmail(e.target.value)} />
                 <input type="text" placeholder="password *" label="password" onChange={(e) => inputPW(e.target.value)} />
@@ -52,6 +52,18 @@ export default function Signin(props) {
                 <button className="kakao">Kakao</button>
                 <button className="naver">Naver</button>
             </span>
+            <form className="none">
+                <div className="content">
+                    <h3>비밀번호 찾기</h3>
+                    <p> 비밀번호를 찾고자 하는 아이디와 이름을 입력해 주세요.</p>
+                    <div className="findPW">
+                        <input type="text" placeholder="don-forget 이메일" />
+                        <input type="text" placeholder="don-forget 이름" />
+                    </div>
+                    <button>취소</button>
+                    <button>다음</button>
+                </div>
+            </form>
         </div>
     )
 }
