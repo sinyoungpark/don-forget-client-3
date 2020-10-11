@@ -36,7 +36,7 @@ function App(props) {
   return (
     <div className="App">
       <Nav />
-      <div className={props.location.pathname === "/signin" || props.location.pathname === "/intro" || props.location.pathname === "/signup" ? "background" : "sideBackground"}>
+      <div className={props.location.pathname === "/intro" ? "background" : props.location.pathname === "/signin" || props.location.pathname === "/signup" ? "fullBackground" : "sideBackground"}>
         <Switch>
           <Route exact path="/intro" render={() => {
             return <Intro />
@@ -45,7 +45,7 @@ function App(props) {
             if (window.sessionStorage.getItem("id")) {
               return <Redirect to="/" />
             } else {
-              return <Signin setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} userId={userId}/>
+              return <Signin setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} userId={userId} />
             }
           }} />
           <Route exact path="/signup" render={() => {
