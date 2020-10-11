@@ -11,6 +11,8 @@ function Signup({ history }) {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [passwordCheck, setPasswordCheck] = useState('');
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
 
   const onChangeHandler = (e) => {
     if (e.target.name === "email") {
@@ -21,11 +23,18 @@ function Signup({ history }) {
       setPassword(e.target.value)
     } else if (e.target.name === "passwordCheck") {
       setPasswordCheck(e.target.value)
+    } else if (e.target.name === "answer") {
+      setAnswer(e.target.value)
     }
   }
 
+  const selectOptionHandler = (e) => {
+    let questionSelect = document.querySelector('.question');
+    console.log(questionSelect.options[questionSelect.selectedIndex].text);
+    setQuestion(questionSelect.options[questionSelect.selectedIndex].text);
+  }
+
   const validate = (text) => {
-    console.log(text);
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (reg.test(text) === false) {
       return false;
@@ -35,18 +44,23 @@ function Signup({ history }) {
   }
 
   const signUpBtnHandler = (e) => {
-    console.log(email, name, password, passwordCheck);
+    console.log("email:", email);
+    console.log("name:", name);
+    console.log("password:", password);
+    console.log("pwCheck:", passwordCheck);
+    console.log("question:", question);
+    console.log("answer:", answer);
+
     e.preventDefault();
     if (validate(email) && (password === passwordCheck)) {
       axios.post('http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/signup', {
         email: email,
         name: name,
         password: password,
-        // password_question_id: password_question_id,
-        // password_answer: password_answer
+        type: question,
+        password_answer: answer
       })
-        .then(res => res.json())
-        .then(json => console.log(json.message))
+        .then(res => console.log(res))
         .then(() => { history.push('/signin') })
     } else {
       validate(email) ? console.log(true) : alert("유효하지 않은 이메일입니다");
@@ -64,13 +78,13 @@ function Signup({ history }) {
           <input type="text" name="name" onChange={onChangeHandler} placeholder="Name *" label="Name *" />
           <input type="password" name="password" placeholder="password *" label="password" onChange={onChangeHandler} />
           <input type="password" name="passwordCheck" placeholder="passwordCheck *" label="passwordCheck" onChange={onChangeHandler} />
-          <select>
+          <select className="question" onChange={selectOptionHandler}>
             <option value="" disabled selected>Password Hint: *</option>
             <option value="1">가장 기억에 남는 선생님 성함은?</option>
             <option value="2">내가 존경하는 인물은?</option>
             <option value="3">나의 노래방 애창곡은?</option>
           </select>
-          <input type="text" placeholder="Answer *" label="Answer" />
+          <input type="text" name="answer" placeholder="Answer *" label="answer" onChange={onChangeHandler} />
           <input name="agree" type="checkbox"></input>
           <label htmlFor="agree">개인정보 수집 동의</label>
           <button onClick={signUpBtnHandler}>회원가입</button>
