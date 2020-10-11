@@ -1,4 +1,3 @@
-
 /*전체정렬 signin 컴포넌트*/
 .signin{
     padding-top: 100px;
@@ -119,53 +118,3 @@ button:focus{
 .none{
     display:none;
 }
-
-
-/* 모달창 담당 */
-
-.modal {
-    position: fixed;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
-    z-index: 10;
-    background: rgba(0,0,0,0.3);
-  }
-  
-  .modal .content{
-  position: fixed;
-  left:50%;
-  top:50%;
-  z-index: 2;
-  transform: translate3d(-50%, -50%, 0);
-  background: whitesmoke;
-  padding: 0px;
-  box-shadow: 0 0 5px #000;
-  width: 50%;
-  height: 40%;
-  padding: 40px;
-  }
-
-
-  /* modal 창 비밀번호 찾기 담당*/
-  .content h3{
-      border-bottom: 3px solid black;
-      padding-bottom:10px;
-  }
-
-
-
-  /* input css 담당 */
-  .content .findPW {
-      border: 2px solid rgb(201, 199, 199);
-      width: 100%;
-      height: 50%;
-  }
-  
-  .content input{
-      border : 2px solid rgb(151, 148, 148);
-      position: relative;
-      left : 400px;
-      top: 20px;
-  }

@@ -52,18 +52,6 @@ export default function Signin(props) {
                 <button className="kakao">Kakao</button>
                 <button className="naver">Naver</button>
             </span>
-            <form className="modal">
-                 <div className="content">
-                 <h3>비밀번호 찾기</h3>
-                    <p> 비밀번호를 찾고자 하는 아이디와 이름을 입력해 주세요.</p>
-                    <div className="findPW">
-                    <input type="text" placeholder="don-forget 이메일"/>
-                    <input type="text" placeholder="don-forget 이름"/>
-                    </div>
-                    <button>취소</button>
-                    <button>다음</button>
-                    </div>
-            </form>
         </div>
     )
 }
