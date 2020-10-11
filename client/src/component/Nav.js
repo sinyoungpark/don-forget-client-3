@@ -12,7 +12,7 @@ function Nav({ history, isLogin, location }) {
     return (
         <div className={location.pathname === "/signin" || location.pathname === "/signup" ? "none" : (location.pathname === "/intro" ? "topnav" : "sidenav")} >
             <a href="/home">
-                <Avatar className={location.pathname==="/home" ? "cur" : "no"} style={{ backgroundColor: '#3b23a6', marginBottom: "100px" }}>
+                <Avatar className={location.pathname === "/home" ? "cur" : "no"} style={{ backgroundColor: '#3b23a6', marginBottom: "100px" }}>
                     <HomeIcon />
                 </Avatar>
             </a>
@@ -26,7 +26,7 @@ function Nav({ history, isLogin, location }) {
                     <SearchIcon />
                 </Avatar>
             </a>
-            <a href="#about">
+            <a href="/mypage">
                 <Avatar className="icon" style={{ backgroundColor: '#3b23a6', marginBottom: "100px" }}>
                     <SettingsIcon />
                 </Avatar>

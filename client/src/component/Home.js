@@ -10,9 +10,9 @@ function Home({ history }) {
 
   const generate = () => {
     // const today = moment();
-    const today = selectedDate
-    console.log(today)
-    console.log(month)
+    const today = selectedDate;
+    console.log(today);
+    console.log(month);
     const startWeek = today.clone().startOf('month').week();
     const endWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
     let calendar = [];
@@ -41,7 +41,12 @@ function Home({ history }) {
     return calendar;
   }
 
+  const selectMonth = () => {
+    console.log("click");
+  }
+
   useEffect(() => {
+    // 선택한 날짜에 맞게 월 업데이트
     setMonth(selectedDate._locale._months[selectedDate.month()])
   });
 
@@ -51,9 +56,10 @@ function Home({ history }) {
         <div className="Calendar">
           <div className="head">
             <span className="title">{month}</span>
-            <button className="select_month">
+            <button className="select_month" onClick={selectMonth}>
               <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none" /><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" /></svg>
             </button>
+
             <button className="add_schedule">+</button>
           </div>
           <div className="body">
