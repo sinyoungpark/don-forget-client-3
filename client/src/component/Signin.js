@@ -12,7 +12,8 @@ export default function Signin(props) {
     const [email, inputEmail] = useState("");
     const [password, inputPW] = useState("");
 
-    function handleLoginBtn() {
+    function handleLoginBtn(e) {
+        e.preventDefault();
         axios.post('http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/signin', {
             email: email,
             password: password
@@ -34,23 +35,23 @@ export default function Signin(props) {
 
     return (
         <div className="signin">
-                   <Avatar style={{ backgroundColor: '#3b23a6'}}>
-                        <LockOutlinedIcon />
-                    </Avatar>
-                    <h1>
-                        Login
+            <Avatar style={{ backgroundColor: '#3b23a6' }}>
+                <LockOutlinedIcon />
+            </Avatar>
+            <h1>
+                Login
                  </h1>
-                    <form className="inputValue">
-                        <input type="text" placeholder="Email Address *" label="Email Address" onChange={(e) => inputEmail(e.target.value)} />
-                        <input type="text" placeholder="password *" label="password" onChange={(e) => inputPW(e.target.value)} />
-                        <button className="login_btn" onClick={handleLoginBtn}>LOGIN</button>
-                        <a href="#"> 비밀번호 찾기 </a>
-                        <a href="/signup" className="signinLink">회원가입 </a>
-                    </form>
-                    <span>
-                        <button className="kakao">Kakao</button>
-                        <button className="naver">Naver</button>
-                    </span>
+            <form className="inputValue">
+                <input type="text" placeholder="Email Address *" label="Email Address" onChange={(e) => inputEmail(e.target.value)} />
+                <input type="text" placeholder="password *" label="password" onChange={(e) => inputPW(e.target.value)} />
+                <button className="login_btn" onClick={handleLoginBtn}>LOGIN</button>
+                <a href="#"> 비밀번호 찾기 </a>
+                <a href="/signup" className="signinLink">회원가입 </a>
+            </form>
+            <span>
+                <button className="kakao">Kakao</button>
+                <button className="naver">Naver</button>
+            </span>
         </div>
     )
 }
