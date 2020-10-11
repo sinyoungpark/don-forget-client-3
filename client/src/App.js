@@ -26,41 +26,41 @@ function App(props) {
   console.log(props.location.pathname);
 
   return (
-      <div className="App">
-        <Nav />
-        <div className={props.location.pathname==="/signin" ||props.location.pathname==="/intro" || props.location.pathname==="/signup" ? "background" : "sideBackground"}>
-          <Switch>
-            <Route exact path="/intro" render={() => {
-              if (isLogin) {
-                return <Home />
-              }
-              return <Intro />
-            }} />
-            <Route path="/signin" render={() => {
-              if (isLogin) {
-                return <Redirect to="/" />
-              } else {
-                return <Signin setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} />
-              }
-            }} />
-            <Route exact path="/signup" render={() => {
-              return <Signup />
-            }} />
-            <Route exact path="/home" render={() => {
-              if (isLogin) {
-                return <Home />
-              }
-              return <Redirect to="/signin" />
-            }} />
-            <Route path="/" render={() => {
-              if (isLogin) {
-                return <Redirect to="/home" />
-              }
-              return <Redirect to="/intro" />
-            }} />
-          </Switch>
-        </div>
+    <div className="App">
+      <Nav />
+      <div className={props.location.pathname === "/signin" || props.location.pathname === "/intro" || props.location.pathname === "/signup" ? "background" : "sideBackground"}>
+        <Switch>
+          <Route exact path="/intro" render={() => {
+            if (isLogin) {
+              return <Home />
+            }
+            return <Intro />
+          }} />
+          <Route path="/signin" render={() => {
+            if (isLogin) {
+              return <Redirect to="/" />
+            } else {
+              return <Signin setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} />
+            }
+          }} />
+          <Route exact path="/signup" render={() => {
+            return <Signup />
+          }} />
+          <Route exact path="/home" render={() => {
+            if (isLogin) {
+              return <Home />
+            }
+            return <Redirect to="/signin" />
+          }} />
+          <Route path="/" render={() => {
+            if (isLogin) {
+              return <Redirect to="/home" />
+            }
+            return <Redirect to="/intro" />
+          }} />
+        </Switch>
       </div>
+    </div>
   );
 }
 
