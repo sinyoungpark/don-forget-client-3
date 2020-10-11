@@ -1,0 +1,5 @@
+/* 임시 로그아웃 버튼 구현 */
+button {
+    float: right;
+    margin: 40px;
+}
