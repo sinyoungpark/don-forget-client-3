@@ -7,6 +7,8 @@ function Home({ history }) {
 
   const [selectedDate, setSelectedDate] = useState(moment());
   const [month, setMonth] = useState(selectedDate._locale._months[selectedDate.month()])
+  const [year, setYear] = useState(moment().year())
+  const [openSelectMonth, setOpenSelectMonth] = useState(false)
 
   const generate = () => {
     // const today = moment();
@@ -18,7 +20,7 @@ function Home({ history }) {
     let calendar = [];
     for (let week = startWeek; week <= endWeek; week++) {
       calendar.push(
-        <div className={`row${endWeek - startWeek}`} key={week}>
+        <div className={`row${endWeek - startWeek + 1}`} key={week}>
           {
             Array(7).fill(0).map((n, i) => {
               let current = today.clone().week(week).startOf('week').add(n + i, 'day')
@@ -26,8 +28,8 @@ function Home({ history }) {
               let isGrayed = current.format('MM') === today.format('MM') ? '' : 'grayed';
               return (
                 <div
-                  className={`box  ${isSelected} ${isGrayed}`}
-                  key={i}
+                  className={`box  ${isSelected} ${isGrayed}`} key={i}
+                  // 선택한 날짜로 이동
                   onClick={() => setSelectedDate(current)}
                 >
                   <span className={`text`}>{current.format('D')}</span>
@@ -42,7 +44,29 @@ function Home({ history }) {
   }
 
   const selectMonth = () => {
-    console.log("click");
+    setOpenSelectMonth(!openSelectMonth);
+  }
+
+  const monthModal = () => {
+    return (<>
+      <span onClick={() => setYear(year - 1)}>&lt;</span>
+      <span>{year}</span>
+      <span onClick={() => setYear(year + 1)}>&gt;</span>
+      <hr />
+      <span onClick={() => setSelectedDate(moment().year(year).month(0).date(1))}>JAN</span>
+      <span onClick={() => setSelectedDate(moment().year(year).month(1).date(1))}>FEB</span>
+      <span onClick={() => setSelectedDate(moment().year(year).month(2).date(1))}>MAR</span>
+      <span onClick={() => setSelectedDate(moment().year(year).month(3).date(1))}>APR</span>
+      <span onClick={() => setSelectedDate(moment().year(year).month(4).date(1))}>MAY</span>
+      <span onClick={() => setSelectedDate(moment().year(year).month(5).date(1))}>JUN</span>
+      <span onClick={() => setSelectedDate(moment().year(year).month(6).date(1))}>JUL</span>
+      <span onClick={() => setSelectedDate(moment().year(year).month(7).date(1))}>AUG</span>
+      <span onClick={() => setSelectedDate(moment().year(year).month(8).date(1))}>SEP</span>
+      <span onClick={() => setSelectedDate(moment().year(year).month(9).date(1))}>OCT</span>
+      <span onClick={() => setSelectedDate(moment().year(year).month(10).date(1))}>NOV</span>
+      <span onClick={() => setSelectedDate(moment().year(year).month(11).date(1))}>DEC</span>
+    </>
+    )
   }
 
   useEffect(() => {
@@ -57,11 +81,17 @@ function Home({ history }) {
           <div className="head">
             <span className="title">{month}</span>
             <button className="select_month" onClick={selectMonth}>
-              <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none" /><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" /></svg>
+              {openSelectMonth ? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24" height="24"><path d="M0 0h24v24H0z" fill="none" /><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" /></svg>
+                : <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none" /><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" /></svg>
+              }
             </button>
-
             <button className="add_schedule">+</button>
           </div>
+
+          <div className="selectMonth" style={openSelectMonth ? { display: "inline-block" } : { display: "none" }}>
+            {monthModal()}
+          </div>
+
           <div className="body">
             <div className="row">
               <div className="box">
