@@ -37,7 +37,7 @@ function Signup({ history }) {
     console.log(email, name, password, passwordCheck);
 
     if (validate(email) && (password === passwordCheck)) {
-      axios.post('https://api.cakes.com/user/signin', {
+      axios.post('http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/signup', {
         email: email,
         name: name,
         password: password,

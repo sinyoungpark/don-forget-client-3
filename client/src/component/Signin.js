@@ -14,7 +14,7 @@ export default function Signin(props) {
     const [password, inputPW] = useState("");
 
     function handleLoginBtn() {
-        axios.post('https://api.cakes.com/user/signin', {
+        axios.post('http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/signin', {
             email: email,
             password: password
         })
