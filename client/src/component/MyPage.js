@@ -5,7 +5,7 @@ import axios from "axios";
 
 function MyPage(props) {
 
-  const { setIsLogin, setEmail, setName } = props;
+  const { setIsLogin, setEmail, setName, history } = props;
 
   const signoutHandler = () => {
     console.log('signoutHandler');
@@ -16,6 +16,7 @@ function MyPage(props) {
         setName("");
         window.sessionStorage.clear();
       })
+      .then(() => { history.push('/intro') })
       .catch((err) => console.log(err));
   }
 
