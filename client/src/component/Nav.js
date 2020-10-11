@@ -16,12 +16,12 @@ function Nav({ history, isLogin, location }) {
                     <HomeIcon />
                 </Avatar>
             </a>
-            <a href="/home">
+            <a href="/schedule">
                 <Avatar className="icon" style={{ backgroundColor: '#3b23a6', marginBottom: "100px" }}>
                     <EventIcon />
                 </Avatar>
             </a>
-            <a href="#contact">
+            <a href="/schedule">
                 <Avatar className="icon" style={{ backgroundColor: '#3b23a6', marginBottom: "100px" }}>
                     <SearchIcon />
                 </Avatar>
