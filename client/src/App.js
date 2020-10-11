@@ -13,6 +13,7 @@ function App(props) {
   const [isLogin, setIsLogin] = useState(false);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [userId, setUserId] = useState("");
 
 
   useEffect(() => {
@@ -37,7 +38,7 @@ function App(props) {
             if (isLogin) {
               return <Redirect to="/" />
             } else {
-              return <Signin setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} />
+              return <Signin setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} userId={userId}/>
             }
           }} />
           <Route exact path="/signup" render={() => {
