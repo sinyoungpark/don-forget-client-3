@@ -3,8 +3,7 @@ import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import "./Signin.css"
 import { CSSTransitionGroup } from "react-transition-group";
-
-const axios = require('axios');
+import axios from "axios";
 
 
 export default function Signin(props) {
