@@ -34,9 +34,9 @@ function Signup({ history }) {
     }
   }
 
-  const signUpBtnHandler = () => {
+  const signUpBtnHandler = (e) => {
     console.log(email, name, password, passwordCheck);
-
+    e.preventDefault();
     if (validate(email) && (password === passwordCheck)) {
       axios.post('http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/signup', {
         email: email,
@@ -63,7 +63,7 @@ function Signup({ history }) {
           <input type="text" name="email" onChange={onChangeHandler} placeholder="Email Address *" label="Email Address" />
           <input type="text" name="name" onChange={onChangeHandler} placeholder="Name *" label="Name *" />
           <input type="password" name="password" placeholder="password *" label="password" onChange={onChangeHandler} />
-          <input type="password" name="password" placeholder="passwordCheck *" label="passwordCheck" onChange={onChangeHandler} />
+          <input type="password" name="passwordCheck" placeholder="passwordCheck *" label="passwordCheck" onChange={onChangeHandler} />
           <select>
             <option value="" disabled selected>Password Hint: *</option>
             <option value="1">가장 기억에 남는 선생님 성함은?</option>
