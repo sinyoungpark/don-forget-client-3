@@ -8,9 +8,25 @@ import axios from "axios";
 
 export default function Signin(props) {
 
-    const { setIsLogin, setEmail, setName } = props;
+    const { setIsLogin, setEmail, setName, setUserId, userId } = props;
     const [email, inputEmail] = useState("");
     const [password, inputPW] = useState("");
+    //findPW
+    const [name, inputName] = useState("");
+
+    //qustion
+    const [password_question, setQuestion] = useState("");
+    const [password_answer, setAnswer] = useState("");
+   
+    const [inputValue, userAnswer] = useState("");
+    
+    //open 비밀번호 재설정 modal창 
+    const [isOpenNewPW , setNewPW] = useState(false);
+    const [passwordCheck, inputPWCheck] = useState("");
+
+    //modal 창 isOpen
+    const [isOpenStepOne, setStepOne] = useState(false);
+    const [isOpenStepTwo, setStepTwo] = useState(false);
 
     function handleLoginBtn(e) {
         e.preventDefault();
@@ -18,7 +34,7 @@ export default function Signin(props) {
             email: email,
             password: password
         })
-        .then((response) => response.data)
+            .then((response) => response.data)
             .then((response) => {
                 window.sessionStorage.setItem("id", response.id);
                 window.sessionStorage.setItem("email", response.email);
@@ -33,37 +49,108 @@ export default function Signin(props) {
             .catch((err) => console.log(err));
     }
 
+
+    function handleFindPw(e){
+        e.preventDefault();
+        inputEmail("");
+        inputName("");
+        axios.post('http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/findpassword/stepone', {
+            name : name,
+            email : email
+        })
+        .then((response) => response.data)
+        .then((data) => {
+            setQuestion(data.password_question);
+            setAnswer(data.password_answer);
+            setUserId(data.id);
+            setStepTwo(!isOpenStepTwo);
+        })
+        .catch((err) => console.log(err))
+    }
+
+
+    function openPwSettingModal(e){
+      e.preventDefault();
+      if (password_answer === inputValue){
+        setNewPW(true);
+      }
+    }
+
+    function setNewPw(e){
+        e.preventDefault();
+        if (password === passwordCheck){
+            axios.post("http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/findpassword/resetpassword",{
+                password : password,
+                id : userId 
+            })
+            .then((res) => console.log(res.data))
+            .then(() => {
+                setStepOne(!isOpenStepOne)
+                setStepTwo(!isOpenStepTwo);
+                setNewPW(!isOpenNewPW);
+            })
+        }
+    }
+
     return (
         <div className="signin">
             <Avatar style={{ backgroundColor: '#3b23a6' }}>
                 <LockOutlinedIcon />
             </Avatar>
-            <h1>
-                Login
-</h1>
+            <h1>Login</h1>
             <form className="inputValue">
                 <input type="text" placeholder="Email Address *" label="Email Address" onChange={(e) => inputEmail(e.target.value)} />
                 <input type="text" placeholder="password *" label="password" onChange={(e) => inputPW(e.target.value)} />
                 <button className="login_btn" onClick={handleLoginBtn}>LOGIN</button>
-                <a href="#"> 비밀번호 찾기 </a>
+                <a href="#" onClick={(e) => {
+                    e.preventDefault();
+                    inputEmail("");
+                    inputName("");
+                    setStepOne(!isOpenStepOne);
+                }}> 비밀번호 찾기 </a>
                 <a href="/signup" className="signinLink">회원가입 </a>
             </form>
             <span>
                 <button className="kakao">Kakao</button>
                 <button className="naver">Naver</button>
             </span>
-            <form className="none">
+            <form className={isOpenStepOne? "modal" : "none"}>
                 <div className="content">
-                    <h3>비밀번호 찾기</h3>
+                    <h3>비밀번호 찾기 Step One</h3>
                     <p> 비밀번호를 찾고자 하는 아이디와 이름을 입력해 주세요.</p>
                     <div className="findPW">
-                        <input type="text" placeholder="don-forget 이메일" />
-                        <input type="text" placeholder="don-forget 이름" />
+                        <input type="text" placeholder="don-forget 이메일" onChange={(e) => inputEmail(e.target.value)} />
+                        <input type="text" placeholder="don-forget 이름" onChange={(e) => inputName(e.target.value)} />
                     </div>
                     <button>취소</button>
-                    <button>다음</button>
+                    <button onClick={handleFindPw}>다음</button>
                 </div>
             </form>
+
+            <form className={isOpenStepTwo? "modal" : "none"}>
+                <div className="content">
+                    <h3>비밀번호 찾기 Step two</h3>
+                    <p>{password_question}</p>
+                    <div className="findPW">
+                        <input type="text" placeholder="질문에 알맞는 응답을 입력해주세요" onChange={(e) => userAnswer(e.target.value)} />
+                    </div>
+                    <button>취소</button>
+                    <button onClick={openPwSettingModal}>다음</button>
+                </div>
+            </form>
+
+            <form className={isOpenNewPW ? "modal" : "none"}>
+                <div className="content">
+                    <h3>새 비밀번호 설정</h3>
+                    <p>새 비밀번호를 입력해주세요.</p>
+                    <div className="findPW">
+                        <input type="text" placeholder="새 비밀번호 *" onChange={(e) => inputPW(e.target.value)} />
+                        <input type="text" placeholder="비밀번호 확인 *" onChange={(e) => inputPWCheck(e.target.value)} />
+                    </div>
+                    <button onClick={setNewPw}>확인</button>
+                </div>
+            </form>
+
         </div>
     )
 }
