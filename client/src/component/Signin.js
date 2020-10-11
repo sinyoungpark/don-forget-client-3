@@ -19,8 +19,6 @@ export default function Signin(props) {
             password: password
         })
             .then((response) => {
-                inputEmail("");
-                inputPW("");
                 setIsLogin(true);
 
                 window.sessionStorage.setItem("id", response.id);
@@ -29,6 +27,8 @@ export default function Signin(props) {
 
                 setEmail(response.email);
                 setName(response.name);
+                inputEmail("");
+                inputPW("");
             })
             .catch((err) => console.log(err));
     }
