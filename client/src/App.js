@@ -59,7 +59,7 @@ function App(props) {
             if (isLogin) {
               return <Redirect to="/home" />
             }
-            return <Redirect to="/signin" />
+            return <Redirect to="/intro" />
           }} />
         </Switch>
       </div>
