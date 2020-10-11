@@ -31,9 +31,6 @@ function App(props) {
       <div className={props.location.pathname === "/signin" || props.location.pathname === "/intro" || props.location.pathname === "/signup" ? "background" : "sideBackground"}>
         <Switch>
           <Route exact path="/intro" render={() => {
-            if (isLogin) {
-              return <Home />
-            }
             return <Intro />
           }} />
           <Route path="/signin" render={() => {
@@ -56,7 +53,7 @@ function App(props) {
             if (isLogin) {
               return <Redirect to="/home" />
             }
-            return <Redirect to="/intro" />
+            return <Redirect to="/signin" />
           }} />
         </Switch>
       </div>
