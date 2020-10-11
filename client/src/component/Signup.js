@@ -3,7 +3,8 @@ import { withRouter } from "react-router-dom";
 import './Signup.css'
 import Sample from '../Sample.png'
 
-const axios = require('axios');
+import axios from "axios";
+
 
 function Signup({ history }) {
   const [email, setEmail] = useState('');
