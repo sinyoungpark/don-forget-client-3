@@ -1,3 +1,23 @@
+.selectMonth {
+  background-color: #e6e6e6;
+  box-shadow: -1px -1px 10px 0 rgba(0, 0, 0, 0.3);
+  position: fixed;
+  z-index: 1;
+  border-radius: 20px;
+  padding: 20px;
+  width: 250px;
+  span {
+    padding: 10px 0px;
+    float: left;
+    width: 33.3%;
+    text-align: center;
+  }
+  span:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+  }
+}
+
 .Calendar{
     user-select: none;
     margin: 10vh 10vh;
@@ -8,6 +28,7 @@
       // justify-content: space-between;
       align-items: center;
       padding: 0px 12px;
+      height: 40px;
       margin-bottom: 30px;
       button{
         &.select_month{
@@ -87,10 +108,10 @@
         }
       }
       // 5주까지 있을 경우
-      .row4{
+      .row5{
         display: flex;
         cursor: pointer;
-        min-height: 108px;
+        min-height: 102px;
         &:first-child{
           cursor: initial;
           .box span.text{
@@ -142,10 +163,65 @@
         }
       }
       // 6주까지 있을 경우
-      .row5{
+      .row6{
         display: flex;
         cursor: pointer;
-        min-height: 90px;
+        min-height: 85px;
+        &:first-child{
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: center;
+          }
+          .box:hover > span.text{
+            background-color: white;
+          }
+        }
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 12pt;
+          margin-top: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          &.grayed{
+            color: rgb(210, 210, 210);
+          }
+          &:hover{
+            span.text{
+              background-color: rgba(#588dff, 0.1);
+            }
+          }
+          &.selected{
+            span.text{
+              border: gray 1px solid;
+            }
+          }
+          span.text{
+            border-top: gray 1px solid;
+            display: inline-flex;
+            // align-items: center;
+            padding: 3px 4px;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+        }
+      }
+      // 4주까지 있을 경우(ex. 2015년 2월)
+      .row4{
+        display: flex;
+        cursor: pointer;
+        min-height: 127.5px;
         &:first-child{
           cursor: initial;
           .box span.text{
