@@ -8,6 +8,8 @@ import Nav from "./component/Nav";
 import MyPage from './component/MyPage';
 import "./App.css"
 import { CSSTransitionGroup } from "react-transition-group";
+import Schedule from "./component/Schedule";
+
 
 function App(props) {
 
@@ -20,8 +22,10 @@ function App(props) {
   useEffect(() => {
     if (window.sessionStorage.getItem("id")) {
       setIsLogin(true);
+      setUserId(window.sessionStorage.getItem("id"));
       setEmail(window.sessionStorage.getItem("email"));
       setName(window.sessionStorage.getItem("name"));
+      console.log(userId);
     }
   })
 
@@ -38,7 +42,7 @@ function App(props) {
             return <Intro />
           }} />
           <Route path="/signin" render={() => {
-            if (isLogin) {
+            if (window.sessionStorage.getItem("id")) {
               return <Redirect to="/" />
             } else {
               return <Signin setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} userId={userId}/>
@@ -47,20 +51,29 @@ function App(props) {
           <Route exact path="/signup" render={() => {
             return <Signup />
           }} />
+           <Route exact path="/schedule" render={() => {
+             if (window.sessionStorage.getItem("id")){
+              return <Schedule userId={userId}/>
+             } else {
+               return <Redirect to="/"/>
+             }
+          }} />
           <Route exact path="/home" render={() => {
-            if (isLogin) {
+            if (window.sessionStorage.getItem("id")) {
               return <Home />
+            } else {
+              return <Redirect to="/signin" />
             }
-            return <Redirect to="/signin" />
           }} />
           <Route exact path="/mypage" render={() => {
             return <MyPage setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} />
           }} />
           <Route path="/" render={() => {
-            if (isLogin) {
+            if (window.sessionStorage.getItem("id")) {
               return <Redirect to="/home" />
+            } else {
+              return <Redirect to="/intro" />
             }
-            return <Redirect to="/intro" />
           }} />
         </Switch>
       </div>

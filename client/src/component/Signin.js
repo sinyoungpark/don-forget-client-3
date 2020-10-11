@@ -8,7 +8,7 @@ import axios from "axios";
 
 export default function Signin(props) {
 
-    const { setIsLogin, setEmail, setName, setUserId, userId } = props;
+    const { setIsLogin, setEmail, setName, setUserId } = props;
     const [email, inputEmail] = useState("");
     const [password, inputPW] = useState("");
     //findPW
@@ -17,6 +17,7 @@ export default function Signin(props) {
     //qustion
     const [password_question, setQuestion] = useState("");
     const [password_answer, setAnswer] = useState("");
+    const [userid, getUserid] = useState("");
    
     const [inputValue, userAnswer] = useState("");
     
@@ -42,6 +43,7 @@ export default function Signin(props) {
 
                 setEmail(response.email);
                 setName(response.name);
+                setUserId(response.id);
                 inputEmail("");
                 inputPW("");
                 setIsLogin(true);
@@ -62,7 +64,7 @@ export default function Signin(props) {
         .then((data) => {
             setQuestion(data.password_question);
             setAnswer(data.password_answer);
-            setUserId(data.id);
+            getUserid(data.id)
             setStepTwo(!isOpenStepTwo);
         })
         .catch((err) => console.log(err))
@@ -81,7 +83,7 @@ export default function Signin(props) {
         if (password === passwordCheck){
             axios.post("http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/findpassword/resetpassword",{
                 password : password,
-                id : userId 
+                id : userid 
             })
             .then((res) => console.log(res.data))
             .then(() => {
