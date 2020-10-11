@@ -12,14 +12,13 @@ export default function Signin(props) {
     const [email, inputEmail] = useState("");
     const [password, inputPW] = useState("");
 
-    function handleLoginBtn() {
+    function handleLoginBtn(e) {
+        e.preventDefault();
         axios.post('http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/signin', {
             email: email,
             password: password
         })
             .then((response) => {
-                inputEmail("");
-                inputPW("");
                 setIsLogin(true);
 
                 window.sessionStorage.setItem("id", response.id);
@@ -28,6 +27,8 @@ export default function Signin(props) {
 
                 setEmail(response.email);
                 setName(response.name);
+                inputEmail("");
+                inputPW("");
             })
             .catch((err) => console.log(err));
     }
