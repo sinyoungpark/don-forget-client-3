@@ -35,23 +35,35 @@ export default function Signin(props) {
 
     return (
         <div className="signin">
-                   <Avatar style={{ backgroundColor: '#3b23a6'}}>
-                        <LockOutlinedIcon />
-                    </Avatar>
-                    <h1>
-                        Login
+            <Avatar style={{ backgroundColor: '#3b23a6' }}>
+                <LockOutlinedIcon />
+            </Avatar>
+            <h1>
+                Login
                  </h1>
-                    <form className="inputValue">
-                        <input type="text" placeholder="Email Address *" label="Email Address" onChange={(e) => inputEmail(e.target.value)} />
-                        <input type="text" placeholder="password *" label="password" onChange={(e) => inputPW(e.target.value)} />
-                        <button className="login_btn" onClick={handleLoginBtn}>LOGIN</button>
-                        <a href="#"> 비밀번호 찾기 </a>
-                        <a href="/signup" className="signinLink">회원가입 </a>
-                    </form>
-                    <span>
-                        <button className="kakao">Kakao</button>
-                        <button className="naver">Naver</button>
-                    </span>
+            <form className="inputValue">
+                <input type="text" placeholder="Email Address *" label="Email Address" onChange={(e) => inputEmail(e.target.value)} />
+                <input type="text" placeholder="password *" label="password" onChange={(e) => inputPW(e.target.value)} />
+                <button className="login_btn" onClick={handleLoginBtn}>LOGIN</button>
+                <a href="#"> 비밀번호 찾기 </a>
+                <a href="/signup" className="signinLink">회원가입 </a>
+            </form>
+            <span>
+                <button className="kakao">Kakao</button>
+                <button className="naver">Naver</button>
+            </span>
+            <form className="modal">
+                 <div className="content">
+                 <h3>비밀번호 찾기</h3>
+                    <p> 비밀번호를 찾고자 하는 아이디와 이름을 입력해 주세요.</p>
+                    <div className="findPW">
+                    <input type="text" placeholder="don-forget 이메일"/>
+                    <input type="text" placeholder="don-forget 이름"/>
+                    </div>
+                    <button>취소</button>
+                    <button>다음</button>
+                    </div>
+            </form>
         </div>
     )
 }
