@@ -1,25 +1,30 @@
 import React from "react"
 import  { useState, useEffect } from 'react';
 import axios from "axios"
+import Modal from "./Modal"
+import "./Schedule.css"
 
 export default function Schedule(props){
     const {userId} = props;
 
-    const [data, setData] = useState([{id : 18, date: "20-39-2", gift: "wow"}]);
+    const [data, setData] = useState(null);
+    const [isOpen, setModal] = useState(false); 
 
     useEffect(() => {
-
         axios.get(`http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/schedule/${window.sessionStorage.getItem("id")}`)
         .then((res) => {
           console.log(res.data);
           setData(res.data);
-        })
-    });
+        });
+    },[]);
 
     return(
         <div className="schedule">
             <h1>Schedule</h1>
-            <button>+</button>
+            <button onClick={(e) => {
+                e.preventDefault();
+                setModal(!isOpen);
+            }}>+</button>
             <ul className="schedule_list">
                 {
                     data && data.map((data) => {
@@ -29,6 +34,7 @@ export default function Schedule(props){
                     })
                 }
                 </ul>
+                <Modal userId={userId} isOpen={isOpen} setModal={setModal}/>
             </div>
     )
 }
