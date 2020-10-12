@@ -2,7 +2,7 @@
 import React, { useState } from "react"
 import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import "./Signin.css"
+import "./Signin.scss"
 import { CSSTransitionGroup } from "react-transition-group";
 import axios from "axios";
 
@@ -104,7 +104,7 @@ export default function Signin(props) {
                 <input type="text" placeholder="Email Address *" label="Email Address" onChange={(e) => inputEmail(e.target.value)} />
                 <input type="password" placeholder="Password *" label="password" onChange={(e) => inputPW(e.target.value)} />
                 <button className="login_btn" onClick={handleLoginBtn}>LOGIN</button>
-                <a href="#" onClick={(e) => {
+                <a href="비밀번호 찾기" onClick={(e) => {
                     e.preventDefault();
                     inputEmail("");
                     inputName("");

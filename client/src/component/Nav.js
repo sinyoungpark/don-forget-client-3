@@ -1,6 +1,6 @@
 import React from "react"
 import { withRouter } from "react-router-dom"
-import "./Nav.css"
+import "./Nav.scss"
 import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import HomeIcon from '@material-ui/icons/Home';

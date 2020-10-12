@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { withRouter } from "react-router-dom";
-import './Signup.css'
+import './Signup.scss'
 import Sample from '../Sample.png'
 
 import axios from "axios";
