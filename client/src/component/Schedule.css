@@ -1,0 +1,86 @@
+  /* 모달창 담당 */
+    
+  .addModal {
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index: 10;
+    background: rgba(0,0,0,0.3);
+    }
+
+    .addModal .content{
+    position: absolute;
+    left:50%;
+    top:50%;
+    z-index: 2;
+    transform: translate3d(-50%, -50%, 0);
+    background: whitesmoke;
+    padding: 0px;
+    box-shadow: 0 0 5px #000;
+    width: 30%;
+    height: 50%;
+    padding: 40px;
+    }
+
+    .addModal .content input{
+        position: relative;
+        left : 150px;
+        border:none;
+        border-bottom:2px solid black;
+        background-color: whitesmoke;
+        margin-top: 40px;
+    }
+
+    input[type=date]{
+        border:none;
+    }
+
+    input[type=date]:hover{
+        cursor: pointer;
+    }
+
+    input[type=date]:focus{
+        border-color:#3436ad;
+    }
+
+
+    input[type="date"]:not(.has-value):before{
+        color: rgb(151, 148, 148);
+        content: attr(placeholder);
+        position: relative;
+        top: -30px;
+      }
+
+/* 
+    .content form{
+        position: relative;
+        left : -80%;
+        width: 100%;
+        height: 50%;
+    } */
+
+    .event_type{
+        position: relative;
+        left : 150px;
+         display: block;
+    width: 400px;
+    height: 50px;
+    margin-bottom: 1px;
+    margin-top : 50px;
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+    border-bottom: 2px solid black;
+    font-size: 17px;
+    padding-top : 20px;
+    }
+
+     .content button{
+        width: 100px;
+        height: 40px;
+
+    }  
+
+    /* 날짜 선택 css */
