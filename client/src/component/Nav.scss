@@ -1,3 +1,5 @@
+
+
 div.topnav {
   position: relative;
   overflow: hidden;
@@ -5,10 +7,9 @@ div.topnav {
   border-radius: 60px 60px 0px 0px;
   height: 150px;
   z-index:1;
-}
-.topnav a {
+  a {
     display:none;
-}
+} 
 .loginBtn {
   width: 110px;
   height: 30px;
@@ -24,6 +25,7 @@ div.topnav {
   font-weight: bold;
   color: #5e5e5e
 }
+}
 
 
 /*sidenav css*/
@@ -36,23 +38,23 @@ div.sidenav {
   z-index:1;
   width: 30%;
   top: 0px;
-}
-.sidenav a {
-  position: relative;
-  float: top;
-  left : 4%;
-  color: #f2f2f2;
-  text-decoration: none;
-  font-size: 17px;
-  top: 140px;
-}
-.sidenav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-.sidenav .loginBtn {
-  display: none;
-}
-.sidenav .cur{
-  font-size: 100px;
+  a {
+    position: relative;
+    float: top;
+    left : 4%;
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 17px;
+    top: 140px;
+  }
+  &:hover{
+    background-color: #ddd;
+    color: black;
+  }
+  .loginBtn {
+    display: none;
+  }
+  .cur{
+    font-size: 100px;
+  }
 }

@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import TextField from "@material-ui/core/TextField"
 import { makeStyles } from '@material-ui/core/styles';
 import axios from "axios";
-
-
+import "./Modal.css"
 
 
 export default function Modal(props) {
@@ -11,8 +10,7 @@ export default function Modal(props) {
     const [eventTarget, setTarget] = useState("");
     const [eventType, setType] = useState("");
     const [gift, setGift] = useState("");
-    
-    const { userId, isOpen, setModal, isModify, data_date, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify} = props;
+    const { userId, isOpen, setModal, isModify, data_date, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify } = props;
     function handleSaveBtn(e) {
 
         e.preventDefault();
@@ -37,21 +35,20 @@ export default function Modal(props) {
     function handleModifyBtn(e) {
         e.preventDefault();
 
-            axios.put(`http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/schedule/${window.sessionStorage.getItem("id")}`, {
-                    date: date ? date : data_date,
-                    event_target: eventTarget ? eventTarget : data_event_target,
-                    event_type: eventType ? eventType : data_event_type,
-                    gift: gift ? gift : data_gift
-                }, {
-                params: {
-                    event_id: e.target.value,
-                    schedule_id: e.target.name
-                }
-            })
-                .then((res) => console.log(res.data))
-                .then(() => handleModify(!isModify));
-        }
-
+        axios.put(`http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/schedule/${window.sessionStorage.getItem("id")}`, {
+            date: date ? date : data_date,
+            event_target: eventTarget ? eventTarget : data_event_target,
+            event_type: eventType ? eventType : data_event_type,
+            gift: gift ? gift : data_gift
+        }, {
+            params: {
+                event_id: e.target.value,
+                schedule_id: e.target.name
+            }
+        })
+            .then((res) => console.log(res.data))
+            .then(() => handleModify(!isModify));
+    }
 
     return (
         <div className={isOpen ? "addModal" : (isModify ? "modifyModal" : "none")}>
@@ -115,3 +112,7 @@ export default function Modal(props) {
         </div>
     )
 }
+
+
+
+
