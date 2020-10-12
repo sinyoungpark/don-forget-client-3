@@ -38,16 +38,16 @@ export default function Modal({userId, isOpen, setModal}) {
                     <input type="text" placeholder="event target" label="event target" onChange={(e) => setTarget(e.target.value)}/>
                     <select className="event_type" onChange={(e) => setType(e.target.value)}>
                         <option value="" disabled selected> 경조사 종류 </option>
-                        <option value="1">생일</option>
-                        <option value="2">결혼식</option>
-                        <option value="3">장례식</option>
-                        <option value="3">집들이</option>
-                        <option value="3">취직</option>
-                        <option value="3">입학</option>
-                        <option value="3">출산</option>
-                        <option value="3">돌잔치</option>
-                        <option value="3">기념일</option>
-                        <option value="3">기타</option>
+                        <option value="생일">생일</option>
+                        <option value="결혼식">결혼식</option>
+                        <option value="장례식">장례식</option>
+                        <option value="집들이">집들이</option>
+                        <option value="취직">취직</option>
+                        <option value="입학">입학</option>
+                        <option value="출산">출산</option>
+                        <option value="돌잔치">돌잔치</option>
+                        <option value="기념일">기념일</option>
+                        <option value="기타">기타</option>
                     </select>
                     <input type="text" placeholder="gift" label="gift" onChange={(e) => setGift(e.target.value)}/>
                     <button onClick={(e) => {
