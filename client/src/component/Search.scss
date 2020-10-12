@@ -1,0 +1,25 @@
+.search .full_page {
+    padding: 10vh 8%;
+}
+.search_input{
+    display: inline-block;
+    margin: 0;
+    width: 85%;
+    height: 40px;
+    padding: 0 20px;
+    background-color: transparent;
+    border: #4a4a4a 1px solid;
+    border-radius: 50px;
+    &:focus{
+        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+}
+.search_btn{
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    &:hover{
+        border-radius: 50%;
+    }
+}

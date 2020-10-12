@@ -21,7 +21,7 @@ function Nav({ history, isLogin, location }) {
                     <EventIcon />
                 </Avatar>
             </a>
-            <a href="/schedule">
+            <a href="/search">
                 <Avatar className="icon" style={{ backgroundColor: '#3b23a6', marginBottom: "100px" }}>
                     <SearchIcon />
                 </Avatar>
