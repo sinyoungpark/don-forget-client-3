@@ -18,11 +18,11 @@ export default function Signin(props) {
     const [password_question, setQuestion] = useState("");
     const [password_answer, setAnswer] = useState("");
     const [userid, getUserid] = useState("");
-   
+
     const [inputValue, userAnswer] = useState("");
-    
+
     //open 비밀번호 재설정 modal창 
-    const [isOpenNewPW , setNewPW] = useState(false);
+    const [isOpenNewPW, setNewPW] = useState(false);
     const [passwordCheck, inputPWCheck] = useState("");
 
     //modal 창 isOpen
@@ -52,45 +52,45 @@ export default function Signin(props) {
     }
 
 
-    function handleFindPw(e){
+    function handleFindPw(e) {
         e.preventDefault();
         inputEmail("");
         inputName("");
         axios.post('http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/findpassword/stepone', {
-            name : name,
-            email : email
+            name: name,
+            email: email
         })
-        .then((response) => response.data)
-        .then((data) => {
-            setQuestion(data.password_question);
-            setAnswer(data.password_answer);
-            getUserid(data.id)
-            setStepTwo(!isOpenStepTwo);
-        })
-        .catch((err) => console.log(err))
-    }
-
-
-    function openPwSettingModal(e){
-      e.preventDefault();
-      if (password_answer === inputValue){
-        setNewPW(true);
-      }
-    }
-
-    function setNewPw(e){
-        e.preventDefault();
-        if (password === passwordCheck){
-            axios.post("http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/findpassword/resetpassword",{
-                password : password,
-                id : userid 
-            })
-            .then((res) => console.log(res.data))
-            .then(() => {
-                setStepOne(!isOpenStepOne)
+            .then((response) => response.data)
+            .then((data) => {
+                setQuestion(data.password_question);
+                setAnswer(data.password_answer);
+                getUserid(data.id)
                 setStepTwo(!isOpenStepTwo);
-                setNewPW(!isOpenNewPW);
             })
+            .catch((err) => console.log(err))
+    }
+
+
+    function openPwSettingModal(e) {
+        e.preventDefault();
+        if (password_answer === inputValue) {
+            setNewPW(true);
+        }
+    }
+
+    function setNewPw(e) {
+        e.preventDefault();
+        if (password === passwordCheck) {
+            axios.post("http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/findpassword/resetpassword", {
+                password: password,
+                id: userid
+            })
+                .then((res) => console.log(res.data))
+                .then(() => {
+                    setStepOne(!isOpenStepOne)
+                    setStepTwo(!isOpenStepTwo);
+                    setNewPW(!isOpenNewPW);
+                })
         }
     }
 
@@ -102,7 +102,7 @@ export default function Signin(props) {
             <h1>Login</h1>
             <form className="inputValue">
                 <input type="text" placeholder="Email Address *" label="Email Address" onChange={(e) => inputEmail(e.target.value)} />
-                <input type="text" placeholder="password *" label="password" onChange={(e) => inputPW(e.target.value)} />
+                <input type="password" placeholder="Password *" label="password" onChange={(e) => inputPW(e.target.value)} />
                 <button className="login_btn" onClick={handleLoginBtn}>LOGIN</button>
                 <a href="#" onClick={(e) => {
                     e.preventDefault();
@@ -116,7 +116,7 @@ export default function Signin(props) {
                 <button className="kakao">Kakao</button>
                 <button className="naver">Naver</button>
             </span>
-            <form className={isOpenStepOne? "modal" : "none"}>
+            <form className={isOpenStepOne ? "modal" : "none"}>
                 <div className="content">
                     <h3>비밀번호 찾기 Step One</h3>
                     <p> 비밀번호를 찾고자 하는 아이디와 이름을 입력해 주세요.</p>
@@ -129,7 +129,7 @@ export default function Signin(props) {
                 </div>
             </form>
 
-            <form className={isOpenStepTwo? "modal" : "none"}>
+            <form className={isOpenStepTwo ? "modal" : "none"}>
                 <div className="content">
                     <h3>비밀번호 찾기 Step two</h3>
                     <p>{password_question}</p>

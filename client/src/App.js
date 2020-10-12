@@ -75,7 +75,7 @@ function App(props) {
           }} />
           <Route exact path="/mypage" render={() => {
             if (window.sessionStorage.getItem("id")) {
-              return <MyPage setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} />
+              return <MyPage setIsLogin={setIsLogin} email={email} setEmail={setEmail} name={name} setName={setName} />
             } else {
               return <Redirect to="/" />
             }
