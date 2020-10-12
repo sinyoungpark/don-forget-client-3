@@ -77,3 +77,39 @@
     cursor: pointer;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
+
+
+.signup_content{
+    .inputValue{
+        input[type="text"], input[type="password"]{
+            display: block;
+            margin-top: 20px;
+            border: none;
+            border-bottom: 2px solid black;
+            width : 400px;
+            font-size: 17px;
+            outline: none;
+            height: 30px;
+            padding-top : 20px;
+
+            &:focus{
+                border-color : blue;
+            }
+            &:hover{
+                border-width : 3px;
+            }
+            &::placeholder{
+                position: relative;
+                top: 0px;
+            }
+            &:focus::placeholder{
+                color : #3b23a6;
+                font-size: 13px;
+                position :relative;
+                top : -30px;
+                -webkit-transition: all .15s ;
+                transition: all .15s ;
+            }
+        }
+    }
+}
