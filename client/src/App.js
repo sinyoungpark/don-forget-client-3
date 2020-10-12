@@ -9,6 +9,7 @@ import MyPage from './component/MyPage';
 import "./App.css"
 import { CSSTransitionGroup } from "react-transition-group";
 import Schedule from "./component/Schedule";
+import Search from './component/Search';
 
 
 function App(props) {
@@ -51,22 +52,33 @@ function App(props) {
           <Route exact path="/signup" render={() => {
             return <Signup />
           }} />
-           <Route exact path="/schedule" render={() => {
-             if (window.sessionStorage.getItem("id")){
-              return <Schedule userId={userId}/>
-             } else {
-               return <Redirect to="/"/>
-             }
-          }} />
           <Route exact path="/home" render={() => {
             if (window.sessionStorage.getItem("id")) {
               return <Home />
             } else {
-              return <Redirect to="/signin" />
+              return <Redirect to="/" />
+            }
+          }} />
+          <Route exact path="/schedule" render={() => {
+            if (window.sessionStorage.getItem("id")) {
+              return <Schedule userId={userId} />
+            } else {
+              return <Redirect to="/" />
+            }
+          }} />
+          <Route exact path="/search" render={() => {
+            if (window.sessionStorage.getItem("id")) {
+              return <Search userId={userId} />
+            } else {
+              return <Redirect to="/" />
             }
           }} />
           <Route exact path="/mypage" render={() => {
-            return <MyPage setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} />
+            if (window.sessionStorage.getItem("id")) {
+              return <MyPage setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} />
+            } else {
+              return <Redirect to="/" />
+            }
           }} />
           <Route path="/" render={() => {
             if (window.sessionStorage.getItem("id")) {
