@@ -76,8 +76,8 @@ function Signup({ history }) {
         <form className="inputValue">
           <input type="text" name="email" onChange={onChangeHandler} placeholder="Email Address *" label="Email Address" />
           <input type="text" name="name" onChange={onChangeHandler} placeholder="Name *" label="Name *" />
-          <input type="password" name="password" placeholder="password *" label="password" onChange={onChangeHandler} />
-          <input type="password" name="passwordCheck" placeholder="passwordCheck *" label="passwordCheck" onChange={onChangeHandler} />
+          <input type="password" name="password" placeholder="Password *" label="password" onChange={onChangeHandler} />
+          <input type="password" name="passwordCheck" placeholder="PasswordCheck *" label="passwordCheck" onChange={onChangeHandler} />
           <select className="question" onChange={selectOptionHandler}>
             <option value="" disabled selected>Password Hint: *</option>
             <option value="1">가장 기억에 남는 선생님 성함은?</option>

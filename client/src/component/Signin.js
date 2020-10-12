@@ -102,7 +102,7 @@ export default function Signin(props) {
             <h1>Login</h1>
             <form className="inputValue">
                 <input type="text" placeholder="Email Address *" label="Email Address" onChange={(e) => inputEmail(e.target.value)} />
-                <input type="text" placeholder="password *" label="password" onChange={(e) => inputPW(e.target.value)} />
+                <input type="password" placeholder="Password *" label="password" onChange={(e) => inputPW(e.target.value)} />
                 <button className="login_btn" onClick={handleLoginBtn}>LOGIN</button>
                 <a href="비밀번호 찾기" onClick={(e) => {
                     e.preventDefault();
