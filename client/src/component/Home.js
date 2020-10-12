@@ -5,10 +5,15 @@ import moment, { Moment as MomentTypes } from 'moment';
 
 function Home({ history }) {
 
+  // 달력 랜더
   const [selectedDate, setSelectedDate] = useState(moment());
   const [month, setMonth] = useState(selectedDate._locale._months[selectedDate.month()])
-  const [year, setYear] = useState(moment().year())
+  // 월 선택 모달
   const [openSelectMonth, setOpenSelectMonth] = useState(false)
+  const [year, setYear] = useState(moment().year())
+  // 오른쪽 일정 창 오픈
+  const [openSchedule, setOpenSchedule] = useState(false)
+  const [sideScheduleDate, setSideScheduleDate] = useState("")
 
   const generate = () => {
     // const today = moment();
@@ -29,8 +34,12 @@ function Home({ history }) {
               return (
                 <div
                   className={`box  ${isSelected} ${isGrayed}`} key={i}
-                  // 선택한 날짜로 이동
-                  onClick={() => setSelectedDate(current)}
+                  onClick={() => {
+                    // 선택한 날짜로 이동
+                    setSelectedDate(current)
+                    // 오른쪽 일정 오픈
+                    setOpenSchedule(true)
+                  }}
                 >
                   <span className={`text`}>{current.format('D')}</span>
                 </div>
@@ -77,7 +86,7 @@ function Home({ history }) {
   return (
     <div className="home">
       <div className="full_page">
-        <div className="Calendar">
+        <div className={openSchedule ? "sideCalendar" : "Calendar"}>
           <div className="head">
             <span className="title">{month}</span>
             <button className="select_month" onClick={selectMonth}>
@@ -85,7 +94,7 @@ function Home({ history }) {
                 : <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none" /><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" /></svg>
               }
             </button>
-            <button className="add_schedule">+</button>
+            <button className={openSchedule ? "none" : "add_schedule"}>+</button>
           </div>
 
           <div className="selectMonth" style={openSelectMonth ? { display: "inline-block" } : { display: "none" }}>
@@ -118,6 +127,17 @@ function Home({ history }) {
             </div>
             {generate()}
           </div>
+        </div>
+
+        {/* 오른쪽 일정 창 */}
+        <div className={openSchedule ? "sideSchedule" : "none"}>
+          <button className="closeSideSchedule" onClick={() => setOpenSchedule(false)}>✕</button>
+          <h2 className="date">
+            {selectedDate.format("M[/]D[(]ddd[)]")}
+          </h2>
+          <button className="sideSchedule_empty">
+            + 일정추가
+          </button>
         </div>
       </div>
     </div>
