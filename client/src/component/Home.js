@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from "react-router-dom";
 import './Home.scss';
 import moment, { Moment as MomentTypes } from 'moment';
+import Modal from "./Modal"
 
-function Home({ history }) {
+function Home({ userId, history }) {
 
   // 달력 랜더
   const [selectedDate, setSelectedDate] = useState(moment());
@@ -13,7 +14,8 @@ function Home({ history }) {
   const [year, setYear] = useState(moment().year())
   // 오른쪽 일정 창 오픈
   const [openSchedule, setOpenSchedule] = useState(false)
-  const [sideScheduleDate, setSideScheduleDate] = useState("")
+  // 일정 추가 모달
+  const [isOpen, setModal] = useState(false);
 
   const generate = () => {
     // const today = moment();
@@ -41,7 +43,12 @@ function Home({ history }) {
                     setOpenSchedule(true)
                   }}
                 >
-                  <span className={`text`}>{current.format('D')}</span>
+                  <span className={`text`}>
+                    {current.format('D')}
+                    <ul>
+                      {/* 일정 유무 확인해서 <li>로 랜더 */}
+                    </ul>
+                  </span>
                 </div>
               )
             })
@@ -89,14 +96,20 @@ function Home({ history }) {
         <div className={openSchedule ? "sideCalendar" : "Calendar"}>
           <div className="head">
             <span className="title">{month}</span>
+            {/* 월 선택 모달 오픈 버튼 */}
             <button className="select_month" onClick={selectMonth}>
               {openSelectMonth ? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24" height="24"><path d="M0 0h24v24H0z" fill="none" /><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" /></svg>
                 : <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none" /><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" /></svg>
               }
             </button>
-            <button className={openSchedule ? "none" : "add_schedule"}>+</button>
+            {/* 스케줄 추가 버튼 */}
+            <button className={openSchedule ? "none" : "add_schedule"}
+              onClick={(e) => {
+                e.preventDefault();
+                setModal(!isOpen);
+              }}>+</button>
           </div>
-
+          {/* 월 선택 모달 */}
           <div className="selectMonth" style={openSelectMonth ? { display: "inline-block" } : { display: "none" }}>
             {monthModal()}
           </div>
@@ -135,10 +148,16 @@ function Home({ history }) {
           <h2 className="date">
             {selectedDate.format("M[/]D[(]ddd[)]")}
           </h2>
-          <button className="sideSchedule_empty">
-            + 일정추가
-          </button>
+          <button className="sideSchedule_empty"
+            onClick={(e) => {
+              e.preventDefault();
+              setModal(!isOpen);
+            }}> + 일정추가 </button>
         </div>
+
+        {/* 일정추가 모달 */}
+        <Modal userId={userId} isOpen={isOpen} setModal={setModal} />
+
       </div>
     </div>
   );
