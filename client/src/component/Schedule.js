@@ -15,7 +15,7 @@ export default function Schedule(props) {
 
     useEffect(() => {
 
-        axios.get(`http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/schedule/${window.sessionStorage.getItem("id")}`)
+        axios.get(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`)
             .then((res) => {
                 let data = res.data;
                 data = data.sort(function (a, b) {
@@ -28,7 +28,7 @@ export default function Schedule(props) {
     }, []);
 
     function handleDeleteBtn(e) {
-        axios.delete(`http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/schedule/${window.sessionStorage.getItem("id")}`, {
+        axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
             params: {
                 event_id: e.target.value,
                 schedule_id: e.target.name

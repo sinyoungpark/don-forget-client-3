@@ -15,7 +15,7 @@ function MyPage(props) {
 
   const signoutHandler = () => {
     console.log('signoutHandler');
-    axios.post('http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/signout', {})
+    axios.post('https://don-forget-server.com/user/signout', {})
       .then(res => {
         setIsLogin(false);
         setEmail("");
@@ -28,7 +28,7 @@ function MyPage(props) {
 
   const changeNameHandler = () => {
     console.log(changeName);
-    axios.post(`http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/changename/${window.sessionStorage.getItem("id")}`, {
+    axios.post(`https://don-forget-server.com/user/changename/${window.sessionStorage.getItem("id")}`, {
       new_name: changeName
     })
       .then(res => {

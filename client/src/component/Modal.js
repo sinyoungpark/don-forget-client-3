@@ -16,7 +16,7 @@ export default function Modal(props) {
         e.preventDefault();
 
         if (date && eventTarget && eventType && gift) {
-            axios.post(`http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/schedule/${window.sessionStorage.getItem("id")}`, {
+            axios.post(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
                 date: date,
                 event_target: eventTarget,
                 event_type: eventType,
@@ -35,7 +35,7 @@ export default function Modal(props) {
     function handleModifyBtn(e) {
         e.preventDefault();
 
-        axios.put(`http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/schedule/${window.sessionStorage.getItem("id")}`, {
+        axios.put(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
             date: date ? date : data_date,
             event_target: eventTarget ? eventTarget : data_event_target,
             event_type: eventType ? eventType : data_event_type,

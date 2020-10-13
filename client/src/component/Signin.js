@@ -31,7 +31,7 @@ export default function Signin(props) {
 
     function handleLoginBtn(e) {
         e.preventDefault();
-        axios.post('http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/signin', {
+        axios.post('https://don-forget-server.com/user/signin', {
             email: email,
             password: password
         })
@@ -56,7 +56,7 @@ export default function Signin(props) {
         e.preventDefault();
         inputEmail("");
         inputName("");
-        axios.post('http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/findpassword/stepone', {
+        axios.post('https://don-forget-server.com/user/findpassword/stepone', {
             name: name,
             email: email
         })
@@ -81,7 +81,7 @@ export default function Signin(props) {
     function setNewPw(e) {
         e.preventDefault();
         if (password === passwordCheck) {
-            axios.post("http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/findpassword/resetpassword", {
+            axios.post("https://don-forget-server.com/user/findpassword/resetpassword", {
                 password: password,
                 id: userid
             })

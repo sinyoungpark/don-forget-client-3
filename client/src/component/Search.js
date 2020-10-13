@@ -16,7 +16,7 @@ function Search(props) {
 
   const clickSearch = () => {
     console.log(searchKeyword)
-    axios.post(`http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/search/${window.sessionStorage.getItem("id")}`, {
+    axios.post(`https://don-forget-server.com/search/${window.sessionStorage.getItem("id")}`, {
       data: searchKeyword
     })
       .then((res) => {
