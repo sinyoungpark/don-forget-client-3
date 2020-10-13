@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import KaKaoLogin from 'react-kakao-login';
+
 class KakaoSignUp extends Component {
     constructor(props) {
         super(props);
@@ -38,7 +39,7 @@ class KakaoSignUp extends Component {
         return (
             <>
                 <KaKaoLogin
-                    jsKey={'2b67838751764359be17923f29aa820e'}
+                    jsKey={'d7fcccce457540e5621e96787fac52a9'}
                     buttonText="KaKao"
                     onSuccess={this.responseKaKao}
                     onFailure={this.responseFail}
