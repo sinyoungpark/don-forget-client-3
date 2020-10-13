@@ -156,13 +156,16 @@
             &:focus{
                 border-color: #3436ad;
             }
+            }
             button{
                 background-color: white;
                 width: 10%;
                 height: 10%;
-                border: 2px solid rgb(151, 148, 148)
+                border: 2px solid rgb(151, 148, 148);
+                position: relative;
+                left : 37%;
+                margin: 20px;
                 }
-            }
       }
     }
 
