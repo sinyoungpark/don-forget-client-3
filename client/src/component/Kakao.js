@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import KaKaoLogin from 'react-kakao-login';
 
-extends defalut function KakaoSignUp(){
+export default function KakaoSignUp(){
   const [data, setData] = useState("kakao");
 
     responseKaKao = (res) => {
@@ -41,3 +41,4 @@ extends defalut function KakaoSignUp(){
             </>
         );
 }
+
