@@ -1,89 +1,86 @@
-
-
 .schedule{
     padding: 8vh;
-
-/* schedule h1 css */
-   h1{
+    
+    /* schedule h1 css */
+    h1{
     font-weight: 800;
     color : rgb(70, 67, 67);
     font-size: 40px;
     margin-bottom: 6vh;
     }
     ul{
-        list-style:none;
+    list-style:none;
     }
-
+    
     .schedule_list{
-          /* schedule list css */
-        li{
-            border: 3px solid rgb(151, 149, 149);
-            width: 60%;
-            padding: 2vh;
-            border-radius: 40px;
-            margin: 1vh;
-            display: inline-block;
-            &:hover{
-                .li_button{
-                    position: relative;
-                    border:none;
-                    background-color: white;
-                    left : -4vh;
-                    font-weight: 400;
-                    color: rgb(160, 156, 156);
-                    font-size: 16px;
-                    padding : 0px 0px 0px 10px;
-                    display : inline-block;
-                }
-            }
-            .li_button{
-                margin: 0px;
-                }
-            }
-        
+    /* schedule list css */
+    li{
+    border: 3px solid rgb(151, 149, 149);
+    width: 60%;
+    padding: 2vh;
+    border-radius: 40px;
+    margin: 1vh;
+    display: inline-block;
+    &:hover{
+    .li_button{
+    position: relative;
+    border:none;
+    background-color: white;
+    left : 80%;
+    font-weight: 400;
+    color: rgb(160, 156, 156);
+    font-size: 16px;
+    padding : 0px 0px 0px 10px;
+    display : inline-block;
+    }
+    }
+    .li_button{
+    margin: 0px;
+    }
+    }
     /* date css */
     .date{
-        display: inline-block;
-        font-size: 30px;
-        margin-right : 7vh;
-        }    
-      /* schedule list안에 내용 css 담당 */
+    display: inline-block;
+    font-size: 30px;
+    margin-right : 7vh;
+    } 
+    /* schedule list안에 내용 css 담당 */
     span{
-        font-weight: 600;
-        color : rgb(70, 67, 67);
-        margin-right: 1vh;
-        }
+    font-weight: 600;
+    color : rgb(70, 67, 67);
+    margin-right: 1vh;
+    }
     .gift{
-        position: absolute;
-        font-weight: 400;
-        color: rgb(160, 156, 156);
-        left : 50vh;
+    position: absolute;
+    font-weight: 400;
+    color: rgb(160, 156, 156);
+    left : 50vh;
     }
     .type{
-        position: absolute;
-        color: rgb(70, 67, 67);
-        left : 38vh; 
+    position: absolute;
+    color: rgb(70, 67, 67);
+    left : 38vh; 
     }
-
-      /* 수정, 삭제 button css*/
+    
+    /* 수정, 삭제 button css*/
     .li_button{
-        display:none;
-        }
+    display:none;
     }
-        /* add schedule button css */
-        .addBtn{
-            position: relative;
-            width: 6vh;
-            height: 6vh;
-            border-radius: 50%;
-            border: none;
-            top: -10vh;
-            left : -20vh;
-            }
-}
-
-
-
+    }
+    /* add schedule button css */
+    .addBtn{
+    position: relative;
+    width: 6vh;
+    height: 6vh;
+    border-radius: 50%;
+    border: none;
+    top: -10vh;
+    left : 80%;
+    }
+    }
+    
+    
+    
 
 
 

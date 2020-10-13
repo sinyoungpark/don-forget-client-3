@@ -1,4 +1,4 @@
-import React from "react"
+mport React from "react"
 import { useState, useEffect } from 'react';
 import axios from "axios"
 import Modal from "./Modal"
@@ -12,6 +12,14 @@ export default function Schedule(props) {
 
     //수정 모달창 따로 
     const [isModify, handleModify] = useState(false);
+
+    //이제 띄울 modal창 정보들 
+    const [curDate, setCurDate] = useState("");
+    const [curEventTarget, setCurTarget] = useState("");
+    const [curEventType, setEventType] = useState("");
+    const [curDataGift, setCurGift] = useState("");
+    const [curSchduleId, setCurScheduleId] = useState("");
+    const [curEventId, setCurEventId] = useState("");
 
     useEffect(() => {
 
@@ -38,9 +46,15 @@ export default function Schedule(props) {
     }
     //http://localhost:5000/schedule/:id?event_id=2&schedule_id=3
 
-    function handleModifyBtn(e) {
+    function handleModifyBtn(date, event_target, event_type, data_gift, schedule_id, event_id) {
+        console.log(date, event_target, event_type, data_gift, schedule_id, event_id);
+        setCurDate(date);
+        setCurTarget(event_target);
+        setEventType(event_type);
+        setCurGift(data_gift);
+        setCurScheduleId(schedule_id);
+        setCurEventId(event_id);
         handleModify(!isModify);
-
     }
 
     return (
@@ -58,12 +72,16 @@ export default function Schedule(props) {
                             <div>
                                 <div className="date">{date.slice(5, 7)} / {date.slice(8)}</div>
                                 <li key={data.id}>
+                                    <button className="li_button" onClick={(e) => {
+                                        e.preventDefault();
+                                        handleModifyBtn(date, data.event_target, data.event_type, data.gift, data.id, data.event_id);
+                                    }
+                                    }>수정</button>
+                                    <button className="li_button" onClick={handleDeleteBtn} name={data.id} value={data.event_id}>삭제</button>
                                     <span>{data.event_target}</span>
                                     <span className="type">{data.event_type}</span>
                                     <span className="gift">{data.gift}</span>
-                                    <button className="li_button" onClick={handleModifyBtn}>수정</button>
-                                    <button className="li_button" onClick={handleDeleteBtn} name={data.id} value={data.event_id}>삭제</button>
-                                    <Modal isModify={isModify} data_date={date} data_event_target={data.event_target} data_event_type={data.event_type} data_gift={data.gift} schedule_id={data.id} event_id={data.event_id} handleModify={handleModify} />
+                                    <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} />
                                 </li>
                             </div>
                         )
@@ -74,3 +92,6 @@ export default function Schedule(props) {
         </div>
     )
 }
+
+
+
