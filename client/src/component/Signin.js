@@ -1,16 +1,18 @@
-
 import React, { useState } from "react"
 import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import "./Signin.scss"
 import { CSSTransitionGroup } from "react-transition-group";
 import axios from "axios";
+//import kakao-api
+import KakaoSignUp from "./Kakao";
 
 export default function Signin(props) {
 
     const { setIsLogin, setEmail, setName, setUserId } = props;
     const [email, inputEmail] = useState("");
     const [password, inputPW] = useState("");
+
     //findPW
     const [name, inputName] = useState("");
 
@@ -18,7 +20,6 @@ export default function Signin(props) {
     const [password_question, setQuestion] = useState("");
     const [password_answer, setAnswer] = useState("");
     const [userid, getUserid] = useState("");
-
     const [inputValue, userAnswer] = useState("");
 
     //open 비밀번호 재설정 modal창 
@@ -40,7 +41,6 @@ export default function Signin(props) {
                 window.sessionStorage.setItem("id", response.id);
                 window.sessionStorage.setItem("email", response.email);
                 window.sessionStorage.setItem("name", response.name);
-
                 setEmail(response.email);
                 setName(response.name);
                 setUserId(response.id);
@@ -50,7 +50,6 @@ export default function Signin(props) {
             })
             .catch((err) => console.log(err));
     }
-
 
     function handleFindPw(e) {
         e.preventDefault();
@@ -69,7 +68,6 @@ export default function Signin(props) {
             })
             .catch((err) => console.log(err))
     }
-
 
     function openPwSettingModal(e) {
         e.preventDefault();
@@ -113,7 +111,7 @@ export default function Signin(props) {
                 <a href="/signup" className="signinLink">회원가입 </a>
             </form>
             <span>
-                <button className="kakao">Kakao</button>
+                <KakaoSignUp setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} />
                 <button className="naver">Naver</button>
             </span>
             <form className={isOpenStepOne ? "modal" : "none"}>
@@ -128,7 +126,6 @@ export default function Signin(props) {
                     <button onClick={handleFindPw}>다음</button>
                 </div>
             </form>
-
             <form className={isOpenStepTwo ? "modal" : "none"}>
                 <div className="content">
                     <h3>비밀번호 찾기 Step two</h3>
@@ -140,7 +137,6 @@ export default function Signin(props) {
                     <button onClick={openPwSettingModal}>다음</button>
                 </div>
             </form>
-
             <form className={isOpenNewPW ? "modal" : "none"}>
                 <div className="content">
                     <h3>새 비밀번호 설정</h3>
@@ -152,7 +148,6 @@ export default function Signin(props) {
                     <button onClick={setNewPw}>확인</button>
                 </div>
             </form>
-
         </div>
     )
 }

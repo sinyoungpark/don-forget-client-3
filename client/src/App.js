@@ -11,14 +11,12 @@ import { CSSTransitionGroup } from "react-transition-group";
 import Schedule from "./component/Schedule";
 import Search from './component/Search';
 
-
 function App(props) {
 
   const [isLogin, setIsLogin] = useState(false);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [userId, setUserId] = useState("");
-
 
   useEffect(() => {
     if (window.sessionStorage.getItem("id")) {
