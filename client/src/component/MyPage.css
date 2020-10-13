@@ -14,3 +14,9 @@
     margin: 10px;
 }
 
+.changePasswordModal {
+    background-color: rgb(228, 228, 228);
+    border-radius: 30px;
+    width: 80%;
+    padding: 20px 40px;
+}

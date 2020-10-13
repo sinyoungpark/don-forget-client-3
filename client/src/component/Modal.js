@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import axios from "axios";
 import "./Modal.scss"
 
-
 export default function Modal(props) {
     const [date, setDate] = useState("");
     const [eventTarget, setTarget] = useState("");
@@ -113,7 +112,6 @@ export default function Modal(props) {
         </div>
     )
 }
-
 
 
 

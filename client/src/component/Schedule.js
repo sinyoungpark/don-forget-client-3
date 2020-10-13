@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { useState, useEffect } from 'react';
 import axios from "axios"
 import Modal from "./Modal"
@@ -19,7 +19,7 @@ export default function Schedule(props) {
     const [curEventType, setEventType] = useState("");
     const [curDataGift, setCurGift] = useState("");
     const [curSchduleId, setCurScheduleId] = useState("");
-    const [curEventId, setCurEventId] = useState(""); 
+    const [curEventId, setCurEventId] = useState("");
 
     useEffect(() => {
 
@@ -72,9 +72,9 @@ export default function Schedule(props) {
                             <div>
                                 <div className="date">{date.slice(5, 7)} / {date.slice(8)}</div>
                                 <li key={data.id}>
-                                <button className="li_button" onClick={(e) => { 
-                                    e.preventDefault();
-                                    handleModifyBtn(date, data.event_target, data.event_type, data.gift, data.id, data.event_id);
+                                    <button className="li_button" onClick={(e) => {
+                                        e.preventDefault();
+                                        handleModifyBtn(date, data.event_target, data.event_type, data.gift, data.id, data.event_id);
                                     }
                                     }>수정</button>
                                     <button className="li_button" onClick={handleDeleteBtn} name={data.id} value={data.event_id}>삭제</button>
@@ -92,3 +92,6 @@ export default function Schedule(props) {
         </div>
     )
 }
+
+
+
