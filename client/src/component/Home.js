@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import './Home.scss';
 import moment, { Moment as MomentTypes } from 'moment';
 import Modal from "./Modal"
+import axios from "axios"
 
 function Home({ userId, history }) {
 
@@ -16,6 +17,8 @@ function Home({ userId, history }) {
   const [openSchedule, setOpenSchedule] = useState(false)
   // 일정 추가 모달
   const [isOpen, setModal] = useState(false);
+  // 일정 받아오기
+  const [data, setData] = useState(null);
 
   const generate = () => {
     // const today = moment();
@@ -47,6 +50,19 @@ function Home({ userId, history }) {
                     {current.format('D')}
                     <ul>
                       {/* 일정 유무 확인해서 <li>로 랜더 */}
+                      {(data !== null) ?
+                        data.map((obj) => {
+                          if (obj.date !== null && obj.date.slice(0, 10) === current.format().slice(0, 10)) {
+                            console.log(current.format().slice(0, 10));
+                            return (
+                              <li key={obj.id} className={obj.event_type}>
+                                <hr />
+                              </li>
+                            )
+                          }
+                        })
+                        : ""
+                      }
                     </ul>
                   </span>
                 </div>
@@ -85,10 +101,26 @@ function Home({ userId, history }) {
     )
   }
 
+  const getSchedule = () => {
+    axios.get(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`)
+      .then((res) => {
+        let data = res.data;
+        data = data.sort(function (a, b) {
+          return new Date(a.date) - new Date(b.date);
+        });
+        setData(data);
+        console.log(data);
+      })
+  }
+
   useEffect(() => {
     // 선택한 날짜에 맞게 월 업데이트
     setMonth(selectedDate._locale._months[selectedDate.month()])
   });
+
+  useEffect(() => {
+    getSchedule();
+  }, []);
 
   return (
     <div className="home">
@@ -103,7 +135,7 @@ function Home({ userId, history }) {
               }
             </button>
             {/* 스케줄 추가 버튼 */}
-            <button className={openSchedule ? "none" : "add_schedule"}
+            <button className="add_schedule"
               onClick={(e) => {
                 e.preventDefault();
                 setModal(!isOpen);
@@ -148,11 +180,30 @@ function Home({ userId, history }) {
           <h2 className="date">
             {selectedDate.format("M[/]D[(]ddd[)]")}
           </h2>
-          <button className="sideSchedule_empty"
+          {/* <button className="sideSchedule_empty"
             onClick={(e) => {
               e.preventDefault();
               setModal(!isOpen);
-            }}> + 일정추가 </button>
+            }}> + 일정추가 </button> */}
+
+          <ul>
+            {/* 일정 유무 확인해서 <li>로 랜더 */}
+            {(data !== null) ?
+              data.map((obj) => {
+                if (obj.date !== null && obj.date.slice(0, 10) === selectedDate.format().slice(0, 10)) {
+                  return (
+                    <li key={obj.id}>
+                      <div className={obj.event_type}>
+                        {obj.event_target} {obj.event_type}
+                        <div className="gift">{obj.gift}</div>
+                      </div>
+                    </li>
+                  )
+                }
+              })
+              : ""
+            }
+          </ul>
         </div>
 
         {/* 일정추가 모달 */}

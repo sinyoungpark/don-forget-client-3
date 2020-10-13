@@ -1,3 +1,66 @@
+.body {
+  ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    li{
+      display: block;
+      text-decoration: line-through;
+      width: 100%;
+      &.결혼식 {
+        hr{
+          border: 1px solid #FFCECE;
+        }
+      }
+      &.생일 {
+        hr{
+          border: 1px solid #FFB65B;
+        }
+      }
+      &.장례식 {
+        hr{
+          border: 1px solid #737272;
+        }
+      }
+      &.집들이 {
+        hr{
+          border: 1px solid #6BACF8;
+        }
+      }
+      &.취직 {
+        hr{
+          border: 1px solid #FFF00C;
+        }
+      }
+      &.입학 {
+        hr{
+          border: 1px solid #A4F256;
+        }
+      }
+      &.출산 {
+        hr{
+          border: 1px solid #FF6666;
+        }
+      }
+      &.돌잔치 {
+        hr{
+          border: 1px solid #97ECCF;
+        }
+      }
+      &.기념일 {
+        hr{
+          border: 1px solid #E1C5FF;
+        }
+      }
+      &.기타 {
+        hr{
+          border: 1px solid #CECECE;
+        }
+      }
+    }
+  }
+}
+
 .sideSchedule {
   position: fixed;
   top: 0;
@@ -34,6 +97,52 @@
     border-radius: 30px;
     &:hover {
       box-shadow: none;
+    }
+  }
+  ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    div {
+      color: #4a4a4a;
+      font-size: 0.9rem;
+      padding-left: 10px;
+      margin-bottom: 0.5rem;
+      &.gift{
+        color: #8f8f8f;
+        font-size: 0.7rem;
+        padding-left: 0;
+      }
+      &.결혼식 {
+        border-left: 3px solid #FFCECE;
+      }
+      &.생일 {
+        border-left: 3px solid #FFB65B;
+      }
+      &.장례식 {
+        border-left: 3px solid #737272;
+      }
+      &.집들이 {
+        border-left: 3px solid #6BACF8;
+      }
+      &.취직 {
+        border-left: 3px solid #FFF00C;
+      }
+      &.입학 {
+        border-left: 3px solid #A4F256;
+      }
+      &.출산 {
+        border-left: 3px solid #FF6666;
+      }
+      &.돌잔치 {
+        border-left: 3px solid #97ECCF;
+      }
+      &.기념일 {
+        border-left: 3px solid #E1C5FF;
+      }
+      &.기타 {
+        border-left: 3px solid #CECECE;
+      }
     }
   }
 }
@@ -193,7 +302,7 @@
         }
         span.text{
           border-top: gray 1px solid;
-          display: inline-flex;
+          display: block;
           // align-items: center;
           padding: 3px 4px;
           width: 75%;
@@ -248,7 +357,7 @@
         }
         span.text{
           border-top: gray 1px solid;
-          display: inline-flex;
+          display: block;
           // align-items: center;
           padding: 3px 4px;
           width: 75%;
@@ -303,7 +412,7 @@
         }
         span.text{
           border-top: gray 1px solid;
-          display: inline-flex;
+          display: block;
           // align-items: center;
           padding: 3px 4px;
           width: 75%;
@@ -451,7 +560,7 @@
         }
         span.text{
           border-top: gray 1px solid;
-          display: inline-flex;
+          display: block;
           // align-items: center;
           padding: 3px 4px;
           width: 75%;
@@ -506,7 +615,7 @@
         }
         span.text{
           border-top: gray 1px solid;
-          display: inline-flex;
+          display: block;
           // align-items: center;
           padding: 3px 4px;
           width: 75%;
@@ -561,7 +670,7 @@
         }
         span.text{
           border-top: gray 1px solid;
-          display: inline-flex;
+          display: block;
           // align-items: center;
           padding: 3px 4px;
           width: 75%;
