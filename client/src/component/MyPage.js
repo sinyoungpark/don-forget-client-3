@@ -11,7 +11,9 @@ function MyPage(props) {
   const [changeName, setChangeName] = useState("");
   const [openPassword, setOpenPassword] = useState(false);
   const [isRightPassword, setIsRightPassword] = useState(false);
-  const [changePassword, setChangePassword] = useState("");
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [newPasswordCheck, setNewPasswordCheck] = useState("");
 
   const signoutHandler = () => {
     console.log('signoutHandler');
@@ -26,24 +28,54 @@ function MyPage(props) {
       .catch((err) => console.log(err));
   }
 
-  const changeNameHandler = () => {
+  const changeNameHandler = (e) => {
+    e.preventDefault();
     console.log(changeName);
     axios.post(`https://don-forget-server.com/user/changename/${window.sessionStorage.getItem("id")}`, {
-      new_name: changeName
+      name: changeName
     })
       .then(res => {
         console.log(res.data);
         setOpenName(false);
+        setName(changeName);
+        window.sessionStorage.setItem("name", res.data.name);
       })
       .catch((err) => console.log(err));
   }
 
   const checkPasswordHandler = () => {
-
+    axios.post(`https://don-forget-server.com/user/confirmuser/${window.sessionStorage.getItem("id")}`, {
+      password: oldPassword
+    })
+      .then(res => {
+        console.log(res.data);
+        // 새 비밀번호 입력 창 띄움
+        setIsRightPassword(true);
+      })
+      .catch((err) => {
+        console.log(err)
+        alert("비밀번호가 다릅니다.")
+      });
   }
 
   const changePasswordHandler = () => {
-
+    if (newPassword === newPasswordCheck) {
+      axios.post(`https://don-forget-server.com/user/changepassword/${window.sessionStorage.getItem("id")}`, {
+        password: newPassword
+      })
+        .then(res => {
+          console.log(res.data);
+          alert("비밀번호가 변경되었습니다.");
+        })
+        .then(() => {
+          setOpenPassword(false);
+          setIsRightPassword(false);
+        })
+        .catch((err) => console.log(err));
+    }
+    else {
+      alert("비밀번호가 일치하지 않습니다.");
+    }
   }
 
   return (
@@ -59,17 +91,22 @@ function MyPage(props) {
           </> : name}</div>
           <div>{email}</div>
         </div>
-        <button onClick={() => setOpenName(true)}>이름 변경</button>
-        <button onClick={() => setOpenPassword(true)}>비밀번호 변경</button>
+        <button onClick={() => setOpenName(!openName)}>이름 변경</button>
+        <button onClick={() => setOpenPassword(!openPassword)}>비밀번호 변경</button>
         <button onClick={signoutHandler}>로그아웃</button>
 
-        <div className="changePasswordModal">
-          <input type="password" placeholder="기존 비밀번호"></input>
+        <div className={openPassword ? "changePasswordModal" : "none"}>
+          <input type="password" placeholder="기존 비밀번호"
+            onChange={(e) => setOldPassword(e.target.value)}></input>
           <button onClick={checkPasswordHandler}>check!</button>
-          <input type="password" placeholder="새 비밀번호"></input>
-          <input type="password" placeholder="새 비밀번호 확인"></input>
-          <button onClick={changePasswordHandler}>check!</button>
-          <button onClick={() => setOpenPassword(false)}>취소</button>
+          <div className={isRightPassword ? "newPw" : "none"}>
+            <input type="password" placeholder="새 비밀번호"
+              onChange={(e) => setNewPassword(e.target.value)}></input>
+            <input type="password" placeholder="새 비밀번호 확인"
+              onChange={(e) => setNewPasswordCheck(e.target.value)}></input>
+            <button onClick={changePasswordHandler}>변경</button>
+            <button onClick={() => setOpenPassword(false)}>취소</button>
+          </div>
         </div>
       </div>
     </div>
