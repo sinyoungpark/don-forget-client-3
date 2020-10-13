@@ -9,7 +9,7 @@ export default function Modal(props) {
     const [eventTarget, setTarget] = useState("");
     const [eventType, setType] = useState("");
     const [gift, setGift] = useState("");
-    const { userId, isOpen, setModal, isModify, data_date, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify } = props;
+    const { userId, isOpen, setModal, isModify, data_date, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify, setUseEffect, controllUseEffect } = props;
 
     console.log(data_event_type);
     function handleSaveBtn(e) {
@@ -26,6 +26,7 @@ export default function Modal(props) {
                 .then((res) => console.log(res.data))
                 .then(() => {
                     setModal(!isOpen);
+                    setUseEffect(!controllUseEffect);
                 })
         }
         else {
@@ -48,7 +49,10 @@ export default function Modal(props) {
             }
         })
             .then((res) => console.log(res.data))
-            .then(() => handleModify(!isModify));
+            .then(() => {
+                handleModify(!isModify);
+                setUseEffect(!controllUseEffect);
+            });
     }
 
     return (
