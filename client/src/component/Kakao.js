@@ -1,22 +1,17 @@
 import axios from 'axios';
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import KaKaoLogin from 'react-kakao-login';
 
-class KakaoSignUp extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: 'kakao'
-        }
-    }
+extends defalut function KakaoSignUp(){
+  const [data, setData] = useState("kakao");
+
     responseKaKao = (res) => {
-        console.log('res : ', res)
-        this.setState({
-            data: res
-        })
+        console.log('res : ', res);
+        setData(res);
+
         axios.post('https://www.don-forget.com/user/signin', {
             email: 'kakao',
-            name: this.state.data.profile.properties.nickname
+            name: data.profile.properties.nickname
         })
         .then((response) => response.data)
         .then((response) => {
@@ -33,7 +28,6 @@ class KakaoSignUp extends Component {
     responseFail = (err) => {
         alert(err);
     }
-    render() {
         return (
             <>
                 <KaKaoLogin
@@ -46,6 +40,4 @@ class KakaoSignUp extends Component {
                 />
             </>
         );
-    }
 }
-export default KakaoSignUp;
