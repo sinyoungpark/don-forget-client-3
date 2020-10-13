@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { withRouter } from "react-router-dom";
-import './Intro.css';
+import './Intro.scss';
 import Sample from '../Sample.png';
 
 

@@ -51,6 +51,22 @@
                 transition: all .15s ;
             }
         }
+        .alert{
+            color:rgb(117, 33, 12);
+            border-radius: 8px;
+            background-color: rgb(255, 215, 215);
+            padding : 7px;
+            margin-top: 20px;
+            .alertIcon{
+                background-color: white;
+                color : rgb(241, 63, 63);
+                display: inline-block;
+            }
+            strong{
+                font-size: 20px;
+                margin:10px;
+            }
+        }
         .login_btn{
             width:100%;
             margin-top:40px;
@@ -82,7 +98,7 @@
 }
     
     button.kakao{
-    margin-top: 40px;
+    margin-top: 15px;
     Background-color:yellow;
     border:2px solid yellow;
     color:black;
@@ -93,7 +109,7 @@
     }
     
     button.naver{
-    margin-top: 40px;
+    margin-top: 15px;
     Background-color:rgb(41, 202, 41);
     border:2px solid rgb(41, 202, 41);
     color:black;

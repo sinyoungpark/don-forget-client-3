@@ -1,8 +1,8 @@
 /* 흰 배경 아래로 */
 .background{
-  position: absolute;
+  position: fixed;
   display: table;
-  width: 100%;
+  width: 99%;
   height: 90vh;
   border-radius: 60px;
   box-shadow: -5px -5px 10px 0 rgba(0, 0, 0, 0.5);
@@ -38,8 +38,6 @@
 /* page routing animation */
 .App{
   position: relative;
-  -webkit-animation-name: App;
-  -webkit-animation-duration: 2s;
   animation-name: App;
   animation-duration: 2s
 }

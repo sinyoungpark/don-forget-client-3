@@ -111,5 +111,21 @@
                 transition: all .15s ;
             }
         }
+        .alert{
+            color:rgb(117, 33, 12);
+            border-radius: 8px;
+            background-color: rgb(255, 215, 215);
+            padding : 7px;
+            margin-top: 20px;
+            .alertIcon{
+                background-color: white;
+                color : rgb(241, 63, 63);
+                display: inline-block;
+            }
+            strong{
+                font-size: 20px;
+                margin:10px;
+            }
+        }
     }
 }
