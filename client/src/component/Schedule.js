@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from "axios"
 import Modal from "./Modal"
 import "./Schedule.scss"
@@ -20,20 +20,25 @@ export default function Schedule(props) {
     const [curDataGift, setCurGift] = useState("");
     const [curSchduleId, setCurScheduleId] = useState("");
     const [curEventId, setCurEventId] = useState("");
+  
+    //새로운 변화가 생길 시에만 useEffect가 동작하도록 
+    const [controllUseEffect, setUseEffect] = useState(true);
 
     useEffect(() => {
+            if (controllUseEffect){
+                axios.get(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`)
+                .then((res) => {
+                    let data = res.data;
+                    data = data.sort(function (a, b) {
+                        return new Date(a.date) - new Date(b.date);
+                    });
 
-        axios.get(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`)
-            .then((res) => {
-                let data = res.data;
-                data = data.sort(function (a, b) {
-                    return new Date(a.date) - new Date(b.date);
-                });
-
-                setData(data);
-                console.log(data);
-            })
-    }, []);
+                    setData(data);
+                    setUseEffect(!controllUseEffect);
+                    console.log(data);
+                })
+                } 
+    });
 
     function handleDeleteBtn(e) {
         axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
@@ -42,7 +47,7 @@ export default function Schedule(props) {
                 schedule_id: e.target.name
             }
         })
-            .then((res) => console.log(res))
+            .then((res) => setUseEffect(!controllUseEffect))
     }
     //http://localhost:5000/schedule/:id?event_id=2&schedule_id=3
 
@@ -81,14 +86,14 @@ export default function Schedule(props) {
                                     <span>{data.event_target}</span>
                                     <span className="type">{data.event_type}</span>
                                     <span className="gift">{data.gift}</span>
-                                    <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} />
+                                    <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} setUseEffect={setUseEffect} controllUseEffect={controllUseEffect}/>
                                 </li>
                             </div>
                         )
                     })
                 }
             </ul>
-            <Modal userId={userId} isOpen={isOpen} setModal={setModal} />
+            <Modal userId={userId} isOpen={isOpen} setModal={setModal} setUseEffect={setUseEffect} controllUseEffect={controllUseEffect}/>
         </div>
     )
 }
