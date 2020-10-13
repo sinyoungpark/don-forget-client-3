@@ -14,7 +14,7 @@ class KakaoSignUp extends Component {
         this.setState({
             data: res
         })
-        axios.post('https://www.don-forget.com/user/signin', {
+        axios.post('https://don-forget-server.com/user/signin', {
             socialLogin: 'kakao',
             email: this.state.data.profile.kakao_account.email,
             name: this.state.data.profile.properties.nickname
