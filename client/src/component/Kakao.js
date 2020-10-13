@@ -3,12 +3,11 @@ import React, { useState } from 'react';
 import KaKaoLogin from 'react-kakao-login';
 
 export default function KakaoSignUp(){
-  const [data, setData] = useState("kakao");
+        const [data, setData] = "kakao"
 
-    responseKaKao = (res) => {
-        console.log('res : ', res);
+    function responseKaKao(res){
+        console.log('res : ', res)
         setData(res);
-
         axios.post('https://www.don-forget.com/user/signin', {
             email: 'kakao',
             name: data.profile.properties.nickname
@@ -25,16 +24,18 @@ export default function KakaoSignUp(){
         })
         .catch((err) => console.log(err));
     }
-    responseFail = (err) => {
+
+    function responseFail(err){
         alert(err);
     }
+
         return (
             <>
                 <KaKaoLogin
                     jsKey={'d7fcccce457540e5621e96787fac52a9'}
                     buttonText="KaKao"
-                    onSuccess={this.responseKaKao}
-                    onFailure={this.responseFail}
+                    onSuccess={responseKaKao}
+                    onFailure={responseFail}
                     getProfile={true}
                     useDefaultStyle={true}
                 />
