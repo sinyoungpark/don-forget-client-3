@@ -53,7 +53,7 @@ function Signup({ history }) {
 
     e.preventDefault();
     if (validate(email) && (password === passwordCheck)) {
-      axios.post('http://ec2-3-34-177-67.ap-northeast-2.compute.amazonaws.com:5000/user/signup', {
+      axios.post('https://don-forget-server.com/user/signup', {
         email: email,
         name: name,
         password: password,
