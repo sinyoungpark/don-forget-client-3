@@ -14,6 +14,11 @@ function Signup({ history }) {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
 
+  //회원가입 실패 alert 창 !
+  const [wrongEmail, setWrongEmail] = useState(false);
+  const [wrongPW, setWrongPW] = useState(false);
+
+
   const onChangeHandler = (e) => {
     if (e.target.name === "email") {
       setEmail(e.target.value)
@@ -50,7 +55,6 @@ function Signup({ history }) {
     console.log("pwCheck:", passwordCheck);
     console.log("question:", question);
     console.log("answer:", answer);
-
     e.preventDefault();
     if (validate(email) && (password === passwordCheck)) {
       axios.post('https://don-forget-server.com/user/signup', {
@@ -62,9 +66,10 @@ function Signup({ history }) {
       })
         .then(res => console.log(res))
         .then(() => { history.push('/signin') })
-    } else {
-      validate(email) ? console.log(true) : alert("유효하지 않은 이메일입니다");
-      (password === passwordCheck && password !== "") ? console.log(true) : alert("비밀번호가 일치하지 않습니다");
+    }
+    else {
+      validate(email) ? setWrongEmail(false) : setWrongEmail(true);
+      ((password === passwordCheck) && password !== "") ? setWrongPW(false) : setWrongPW(true);
     }
   }
 
@@ -87,6 +92,14 @@ function Signup({ history }) {
           <input type="text" name="answer" placeholder="Answer *" label="answer" onChange={onChangeHandler} />
           <input name="agree" type="checkbox"></input>
           <label htmlFor="agree">개인정보 수집 동의</label>
+          <div className={wrongEmail ? "alert" : "none"}>
+            <strong> ⚠️ &nbsp; Error</strong>
+                    유효하지 않은 이메일입니다.
+                </div>
+          <div className={wrongPW ? "alert" : "none"}>
+            <strong> ⚠️ &nbsp; Error</strong>
+            비밀번호가 일치하지 않습니다
+                </div>
           <button onClick={signUpBtnHandler}>회원가입</button>
         </form>
       </div>

@@ -29,6 +29,9 @@ export default function Signin(props) {
     const [isOpenStepOne, setStepOne] = useState(false);
     const [isOpenStepTwo, setStepTwo] = useState(false);
 
+    //로그인 실패 alert 창 !
+    const [isOpenAlert, setAlert] = useState(false);
+
     function handleLoginBtn(e) {
         e.preventDefault();
         axios.post('https://don-forget-server.com/user/signin', {
@@ -48,7 +51,7 @@ export default function Signin(props) {
                 inputPW("");
                 setIsLogin(true);
             })
-            .catch((err) => console.log(err));
+            .catch((err) => setAlert(true));
     }
 
 
@@ -65,7 +68,7 @@ export default function Signin(props) {
                 setQuestion(data.password_question);
                 setAnswer(data.password_answer);
                 getUserid(data.id)
-                setStepTwo(!isOpenStepTwo);
+                setStepTwo(false);
             })
             .catch((err) => console.log(err))
     }
@@ -111,6 +114,10 @@ export default function Signin(props) {
                     setStepOne(!isOpenStepOne);
                 }}> 비밀번호 찾기 </a>
                 <a href="/signup" className="signinLink">회원가입 </a>
+                <div className={isOpenAlert ? "alert" : "none"}>
+                    <strong> ⚠️ &nbsp; Error</strong> 
+                    아이디와 비밀번호가 일치하지 않습니다.
+                </div>
             </form>
             <span>
                 <button className="kakao">Kakao</button>
