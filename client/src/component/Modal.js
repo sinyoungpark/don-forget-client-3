@@ -70,7 +70,7 @@ export default function Modal(props) {
                     <input className="modify_event" defaultValue={data_event_target} type="text" placeholder="event target *" label="event target" onChange={(e) => setTarget(e.target.value)} />
 
                     <select className="event_type add_event" onChange={(e) => setType(e.target.value)}>
-                        <option value="" disabled selected> 경조사 종류 *</option>
+                        <option value="" disabled selected> 경조사 종류</option>
                         <option value="생일">생일</option>
                         <option value="결혼식">결혼식</option>
                         <option value="장례식">장례식</option>
@@ -84,7 +84,7 @@ export default function Modal(props) {
                     </select>
 
                     <select className="event_type modify_event" onChange={(e) => setType(e.target.value)} defaultValue={data_event_type}>
-                        <option value="" disabled selected> 경조사 종류 *</option>
+                        <option value="" disabled selected> 경조사 종류</option>
                         <option value="생일">생일</option>
                         <option value="결혼식">결혼식</option>
                         <option value="장례식">장례식</option>
