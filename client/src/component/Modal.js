@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import TextField from "@material-ui/core/TextField"
 import { makeStyles } from '@material-ui/core/styles';
 import axios from "axios";
-import "./Modal.css"
-
+import "./Modal.scss"
 
 export default function Modal(props) {
     const [date, setDate] = useState("");
@@ -11,6 +10,8 @@ export default function Modal(props) {
     const [eventType, setType] = useState("");
     const [gift, setGift] = useState("");
     const { userId, isOpen, setModal, isModify, data_date, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify } = props;
+
+    console.log(data_event_type);
     function handleSaveBtn(e) {
 
         e.preventDefault();
@@ -95,24 +96,22 @@ export default function Modal(props) {
                     <input className="add_event" type="text" placeholder="gift *" label="gift" onChange={(e) => setGift(e.target.value)} />
 
                     <input className="modify_event" defaultValue={data_gift} type="text" placeholder="gift *" label="gift" onChange={(e) => setGift(e.target.value)} />
-
-                    <button className="add_event" onClick={(e) => {
-                        e.preventDefault();
-                        setModal(!isOpen)
-                    }}>취소</button>
-
-                    <button className="modify_event" onClick={(e) => {
-                        e.preventDefault();
-                        handleModify(!isModify);
-                    }}>취소</button>
-                    <button className="add_event" onClick={handleSaveBtn}>저장하기</button>
-                    <button className="modify_event" onClick={handleModifyBtn} name={schedule_id} value={event_id}>수정하기</button>
                 </form>
+                <button className="add_event" onClick={(e) => {
+                    e.preventDefault();
+                    setModal(!isOpen)
+                }}>취소</button>
+
+                <button className="modify_event" onClick={(e) => {
+                    e.preventDefault();
+                    handleModify(!isModify);
+                }}>취소</button>
+                <button className="add_event" onClick={handleSaveBtn}>저장하기</button>
+                <button className="modify_event" onClick={handleModifyBtn} name={schedule_id} value={event_id}>수정하기</button>
             </div>
         </div>
     )
 }
-
 
 
 
