@@ -22,13 +22,13 @@ export default function Schedule(props) {
     const [curSchduleId, setCurScheduleId] = useState("");
     const [curEventId, setCurEventId] = useState("");
     const [curGiveAndTake, setCurGiveAndTake] = useState("");
-  
+
     //새로운 변화가 생길 시에만 useEffect가 동작하도록 
     const [controllUseEffect, setUseEffect] = useState(true);
 
     useEffect(() => {
-            if (controllUseEffect){
-                axios.get(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`)
+        if (controllUseEffect) {
+            axios.get(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`)
                 .then((res) => {
                     let data = res.data;
                     data = data.sort(function (a, b) {
@@ -39,11 +39,15 @@ export default function Schedule(props) {
                     setUseEffect(!controllUseEffect);
                     console.log(data);
                 })
-                } 
+        }
     });
 
     function handleDeleteBtn(e) {
-        axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}/${e.target.name}`)
+        axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`,{
+                params : {
+                    schedule_id : e.target.name
+                }
+         })
             .then((res) => setUseEffect(!controllUseEffect))
     }
     //http://localhost:5000/schedule/:id?event_id=2&schedule_id=3
@@ -80,19 +84,20 @@ export default function Schedule(props) {
                                     <button className="li_button" onClick={handleDeleteBtn} name={data.id} value={data.event_id}>삭제</button>
                                     <button className="li_button" onClick={(e) => {
                                         e.preventDefault();
-                                        handleModifyBtn(date, data.event_target, data.event_type, data.gift, data.id, data.event_id, data.giveandtake);
+                                        handleModifyBtn(date, data.event_target, data.type, data.gift, data.id, data.event_id, data.giveandtake);
                                     }}>수정</button>
-                                    <span className={data.event_type}>{data.event_target}</span>
-                                    <span className="type">{data.event_type}</span>
+                                    <span className={data.type}>{data.event_target}</span>
+                                    <span className="type">{data.type}</span>
+                                    <span>{data.giveandtake}</span>
                                     <span className="gift">{data.gift}</span>
-                                    <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} setUseEffect={setUseEffect} controllUseEffect={controllUseEffect} data_giveandtake={curGiveAndTake}/>
+                                    <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} setUseEffect={setUseEffect} controllUseEffect={controllUseEffect} data_giveandtake={curGiveAndTake} />
                                 </li>
                             </div>
                         )
                     })
                 }
             </ul>
-            <Modal userId={userId} isOpen={isOpen} setModal={setModal} setUseEffect={setUseEffect} controllUseEffect={controllUseEffect}/>
+            <Modal userId={userId} isOpen={isOpen} setModal={setModal} setUseEffect={setUseEffect} controllUseEffect={controllUseEffect} />
         </div>
     )
 }

@@ -6,51 +6,30 @@ import { CSSTransitionGroup } from "react-transition-group";
 import axios from "axios";
 //import kakao-api
 import KakaoSignUp from "./Kakao";
-
-//transition
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grow from '@material-ui/core/Grow';
-
-const useStyles = makeStyles((theme) => ({
-    paper: {
-        boxShadows: "none"
-    }
-}));
-
 export default function Signin(props) {
-    const classes = useStyles();
-
     const { setIsLogin, setEmail, setName, setUserId } = props;
     const [email, inputEmail] = useState("");
     const [password, inputPW] = useState("");
-
     //findPW
     const [name, inputName] = useState("");
-
     //qustion
     const [password_question, setQuestion] = useState("");
     const [password_answer, setAnswer] = useState("");
     const [userid, getUserid] = useState("");
     const [inputValue, userAnswer] = useState("");
-
     //open 비밀번호 재설정 modal창 
     const [isOpenNewPW, setNewPW] = useState(false);
     const [passwordCheck, inputPWCheck] = useState("");
-
     //modal 창 isOpen
     const [isOpenStepOne, setStepOne] = useState(false);
     const [isOpenStepTwo, setStepTwo] = useState(false);
-
     //로그인 실패 alert 창 !
     const [isOpenAlert, setAlert] = useState(false);
-
-
     function handleLoginBtn(e) {
         e.preventDefault();
         axios.post('https://don-forget-server.com/user/signin', {
             email: email,
-            password: password
+            password: password   
         })
             .then((response) => response.data)
             .then((response) => {
@@ -66,7 +45,6 @@ export default function Signin(props) {
             })
             .catch((err) => setAlert(true));
     }
-
     function handleFindPw(e) {
         e.preventDefault();
         inputEmail("");
@@ -80,18 +58,16 @@ export default function Signin(props) {
                 setQuestion(data.password_question);
                 setAnswer(data.password_answer);
                 getUserid(data.id)
-                setStepTwo(false);
+                setStepTwo(true);
             })
             .catch((err) => console.log(err))
     }
-
     function openPwSettingModal(e) {
         e.preventDefault();
         if (password_answer === inputValue) {
             setNewPW(true);
         }
     }
-
     function setNewPw(e) {
         e.preventDefault();
         if (password === passwordCheck) {
@@ -107,7 +83,6 @@ export default function Signin(props) {
                 })
         }
     }
-
     return (
         <div className="signin">
             <Avatar style={{ backgroundColor: '#3b23a6' }}>
@@ -126,7 +101,7 @@ export default function Signin(props) {
                 }}> 비밀번호 찾기 </a>
                 <a href="/signup" className="signinLink">회원가입 </a>
                 <div className={isOpenAlert ? "alert" : "none"}>
-                    <strong> ⚠️ &nbsp; Error</strong>
+                    <strong> ⚠️ &nbsp; Error</strong> 
                     아이디와 비밀번호가 일치하지 않습니다.
                 </div>
             </form>
@@ -135,20 +110,16 @@ export default function Signin(props) {
                 <button className="naver">Naver</button>
             </span>
             <form className={isOpenStepOne ? "modal" : "none"}>
-                <Grow in={isOpenStepOne}>
-                    <Paper elevation={4} className={classes.paper}>
-                        <div className="content">
-                            <h3>비밀번호 찾기 Step One</h3>
-                            <p> 비밀번호를 찾고자 하는 아이디와 이름을 입력해 주세요.</p>
-                            <div className="findPW">
-                                <input type="text" placeholder="don-forget 이메일" onChange={(e) => inputEmail(e.target.value)} />
-                                <input type="text" placeholder="don-forget 이름" onChange={(e) => inputName(e.target.value)} />
-                            </div>
-                            <button>취소</button>
-                            <button onClick={handleFindPw}>다음</button>
-                        </div>
-                    </Paper>
-                </Grow>
+                <div className="content">
+                    <h3>비밀번호 찾기 Step One</h3>
+                    <p> 비밀번호를 찾고자 하는 아이디와 이름을 입력해 주세요.</p>
+                    <div className="findPW">
+                        <input type="text" placeholder="don-forget 이메일" onChange={(e) => inputEmail(e.target.value)} />
+                        <input type="text" placeholder="don-forget 이름" onChange={(e) => inputName(e.target.value)} />
+                    </div>
+                    <button>취소</button>
+                    <button onClick={handleFindPw}>다음</button>
+                </div>
             </form>
             <form className={isOpenStepTwo ? "modal" : "none"}>
                 <div className="content">
@@ -172,6 +143,6 @@ export default function Signin(props) {
                     <button onClick={setNewPw}>확인</button>
                 </div>
             </form>
-        </div >
+        </div>
     )
 }
