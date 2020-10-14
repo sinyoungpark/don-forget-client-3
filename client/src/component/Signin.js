@@ -8,6 +8,7 @@ import Logo from '../Logo.png';
 
 //import kakao-api
 import KakaoSignUp from "./Kakao";
+import NaverSignUp from "./Naver";
 
 export default function Signin(props) {
   const { setIsLogin, setEmail, setName, setUserId } = props;
@@ -111,7 +112,7 @@ export default function Signin(props) {
       <span>
         <p>OR</p>
         <KakaoSignUp setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} />
-        <a href="https://don-forget-server.com/oauth/naver"><button className="naver">Sign in with <strong>Naver</strong></button></a>
+        <NaverSignUp setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} />
       </span>
       <form className={isOpenStepOne ? "modal" : "none"}>
         <div className="content">
