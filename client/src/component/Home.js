@@ -55,7 +55,7 @@ function Home({ userId, history }) {
                           if (obj.date !== null && obj.date.slice(0, 10) === current.format().slice(0, 10)) {
                             console.log(current.format().slice(0, 10));
                             return (
-                              <li key={obj.id} className={obj.event_type}>
+                              <li key={obj.id} className={obj.type}>
                                 <hr />
                               </li>
                             )
@@ -130,9 +130,7 @@ function Home({ userId, history }) {
             <span className="title">{month}</span>
             {/* 월 선택 모달 오픈 버튼 */}
             <button className="select_month" onClick={selectMonth}>
-              {openSelectMonth ? <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24" height="24"><path d="M0 0h24v24H0z" fill="none" /><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" /></svg>
-                : <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none" /><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" /></svg>
-              }
+              {openSelectMonth ? "˄" : "˅"}
             </button>
             {/* 스케줄 추가 버튼 */}
             <button className="add_schedule"
@@ -193,8 +191,8 @@ function Home({ userId, history }) {
                 if (obj.date !== null && obj.date.slice(0, 10) === selectedDate.format().slice(0, 10)) {
                   return (
                     <li key={obj.id}>
-                      <div className={obj.event_type}>
-                        {obj.event_target} {obj.event_type}
+                      <div className={obj.type}>
+                        {obj.event_target} {obj.type}
                         <div className="gift">{obj.gift}</div>
                       </div>
                     </li>
