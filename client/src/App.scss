@@ -1,12 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 @import "./mixin";
 
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
 
-@include desktop {
 body{
   overflow-y:scroll; 
   overflow-x: scroll;
 }
 
+@include desktop{
 /* 흰 배경 아래로 */
 .background{
   position: fixed;

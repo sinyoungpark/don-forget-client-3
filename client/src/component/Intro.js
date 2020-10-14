@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { withRouter } from "react-router-dom";
 import './Intro.scss';
-import Sample from '../Sample.png';
+import Logo from '../Logo.png';
 
 
 function Intro() {
@@ -10,7 +10,7 @@ function Intro() {
     <div className="intro">
       <div className="full_page">
         <div className="title_content">
-          <img className="logo_sample" src={Sample} alt="Sample" />
+          <img className="logo" src={Logo} alt="Logo_don-forget" />
           <div className="title">돈't forget</div>
           <div className="desc">laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium</div>
         </div>
