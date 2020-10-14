@@ -117,8 +117,10 @@ export default function Signin(props) {
                         <input type="text" placeholder="don-forget 이메일" onChange={(e) => inputEmail(e.target.value)} />
                         <input type="text" placeholder="don-forget 이름" onChange={(e) => inputName(e.target.value)} />
                     </div>
-                    <button>취소</button>
-                    <button onClick={handleFindPw}>다음</button>
+                    <div className="findPwBtn">
+                        <button>취소</button>
+                        <button onClick={handleFindPw}>다음</button>
+                    </div>
                 </div>
             </form>
             <form className={isOpenStepTwo ? "modal" : "none"}>
