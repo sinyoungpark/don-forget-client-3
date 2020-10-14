@@ -12,6 +12,7 @@ export default function KakaoSignUp() {
             email: 'kakao',
             name: data.profile.properties.nickname
         })
+<<<<<<< HEAD
             .then((response) => response.data)
             .then((response) => {
                 window.sessionStorage.setItem("id", response.id);
@@ -23,6 +24,19 @@ export default function KakaoSignUp() {
                 this.props.setIsLogin(true);
             })
             .catch((err) => console.log(err));
+=======
+        .then((response) => response.data)
+        .then((response) => {
+            window.sessionStorage.setItem("id", response.id);
+            window.sessionStorage.setItem("email", response.email);
+            window.sessionStorage.setItem("name", response.name);
+            this.props.setEmail(response.email);
+            this.props.setName(response.name);
+            this.props.setUserId(response.id);
+            this.props.setIsLogin(true);
+        })
+        .catch((err) => console.log(err));
+>>>>>>> 9e7668a8ca3f91c15ce249b48a0b6e6f38f4c312
     }
 
     function responseFail(err) {

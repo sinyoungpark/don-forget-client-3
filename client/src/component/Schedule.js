@@ -4,6 +4,7 @@ import axios from "axios"
 import Modal from "./Modal"
 import "./Schedule.scss"
 
+
 export default function Schedule(props) {
     const { userId } = props;
 
@@ -41,12 +42,7 @@ export default function Schedule(props) {
     });
 
     function handleDeleteBtn(e) {
-        axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
-            params: {
-                event_id: e.target.value,
-                schedule_id: e.target.name
-            }
-        })
+        axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}/${e.target.name}`)
             .then((res) => setUseEffect(!controllUseEffect))
     }
     //http://localhost:5000/schedule/:id?event_id=2&schedule_id=3
