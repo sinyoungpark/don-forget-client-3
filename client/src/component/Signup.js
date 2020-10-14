@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { withRouter } from "react-router-dom";
 import './Signup.scss'
-import Sample from '../Sample.png'
+import Logo from '../Logo.png'
 
 import axios from "axios";
 
@@ -76,7 +76,7 @@ function Signup({ history }) {
   return (
     <div className="signup">
       <div className="signup_content">
-        <img className="logo_sample" src={Sample} alt="Sample" />
+        <img className="logo" src={Logo} alt="Logo_don-forget" />
         <h1>Sign up</h1>
         <form className="inputValue">
           <input type="text" name="email" onChange={onChangeHandler} placeholder="Email Address *" label="Email Address" />
