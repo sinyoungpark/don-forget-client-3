@@ -32,7 +32,7 @@ export default function KakaoSignUp(){
                     onSuccess={responseKaKao}
                     onFailure={responseFail}
                     getProfile={true}
-                    useDefaultStyle={true}
+                    useDefaultStyle={false}
                 />
             </>
         );
