@@ -1,130 +1,221 @@
+@import "../mixin";
 
-
-/* 전체 콘텐츠 틀 */
-/*전체정렬 signin 컴포넌트*/
-.signup{
-    padding-top: 50px;
-    display : flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* h1 login css */
-.signup h1{
-    font-weight: 400;
-    font-size:25px;
-    text-align: center;
-}
-
-
-.signup .logo_sample {
-    width: 100px;
-    display: block;
-    margin: 0px auto;
-}
-.signup .signup_title {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #4a4a4a;
-}
-.signup_content label {
-    display: block;
-    margin-top: 1rem;
-    color: #4a4a4a;
-}
-
-.signup_content select {
-    display: block;
-    width: 100%;
-    height: 45px;
-    margin-bottom: 1px;
-    margin-top : 10px;
-    border: none;
-    outline: none;
-    background-color: white;
-    border-bottom: 2px solid black;
-    font-size: 17px;
-    padding-top : 20px;
-}
-.signup_content select:focus{
-    border-color : blue;
-}
-
-.signup_content input[type="checkbox"] {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    margin: 4px;
-}
-.signup_content label[for="agree"] {
-    display: inline-block;
-    font-size: 0.8rem;
-}
-
-.signup_content button {
-    width:100%;
-    margin-top:40px;
-    color:white;
-    background-color: #3b23a6;
-    border-radius: 5px;
-    padding: 12px;
-    border:none;
-}
-
-.signup_content button:hover{
-    background-color:#3436ad;
-    cursor: pointer;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-}
-
-
-.signup_content{
-    .inputValue{
-        input[type="text"], input[type="password"]{
+@include desktop {
+    /*전체정렬 signin 컴포넌트*/
+    .signup{
+        padding: 60px;
+        display : flex;
+        flex-direction: column;
+        align-items: center;
+    
+        /* h1 login css */
+        h1{
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a4a4a;
+            margin: 0;
+        }
+        .logo_sample {
+            width: 80px;
             display: block;
-            margin-top: 20px;
-            border: none;
-            border-bottom: 2px solid black;
-            width : 400px;
-            font-size: 17px;
-            outline: none;
-            height: 30px;
-            padding-top : 20px;
-
-            &:focus{
-                border-color : blue;
+            margin: 10px auto;
+        }
+    }
+    .signup_content {
+        .inputValue {
+            select {
+                display: block;
+                width: 100%;
+                height: 32px;
+                margin-top : 35px;
+                border: none;
+                border-bottom: 1px solid #4a4a4a;
+                font-size: 15px;
+                &:focus{
+                    border-color : #3b23a6;
+                }
             }
-            &:hover{
-                border-width : 3px;
+            input[type="checkbox"] {
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                margin: 4px;
             }
-            &::placeholder{
-                position: relative;
-                top: 0px;
+            label[for="agree"] {
+                display: inline-block;
+                font-size: 0.8rem;
+                color: #4a4a4a;
+                margin: 1rem 0 0 0;
             }
-            &:focus::placeholder{
-                color : #3b23a6;
-                font-size: 13px;
-                position :relative;
-                top : -30px;
-                -webkit-transition: all .15s ;
-                transition: all .15s ;
+            button {
+                width:100%;
+                margin-top: 20px;
+                color:white;
+                background-color: #3b23a6;
+                border-radius: 5px;
+                padding: 12px;
+                border:none;
+                &:hover{
+                    background-color:#3436ad;
+                    cursor: pointer;
+                    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+                }
+            }
+            input[type="text"], input[type="password"]{
+                display: block;
+                margin-top: 15px;
+                border: none;
+                border-bottom: 1px solid #4a4a4a;
+                width : 400px;
+                font-size: 15px;
+                outline: none;
+                height: 30px;
+                padding-top : 20px;
+    
+                &:focus{
+                    border-color : #3436ad;
+                }
+                &::placeholder{
+                    position: relative;
+                    top: 0px;
+                }
+                &:focus::placeholder{
+                    color : #3b23a6;
+                    font-size: 13px;
+                    position :relative;
+                    top : -30px;
+                    -webkit-transition: all .15s ;
+                    transition: all .15s ;
+                }
+            }
+            .alert{
+                color: rgb(117, 33, 12);
+                border-radius: 6px;
+                background-color: rgb(255, 215, 215);
+                padding: 7px 50px;
+                margin-top: 20px;
+                font-size: 15px;
+                .alertIcon{
+                    background-color: white;
+                    color : rgb(241, 63, 63);
+                    display: inline-block;
+                }
+                strong{
+                    font-size: 15px;
+                    margin: 10px;
+                }
             }
         }
-        .alert{
-            color:rgb(117, 33, 12);
-            border-radius: 8px;
-            background-color: rgb(255, 215, 215);
-            padding : 7px;
-            margin-top: 20px;
-            .alertIcon{
-                background-color: white;
-                color : rgb(241, 63, 63);
-                display: inline-block;
+    }
+}
+
+@include mobile {
+    /*전체정렬 signin 컴포넌트*/
+    .signup{
+        padding: 60px;
+        display : flex;
+        flex-direction: column;
+        align-items: center;
+    
+        /* h1 login css */
+        h1{
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a4a4a;
+            margin: 0;
+        }
+        .logo_sample {
+            width: 80px;
+            display: block;
+            margin: 10px auto;
+        }
+    }
+    .signup_content {
+        .inputValue {
+            select {
+                display: block;
+                width: 100%;
+                height: 32px;
+                margin-top : 35px;
+                border: none;
+                border-bottom: 1px solid #4a4a4a;
+                font-size: 15px;
+                &:focus{
+                    border-color : #3b23a6;
+                }
             }
-            strong{
-                font-size: 20px;
-                margin:10px;
+            input[type="checkbox"] {
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                margin: 4px;
+            }
+            label[for="agree"] {
+                display: inline-block;
+                font-size: 0.8rem;
+                color: #4a4a4a;
+                margin: 1rem 0 0 0;
+            }
+            button {
+                display: block;
+                width: 100%;
+                margin-top: 20px;
+                color:white;
+                background-color: #3b23a6;
+                border-radius: 5px;
+                padding: 12px;
+                border:none;
+                &:hover{
+                    background-color:#3436ad;
+                    cursor: pointer;
+                    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+                }
+            }
+            input[type="text"], input[type="password"]{
+                display: block;
+                margin-top: 15px;
+                border: none;
+                border-bottom: 1px solid #4a4a4a;
+                width: 300px;
+                font-size: 15px;
+                outline: none;
+                height: 30px;
+                padding-top : 20px;
+    
+                &:focus{
+                    border-color : #3436ad;
+                }
+                &::placeholder{
+                    position: relative;
+                    top: 0px;
+                }
+                &:focus::placeholder{
+                    color : #3b23a6;
+                    font-size: 13px;
+                    position :relative;
+                    top : -30px;
+                    -webkit-transition: all .15s ;
+                    transition: all .15s ;
+                }
+            }
+            .alert{
+                color: rgb(117, 33, 12);
+                border-radius: 6px;
+                background-color: rgb(255, 215, 215);
+                padding: 7px 50px;
+                margin-top: 20px;
+                font-size: 15px;
+                .alertIcon{
+                    background-color: white;
+                    color : rgb(241, 63, 63);
+                    display: inline-block;
+                }
+                strong{
+                    font-size: 15px;
+                    margin: 10px;
+                }
             }
         }
     }

@@ -7,8 +7,19 @@ import axios from "axios";
 //import kakao-api
 import KakaoSignUp from "./Kakao";
 
+//transition
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grow from '@material-ui/core/Grow';
+
+const useStyles = makeStyles((theme) => ({
+    paper: {
+        boxShadows: "none"
+    }
+}));
 
 export default function Signin(props) {
+    const classes = useStyles();
 
     const { setIsLogin, setEmail, setName, setUserId } = props;
     const [email, inputEmail] = useState("");
@@ -124,16 +135,22 @@ export default function Signin(props) {
                 <button className="naver">Naver</button>
             </span>
             <form className={isOpenStepOne ? "modal" : "none"}>
-                <div className="content">
-                    <h3>비밀번호 찾기 Step One</h3>
-                    <p> 비밀번호를 찾고자 하는 아이디와 이름을 입력해 주세요.</p>
-                    <div className="findPW">
-                        <input type="text" placeholder="don-forget 이메일" onChange={(e) => inputEmail(e.target.value)} />
-                        <input type="text" placeholder="don-forget 이름" onChange={(e) => inputName(e.target.value)} />
-                    </div>
-                    <button>취소</button>
-                    <button onClick={handleFindPw}>다음</button>
-                </div>
+                <Grow in={isOpenStepOne}>
+                    <Paper elevation={4} className={classes.paper}>
+                        <div className="content">
+                            <h3>비밀번호 찾기 Step One</h3>
+                            <p> 비밀번호를 찾고자 하는 아이디와 이름을 입력해 주세요.</p>
+                            <div className="findPW">
+                                <input type="text" placeholder="don-forget 이메일" onChange={(e) => inputEmail(e.target.value)} />
+                                <input type="text" placeholder="don-forget 이름" onChange={(e) => inputName(e.target.value)} />
+                            </div>
+                            <div className="findPwBtn">
+                                <button>취소</button>
+                                <button onClick={handleFindPw}>다음</button>
+                            </div>
+                        </div>
+                    </Paper>
+                </Grow>
             </form>
             <form className={isOpenStepTwo ? "modal" : "none"}>
                 <div className="content">
