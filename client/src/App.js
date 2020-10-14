@@ -12,36 +12,7 @@ import Schedule from "./component/Schedule";
 import Search from './component/Search';
 
 
-//switch 
-import Slide from '@material-ui/core/Slide';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Paper from '@material-ui/core/Paper';
-import shadows from "@material-ui/core/styles/shadows";
-import { relativeTimeRounding } from 'moment';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    height: 180,
-  },
-  wrapper: {
-    width: 100 + theme.spacing(2),
-  },
-  paper: {
-    boxShadow: "none",
-    zIndex: 1,
-    position: "relative"
-  },
-  svg: {
-    width: 100,
-    height: 1000
-  },
-  polygon: {
-    fill: theme.palette.common.white,
-    stroke: theme.palette.divider,
-    strokeWidth: 10,
-  },
-}));
 
 
 function App(props) {
@@ -65,15 +36,9 @@ function App(props) {
   console.log(isLogin)
   console.log(email, name);
 
-  const classes = useStyles();
-
   return (
     <div className="App">
       <Nav />
-      <Slide direction={(props.location.pathname === "/signin" || props.location.pathname === "/signup" || props.location.pathname === "/intro") ? (props.location.pathname === "/intro"  ? "down" : "up") : "right"} in={true} mountOnEnter unmountOnExit {...(true ? { timeout: 3000 } : {})}>
-        <Paper elevation={10} className={classes.paper}>
-          {/* <svg className={classes.svg}> */}
-          <polygon points="0,100 50,00, 100,100" className={classes.polygon}>
             <div className={props.location.pathname === "/intro" ? "background" : props.location.pathname === "/signin" || props.location.pathname === "/signup" ? "fullBackground" : "sideBackground"}>
               <Switch>
                 <Route exact path="/intro" render={() => {
@@ -128,9 +93,6 @@ function App(props) {
               </Switch>
             </div>
             {/* </svg> */}
-          </polygon>
-        </Paper>
-      </Slide>
     </div>
   );
 }
