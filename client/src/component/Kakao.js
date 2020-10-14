@@ -27,7 +27,7 @@ export default function KakaoSignUp(props) {
     <>
       <KaKaoLogin
         jsKey={'d7fcccce457540e5621e96787fac52a9'}
-        buttonText="KaKao"
+        buttonText="Sign in with KaKao"
         onSuccess={responseKaKao}
         onFailure={responseFail}
         getProfile={true}
