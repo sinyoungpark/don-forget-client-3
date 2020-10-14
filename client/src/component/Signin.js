@@ -47,14 +47,14 @@ export default function Signin(props) {
     }
     function handleFindPw(e) {
         e.preventDefault();
-        inputEmail("");
-        inputName("");
         axios.post('https://don-forget-server.com/user/findpassword/stepone', {
             name: name,
             email: email
         })
             .then((response) => response.data)
             .then((data) => {
+                inputEmail("");
+                inputName("");
                 setQuestion(data.password_question);
                 setAnswer(data.password_answer);
                 getUserid(data.id)
