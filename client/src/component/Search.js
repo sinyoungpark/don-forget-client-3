@@ -96,7 +96,7 @@ function Search(props) {
                     <span className="type">{data.type}</span>
                     <span>{data.giveandtake}</span>
                     <span className="gift">{data.gift}</span>
-                    <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} />
+                    <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} searchKeyword={searchKeyword} searchData={searchData}/>
                   </li>
                 </div>
               )
