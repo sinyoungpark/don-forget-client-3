@@ -4,8 +4,11 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import "./Signin.scss"
 import { CSSTransitionGroup } from "react-transition-group";
 import axios from "axios";
+import Logo from '../Logo.png';
+
 //import kakao-api
 import KakaoSignUp from "./Kakao";
+
 export default function Signin(props) {
   const { setIsLogin, setEmail, setName, setUserId } = props;
   const [email, inputEmail] = useState("");
@@ -87,9 +90,7 @@ export default function Signin(props) {
   }
   return (
     <div className="signin">
-      <Avatar style={{ backgroundColor: '#3b23a6' }}>
-        <LockOutlinedIcon />
-      </Avatar>
+      <img className="logo" src={Logo} alt="Logo_don-forget" />
       <h1>Login</h1>
       <form className="inputValue">
         <input type="text" placeholder="Email Address *" label="Email Address" onChange={(e) => inputEmail(e.target.value)} />
