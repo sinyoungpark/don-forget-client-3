@@ -71,6 +71,24 @@
         } 
     }
     }
+
+    .buttonGroup{
+        position : relative;
+        left : -10%;
+        .selected {
+            background-color: #3436ad;
+            color : white;
+        }
+        button{
+            margin : 0px;
+            border : none;
+            background-color: whitesmoke;
+            font-size : 20px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
     
     
     

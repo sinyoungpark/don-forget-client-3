@@ -9,7 +9,9 @@ export default function Modal(props) {
     const [eventTarget, setTarget] = useState("");
     const [eventType, setType] = useState("");
     const [gift, setGift] = useState("");
-    const { userId, isOpen, setModal, isModify, data_date, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify, setUseEffect, controllUseEffect } = props;
+    const [giveAndTake, setGiveAndTake] = useState("");
+
+    const { userId, isOpen, setModal, isModify, data_date, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify, setUseEffect, controllUseEffect, data_giveandtake } = props;
 
     console.log(data_event_type);
     function handleSaveBtn(e) {
@@ -21,7 +23,8 @@ export default function Modal(props) {
                 date: date,
                 event_target: eventTarget,
                 event_type: eventType,
-                gift: gift
+                gift: gift,
+                data_giveandtake : data_giveandtake
             })
                 .then((res) => console.log(res.data))
                 .then(() => {
@@ -41,7 +44,8 @@ export default function Modal(props) {
             date: date ? date : data_date,
             event_target: eventTarget ? eventTarget : data_event_target,
             event_type: eventType ? eventType : data_event_type,
-            gift: gift ? gift : data_gift
+            gift: gift ? gift : data_gift,
+            giveandtake : data_giveandtake ? giveAndTake : data_giveandtake
         })
             .then((res) => console.log(res.data))
             .then(() => {
@@ -55,6 +59,15 @@ export default function Modal(props) {
             <div className="content">
                 <h3 className="add_event">경조사 추가하기</h3>
                 <h3 className="modify_event">수정하기</h3>
+
+                <div className={"buttonGroup"}>
+                        <button value="give" className={giveAndTake === "give" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
+                            setGiveAndTake(e.target.value);
+                        }}>give</button>
+                        <button value="take" className={giveAndTake === "take" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
+                            setGiveAndTake(e.target.value);
+                        }}>take</button>
+                    </div>
                 <form>
                     <input className="add_event" type="date" id="birthday" name="birthday" onChange={(e) => setDate(e.target.value)} placeholder="eventDate *" />
 
