@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import axios from "axios"
 import Modal from "./Modal"
 import "./Schedule.scss"
-import SimpleSlide from "./test"
+
 
 export default function Schedule(props) {
     const { userId } = props;
