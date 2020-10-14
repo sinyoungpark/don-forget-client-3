@@ -37,16 +37,11 @@ export default function Modal(props) {
     function handleModifyBtn(e) {
         e.preventDefault();
 
-        axios.put(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
+        axios.put(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}/${e.target.name}`, {
             date: date ? date : data_date,
             event_target: eventTarget ? eventTarget : data_event_target,
             event_type: eventType ? eventType : data_event_type,
             gift: gift ? gift : data_gift
-        }, {
-            params: {
-                event_id: e.target.value,
-                schedule_id: e.target.name
-            }
         })
             .then((res) => console.log(res.data))
             .then(() => {
@@ -70,7 +65,7 @@ export default function Modal(props) {
                     <input className="modify_event" defaultValue={data_event_target} type="text" placeholder="event target *" label="event target" onChange={(e) => setTarget(e.target.value)} />
 
                     <select className="event_type add_event" onChange={(e) => setType(e.target.value)}>
-                        <option value="" disabled selected> 경조사 종류 *</option>
+                        <option value="" disabled selected> 경조사 종류</option>
                         <option value="생일">생일</option>
                         <option value="결혼식">결혼식</option>
                         <option value="장례식">장례식</option>
@@ -84,7 +79,7 @@ export default function Modal(props) {
                     </select>
 
                     <select className="event_type modify_event" onChange={(e) => setType(e.target.value)} defaultValue={data_event_type}>
-                        <option value="" disabled selected> 경조사 종류 *</option>
+                        <option value="" disabled selected> 경조사 종류</option>
                         <option value="생일">생일</option>
                         <option value="결혼식">결혼식</option>
                         <option value="장례식">장례식</option>

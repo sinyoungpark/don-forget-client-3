@@ -1,74 +1,74 @@
 /* 모달창 css */
 .addModal {
-    position: fixed;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
-    z-index: 10;
-    background: rgba(0,0,0,0.3);
-    .content{
-    position: absolute;
-    left:50%;
-    top:50%;
-    z-index: 2;
-    transform: translate3d(-50%, -50%, 0);
-    background: whitesmoke;
-    box-shadow: 0 0 5px #000;
-    width: 30%;
-    height: 50%;
-    padding: 80px;
-    input{
-    margin: 20px 0px 0px 0px;
-    border: none;
-    border-bottom: 2px solid black;
-    width : 70%;
-    font-size: 17px;
-    outline: none;
-    height: 30px;
-    padding-top : 20px;
-    background-color: whitesmoke;
-    &:focus{
-    border-color : blue;
-    }
-    &:hover{
-    border-width : 3px;
-    }
-    &::placeholder{
-    position: relative;
-    top: 0px;
-    }
-    &:focus::placeholder{
-    color : #3b23a6;
-    font-size: 13px;
-    position :relative;
-    top : -30px;
-    -webkit-transition: all .15s ;
-    transition: all .15s ;
-    }
-    }
-    .modify_event{
-    display: none;
-    }
-    h3{
-    border-bottom : 3px solid black;
-    padding: 10px;
-    }
-    form{
-    flex: 1;
-    align-items: center;
-    margin: 10% 0% 0% 20%;
-    }
-    button{
-    width: 100px;
-    height: 40px;
-    border-radius: 0%;
-    border: 2px solid black;
-    position: relative;
-    left : 30%;
-    top : 50px;
-    margin : 20px;
-    } 
+        position: fixed;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        z-index: 10;
+        background: rgba(0,0,0,0.3);
+        .content{
+            position: absolute;
+            left:50%;
+            top:50%;
+            z-index: 2;
+            transform: translate3d(-50%, -50%, 0);
+            background: whitesmoke;
+            box-shadow: 0 0 5px #000;
+            width: 30%;
+            height: 50%;
+            padding: 80px;
+        input{
+            margin: 20px 0px 0px 0px;
+            border: none;
+            border-bottom: 2px solid black;
+            width : 70%;
+            font-size: 17px;
+            outline: none;
+            height: 30px;
+            padding-top : 20px;
+            background-color: whitesmoke;
+            &:focus{
+            border-color : blue;
+            }
+            &:hover{
+            border-width : 3px;
+            }
+            &::placeholder{
+            position: relative;
+            top: 0px;
+            }
+            &:focus::placeholder{
+            color : #3b23a6;
+            font-size: 13px;
+            position :relative;
+            top : -30px;
+            -webkit-transition: all .15s ;
+            transition: all .15s ;
+            }
+        }
+        .modify_event{
+        display: none;
+        }
+        h3{
+        border-bottom : 3px solid black;
+        padding: 10px;
+        }
+        form{
+        flex: 1;
+        align-items: center;
+        margin: 10% 0% 0% 20%;
+        }
+        button{
+        width: 100px;
+        height: 40px;
+        border-radius: 0%;
+        border: 2px solid black;
+        position: relative;
+        left : 30%;
+        top : 50px;
+        margin : 20px;
+        } 
     }
     }
     
@@ -96,6 +96,13 @@
     top: -30px;
     font-size: 15px;
     }
+    input[type=date]::-webkit-calendar-picker-indicator {
+        width: 10%;
+        height: 80%;
+        &:hover{
+            cursor: pointer;
+        }
+    }
     /* 
     .content form{
     position: relative;
@@ -103,18 +110,27 @@
     width: 100%;
     height: 50%;
     } */
+
+    //select css
+
     .event_type{
-    display: block;
-    width: 70%;
-    height: 60px;
-    border: none;
-    outline: none;
-    background-color: whitesmoke;
-    border-bottom: 2px solid black;
-    font-size: 17px;
-    padding-top : 20px;
-    margin-top: 20px;
+        display: block;
+        width: 72%;
+        height: 50px;
+        border: none;
+        outline : none;
+        border-bottom: 2px solid rgb(49, 111, 226);
+        font-size: 17px;
+        margin-top: 20px;
+        color : black;
+        background-color: whitesmoke;
+        option{
+            background-color: white;
+            color : black;
+            font-size: 20px;
+        }
     }
+
     .modifyModal {
     position: fixed;
     left:0;

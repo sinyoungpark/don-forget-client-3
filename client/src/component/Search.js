@@ -26,12 +26,7 @@ function Search(props) {
 
 
   function handleDeleteBtn(e) {
-    axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
-      params: {
-        event_id: e.target.value,
-        schedule_id: e.target.name
-      }
-    })
+    axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}/${e.target.name}`)
       .then((res) => console.log(res))
   }
 
