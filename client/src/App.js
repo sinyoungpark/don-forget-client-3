@@ -6,7 +6,7 @@ import Signup from "./component/Signup";
 import Home from "./component/Home";
 import Nav from "./component/Nav";
 import MyPage from './component/MyPage';
-import "./App.css"
+import "./App.scss"
 import { CSSTransitionGroup } from "react-transition-group";
 import Schedule from "./component/Schedule";
 import Search from './component/Search';
