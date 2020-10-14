@@ -81,6 +81,7 @@
       margin-top: 10vh;
       color: #4a4a4a;
       height: 30px;
+      font-size: 1.2rem;
     }
     .closeSideSchedule {
       float: right;
@@ -169,6 +170,7 @@
       float: left;
       width: 33.3%;
       text-align: center;
+      font-size: 1rem;
     }
     span:hover {
       background-color: rgba(255, 255, 255, 0.5);
@@ -196,10 +198,11 @@
           cursor: pointer;
           display: inline-flex;
           margin: 0px 18px;
-          padding: 0;
+          padding-top: 50px;
           background-color: white;
           font-stretch: extra-expanded;
           transform: scaleY(0.5);
+          font-size: 2rem;
         }
         &.add_schedule{
           cursor: pointer;
@@ -262,6 +265,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
           }
         }
       }
@@ -317,6 +321,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
+            text-align: left;
           }
         }
       }
@@ -372,6 +378,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
+            text-align: left;
           }
         }
       }
@@ -427,6 +435,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
+            text-align: left;
           }
         }
       }
@@ -454,10 +464,11 @@
           cursor: pointer;
           display: inline-flex;
           margin: 0px 18px;
-          padding: 0;
+          padding-top: 50px;
           background-color: white;
           font-stretch: extra-expanded;
           transform: scaleY(0.5);
+          font-size: 2rem;
         }
         &.add_schedule{
           cursor: pointer;
@@ -491,6 +502,7 @@
           .box span.text{
             border-top: none;
             align-items: flex-end;
+            font-size: 0.8rem;
           }
           .box:hover > span.text{
             background-color: white;
@@ -519,6 +531,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
           }
         }
       }
@@ -542,7 +555,6 @@
           position: relative;
           display: inline-flex;
           width: calc(100%/7);
-          font-size: 12pt;
           margin-top: 0.5rem;
           &:first-child{
             color: rgb(255, 136, 61);
@@ -566,7 +578,6 @@
           span.text{
             border-top: gray 1px solid;
             display: block;
-            // align-items: center;
             padding: 3px 4px;
             width: 75%;
             height: 100%;
@@ -574,6 +585,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
+            text-align: left;
           }
         }
       }
@@ -629,6 +642,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
+            text-align: left;
           }
         }
       }
@@ -684,6 +699,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
+            text-align: left;
           }
         }
       }
@@ -759,14 +776,15 @@
 
   // 아래에 디테일한 일정 표시
   .sideSchedule {
-    position: fixed;
-    width: 84%;
-    margin: 10% 5.5%;
+    // position: fixed;
+    width: 88%;
+    margin: 10% 6% 20% 6%;
     border-top: #4a4a4ab6 2px solid;
     .date{
       color: #4a4a4a;
       height: 30px;
-      margin: 20px 10px;
+      margin: 30px 10px 20px 10px;
+      font-size: 1.2rem;
     }
     .closeSideSchedule {
       float: right;
@@ -855,6 +873,7 @@
       float: left;
       width: 33.3%;
       text-align: center;
+      font-size: 1rem;
     }
     span:hover {
       background-color: rgba(255, 255, 255, 0.5);
@@ -882,10 +901,11 @@
           cursor: pointer;
           display: inline-flex;
           margin: 0px 18px;
-          padding: 0;
+          padding-top: 50px;
           background-color: white;
           font-stretch: extra-expanded;
           transform: scaleY(0.5);
+          font-size: 2rem;
         }
         &.add_schedule{
           cursor: pointer;
@@ -1123,8 +1143,8 @@
   .sideCalendar{
     user-select: none;
     margin: 10vh 5%;
-    min-height: 40vh;
-    max-height: 40vh;
+    min-height: 50vh;
+    max-height: 50vh;
     .head{
       display: flex;
       // justify-content: space-between;
@@ -1139,10 +1159,11 @@
           cursor: pointer;
           display: inline-flex;
           margin: 0px 18px;
-          padding: 0;
+          padding-top: 50px;
           background-color: white;
           font-stretch: extra-expanded;
           transform: scaleY(0.5);
+          font-size: 2rem;
         }
         &.add_schedule{
           cursor: pointer;
