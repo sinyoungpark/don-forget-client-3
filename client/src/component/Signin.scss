@@ -100,17 +100,18 @@
         text-align: center;
         margin-top: 2%;
         font-size: large;
+        position: relative;
+        width : 100%;
         button{
-        font-size: large;
-        display : block;
-        margin-top: 0px;
+        display : inline-block;
+        margin: 0px 10px;
         Background-color:rgb(255, 230, 0);
         border:2px solid rgb(255, 230, 0);
         color:white;
-        width: 400px;
+        width: 8%;
         height: 46px;
-        text-align: left;
-        padding-left: 20px;
+        border-radius: 4px;
+        font-size: medium;
         &:hover{
             background-color: hsl(61, 86%, 37%);
             cursor: pointer;
@@ -119,6 +120,8 @@
         }
     }
     .naver{
+        position: relative;
+        top : -10px;
         Background-color:hsl(123, 80%, 48%);
         border-color:hsl(123, 86%, 47%);
         &:hover{
@@ -307,12 +310,12 @@
             display: none;
         }
         button{
-            margin: 10px;
-            display : inline-block;
+            margin: 0px;
+            display : block;
             Background-color:rgb(255, 230, 0);
             border:2px solid rgb(255, 230, 0);
             color:black;
-            width: 140px;
+            width: 300px;
             height: 40px;
             border-radius: 4px 4px 4px 4px; 
             color:white;
@@ -324,8 +327,6 @@
             }
     }
     .naver{
-        position: relative;
-        top : -10px;
         Background-color:hsl(123, 80%, 48%);
         border-color:hsl(123, 86%, 47%);
         &:hover{
