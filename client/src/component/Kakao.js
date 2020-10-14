@@ -7,7 +7,6 @@ export default function KakaoSignUp() {
       email: ['kakao', res.profile.properties.nickname],
       name: res.profile.properties.nickname
     })
-
       .then((response) => response.data)
       .then((response) => {
         window.sessionStorage.setItem("id", response.id);
@@ -31,7 +30,7 @@ export default function KakaoSignUp() {
         onSuccess={responseKaKao}
         onFailure={responseFail}
         getProfile={true}
-        useDefaultStyle={true}
+        useDefaultStyle={false}
       />
     </>
   );

@@ -1,3 +1,8 @@
+body{
+  overflow-y:scroll; 
+  overflow-x: scroll;
+}
+
 /* 흰 배경 아래로 */
 .background{
   position: fixed;
@@ -14,20 +19,21 @@
 .fullBackground{
   position: absolute;
   display: table;
-  width: 100%;
-  height: 100vh;
+  width: 99.5%;
+  height: 90vh;
   border-radius: 60px;
   box-shadow: -5px -5px 10px 0 rgba(0, 0, 0, 0.5);
   background-color: #ffffff;
   z-index: 1;
   animation-name: fullBackground;
   animation-duration: 8s;
+  left : 0.3%;
 }
 
 /* fullBackground animation*/
 @keyframes fullBackground{
   0% { top : 12%; }
-  25% { top : 0px; }
+  25% { top : 0.6%; }
 }
 
 /* 흰 배경 옆으로 */
