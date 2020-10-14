@@ -12,7 +12,7 @@ export default function Modal(props) {
     const [gift, setGift] = useState("");
 
         /* get요청으로 받아온 값들 -> 수정 시 필요 */
-    const { userId, isOpen, setModal, isModify, data_date, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify, setUseEffect, controllUseEffect, data_giveandtake } = props;
+    const { userId, isOpen, setModal, isModify, data_date, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify, setUseEffect, controllUseEffect, data_giveandtake, setAgain } = props;
 
     const [giveAndTake, setGiveAndTake] = useState("");
 
@@ -67,6 +67,9 @@ export default function Modal(props) {
 
                 if (setUseEffect){
                     setUseEffect(!controllUseEffect);
+                }
+                else if (setAgain){
+                    setAgain(true);
                 }
             });
     }

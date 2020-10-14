@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import KaKaoLogin from 'react-kakao-login';
-export default function KakaoSignUp() {
+export default function KakaoSignUp(props) {
   function responseKaKao(res) {
     axios.post('https://don-forget-server.com/user/signin', {
       email: ['kakao', res.profile.properties.nickname],
@@ -9,13 +9,19 @@ export default function KakaoSignUp() {
     })
       .then((response) => response.data)
       .then((response) => {
+        console.log(response);
         window.sessionStorage.setItem("id", response.id);
         window.sessionStorage.setItem("email", response.email);
         window.sessionStorage.setItem("name", response.name);
-        this.props.setEmail(response.email);
-        this.props.setName(response.name);
-        this.props.setUserId(response.id);
-        this.props.setIsLogin(true);
+        props.setEmail(response.email);
+        props.setName(response.name);
+        props.setUserId(response.id);
+        props.setIsLogin(true);
+      })
+      .then(() => {
+        console.log('is working?');
+        console.log('location : ',this.props.location.pathname);
+        props.history.push('/home');
       })
       .catch((err) => console.log(err));
   }
