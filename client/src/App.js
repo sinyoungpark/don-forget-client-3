@@ -70,7 +70,7 @@ function App(props) {
   return (
     <div className="App">
       <Nav />
-      <Slide direction={(props.location.pathname === "/signin" || props.location.pathname === "/signup" || props.location.pathname === "/intro") ? (props.location.pathname === "/intro" ? "down" : "up") : "right"} in={true} mountOnEnter unmountOnExit {...(true ? { timeout: 3000 } : {})}>
+      <Slide direction={(props.location.pathname === "/signin" || props.location.pathname === "/signup" || props.location.pathname === "/intro") ? (props.location.pathname === "/intro"  ? "down" : "up") : "right"} in={true} mountOnEnter unmountOnExit {...(true ? { timeout: 3000 } : {})}>
         <Paper elevation={10} className={classes.paper}>
           {/* <svg className={classes.svg}> */}
           <polygon points="0,100 50,00, 100,100" className={classes.polygon}>

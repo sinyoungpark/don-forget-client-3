@@ -2,15 +2,11 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import KaKaoLogin from 'react-kakao-login';
 
-export default function KakaoSignUp() {
-    const [data, setData] = useState("kakao")
-
-    function responseKaKao(res) {
-        console.log('res : ', res)
-        setData(res);
-        axios.post('https://www.don-forget.com/user/signin', {
+export default function KakaoSignUp(){
+    function responseKaKao(res){
+        axios.post('https://don-forget-server.com/user/signin', {
             email: 'kakao',
-            name: data.profile.properties.nickname
+            name: res.profile.properties.nickname
         })
             .then((response) => response.data)
             .then((response) => {
@@ -25,21 +21,20 @@ export default function KakaoSignUp() {
             .catch((err) => console.log(err));
     }
 
-    function responseFail(err) {
+    function responseFail(err){
         alert(err);
     }
-
-    return (
-        <>
-            <KaKaoLogin
-                jsKey={'d7fcccce457540e5621e96787fac52a9'}
-                buttonText="KaKao"
-                onSuccess={responseKaKao}
-                onFailure={responseFail}
-                getProfile={true}
-                useDefaultStyle={true}
-            />
-        </>
-    );
+        return (
+            <>
+                <KaKaoLogin
+                    jsKey={'d7fcccce457540e5621e96787fac52a9'}
+                    buttonText="KaKao"
+                    onSuccess={responseKaKao}
+                    onFailure={responseFail}
+                    getProfile={true}
+                    useDefaultStyle={true}
+                />
+            </>
+        );
 }
 
