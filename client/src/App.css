@@ -20,7 +20,16 @@
   box-shadow: -5px -5px 10px 0 rgba(0, 0, 0, 0.5);
   background-color: #ffffff;
   z-index: 1;
+  animation-name: fullBackground;
+  animation-duration: 8s;
 }
+
+/* fullBackground animation*/
+@keyframes fullBackground{
+  0% { top : 12%; }
+  25% { top : 0px; }
+}
+
 /* 흰 배경 옆으로 */
 .sideBackground{
   position: absolute;
@@ -32,8 +41,17 @@
   background-color: #ffffff;
   z-index:3;
   top: 0px;
-  left: 3%;
+  left: 6%;
+  animation-name : sideBackground;
+  animation-duration: 8s;
 }
+
+/* sideBackground animation*/
+@keyframes sideBackground{
+  0% { left : 12%; }
+  25% { left : 6%; }
+}
+
 
 /* page routing animation */
 /* .App{

@@ -15,10 +15,10 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: "100px",
         color : '#ff4705',
         border : "2px solid white",
-        width : "100%",
+        width : "30%",
         height : "8%",
         borderRadius: "20px",
-        fontSize: "large"
+        fontSize: "large",
     },
     icon : {
         backgroundColor: '#3b23a6', 
@@ -31,7 +31,7 @@ function Nav({ history, isLogin, location }) {
     const classes = useStyles();
 
     return (
-        <div className={location.pathname === "/signin" || location.pathname === "/signup" ? "none" : (location.pathname === "/intro" ? "topnav" : "sidenav")} >
+        <div className={location.pathname === "/signin" || location.pathname === "/signup" ? "topnav fixed" : (location.pathname === "/intro" ? "topnav" : "sidenav")} >
             <a href="/home">
                 <Avatar className={location.pathname === "/home" ? classes.curpath : classes.icon}>
                     <HomeIcon />
