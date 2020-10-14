@@ -22,13 +22,13 @@ export default function Schedule(props) {
     const [curSchduleId, setCurScheduleId] = useState("");
     const [curEventId, setCurEventId] = useState("");
     const [curGiveAndTake, setCurGiveAndTake] = useState("");
-  
+
     //새로운 변화가 생길 시에만 useEffect가 동작하도록 
     const [controllUseEffect, setUseEffect] = useState(true);
 
     useEffect(() => {
-            if (controllUseEffect){
-                axios.get(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`)
+        if (controllUseEffect) {
+            axios.get(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`)
                 .then((res) => {
                     let data = res.data;
                     data = data.sort(function (a, b) {
@@ -39,7 +39,7 @@ export default function Schedule(props) {
                     setUseEffect(!controllUseEffect);
                     console.log(data);
                 })
-                } 
+        }
     });
 
     function handleDeleteBtn(e) {
@@ -92,7 +92,7 @@ export default function Schedule(props) {
                     })
                 }
             </ul>
-            <Modal userId={userId} isOpen={isOpen} setModal={setModal} setUseEffect={setUseEffect} controllUseEffect={controllUseEffect}/>
+            <Modal userId={userId} isOpen={isOpen} setModal={setModal} setUseEffect={setUseEffect} controllUseEffect={controllUseEffect} />
         </div>
     )
 }
