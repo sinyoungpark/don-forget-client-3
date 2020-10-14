@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { withRouter } from "react-router-dom";
 import './Search.scss';
 import Avatar from '@material-ui/core/Avatar';
@@ -23,7 +23,22 @@ function Search(props) {
   const [curDataGift, setCurGift] = useState("");
   const [curSchduleId, setCurScheduleId] = useState("");
   const [curEventId, setCurEventId] = useState("");
+ 
+  //다시 get 요청
+  const [searchAgain, setAgain] = useState(false);
 
+  useEffect(() => {
+    if (searchAgain){
+      axios.post(`https://don-forget-server.com/search/${window.sessionStorage.getItem("id")}`, {
+        data: searchKeyword
+      })
+        .then((res) => {
+          console.log(res.data);
+          setSearchData(res.data);
+          setAgain(false);
+        });
+    }
+  })
 
 
   function handleDeleteBtn(e) {
@@ -96,7 +111,7 @@ function Search(props) {
                     <span className="type">{data.type}</span>
                     <span>{data.giveandtake}</span>
                     <span className="gift">{data.gift}</span>
-                    <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} />
+                    <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} searchKeyword={searchKeyword} searchData={searchData} setAgain={setAgain}/>
                   </li>
                 </div>
               )

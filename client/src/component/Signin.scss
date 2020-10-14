@@ -93,7 +93,12 @@
         
     }
     span{
+        text-align: center;
         margin-top: 2%;
+        font-size: large;
+        p{
+            border-bottom : 2px solid black;
+        }
         button{
         font-size: large;
         display : block;
