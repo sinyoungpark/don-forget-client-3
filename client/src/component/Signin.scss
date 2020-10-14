@@ -1,190 +1,374 @@
+@import "../mixin";
 
-/*전체정렬 signin 컴포넌트*/
-.signin{
-    padding-top: 50px;
-    display : flex;
-    flex-direction: column;
-    align-items: center;
-    h1{
-      font-weight: 400;
-      font-size:25px;
-      text-align: center;
-    }
-
-    a{
-        position: relative;
-        top : 10px;
-        text-decoration: none;
-        color : rgb(41, 69, 231);
-        font-size: 13px;
-        margin-top: 20px;
+@include desktop {
+    /*전체정렬 signin 컴포넌트*/
+    .signin{
+        padding-top: 150px;
+        display : flex;
+        flex-direction: column;
+        align-items: center;
+        h1{
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a4a4a;
         }
 
-    .inputValue{
-        input{
-            display: block;
-            margin-top: 20px;
-            border: none;
-            border-bottom: 2px solid black;
-            width : 400px;
-            font-size: 17px;
-            outline: none;
-            height: 30px;
-            padding-top : 20px;
-
-            &:focus{
-                border-color : blue;
-            }
-            &:hover{
-                border-width : 3px;
-            }
-            &::placeholder{
-                position: relative;
-                top: 0px;
-            }
-            &:focus::placeholder{
-                color : #3b23a6;
-                font-size: 13px;
-                position :relative;
-                top : -30px;
-                -webkit-transition: all .15s ;
-                transition: all .15s ;
-            }
+        a{
+            position: relative;
+            top : 10px;
+            text-decoration: none;
+            color : rgb(41, 69, 231);
+            font-size: 13px;
+            margin: 20px 0px;
         }
-        .alert{
-            color:rgb(117, 33, 12);
-            border-radius: 8px;
-            background-color: rgb(255, 215, 215);
-            padding : 7px;
-            margin-top: 20px;
-            .alertIcon{
-                background-color: white;
-                color : rgb(241, 63, 63);
-                display: inline-block;
-            }
-            strong{
-                font-size: 20px;
-                margin:10px;
-            }
-        }
-        .login_btn{
-            width:100%;
-            margin-top:40px;
-            color:white;
-            background-color: #3b23a6;
-            border-radius: 5px;
-            padding: 12px;
-            border:none;
-            &:hover{
-                background-color:#3436ad;
-                cursor: pointer;
-                box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-            }
 
+        .inputValue{
+            input{
+                display: block;
+                margin-top: 15px;
+                border: none;
+                border-bottom: 1px solid #4a4a4a;
+                width : 400px;
+                font-size: 15px;
+                outline: none;
+                height: 30px;
+                padding-top : 20px;
+
+                &:focus{
+                    border-color : #3b23a6;
+                }
+                &::placeholder{
+                    position: relative;
+                    top: 0px;
+                }
+                &:focus::placeholder{
+                    color : #3b23a6;
+                    font-size: 13px;
+                    position: relative;
+                    top : -30px;
+                    -webkit-transition: all .15s ;
+                    transition: all .15s ;
+                }
+            }
+            .alert{
+                color: rgb(117, 33, 12);
+                border-radius: 6px;
+                background-color: rgb(255, 215, 215);
+                padding: 7px 30px;
+                margin-top: 20px;
+                font-size: 15px;
+                .alertIcon{
+                    background-color: white;
+                    color : rgb(241, 63, 63);
+                    display: inline-block;
+                }
+                strong{
+                    font-size: 15px;
+                    margin: 10px;
+                }
+            }
+            .login_btn{
+                width:100%;
+                margin-top:40px;
+                color:white;
+                background-color: #3b23a6;
+                border-radius: 5px;
+                padding: 12px;
+                border:none;
+                &:hover{
+                    background-color:#3436ad;
+                    cursor: pointer;
+                    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+                }
             }
             .signinLink{
                 position: relative;
-                left : 270px;
-                }           
-    }
-    button:hover{
-        box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.1);;
-        cursor: pointer;
+                left : 280px;
+            }           
+        }
+        button:hover{
+            box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.1);;
+            cursor: pointer;
         }
         button:focus{
             outline: none;
-            }
-    
-}
-    
-    button.kakao{
-    margin-top: 15px;
-    Background-color:yellow;
-    border:2px solid yellow;
-    color:black;
-    width: 200px;
-    height: 40px;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+        }
+        
     }
-    
-    button.naver{
-    margin-top: 15px;
-    Background-color:rgb(41, 202, 41);
-    border:2px solid rgb(41, 202, 41);
-    color:black;
-    width: 200px;
-    height: 40px;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    }
-    
-    // .none 클래스 다른곳에서도 사용중! 삭제하지말아주세요
-    .none{
-    display:none;
-    }
-    
 
+    button.kakao{
+        margin-top: 15px;
+        Background-color:yellow;
+        border:2px solid yellow;
+        color:black;
+        width: 200px;
+        height: 40px;
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+    }
+    button.naver{
+        margin-top: 15px;
+        Background-color:rgb(41, 202, 41);
+        border:2px solid rgb(41, 202, 41);
+        color:black;
+        width: 200px;
+        height: 40px;
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+    }
 
     /* 비번 찾기 모달창 담당 */
-    
     .modal {
-    position: fixed;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
-    z-index: 10;
-    background: rgba(0,0,0,0.3);
-      .content{
         position: fixed;
-        left:50%;
-        top:50%;
-        z-index: 2;
-        transform: translate3d(-50%, -50%, 0);
-        background: whitesmoke;
-        padding: 0px;
-        box-shadow: 0 0 5px #000;
-        width: 50%;
-        height: 40%;
-        padding: 40px;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        z-index: 10;
+        background: rgba(0,0,0,0.3);
+        .content{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            z-index: 2;
+            transform: translate3d(-50%, -50%, 0);
+            background: whitesmoke;
+            padding: 0px;
+            box-shadow: 0 0 5px #000;
+            width: 50%;
+            height: 40%;
+            padding: 40px;
+            border-radius: 10px;
 
-        h3{
-            border-bottom: 3px solid black;
-            padding-bottom:10px;
-        }
-        .findPW {
-            border: 2px solid rgb(201, 199, 199);
-            width: 100%;
-            height: 50%;
+            h3{
+                border-bottom: 2px solid black;
+                padding-bottom: 10px;
             }
-         input{
-            border : 2px solid rgb(151, 148, 148);
-            width: 30%;
-            height: 10%;
-            display: block;
-            padding: 10px;
-            outline: none;
-            margin : 30px;
-            position: relative;
-            left : 30%;
-
-            &:focus{
-                border-color: #3436ad;
+            p {
+                font-size: 0.8rem;
             }
-            }
-            button{
-                background-color: white;
-                width: 10%;
-                height: 10%;
-                border: 2px solid rgb(151, 148, 148);
-                position: relative;
-                left : 37%;
-                margin: 20px;
+            .findPW {
+                border: 2px solid rgb(201, 199, 199);
+                border-radius: 10px;
+                width: 100%;
+                display: block;
+                text-align: center;
+                padding: 20px 0px;
+                input{
+                    border : 1px solid rgb(151, 148, 148);
+                    width: 80%;
+                    height: 10%;
+                    padding: 10px;
+                    margin : 10px;
+                    position: relative;
+    
+                    &:focus{
+                        border-color: #3436ad;
+                    }
                 }
-      }
+            }
+            .findPwBtn{
+                display: block;
+                text-align: center;
+                button {
+                    background-color: white;
+                    width: 20%;
+                    padding: 5px;
+                    border: 2px solid rgb(201, 199, 199);
+                    margin: 10px 5px;
+                    border-radius: 6px;
+                }
+            }
+        }
+    }
+}
+
+@include mobile {
+    /*전체정렬 signin 컴포넌트*/
+    .signin{
+        padding-top: 150px;
+        display : flex;
+        flex-direction: column;
+        align-items: center;
+        h1{
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a4a4a;
+        }
+
+        a{
+            position: relative;
+            top : 10px;
+            text-decoration: none;
+            color : rgb(41, 69, 231);
+            font-size: 13px;
+            margin: 20px 0px;
+        }
+
+        .inputValue{
+            input{
+                display: block;
+                margin-top: 15px;
+                border: none;
+                border-bottom: 1px solid #4a4a4a;
+                width : 300px;
+                font-size: 15px;
+                outline: none;
+                height: 30px;
+                padding-top : 20px;
+
+                &:focus{
+                    border-color : #3b23a6;
+                }
+                &::placeholder{
+                    position: relative;
+                    top: 0px;
+                }
+                &:focus::placeholder{
+                    color : #3b23a6;
+                    font-size: 13px;
+                    position: relative;
+                    top : -30px;
+                    -webkit-transition: all .15s ;
+                    transition: all .15s ;
+                }
+            }
+            .alert{
+                color: rgb(117, 33, 12);
+                border-radius: 6px;
+                background-color: rgb(255, 215, 215);
+                padding: 7px 30px;
+                margin-top: 20px;
+                font-size: 15px;
+                .alertIcon{
+                    background-color: white;
+                    color : rgb(241, 63, 63);
+                    display: inline-block;
+                }
+                strong{
+                    font-size: 15px;
+                    margin: 10px;
+                }
+            }
+            .login_btn{
+                width:100%;
+                margin-top:40px;
+                color:white;
+                background-color: #3b23a6;
+                border-radius: 5px;
+                padding: 12px;
+                border:none;
+                &:hover{
+                    background-color:#3436ad;
+                    cursor: pointer;
+                    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+                }
+            }
+            .signinLink{
+                position: relative;
+                left : 180px;
+            }           
+        }
+        button:hover{
+            box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.1);;
+            cursor: pointer;
+        }
+        button:focus{
+            outline: none;
+        }
+        
     }
 
+    button.kakao{
+        margin-top: 15px;
+        Background-color:yellow;
+        border:2px solid yellow;
+        color:black;
+        width: 150px;
+        height: 40px;
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+    }
+    button.naver{
+        margin-top: 15px;
+        Background-color:rgb(41, 202, 41);
+        border:2px solid rgb(41, 202, 41);
+        color:black;
+        width: 150px;
+        height: 40px;
+        box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+    }
 
+    /* 비번 찾기 모달창 담당 */
+    .modal {
+        position: fixed;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        z-index: 10;
+        background: rgba(0,0,0,0.3);
+        .content{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            z-index: 2;
+            transform: translate3d(-50%, -50%, 0);
+            background: whitesmoke;
+            box-shadow: 0 0 5px #000;
+            width: 50%;
+            height: 40%;
+            padding: 40px;
+            border-radius: 10px;
 
+            h3{
+                border-bottom: 2px solid black;
+                padding-bottom: 10px;
+                font-size: 1rem;
+            }
+            p {
+                font-size: 0.8rem;
+            }
+            .findPW {
+                border: 2px solid rgb(201, 199, 199);
+                border-radius: 10px;
+                width: 100%;
+                display: block;
+                text-align: center;
+                padding: 20px 0px;
+                input{
+                    border : 1px solid rgb(151, 148, 148);
+                    width: 80%;
+                    height: 10%;
+                    padding: 10px;
+                    margin : 10px;
+                    position: relative;
     
+                    &:focus{
+                        border-color: #3436ad;
+                    }
+                }
+            }
+            .findPwBtn{
+                display: block;
+                text-align: center;
+                button {
+                    background-color: white;
+                    width: 20%;
+                    padding: 5px;
+                    border: 2px solid rgb(201, 199, 199);
+                    margin: 10px 5px;
+                    border-radius: 6px;
+                }
+            }
+        }
+    }
+}
+
+// .none 클래스 다른곳에서도 사용중! 삭제하지말아주세요
+.none{
+    display:none;
+}

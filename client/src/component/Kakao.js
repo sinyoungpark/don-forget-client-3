@@ -2,9 +2,15 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import KaKaoLogin from 'react-kakao-login';
 
+<<<<<<< HEAD
+export default function KakaoSignUp() {
+    function responseKaKao(res) {
+        axios.post('https://www.don-forget.com/user/signin', {
+=======
 export default function KakaoSignUp(){
     function responseKaKao(res){
         axios.post('https://don-forget-server.com/user/signin', {
+>>>>>>> 78cd0f7a50d04c2c51f095c879ad1052c7808860
             email: 'kakao',
             name: res.profile.properties.nickname
         })
