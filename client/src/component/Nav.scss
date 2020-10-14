@@ -6,6 +6,8 @@ div.topnav {
   height: 150px;
   z-index:1;
   width : 99%;
+  animation-name: topnav;
+  animation-duration: 4s;
   a {
     display:none;
 } 
@@ -30,6 +32,16 @@ div.topnav {
 }
 
 
+div.topnav.fixed{
+  animation : none;
+}
+
+/* topNav animation*/
+@keyframes topnav{
+  0% { top : 50%; }
+  25% { top : 0px; }
+}
+
 /*sidenav css*/
 div.sidenav {
   position: absolute;
@@ -37,13 +49,13 @@ div.sidenav {
   background-color: #3b23a6;
   border-radius: 60px 0px 0px 60px;
   height: 100%;
-  z-index:3;
-  width: 4.9%;
+  z-index:2;
+  width: 15%;
   top: 0.5%;
   a {
     position: relative;
     float: top;
-    left : 20%;
+    left : 10%;
     color: #f2f2f2;
     text-decoration: none;
     top: 140px;
@@ -58,4 +70,12 @@ div.sidenav {
   .cur{
     font-size: 100px;
   }
+  .makeStyles-curpath-1{
+    animation-name : curpath;
+    animation-duration: 7s;
+  }
 }
+@keyframes curpath{
+  0% { left : 80%; }
+  25% { left : 0px; }
+}  
