@@ -18,11 +18,6 @@ export default function KakaoSignUp(props) {
         props.setUserId(response.id);
         props.setIsLogin(true);
       })
-      .then(() => {
-        console.log('is working?');
-        console.log('location : ',this.props.location.pathname);
-        props.history.push('/home');
-      })
       .catch((err) => console.log(err));
   }
   function responseFail(err) {
