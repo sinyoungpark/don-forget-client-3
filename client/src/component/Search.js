@@ -25,9 +25,16 @@ function Search(props) {
   const [curEventId, setCurEventId] = useState("");
 
 
+
   function handleDeleteBtn(e) {
-    axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}/${e.target.name}`)
-      .then((res) => console.log(res))
+    axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`,{
+      params : {
+        schedule_id : e.target.name
+      }
+    })
+      .then((res) => {
+        clickSearch()
+      });
   }
 
   const onChangeHandler = (e) => {
@@ -59,6 +66,7 @@ function Search(props) {
 
   return (
     <div className="search">
+      <div className="gradient"></div>
       <div className="full_page">
         <h1>Search</h1>
         <input type="text" className="search_input"
@@ -75,7 +83,7 @@ function Search(props) {
             searchData && searchData.map((data) => {
               const date = String(data.date).slice(0, 10);
               return (
-                <div>
+                <div className="date_li">
                   <div className="date">{date.slice(5, 7)} / {date.slice(8)}</div>
                   <li key={data.id}>
                     <button className="li_button" onClick={(e) => {
@@ -84,8 +92,9 @@ function Search(props) {
                     }
                     }>수정</button>
                     <button className="li_button" onClick={handleDeleteBtn} name={data.id} value={data.event_id}>삭제</button>
-                    <span>{data.event_target}</span>
-                    <span className="type">{data.event_type}</span>
+                    <span className={data.type}>{data.event_target}</span>
+                    <span className="type">{data.type}</span>
+                    <span>{data.giveandtake}</span>
                     <span className="gift">{data.gift}</span>
                     <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} />
                   </li>
@@ -93,6 +102,7 @@ function Search(props) {
               )
             })
           }
+          
         </ul>
       </div>
     </div>
