@@ -15,10 +15,10 @@ body{
 .background{
   position: fixed;
   display: table;
-  width: 99%;
+  width: 99.5%;
   height: 90vh;
   border-radius: 60px;
-  box-shadow: -5px -5px 10px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: -5px -5px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
   z-index: 3;
   top: 10vh;
@@ -27,10 +27,10 @@ body{
 .fullBackground{
   position: absolute;
   display: table;
-  width: 99.5%;
+  width: 99.9%;
   height: 90vh;
   border-radius: 60px;
-  box-shadow: -5px -5px 10px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: -5px -5px 5px 0 rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   z-index: 1;
   animation-name: fullBackground;
@@ -51,7 +51,7 @@ body{
   width: 97%;
   height: 100vh;
   border-radius: 60px;
-  box-shadow: -5px -5px 10px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: -5px -5px 5px 0 rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
   z-index:3;
   top: 0px;
@@ -97,7 +97,7 @@ body{
   border-radius: 0px;
   background-color: #ffffff;
   z-index: 3;
-  top: 20vh;
+  top: 10vh;
 }
 /* 흰 배경 전체(로그인, 회원가입) */
 .fullBackground{
