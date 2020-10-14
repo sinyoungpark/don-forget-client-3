@@ -1,684 +1,1374 @@
-.body {
-  ul {
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-    li{
-      display: block;
-      text-decoration: line-through;
+@import "../mixin";
+
+@include desktop {
+
+  // 달력에 일정 표시용
+  .body {
+    ul {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      li{
+        display: block;
+        text-decoration: line-through;
+        width: 100%;
+        &.결혼식 {
+          hr{
+            border: 1px solid #FFCECE;
+          }
+        }
+        &.생일 {
+          hr{
+            border: 1px solid #FFB65B;
+          }
+        }
+        &.장례식 {
+          hr{
+            border: 1px solid #737272;
+          }
+        }
+        &.집들이 {
+          hr{
+            border: 1px solid #6BACF8;
+          }
+        }
+        &.취직 {
+          hr{
+            border: 1px solid #FFF00C;
+          }
+        }
+        &.입학 {
+          hr{
+            border: 1px solid #A4F256;
+          }
+        }
+        &.출산 {
+          hr{
+            border: 1px solid #FF6666;
+          }
+        }
+        &.돌잔치 {
+          hr{
+            border: 1px solid #97ECCF;
+          }
+        }
+        &.기념일 {
+          hr{
+            border: 1px solid #E1C5FF;
+          }
+        }
+        &.기타 {
+          hr{
+            border: 1px solid #CECECE;
+          }
+        }
+      }
+    }
+  }
+
+  // 우측에 디테일한 일정 표시
+  .sideSchedule {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 20%;
+    margin: 10vh 0;
+    padding: 0 5%;
+    min-height: 80vh;
+    max-height: 80vh;
+    border-left: #4a4a4ab6 1px solid;
+    .date{
+      margin-top: 10vh;
+      color: #4a4a4a;
+      height: 30px;
+    }
+    .closeSideSchedule {
+      float: right;
+      margin: 0;
+      border: none;
+      background-color: transparent;
+      font-size: 0.7rem;
+      border-radius: 30%;
+      width: 25px;
+      height: 25px;
+      color: #4a4a4a;
+    }
+    .sideSchedule_empty {
+      color: #4a4a4a;
+      float: left;
+      height: 50vh;
+      margin: 0;
       width: 100%;
-      &.결혼식 {
-        hr{
-          border: 1px solid #FFCECE;
-        }
-      }
-      &.생일 {
-        hr{
-          border: 1px solid #FFB65B;
-        }
-      }
-      &.장례식 {
-        hr{
-          border: 1px solid #737272;
-        }
-      }
-      &.집들이 {
-        hr{
-          border: 1px solid #6BACF8;
-        }
-      }
-      &.취직 {
-        hr{
-          border: 1px solid #FFF00C;
-        }
-      }
-      &.입학 {
-        hr{
-          border: 1px solid #A4F256;
-        }
-      }
-      &.출산 {
-        hr{
-          border: 1px solid #FF6666;
-        }
-      }
-      &.돌잔치 {
-        hr{
-          border: 1px solid #97ECCF;
-        }
-      }
-      &.기념일 {
-        hr{
-          border: 1px solid #E1C5FF;
-        }
-      }
-      &.기타 {
-        hr{
-          border: 1px solid #CECECE;
-        }
+      border: none;
+      border-radius: 30px;
+      &:hover {
+        box-shadow: none;
       }
     }
-  }
-}
-
-.sideSchedule {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 20%;
-  margin: 10vh 0;
-  padding: 0 5%;
-  min-height: 80vh;
-  max-height: 80vh;
-  border-left: #4a4a4ab6 1px solid;
-  .date{
-    margin-top: 10vh;
-    color: #4a4a4a;
-    height: 30px;
-  }
-  .closeSideSchedule {
-    float: right;
-    margin: 0;
-    border: none;
-    background-color: transparent;
-    font-size: 0.7rem;
-    border-radius: 30%;
-    width: 25px;
-    height: 25px;
-    color: #4a4a4a;
-  }
-  .sideSchedule_empty {
-    color: #4a4a4a;
-    float: left;
-    height: 50vh;
-    margin: 0;
-    width: 100%;
-    border: none;
-    border-radius: 30px;
-    &:hover {
-      box-shadow: none;
-    }
-  }
-  ul {
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-    div {
-      color: #4a4a4a;
-      font-size: 0.9rem;
-      padding-left: 10px;
-      margin-bottom: 0.5rem;
-      &.gift{
-        color: #8f8f8f;
-        font-size: 0.7rem;
-        padding-left: 0;
-      }
-      &.결혼식 {
-        border-left: 3px solid #FFCECE;
-      }
-      &.생일 {
-        border-left: 3px solid #FFB65B;
-      }
-      &.장례식 {
-        border-left: 3px solid #737272;
-      }
-      &.집들이 {
-        border-left: 3px solid #6BACF8;
-      }
-      &.취직 {
-        border-left: 3px solid #FFF00C;
-      }
-      &.입학 {
-        border-left: 3px solid #A4F256;
-      }
-      &.출산 {
-        border-left: 3px solid #FF6666;
-      }
-      &.돌잔치 {
-        border-left: 3px solid #97ECCF;
-      }
-      &.기념일 {
-        border-left: 3px solid #E1C5FF;
-      }
-      &.기타 {
-        border-left: 3px solid #CECECE;
-      }
-    }
-  }
-}
-
-.selectMonth {
-  background-color: #ededed;
-  color: #4a4a4a;
-  box-shadow: -1px -1px 10px 0 rgba(0, 0, 0, 0.3);
-  position: fixed;
-  z-index: 1;
-  border-radius: 20px;
-  padding: 20px;
-  width: 250px;
-  top: 16vh;
-  span {
-    padding: 10px 0px;
-    float: left;
-    width: 33.3%;
-    text-align: center;
-  }
-  span:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-  }
-}
-
-.Calendar{
-  user-select: none;
-  margin: 10vh 5%;
-  min-height: 80vh;
-  max-height: 80vh;
-  .head{
-    display: flex;
-    // justify-content: space-between;
-    align-items: center;
-    padding: 0px 12px;
-    height: 40px;
-    margin-bottom: 30px;
-    button{
-      &.select_month{
-        cursor: pointer;
-        outline: none;
-        display: inline-flex;
-        background: transparent;
-        border: none;
-        font-size: 1.3rem;
-        margin: 0px 18px;
-        padding: 0;
-        border-radius: 5px;
-      }
-      &.add_schedule{
-        cursor: pointer;
-        outline: none;
-        display: inline-flex;
-        align-items: center;
-        padding: 0.55rem;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background-color: #e6e6e6;
-        border: none;
-        font-size: 1rem;
-        color: white;
-        margin-left: auto;
-        margin-right: 0;
-      }
-    }
-    span.title{
-      color: #4a4a4a;
-      font-size: 1.3rem;
-      padding: 0px 30px 0px 12px;
-      border-right: gray 1px solid;
-    }
-  }
-  .body{
-    // 요일
-    .row{
-      display: flex;
-      min-height: 40px;
-      max-height: 40px;
-      &:first-child{
-        cursor: initial;
-        .box span.text{
-          border-top: none;
-          align-items: flex-end;
-        }
-        .box:hover > span.text{
-          background-color: white;
-        }
-      }
-      .box{
+    ul {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      div {
         color: #4a4a4a;
-        position: relative;
-        display: inline-flex;
-        width: calc(100%/7);
-        font-size: 10pt;
-        margin: 0.5rem;
-        &:first-child{
-          color: rgb(255, 136, 61);
+        font-size: 0.9rem;
+        padding-left: 10px;
+        margin-bottom: 0.5rem;
+        &.gift{
+          color: #8f8f8f;
+          font-size: 0.7rem;
+          padding-left: 0;
         }
-        &:last-child{
-          color: #588dff;
+        &.결혼식 {
+          border-left: 3px solid #FFCECE;
         }
-        span.text{
-          border-top: gray 1px solid;
+        &.생일 {
+          border-left: 3px solid #FFB65B;
+        }
+        &.장례식 {
+          border-left: 3px solid #737272;
+        }
+        &.집들이 {
+          border-left: 3px solid #6BACF8;
+        }
+        &.취직 {
+          border-left: 3px solid #FFF00C;
+        }
+        &.입학 {
+          border-left: 3px solid #A4F256;
+        }
+        &.출산 {
+          border-left: 3px solid #FF6666;
+        }
+        &.돌잔치 {
+          border-left: 3px solid #97ECCF;
+        }
+        &.기념일 {
+          border-left: 3px solid #E1C5FF;
+        }
+        &.기타 {
+          border-left: 3px solid #CECECE;
+        }
+      }
+    }
+  }
+
+  // 월 선택 모달
+  .selectMonth {
+    background-color: #ededed;
+    color: #4a4a4a;
+    box-shadow: -1px -1px 10px 0 rgba(0, 0, 0, 0.3);
+    position: fixed;
+    z-index: 1;
+    border-radius: 20px;
+    padding: 20px;
+    width: 250px;
+    top: 16vh;
+    span {
+      padding: 10px 0px;
+      float: left;
+      width: 33.3%;
+      text-align: center;
+    }
+    span:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+    }
+  }
+
+  // 전체 달력
+  .Calendar{
+    user-select: none;
+    margin: 10vh 5%;
+    min-height: 80vh;
+    max-height: 80vh;
+    .head{
+      display: flex;
+      // justify-content: space-between;
+      align-items: center;
+      padding: 0px 12px;
+      height: 40px;
+      margin-bottom: 30px;
+      button{
+        outline: none;
+        border: none;
+        &.select_month{
+          cursor: pointer;
+          display: inline-flex;
+          margin: 0px 18px;
+          padding: 0;
+          background-color: white;
+          font-stretch: extra-expanded;
+          transform: scaleY(0.5);
+        }
+        &.add_schedule{
+          cursor: pointer;
           display: inline-flex;
           align-items: center;
-          width: 90%;
-          height: 100%;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%,-50%);
+          padding: 0.55rem;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background-color: #e6e6e6;
+          font-size: 1rem;
+          color: white;
+          margin-left: auto;
+          margin-right: 0;
+        }
+      }
+      span.title{
+        color: #4a4a4a;
+        font-size: 1.3rem;
+        padding: 0px 30px 0px 12px;
+        border-right: gray 1px solid;
+      }
+    }
+    .body{
+      // 요일
+      .row{
+        display: flex;
+        min-height: 40px;
+        max-height: 40px;
+        &:first-child{
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: flex-end;
+          }
+          .box:hover > span.text{
+            background-color: white;
+          }
+        }
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 10pt;
+          margin: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          span.text{
+            border-top: gray 1px solid;
+            display: inline-flex;
+            align-items: center;
+            width: 90%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+        }
+      }
+      // 5주까지 있을 경우
+      .row5{
+        display: flex;
+        cursor: pointer;
+        min-height: 102px;
+        &:first-child{
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: center;
+          }
+          .box:hover > span.text{
+            background-color: white;
+          }
+        }
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 12pt;
+          margin-top: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          &.grayed{
+            color: rgb(210, 210, 210);
+          }
+          &:hover{
+            span.text{
+              background-color: rgba(#588dff, 0.1);
+            }
+          }
+          &.selected{
+            span.text{
+              border: gray 1px solid;
+            }
+          }
+          span.text{
+            border-top: gray 1px solid;
+            display: block;
+            // align-items: center;
+            padding: 3px 4px;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+        }
+      }
+      // 6주까지 있을 경우
+      .row6{
+        display: flex;
+        cursor: pointer;
+        min-height: 85px;
+        &:first-child{
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: center;
+          }
+          .box:hover > span.text{
+            background-color: white;
+          }
+        }
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 12pt;
+          margin-top: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          &.grayed{
+            color: rgb(210, 210, 210);
+          }
+          &:hover{
+            span.text{
+              background-color: rgba(#588dff, 0.1);
+            }
+          }
+          &.selected{
+            span.text{
+              border: gray 1px solid;
+            }
+          }
+          span.text{
+            border-top: gray 1px solid;
+            display: block;
+            // align-items: center;
+            padding: 3px 4px;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+        }
+      }
+      // 4주까지 있을 경우(ex. 2015년 2월)
+      .row4{
+        display: flex;
+        cursor: pointer;
+        min-height: 127.5px;
+        &:first-child{
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: center;
+          }
+          .box:hover > span.text{
+            background-color: white;
+          }
+        }
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 12pt;
+          margin-top: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          &.grayed{
+            color: rgb(210, 210, 210);
+          }
+          &:hover{
+            span.text{
+              background-color: rgba(#588dff, 0.1);
+            }
+          }
+          &.selected{
+            span.text{
+              border: gray 1px solid;
+            }
+          }
+          span.text{
+            border-top: gray 1px solid;
+            display: block;
+            // align-items: center;
+            padding: 3px 4px;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
         }
       }
     }
-    // 5주까지 있을 경우
-    .row5{
+  }
+
+  // 좌측 달력
+  .sideCalendar{
+    user-select: none;
+    margin: 10vh 5%;
+    width: 60%;
+    min-height: 80vh;
+    max-height: 80vh;
+    .head{
       display: flex;
-      cursor: pointer;
-      min-height: 102px;
-      &:first-child{
-        cursor: initial;
-        .box span.text{
-          border-top: none;
-          align-items: center;
-        }
-        .box:hover > span.text{
+      // justify-content: space-between;
+      align-items: center;
+      padding: 0px 12px;
+      height: 40px;
+      margin-bottom: 30px;
+      button{
+        outline: none;
+        border: none;
+        &.select_month{
+          cursor: pointer;
+          display: inline-flex;
+          margin: 0px 18px;
+          padding: 0;
           background-color: white;
+          font-stretch: extra-expanded;
+          transform: scaleY(0.5);
+        }
+        &.add_schedule{
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          padding: 0.55rem;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background-color: #e6e6e6;
+          font-size: 1rem;
+          color: white;
+          margin-left: auto;
         }
       }
-      .box{
+      span.title{
         color: #4a4a4a;
-        position: relative;
-        display: inline-flex;
-        width: calc(100%/7);
-        font-size: 12pt;
-        margin-top: 0.5rem;
-        &:first-child{
-          color: rgb(255, 136, 61);
-        }
-        &:last-child{
-          color: #588dff;
-        }
-        &.grayed{
-          color: rgb(210, 210, 210);
-        }
-        &:hover{
-          span.text{
-            background-color: rgba(#588dff, 0.1);
-          }
-        }
-        &.selected{
-          span.text{
-            border: gray 1px solid;
-          }
-        }
-        span.text{
-          border-top: gray 1px solid;
-          display: block;
-          // align-items: center;
-          padding: 3px 4px;
-          width: 75%;
-          height: 100%;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%,-50%);
-        }
+        font-size: 1.3rem;
+        padding: 0px 30px 0px 12px;
+        border-right: gray 1px solid;
       }
     }
-    // 6주까지 있을 경우
-    .row6{
-      display: flex;
-      cursor: pointer;
-      min-height: 85px;
-      &:first-child{
-        cursor: initial;
-        .box span.text{
-          border-top: none;
-          align-items: center;
-        }
-        .box:hover > span.text{
-          background-color: white;
-        }
-      }
-      .box{
-        color: #4a4a4a;
-        position: relative;
-        display: inline-flex;
-        width: calc(100%/7);
-        font-size: 12pt;
-        margin-top: 0.5rem;
+    .body{
+      // 요일
+      .row{
+        display: flex;
+        min-height: 40px;
+        max-height: 40px;
         &:first-child{
-          color: rgb(255, 136, 61);
-        }
-        &:last-child{
-          color: #588dff;
-        }
-        &.grayed{
-          color: rgb(210, 210, 210);
-        }
-        &:hover{
-          span.text{
-            background-color: rgba(#588dff, 0.1);
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: flex-end;
+          }
+          .box:hover > span.text{
+            background-color: white;
           }
         }
-        &.selected{
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 10pt;
+          margin: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
           span.text{
-            border: gray 1px solid;
+            border-top: gray 1px solid;
+            display: inline-flex;
+            align-items: center;
+            width: 90%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
           }
         }
-        span.text{
-          border-top: gray 1px solid;
-          display: block;
-          // align-items: center;
-          padding: 3px 4px;
-          width: 75%;
-          height: 100%;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%,-50%);
-        }
       }
-    }
-    // 4주까지 있을 경우(ex. 2015년 2월)
-    .row4{
-      display: flex;
-      cursor: pointer;
-      min-height: 127.5px;
-      &:first-child{
-        cursor: initial;
-        .box span.text{
-          border-top: none;
-          align-items: center;
-        }
-        .box:hover > span.text{
-          background-color: white;
-        }
-      }
-      .box{
-        color: #4a4a4a;
-        position: relative;
-        display: inline-flex;
-        width: calc(100%/7);
-        font-size: 12pt;
-        margin-top: 0.5rem;
+      // 5주까지 있을 경우
+      .row5{
+        display: flex;
+        cursor: pointer;
+        min-height: 102px;
         &:first-child{
-          color: rgb(255, 136, 61);
-        }
-        &:last-child{
-          color: #588dff;
-        }
-        &.grayed{
-          color: rgb(210, 210, 210);
-        }
-        &:hover{
-          span.text{
-            background-color: rgba(#588dff, 0.1);
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: center;
+          }
+          .box:hover > span.text{
+            background-color: white;
           }
         }
-        &.selected{
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 12pt;
+          margin-top: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          &.grayed{
+            color: rgb(210, 210, 210);
+          }
+          &:hover{
+            span.text{
+              background-color: rgba(#588dff, 0.1);
+            }
+          }
+          &.selected{
+            span.text{
+              border: gray 1px solid;
+            }
+          }
           span.text{
-            border: gray 1px solid;
+            border-top: gray 1px solid;
+            display: block;
+            // align-items: center;
+            padding: 3px 4px;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
           }
         }
-        span.text{
-          border-top: gray 1px solid;
-          display: block;
-          // align-items: center;
-          padding: 3px 4px;
-          width: 75%;
-          height: 100%;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%,-50%);
+      }
+      // 6주까지 있을 경우
+      .row6{
+        display: flex;
+        cursor: pointer;
+        min-height: 85px;
+        &:first-child{
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: center;
+          }
+          .box:hover > span.text{
+            background-color: white;
+          }
+        }
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 12pt;
+          margin-top: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          &.grayed{
+            color: rgb(210, 210, 210);
+          }
+          &:hover{
+            span.text{
+              background-color: rgba(#588dff, 0.1);
+            }
+          }
+          &.selected{
+            span.text{
+              border: gray 1px solid;
+            }
+          }
+          span.text{
+            border-top: gray 1px solid;
+            display: block;
+            // align-items: center;
+            padding: 3px 4px;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+        }
+      }
+      // 4주까지 있을 경우(ex. 2015년 2월)
+      .row4{
+        display: flex;
+        cursor: pointer;
+        min-height: 127.5px;
+        &:first-child{
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: center;
+          }
+          .box:hover > span.text{
+            background-color: white;
+          }
+        }
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 12pt;
+          margin-top: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          &.grayed{
+            color: rgb(210, 210, 210);
+          }
+          &:hover{
+            span.text{
+              background-color: rgba(#588dff, 0.1);
+            }
+          }
+          &.selected{
+            span.text{
+              border: gray 1px solid;
+            }
+          }
+          span.text{
+            border-top: gray 1px solid;
+            display: block;
+            // align-items: center;
+            padding: 3px 4px;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
         }
       }
     }
   }
 }
 
-.sideCalendar{
-  user-select: none;
-  margin: 10vh 5%;
-  width: 60%;
-  min-height: 80vh;
-  max-height: 80vh;
-  .head{
-    display: flex;
-    // justify-content: space-between;
-    align-items: center;
-    padding: 0px 12px;
-    height: 40px;
-    margin-bottom: 30px;
-    button{
-      &.select_month{
-        cursor: pointer;
-        outline: none;
-        display: inline-flex;
-        background: transparent;
-        border: none;
-        font-size: 1.3rem;
-        margin: 0px 18px;
-        padding: 0;
-        border-radius: 5px;
+@include mobile {
+
+  // 달력에 일정 표시용
+  .body {
+    ul {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      li{
+        display: block;
+        text-decoration: line-through;
+        width: 100%;
+        &.결혼식 {
+          hr{
+            border: 1px solid #FFCECE;
+          }
+        }
+        &.생일 {
+          hr{
+            border: 1px solid #FFB65B;
+          }
+        }
+        &.장례식 {
+          hr{
+            border: 1px solid #737272;
+          }
+        }
+        &.집들이 {
+          hr{
+            border: 1px solid #6BACF8;
+          }
+        }
+        &.취직 {
+          hr{
+            border: 1px solid #FFF00C;
+          }
+        }
+        &.입학 {
+          hr{
+            border: 1px solid #A4F256;
+          }
+        }
+        &.출산 {
+          hr{
+            border: 1px solid #FF6666;
+          }
+        }
+        &.돌잔치 {
+          hr{
+            border: 1px solid #97ECCF;
+          }
+        }
+        &.기념일 {
+          hr{
+            border: 1px solid #E1C5FF;
+          }
+        }
+        &.기타 {
+          hr{
+            border: 1px solid #CECECE;
+          }
+        }
       }
-      &.add_schedule{
-        cursor: pointer;
-        outline: none;
-        display: inline-flex;
-        align-items: center;
-        padding: 0.55rem;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background-color: #e6e6e6;
-        border: none;
-        font-size: 1rem;
-        color: white;
-        margin-left: auto;
-      }
-    }
-    span.title{
-      color: #4a4a4a;
-      font-size: 1.3rem;
-      padding: 0px 30px 0px 12px;
-      border-right: gray 1px solid;
     }
   }
-  .body{
-    // 요일
-    .row{
-      display: flex;
-      min-height: 40px;
-      max-height: 40px;
-      &:first-child{
-        cursor: initial;
-        .box span.text{
-          border-top: none;
-          align-items: flex-end;
+
+  // 아래에 디테일한 일정 표시
+  .sideSchedule {
+    position: fixed;
+    width: 84%;
+    margin: 11% 5.5%;
+    border-top: #4a4a4ab6 1px solid;
+    .date{
+      color: #4a4a4a;
+      height: 30px;
+      margin: 20px 10px;
+    }
+    .closeSideSchedule {
+      float: right;
+      margin: 20px 10px;
+      border: none;
+      background-color: transparent;
+      font-size: 0.7rem;
+      border-radius: 30%;
+      width: 25px;
+      height: 25px;
+      color: #4a4a4a;
+    }
+    .sideSchedule_empty {
+      color: #4a4a4a;
+      float: left;
+      height: 50vh;
+      margin: 0;
+      width: 100%;
+      border: none;
+      border-radius: 30px;
+      &:hover {
+        box-shadow: none;
+      }
+    }
+    ul {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      div {
+        color: #4a4a4a;
+        font-size: 0.9rem;
+        padding-left: 10px;
+        margin-bottom: 0.5rem;
+        &.gift{
+          color: #8f8f8f;
+          font-size: 0.7rem;
+          padding-left: 0;
         }
-        .box:hover > span.text{
-          background-color: white;
+        &.결혼식 {
+          border-left: 3px solid #FFCECE;
+        }
+        &.생일 {
+          border-left: 3px solid #FFB65B;
+        }
+        &.장례식 {
+          border-left: 3px solid #737272;
+        }
+        &.집들이 {
+          border-left: 3px solid #6BACF8;
+        }
+        &.취직 {
+          border-left: 3px solid #FFF00C;
+        }
+        &.입학 {
+          border-left: 3px solid #A4F256;
+        }
+        &.출산 {
+          border-left: 3px solid #FF6666;
+        }
+        &.돌잔치 {
+          border-left: 3px solid #97ECCF;
+        }
+        &.기념일 {
+          border-left: 3px solid #E1C5FF;
+        }
+        &.기타 {
+          border-left: 3px solid #CECECE;
         }
       }
-      .box{
-        color: #4a4a4a;
-        position: relative;
-        display: inline-flex;
-        width: calc(100%/7);
-        font-size: 10pt;
-        margin: 0.5rem;
-        &:first-child{
-          color: rgb(255, 136, 61);
+    }
+  }
+
+  // 월 선택 모달
+  .selectMonth {
+    background-color: #ededed;
+    color: #4a4a4a;
+    box-shadow: -1px -1px 10px 0 rgba(0, 0, 0, 0.3);
+    position: fixed;
+    z-index: 1;
+    border-radius: 20px;
+    padding: 20px;
+    width: 250px;
+    top: 16vh;
+    span {
+      padding: 10px 0px;
+      float: left;
+      width: 33.3%;
+      text-align: center;
+    }
+    span:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+    }
+  }
+
+  // 전체 달력
+  .Calendar{
+    user-select: none;
+    margin: 10vh 5%;
+    min-height: 80vh;
+    max-height: 80vh;
+    .head{
+      display: flex;
+      // justify-content: space-between;
+      align-items: center;
+      padding: 0px 12px;
+      height: 40px;
+      margin-bottom: 30px;
+      button{
+        outline: none;
+        border: none;
+        &.select_month{
+          cursor: pointer;
+          display: inline-flex;
+          margin: 0px 18px;
+          padding: 0;
+          background-color: white;
+          font-stretch: extra-expanded;
+          transform: scaleY(0.5);
         }
-        &:last-child{
-          color: #588dff;
-        }
-        span.text{
-          border-top: gray 1px solid;
+        &.add_schedule{
+          cursor: pointer;
           display: inline-flex;
           align-items: center;
-          width: 90%;
-          height: 100%;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%,-50%);
+          padding: 0.55rem;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background-color: #e6e6e6;
+          font-size: 1rem;
+          color: white;
+          margin-left: auto;
+          margin-right: 0;
+        }
+      }
+      span.title{
+        color: #4a4a4a;
+        font-size: 1.3rem;
+        padding: 0px 30px 0px 12px;
+        border-right: gray 1px solid;
+      }
+    }
+    .body{
+      // 요일
+      .row{
+        display: flex;
+        min-height: 40px;
+        max-height: 40px;
+        &:first-child{
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: flex-end;
+          }
+          .box:hover > span.text{
+            background-color: white;
+          }
+        }
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 10pt;
+          margin: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          span.text{
+            border-top: gray 1px solid;
+            display: inline-flex;
+            align-items: center;
+            width: 90%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+        }
+      }
+      // 5주까지 있을 경우
+      .row5{
+        display: flex;
+        cursor: pointer;
+        min-height: 102px;
+        &:first-child{
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: center;
+          }
+          .box:hover > span.text{
+            background-color: white;
+          }
+        }
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 12pt;
+          margin-top: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          &.grayed{
+            color: rgb(210, 210, 210);
+          }
+          &:hover{
+            span.text{
+              background-color: rgba(#588dff, 0.1);
+            }
+          }
+          &.selected{
+            span.text{
+              border: gray 1px solid;
+            }
+          }
+          span.text{
+            border-top: gray 1px solid;
+            display: block;
+            // align-items: center;
+            padding: 3px 4px;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+        }
+      }
+      // 6주까지 있을 경우
+      .row6{
+        display: flex;
+        cursor: pointer;
+        min-height: 85px;
+        &:first-child{
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: center;
+          }
+          .box:hover > span.text{
+            background-color: white;
+          }
+        }
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 12pt;
+          margin-top: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          &.grayed{
+            color: rgb(210, 210, 210);
+          }
+          &:hover{
+            span.text{
+              background-color: rgba(#588dff, 0.1);
+            }
+          }
+          &.selected{
+            span.text{
+              border: gray 1px solid;
+            }
+          }
+          span.text{
+            border-top: gray 1px solid;
+            display: block;
+            // align-items: center;
+            padding: 3px 4px;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+        }
+      }
+      // 4주까지 있을 경우(ex. 2015년 2월)
+      .row4{
+        display: flex;
+        cursor: pointer;
+        min-height: 127.5px;
+        &:first-child{
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: center;
+          }
+          .box:hover > span.text{
+            background-color: white;
+          }
+        }
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 12pt;
+          margin-top: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          &.grayed{
+            color: rgb(210, 210, 210);
+          }
+          &:hover{
+            span.text{
+              background-color: rgba(#588dff, 0.1);
+            }
+          }
+          &.selected{
+            span.text{
+              border: gray 1px solid;
+            }
+          }
+          span.text{
+            border-top: gray 1px solid;
+            display: block;
+            // align-items: center;
+            padding: 3px 4px;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
         }
       }
     }
-    // 5주까지 있을 경우
-    .row5{
+  }
+
+  // 상단 달력
+  .sideCalendar{
+    user-select: none;
+    margin: 10vh 5%;
+    min-height: 40vh;
+    max-height: 40vh;
+    .head{
       display: flex;
-      cursor: pointer;
-      min-height: 102px;
-      &:first-child{
-        cursor: initial;
-        .box span.text{
-          border-top: none;
-          align-items: center;
-        }
-        .box:hover > span.text{
+      // justify-content: space-between;
+      align-items: center;
+      padding: 0px 12px;
+      height: 30px;
+      margin-bottom: 10px;
+      button{
+        outline: none;
+        border: none;
+        &.select_month{
+          cursor: pointer;
+          display: inline-flex;
+          margin: 0px 18px;
+          padding: 0;
           background-color: white;
+          font-stretch: extra-expanded;
+          transform: scaleY(0.5);
+        }
+        &.add_schedule{
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          padding: 0.55rem;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background-color: #e6e6e6;
+          font-size: 1rem;
+          color: white;
+          margin-left: auto;
         }
       }
-      .box{
+      span.title{
         color: #4a4a4a;
-        position: relative;
-        display: inline-flex;
-        width: calc(100%/7);
-        font-size: 12pt;
-        margin-top: 0.5rem;
-        &:first-child{
-          color: rgb(255, 136, 61);
-        }
-        &:last-child{
-          color: #588dff;
-        }
-        &.grayed{
-          color: rgb(210, 210, 210);
-        }
-        &:hover{
-          span.text{
-            background-color: rgba(#588dff, 0.1);
-          }
-        }
-        &.selected{
-          span.text{
-            border: gray 1px solid;
-          }
-        }
-        span.text{
-          border-top: gray 1px solid;
-          display: block;
-          // align-items: center;
-          padding: 3px 4px;
-          width: 75%;
-          height: 100%;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%,-50%);
-        }
+        font-size: 1.3rem;
+        padding: 0px 30px 0px 12px;
+        border-right: gray 1px solid;
       }
     }
-    // 6주까지 있을 경우
-    .row6{
-      display: flex;
-      cursor: pointer;
-      min-height: 85px;
-      &:first-child{
-        cursor: initial;
-        .box span.text{
-          border-top: none;
-          align-items: center;
-        }
-        .box:hover > span.text{
-          background-color: white;
-        }
-      }
-      .box{
-        color: #4a4a4a;
-        position: relative;
-        display: inline-flex;
-        width: calc(100%/7);
-        font-size: 12pt;
-        margin-top: 0.5rem;
+    .body{
+      // 요일
+      .row{
+        display: flex;
+        min-height: 30px;
+        max-height: 30px;
         &:first-child{
-          color: rgb(255, 136, 61);
-        }
-        &:last-child{
-          color: #588dff;
-        }
-        &.grayed{
-          color: rgb(210, 210, 210);
-        }
-        &:hover{
-          span.text{
-            background-color: rgba(#588dff, 0.1);
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: flex-end;
+          }
+          .box:hover > span.text{
+            background-color: white;
           }
         }
-        &.selected{
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 10pt;
+          margin: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
           span.text{
-            border: gray 1px solid;
+            display: inline-flex;
+            align-items: center;
+            width: 90%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
           }
         }
-        span.text{
-          border-top: gray 1px solid;
-          display: block;
-          // align-items: center;
-          padding: 3px 4px;
-          width: 75%;
-          height: 100%;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%,-50%);
-        }
       }
-    }
-    // 4주까지 있을 경우(ex. 2015년 2월)
-    .row4{
-      display: flex;
-      cursor: pointer;
-      min-height: 127.5px;
-      &:first-child{
-        cursor: initial;
-        .box span.text{
-          border-top: none;
-          align-items: center;
-        }
-        .box:hover > span.text{
-          background-color: white;
-        }
-      }
-      .box{
-        color: #4a4a4a;
-        position: relative;
-        display: inline-flex;
-        width: calc(100%/7);
-        font-size: 12pt;
-        margin-top: 0.5rem;
+      // 5주까지 있을 경우
+      .row5{
+        display: flex;
+        cursor: pointer;
+        min-height: 71.4px;
         &:first-child{
-          color: rgb(255, 136, 61);
-        }
-        &:last-child{
-          color: #588dff;
-        }
-        &.grayed{
-          color: rgb(210, 210, 210);
-        }
-        &:hover{
-          span.text{
-            background-color: rgba(#588dff, 0.1);
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: center;
+          }
+          .box:hover > span.text{
+            background-color: white;
           }
         }
-        &.selected{
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 12pt;
+          margin-top: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          &.grayed{
+            color: rgb(210, 210, 210);
+          }
+          &:hover{
+            span.text{
+              background-color: rgba(#588dff, 0.1);
+            }
+          }
+          &.selected{
+            span.text{
+              border: gray 1px solid;
+            }
+          }
           span.text{
-            border: gray 1px solid;
+            border-top: gray 1px solid;
+            display: block;
+            // align-items: center;
+            padding: 3px 4px;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
           }
         }
-        span.text{
-          border-top: gray 1px solid;
-          display: block;
-          // align-items: center;
-          padding: 3px 4px;
-          width: 75%;
-          height: 100%;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%,-50%);
+      }
+      // 6주까지 있을 경우
+      .row6{
+        display: flex;
+        cursor: pointer;
+        min-height: 59.5px;
+        &:first-child{
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: center;
+          }
+          .box:hover > span.text{
+            background-color: white;
+          }
+        }
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 12pt;
+          margin-top: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          &.grayed{
+            color: rgb(210, 210, 210);
+          }
+          &:hover{
+            span.text{
+              background-color: rgba(#588dff, 0.1);
+            }
+          }
+          &.selected{
+            span.text{
+              border: gray 1px solid;
+            }
+          }
+          span.text{
+            border-top: gray 1px solid;
+            display: block;
+            // align-items: center;
+            padding: 3px 4px;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+        }
+      }
+      // 4주까지 있을 경우(ex. 2015년 2월)
+      .row4{
+        display: flex;
+        cursor: pointer;
+        min-height: 89.25px;
+        &:first-child{
+          cursor: initial;
+          .box span.text{
+            border-top: none;
+            align-items: center;
+          }
+          .box:hover > span.text{
+            background-color: white;
+          }
+        }
+        .box{
+          color: #4a4a4a;
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          font-size: 12pt;
+          margin-top: 0.5rem;
+          &:first-child{
+            color: rgb(255, 136, 61);
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          &.grayed{
+            color: rgb(210, 210, 210);
+          }
+          &:hover{
+            span.text{
+              background-color: rgba(#588dff, 0.1);
+            }
+          }
+          &.selected{
+            span.text{
+              border: gray 1px solid;
+            }
+          }
+          span.text{
+            border-top: gray 1px solid;
+            display: block;
+            // align-items: center;
+            padding: 3px 4px;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
         }
       }
     }
