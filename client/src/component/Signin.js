@@ -107,7 +107,7 @@ export default function Signin(props) {
             </form>
             <span>
                 <KakaoSignUp setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} />
-                <button className="naver">Naver</button>
+                <a href="https://don-forget-server.com/oauth/naver"><button className="naver">Naver</button></a>
             </span>
             <form className={isOpenStepOne ? "modal" : "none"}>
                 <div className="content">
