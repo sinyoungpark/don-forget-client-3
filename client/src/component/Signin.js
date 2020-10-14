@@ -7,6 +7,7 @@ import axios from "axios";
 //import kakao-api
 import KakaoSignUp from "./Kakao";
 
+
 export default function Signin(props) {
 
     const { setIsLogin, setEmail, setName, setUserId } = props;
@@ -32,6 +33,7 @@ export default function Signin(props) {
 
     //로그인 실패 alert 창 !
     const [isOpenAlert, setAlert] = useState(false);
+
 
     function handleLoginBtn(e) {
         e.preventDefault();
@@ -113,7 +115,7 @@ export default function Signin(props) {
                 }}> 비밀번호 찾기 </a>
                 <a href="/signup" className="signinLink">회원가입 </a>
                 <div className={isOpenAlert ? "alert" : "none"}>
-                    <strong> ⚠️ &nbsp; Error</strong> 
+                    <strong> ⚠️ &nbsp; Error</strong>
                     아이디와 비밀번호가 일치하지 않습니다.
                 </div>
             </form>
@@ -155,6 +157,6 @@ export default function Signin(props) {
                     <button onClick={setNewPw}>확인</button>
                 </div>
             </form>
-        </div>
+        </div >
     )
 }

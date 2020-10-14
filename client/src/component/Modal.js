@@ -37,16 +37,11 @@ export default function Modal(props) {
     function handleModifyBtn(e) {
         e.preventDefault();
 
-        axios.put(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
+        axios.put(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}/${e.target.name}`, {
             date: date ? date : data_date,
             event_target: eventTarget ? eventTarget : data_event_target,
             event_type: eventType ? eventType : data_event_type,
             gift: gift ? gift : data_gift
-        }, {
-            params: {
-                event_id: e.target.value,
-                schedule_id: e.target.name
-            }
         })
             .then((res) => console.log(res.data))
             .then(() => {

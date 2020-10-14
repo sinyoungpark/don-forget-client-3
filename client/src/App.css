@@ -36,7 +36,7 @@
 }
 
 /* page routing animation */
-.App{
+/* .App{
   position: relative;
   animation-name: App;
   animation-duration: 2s
@@ -48,4 +48,4 @@
 @keyframes App { 
   from{ bottom:-50px; opacity:0 } 
   to{ bottom:0; opacity:1 }
-}
+} */
