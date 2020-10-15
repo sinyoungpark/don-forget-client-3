@@ -30,7 +30,7 @@ export default function NaverSignUp(props) {
         callbackUrl= "https://don-forget-server.com/oauth/naver/callback"
         // isPopup = {false}
         // callbackHandle = {false}
-        render={(props) => <div onClick={props.onClick}>Naver Login</div>}
+        render={(props) => <button className="naver" onClick={props.onClick}>Sign in with Naver</button>}
         // buttonText="Naver"
         onSuccess={responseNaver}
         onFailure={responseFail}

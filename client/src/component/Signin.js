@@ -134,8 +134,10 @@ export default function Signin(props) {
           <div className="findPW">
             <input type="text" placeholder="질문에 알맞는 응답을 입력해주세요" onChange={(e) => userAnswer(e.target.value)} />
           </div>
-          <button>취소</button>
-          <button onClick={openPwSettingModal}>다음</button>
+          <div className="findPwBtn">
+            <button>취소</button>
+            <button onClick={openPwSettingModal}>다음</button>
+          </div>
         </div>
       </form>
       <form className={isOpenNewPW ? "modal" : "none"}>
@@ -146,7 +148,9 @@ export default function Signin(props) {
             <input type="text" placeholder="새 비밀번호 *" onChange={(e) => inputPW(e.target.value)} />
             <input type="text" placeholder="비밀번호 확인 *" onChange={(e) => inputPWCheck(e.target.value)} />
           </div>
-          <button onClick={setNewPw}>확인</button>
+          <div className="findPwBtn">
+            <button onClick={setNewPw}>확인</button>
+          </div>
         </div>
       </form>
     </div>

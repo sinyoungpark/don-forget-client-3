@@ -113,35 +113,37 @@
 @include mobile {
     /*전체정렬 signin 컴포넌트*/
     .signup{
-        padding: 60px;
+        padding-top: 10%;
         display : flex;
         flex-direction: column;
         align-items: center;
-    
         /* h1 login css */
         h1{
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: bold;
             color: #4a4a4a;
             margin: 0;
         }
         .logo {
-            width: 70px;
+            width: 50px;
             display: block;
             margin: 10px auto;
         }
     }
     .signup_content {
         .inputValue {
+            position: relative;
+            left : 10%;
+            top : 40px;
             select {
                 display: block;
-                width: 100%;
-                height: 32px;
-                margin-top : 35px;
+                width: 80%;
+                height: 20%;
+                margin-top : 10%;
                 border: none;
                 border-bottom: 1px solid #4a4a4a;
-                font-size: 15px;
+                font-size: 13px;
                 &:focus{
                     border-color : #3b23a6;
                 }
@@ -160,12 +162,12 @@
             }
             button {
                 display: block;
-                width: 100%;
+                width: 80%;
                 margin-top: 20px;
                 color:white;
                 background-color: #3b23a6;
                 border-radius: 5px;
-                padding: 12px;
+                padding: 6px;
                 border:none;
                 &:hover{
                     background-color:#3436ad;
@@ -175,14 +177,14 @@
             }
             input[type="text"], input[type="password"]{
                 display: block;
-                margin-top: 15px;
+                margin-top: 10px;
                 border: none;
                 border-bottom: 1px solid #4a4a4a;
-                width: 300px;
-                font-size: 15px;
+                width: 80%;
+                font-size: 12px;
                 outline: none;
                 height: 30px;
-                padding-top : 20px;
+                padding-top : 6px;
     
                 &:focus{
                     border-color : #3436ad;
@@ -204,9 +206,10 @@
                 color: rgb(117, 33, 12);
                 border-radius: 6px;
                 background-color: rgb(255, 215, 215);
-                padding: 7px 50px;
-                margin-top: 20px;
-                font-size: 15px;
+                padding: 0px 0px;
+                margin-top: 4px;
+                font-size: 11px;
+                width : 90%;
                 .alertIcon{
                     background-color: white;
                     color : rgb(241, 63, 63);

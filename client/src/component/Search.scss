@@ -1,158 +1,306 @@
-.search .full_page {
-    padding: 10vh 8%;
-    overflow: auto;
-    max-height: 80vh;
+@import "../mixin";
 
-    h1{
-        color : rgb(70, 67, 67);
-        font-size: 40px;
-        margin-bottom: 5vh;
-    }
-
-    ul{
-        list-style:none;
-    }
-
-    .date_li {
-        display: flex;
-    }
-
-    .search_list{
-        /* schedule list css */
-        margin: 0;
-        margin-top: 100px;
+@include desktop {
+    .search .full_page {
+        padding: 10vh 8%;
+        overflow: auto;
+        max-height: 80vh;
     
-        li{
-            border: 1px solid rgb(151, 149, 149);
-            width: 70%;
-            padding: 2% 4%;
-            border-radius: 40px;
-            margin: 1%;
-            margin-left: 10%;
-    
-        &:hover{
-            .li_button{
-                display : flex;
-                float: right;
-                border: none;
-                background-color: white;
-                left : 80%;
-                font-weight: 400;
-                color: rgb(160, 156, 156);
-                font-size: 16px;
-                padding : 0px 0px 0px 10px;
-            }
-        }
-            .li_button{
-            margin: 0px;
-            }
-        }
-        /* date css */
-        .date{
-            margin-top: 0.95rem;
-            font-size: 1.2rem;
-        } 
-        
-        /* schedule list안에 내용 css 담당 */
-        span{
+        h1{
             color : rgb(70, 67, 67);
-            margin-right: 1vh;
-            font-size: 0.9rem;
-            &.결혼식 {
-                padding-left: 10px;
-                border-left: 3px solid #FFCECE;
-            }
-            &.생일 {
-                padding-left: 10px;
-                border-left: 3px solid #FFB65B;
-            }
-            &.장례식 {
-                padding-left: 10px;
-                border-left: 3px solid #737272;
-            }
-            &.집들이 {
-                padding-left: 10px;
-                border-left: 3px solid #6BACF8;
-            }
-            &.취직 {
-                padding-left: 10px;
-                border-left: 3px solid #FFF00C;
-            }
-            &.입학 {
-                padding-left: 10px;
-                border-left: 3px solid #A4F256;
-            }
-            &.출산 {
-                padding-left: 10px;
-                border-left: 3px solid #FF6666;
-            }
-            &.돌잔치 {
-                padding-left: 10px; 
-                border-left: 3px solid #97ECCF;
-            }
-            &.기념일 {
-                padding-left: 10px; 
-                border-left: 3px solid #E1C5FF;
-            }
-            &.기타 {
-                padding-left: 10px;
-                border-left: 3px solid #CECECE;
-            }
+            font-size: 40px;
+            margin-bottom: 5vh;
         }
-        .gift{
-            color: rgb(160, 156, 156);
+    
+        ul{
+            list-style:none;
         }
-        .type{
-            color: rgb(70, 67, 67);
+    
+        .date_li {
+            display: flex;
         }
+    
+        .search_list{
+            /* schedule list css */
+            margin: 0;
+            margin-top: 100px;
         
-        /* 수정, 삭제 button css*/
-        .li_button{
-        display:none;
-        }
+            li{
+                border: 1px solid rgb(151, 149, 149);
+                width: 70%;
+                padding: 2% 4%;
+                border-radius: 40px;
+                margin: 1%;
+                margin-left: 10%;
         
-        /* add schedule button css */
-        .addBtn{
-            position: relative;
-            width: 6vh;
-            height: 6vh;
+            &:hover{
+                .li_button{
+                    display : flex;
+                    float: right;
+                    border: none;
+                    background-color: white;
+                    left : 80%;
+                    font-weight: 400;
+                    color: rgb(160, 156, 156);
+                    font-size: 16px;
+                    padding : 0px 0px 0px 10px;
+                }
+            }
+                .li_button{
+                margin: 0px;
+                }
+            }
+            /* date css */
+            .date{
+                margin-top: 0.95rem;
+                font-size: 1.2rem;
+            } 
+            
+            /* schedule list안에 내용 css 담당 */
+            span{
+                color : rgb(70, 67, 67);
+                margin-right: 1vh;
+                font-size: 0.9rem;
+                &.결혼식 {
+                    padding-left: 10px;
+                    border-left: 3px solid #FFCECE;
+                }
+                &.생일 {
+                    padding-left: 10px;
+                    border-left: 3px solid #FFB65B;
+                }
+                &.장례식 {
+                    padding-left: 10px;
+                    border-left: 3px solid #737272;
+                }
+                &.집들이 {
+                    padding-left: 10px;
+                    border-left: 3px solid #6BACF8;
+                }
+                &.취직 {
+                    padding-left: 10px;
+                    border-left: 3px solid #FFF00C;
+                }
+                &.입학 {
+                    padding-left: 10px;
+                    border-left: 3px solid #A4F256;
+                }
+                &.출산 {
+                    padding-left: 10px;
+                    border-left: 3px solid #FF6666;
+                }
+                &.돌잔치 {
+                    padding-left: 10px; 
+                    border-left: 3px solid #97ECCF;
+                }
+                &.기념일 {
+                    padding-left: 10px; 
+                    border-left: 3px solid #E1C5FF;
+                }
+                &.기타 {
+                    padding-left: 10px;
+                    border-left: 3px solid #CECECE;
+                }
+            }
+            .gift{
+                color: rgb(160, 156, 156);
+            }
+            .type{
+                color: rgb(70, 67, 67);
+            }
+            
+            /* 수정, 삭제 button css*/
+            .li_button{
+            display:none;
+            }
+            
+            /* add schedule button css */
+            .addBtn{
+                position: relative;
+                width: 6vh;
+                height: 6vh;
+                border-radius: 50%;
+                border: none;
+                top: -10vh;
+                left : 80%;
+            }
+        }
+    }
+    
+    .search_input{
+        display: inline-block;
+        margin: 0;
+        width: 85%;
+        height: 40px;
+        padding: 0 20px;
+        background-color: transparent;
+        border: #4a4a4a 2px solid;
+        border-radius: 50px;
+        outline:none;
+        &:focus{
+            box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
+            border-color : blue;
+        }
+    }
+    
+    .search_btn{
+        float: right;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        &:hover{
             border-radius: 50%;
-            border: none;
-            top: -10vh;
-            left : 80%;
         }
     }
+    
 }
 
-.search_input{
-    display: inline-block;
-    margin: 0;
-    width: 85%;
-    height: 40px;
-    padding: 0 20px;
-    background-color: transparent;
-    border: #4a4a4a 2px solid;
-    border-radius: 50px;
-    outline:none;
-    &:focus{
-        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
-        border-color : blue;
+@include mobile{
+    .search .full_page {
+        padding: 10vh 8%;
+        overflow: auto;
+        max-height: 80vh;
+    
+        h1{
+            color : rgb(70, 67, 67);
+            font-size: 30px;
+            margin-bottom: 5vh;
+        }
+        ul{
+            list-style:none;
+        }
+    
+        .date_li {
+            display: flex;
+        }
+    
+        .search_list{
+            /* schedule list css */
+            margin: 0px;
+            margin-top: 30px;
+            padding : 0px;
+            li{
+                border: 1px solid rgb(151, 149, 149);
+                width: 70%;
+                padding: 2% 4%;
+                border-radius: 40px;
+                margin: 1%;
+                margin-left: 3%;
+                height: 20px;
+            &:hover{
+                .li_button{
+                    display : flex;
+                    float: right;
+                    border: none;
+                    background-color: white;
+                    left : 80%;
+                    color: rgb(160, 156, 156);
+                    font-size: 0.7rem;
+                }
+            }
+                .li_button{
+                margin: 0px;
+                }
+            }
+            /* date css */
+            .date{
+                margin-top: 0.8rem;
+                font-size: 0.95rem;
+            } 
+            
+            /* schedule list안에 내용 css 담당 */
+            span{
+                color : rgb(70, 67, 67);
+                margin-right: 1vh;
+                font-size: 0.9rem;
+                padding-left: 3px;
+                &.결혼식 {
+
+                    border-left: 3px solid #FFCECE;
+                }
+                &.생일 {
+
+                    border-left: 3px solid #FFB65B;
+                }
+                &.장례식 {
+
+                    border-left: 3px solid #737272;
+                }
+                &.집들이 {
+
+                    border-left: 3px solid #6BACF8;
+                }
+                &.취직 {
+
+                    border-left: 3px solid #FFF00C;
+                }
+                &.입학 {
+
+                    border-left: 3px solid #A4F256;
+                }
+                &.출산 {
+
+                    border-left: 3px solid #FF6666;
+                }
+                &.돌잔치 {
+
+                    border-left: 3px solid #97ECCF;
+                }
+                &.기념일 {
+                    border-left: 3px solid #E1C5FF;
+                }
+                &.기타 {
+                    border-left: 3px solid #CECECE;
+                }
+            }
+            .gift{
+                color: rgb(160, 156, 156);
+            }
+            .type{
+                color: rgb(70, 67, 67);
+            }
+            
+            /* 수정, 삭제 button css*/
+            .li_button{
+            display:none;
+            }
+            
+            /* add schedule button css */
+            .addBtn{
+                position: relative;
+                width: 6vh;
+                height: 6vh;
+                border-radius: 50%;
+                border: none;
+                top: -10vh;
+                left : 80%;
+            }
+        }
     }
-}
-
-.search_btn{
-    float: right;
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    &:hover{
-        border-radius: 50%;
+    
+    .search_input{
+        display: inline-block;
+        margin: 0;
+        width: 70%;
+        height: 30px;
+        padding: 0 20px;
+        background-color: transparent;
+        border: #4a4a4a 2px solid;
+        border-radius: 50px;
+        outline:none;
+        &:focus{
+            box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
+            border-color : blue;
+        }
     }
+    
+    .search_btn{
+        float: right;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        &:hover{
+            border-radius: 50%;
+        }
+    }   
 }
-
-
-
-    
-    
-    
-    
