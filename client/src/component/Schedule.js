@@ -81,11 +81,11 @@ export default function Schedule(props) {
                             <div className="date_li">
                                 <div className="date">{date.slice(5, 7)} / {date.slice(8)}</div>
                                 <li key={data.id}>
-                                    <button className="li_button" onClick={handleDeleteBtn} name={data.id} value={data.event_id}>삭제</button>
-                                    <button className="li_button" onClick={(e) => {
+                                <button className="li_button" onClick={(e) => {
                                         e.preventDefault();
                                         handleModifyBtn(date, data.event_target, data.type, data.gift, data.id, data.event_id, data.giveandtake);
                                     }}>수정</button>
+                                    <button className="li_button" onClick={handleDeleteBtn} name={data.id} value={data.event_id}>삭제</button>
                                     <span className={data.type}>{data.giveandtake === "give" ? "→" : "←"}</span>
                                     <span className="type">{data.event_target} {data.type}</span>
                                     <span className="gift">{data.gift}</span>

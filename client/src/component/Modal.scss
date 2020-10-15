@@ -296,17 +296,19 @@
         border: 2px solid black;
         position: relative;
         left : 10%;
-        top : 20px;
+        top : 40px;
         margin : 0px;
         width : 40%;
         font-size: 4px;
+        margin-right: 10px;
         } 
     }
     }
 
     .buttonGroup{
         position : relative;
-        left : -10%;
+        left : 0%;
+        top : -10%;
         .selected {
             background-color: #3436ad;
             color : white;
