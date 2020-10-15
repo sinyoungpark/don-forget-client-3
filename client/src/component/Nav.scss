@@ -150,23 +150,23 @@
     .cur{
       font-size: 100px;
     }
-    .makeStyles-curpath-1{
-      position: relative;
-      animation-name : curpath;
-      animation-duration: 7s;
-      border-radius: 0;
-      margin : 0px 0% ;
-      display: inline;
-      padding : 10% 9.17% 7%;
-      top : 30%;
-    }
-    .makeStyles-icon-2 {
-      display: inline;
-      position: relative;
-      margin : 0px 0%;
-      padding : 0% 9.15% 6%;
-      top : 30%;
-    }
+    // .makeStyles-curpath-1{
+    //   position: relative;
+    //   animation-name : curpath;
+    //   animation-duration: 7s;
+    //   border-radius: 0;
+    //   margin : 0px 0% ;
+    //   display: inline;
+    //   padding : 10% 9.17% 7%;
+    //   top : 30%;
+    // }
+    // .makeStyles-icon-2 {
+    //   display: inline;
+    //   position: relative;
+    //   margin : 0px 0%;
+    //   padding : 0% 9.15% 6%;
+    //   top : 30%;
+    // }
   }
   @keyframes curpath{
     0% { top : 80%; }
