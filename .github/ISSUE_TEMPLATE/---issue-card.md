@@ -1,15 +1,12 @@
 ---
 name: 회고 Issue Card
 about: 목요일 회고를 위한 이슈카드입니다.
-title: ''
+title: "[Retrospect] N주차 회고 - 이름"
 labels: ''
 assignees: ''
 
 ---
 
-Issue Default Title
-[Retrospect] N주차 회고 - 이름
-Template Content
 # 이름
 
 ### Fact (사실) : 주요 사건에서 내가 취한 행동을 객관적으로 서술한다
