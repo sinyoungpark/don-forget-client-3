@@ -87,9 +87,10 @@
     background-color: #3b23a6;
     height: 100px;
     z-index:1;
-    width : 98%;
+    width : 96%;
     animation-name: topnav;
     animation-duration: 4s;
+  
     a {
       display:none;
   } 
@@ -121,7 +122,7 @@
   /* topNav animation*/
   @keyframes topnav{
     0% { top : 50%; }
-    25% { top : 0.6%; }
+    25% { top : 1.2%; }
   }
   
   /*sidenav css*/
@@ -131,8 +132,9 @@
     background-color: #3b23a6;
     height: 10%;
     z-index:4;
-    width: 97%;
+    width: 100%;
     bottom : 0%;
+    left : -0px;
     a {
       left : 10%;
       color: #f2f2f2;
@@ -155,14 +157,14 @@
       border-radius: 0;
       margin : 0px 0% ;
       display: inline;
-      padding : 10% 10.37% 7%;
+      padding : 10% 9.17% 7%;
       top : 30%;
     }
     .makeStyles-icon-2 {
       display: inline;
       position: relative;
       margin : 0px 0%;
-      padding : 0% 10.37% 6%;
+      padding : 0% 9.15% 6%;
       top : 30%;
     }
   }
