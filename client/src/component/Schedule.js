@@ -79,7 +79,7 @@ export default function Schedule(props) {
                         const date = String(data.date).slice(0, 10);
                         return (
                             <div className="date_li">
-                                <div className="date">{date.slice(5, 7)} / {date.slice(8)}</div>
+                                <div className="date">{date.slice(5, 7)}/{date.slice(8)}</div>
                                 <li key={data.id}>
                                     <button className="li_button" onClick={handleDeleteBtn} name={data.id} value={data.event_id}>삭제</button>
                                     <button className="li_button" onClick={(e) => {
