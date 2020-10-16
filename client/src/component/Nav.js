@@ -10,19 +10,36 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-    curpath : {
+    curpath: {
         backgroundColor: '#ffffff',
         marginBottom: "100px",
-        color : '#ff4705',
-        border : "2px solid white",
-        width : "30%",
-        height : "8%",
+        color: '#ff4705',
+        border: "2px solid white",
+        width: "35%",
+        height: "8%",
         borderRadius: "20px",
         fontSize: "large",
+        // position: "fixed",
+        "z-index": "99",
+        '@media(min-width: 1px) and (max-width:  757px)' : {
+            position: "relative",
+            borderRadius: "0",
+            margin : "0px 0%",
+            display: "inline",
+            padding : "10% 9.17% 7%",
+            top : "30%"
+        }
     },
-    icon : {
-        backgroundColor: '#3b23a6', 
-        marginBottom: "100px"
+    icon: {
+        backgroundColor: '#3b23a6',
+        marginBottom: "100px",
+        '@media(min-width: 1px) and (max-width:  757px)' : {
+            display: "inline",
+            position: "relative",
+            margin : "0px 0%",
+            padding : "0% 9.15% 6%",
+            top : "30%"
+        }
     }
 }))
 

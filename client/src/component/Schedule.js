@@ -43,11 +43,11 @@ export default function Schedule(props) {
     });
 
     function handleDeleteBtn(e) {
-        axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`,{
-                params : {
-                    schedule_id : e.target.name
-                }
-         })
+        axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
+            params: {
+                schedule_id: e.target.name
+            }
+        })
             .then((res) => setUseEffect(!controllUseEffect))
     }
     //http://localhost:5000/schedule/:id?event_id=2&schedule_id=3
@@ -68,7 +68,7 @@ export default function Schedule(props) {
         <div className="schedule">
             <div className="gradient"></div>
             <h1>Schedule
-            <button onClick={(e) => {
+                <button onClick={(e) => {
                     e.preventDefault();
                     setModal(!isOpen);
                 }} className="addBtn">+</button>
@@ -79,16 +79,15 @@ export default function Schedule(props) {
                         const date = String(data.date).slice(0, 10);
                         return (
                             <div className="date_li">
-                                <div className="date">{date.slice(5, 7)} / {date.slice(8)}</div>
+                                <div className="date">{date.slice(5, 7)}/{date.slice(8)}</div>
                                 <li key={data.id}>
-                                    <button className="li_button" onClick={handleDeleteBtn} name={data.id} value={data.event_id}>삭제</button>
-                                    <button className="li_button" onClick={(e) => {
+                                <button className="li_button" onClick={(e) => {
                                         e.preventDefault();
                                         handleModifyBtn(date, data.event_target, data.type, data.gift, data.id, data.event_id, data.giveandtake);
                                     }}>수정</button>
-                                    <span className={data.type}>{data.event_target}</span>
-                                    <span className="type">{data.type}</span>
-                                    <span>{data.giveandtake}</span>
+                                    <button className="li_button" onClick={handleDeleteBtn} name={data.id} value={data.event_id}>삭제</button>
+                                    <span className={data.type}>{data.giveandtake === "give" ? "→" : "←"}</span>
+                                    <span className="type">{data.event_target} {data.type}</span>
                                     <span className="gift">{data.gift}</span>
                                     <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} setUseEffect={setUseEffect} controllUseEffect={controllUseEffect} data_giveandtake={curGiveAndTake} />
                                 </li>

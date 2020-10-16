@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { withRouter } from "react-router-dom";
-import './MyPage.css';
+import './MyPage.scss';
 import axios from "axios";
 
 function MyPage(props) {
@@ -91,9 +91,9 @@ function MyPage(props) {
           </> : name}</div>
           <div>{email}</div>
         </div>
-        <button onClick={() => setOpenName(!openName)}>이름 변경</button>
-        <button onClick={() => setOpenPassword(!openPassword)}>비밀번호 변경</button>
-        <button onClick={signoutHandler}>로그아웃</button>
+        <button className="changeBtn" onClick={() => setOpenName(!openName)}>이름 변경</button>
+        <button className="changeBtn" onClick={() => setOpenPassword(!openPassword)}>비밀번호 변경</button>
+        <button className="changeBtn" onClick={signoutHandler}>로그아웃</button>
 
         <div className={openPassword ? "changePasswordModal" : "none"}>
           <input type="password" placeholder="기존 비밀번호"

@@ -98,7 +98,7 @@
     }
     span{
         text-align: center;
-        margin-top: 2%;
+        margin-top: 1%;
         font-size: large;
         position: relative;
         width : 100%;
@@ -121,7 +121,7 @@
     }
     .naver{
         position: relative;
-        top : -10px;
+        top : 0px;
         Background-color:hsl(123, 80%, 48%);
         border-color:hsl(123, 86%, 47%);
         &:hover{
@@ -187,6 +187,10 @@
             .findPwBtn{
                 display: block;
                 text-align: center;
+                margin-top: 30px;
+                width : 80%;
+                position: relative;
+                left : 10%;
                 button {
                     background-color: white;
                     width: 20%;
@@ -310,7 +314,7 @@
             display: none;
         }
         button{
-            margin: 0px;
+            margin: 0px 10px 10px;
             display : block;
             Background-color:rgb(255, 230, 0);
             border:2px solid rgb(255, 230, 0);
@@ -356,11 +360,10 @@
             transform: translate3d(-50%, -50%, 0);
             background: whitesmoke;
             box-shadow: 0 0 5px #000;
-            width: 50%;
+            width: 60%;
             height: 60%;
             padding: 40px;
             border-radius: 10px;
-
             h3{
                 border-bottom: 2px solid black;
                 padding-bottom: 10px;
@@ -397,7 +400,7 @@
                     width: 20%;
                     padding: 5px;
                     border: 2px solid rgb(201, 199, 199);
-                    margin: 10px 5px;
+                    margin: 30px 15px;
                     border-radius: 6px;
                 }
             }

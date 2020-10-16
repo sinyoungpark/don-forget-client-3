@@ -11,7 +11,7 @@ export default function Modal(props) {
     const [eventType, setType] = useState("");
     const [gift, setGift] = useState("");
 
-        /* get요청으로 받아온 값들 -> 수정 시 필요 */
+    /* get요청으로 받아온 값들 -> 수정 시 필요 */
     const { userId, isOpen, setModal, isModify, data_date, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify, setUseEffect, controllUseEffect, data_giveandtake, setAgain } = props;
 
     const [giveAndTake, setGiveAndTake] = useState("");
@@ -53,22 +53,22 @@ export default function Modal(props) {
         axios.put(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
             date: date ? date : data_date,
             event_target: eventTarget ? eventTarget : data_event_target,
-            type : eventType ? eventType : data_event_type,
+            type: eventType ? eventType : data_event_type,
             gift: gift ? gift : data_gift,
             giveandtake: giveAndTake ? giveAndTake : data_giveandtake
-        },{
-            params : {
-                schedule_id : e.target.name
+        }, {
+            params: {
+                schedule_id: e.target.name
             }
         })
             .then((res) => console.log(res.data))
             .then(() => {
                 handleModify(!isModify);
 
-                if (setUseEffect){
+                if (setUseEffect) {
                     setUseEffect(!controllUseEffect);
                 }
-                else if (setAgain){
+                else if (setAgain) {
                     setAgain(true);
                 }
             });
@@ -80,25 +80,28 @@ export default function Modal(props) {
                 <h3 className="add_event">경조사 추가하기</h3>
                 <h3 className="modify_event">수정하기</h3>
 
-                <div className="buttonGroup add_event">
-                    <button value="give" className={giveAndTake === "give" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
-                        setGiveAndTake(e.target.value);
-                    }}>give</button>
-                    <button value="take" className={giveAndTake === "take" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
-                        setGiveAndTake(e.target.value);
-                    }}>take</button>
-                </div>
-
-                <div className="buttonGroup modify_event">
-                    <button value="give" className={giveAndTake === "give" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
-                        setGiveAndTake(e.target.value);
-                    }}>give</button>
-                    <button value="take" className={giveAndTake === "take" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
-                        setGiveAndTake(e.target.value);
-                    }}>take</button>
-                </div>
-
                 <form>
+                    <div className="buttonGroup add_event">
+                        <button value="give" className={giveAndTake === "give" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
+                            e.preventDefault();
+                            setGiveAndTake(e.target.value);
+                        }}>give</button>
+                        <button value="take" className={giveAndTake === "take" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
+                            e.preventDefault();
+                            setGiveAndTake(e.target.value);
+                        }}>take</button>
+                    </div>
+
+                    <div className="buttonGroup modify_event">
+                        <button value="give" className={giveAndTake === "give" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
+                            e.preventDefault();
+                            setGiveAndTake(e.target.value);
+                        }}>give</button>
+                        <button value="take" className={giveAndTake === "take" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
+                            e.preventDefault();
+                            setGiveAndTake(e.target.value);
+                        }}>take</button>
+                    </div>
                     <input className="add_event" type="date" id="birthday" name="birthday" onChange={(e) => setDate(e.target.value)} placeholder="eventDate *" />
 
                     <input className="modify_event" type="date" id="birthday" defaultValue={data_date} name="birthday" onChange={(e) => setDate(e.target.value)} placeholder="eventDate *" />
@@ -138,18 +141,19 @@ export default function Modal(props) {
                     <input className="add_event" type="text" placeholder="gift *" label="gift" onChange={(e) => setGift(e.target.value)} />
 
                     <input className="modify_event" defaultValue={data_gift} type="text" placeholder="gift *" label="gift" onChange={(e) => setGift(e.target.value)} />
-                </form>
-                <button className="add_event" onClick={(e) => {
-                    e.preventDefault();
-                    setModal(!isOpen)
-                }}>취소</button>
 
-                <button className="modify_event" onClick={(e) => {
-                    e.preventDefault();
-                    handleModify(!isModify);
-                }}>취소</button>
-                <button className="add_event" onClick={handleSaveBtn}>저장하기</button>
-                <button className="modify_event" onClick={handleModifyBtn} name={schedule_id} value={event_id}>수정하기</button>
+                    <button className="add_event" onClick={(e) => {
+                        e.preventDefault();
+                        setModal(!isOpen)
+                    }}>취소</button>
+
+                    <button className="modify_event" onClick={(e) => {
+                        e.preventDefault();
+                        handleModify(!isModify);
+                    }}>취소</button>
+                    <button className="add_event" onClick={handleSaveBtn}>저장하기</button>
+                    <button className="modify_event" onClick={handleModifyBtn} name={schedule_id} value={event_id}>수정하기</button>
+                </form>
             </div>
         </div>
     )

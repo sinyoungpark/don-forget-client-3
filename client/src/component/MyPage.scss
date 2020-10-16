@@ -1,0 +1,93 @@
+@import "../mixin";
+
+@include desktop {
+    .mypage {
+        .full_page {
+            padding: 10vh 8%;
+        }
+        h1{
+            color : #4a4a4a;
+            font-size: 40px;
+            margin-top: 0;
+        }
+        .userInfo{
+            background-color: rgb(228, 228, 228);
+            border-radius: 30px;
+            width: 80%;
+            padding: 40px;
+            h1{
+                color : #4a4a4a;
+                font-size: 1rem;
+                margin: 0;
+            }
+            div {
+                color : #4a4a4a;
+                font-size: 0.9rem;
+                margin: 0;
+            }
+            input {
+                width: 30%;
+            }
+        }
+        button.changeBtn {
+            margin: 10px 20px;
+            padding: 0;
+            border: none;
+            background: transparent;
+            color : #4a4a4a;
+            text-decoration: underline;
+        }
+        .changePasswordModal {
+            background-color: rgb(228, 228, 228);
+            border-radius: 30px;
+            width: 80%;
+            padding: 40px;
+        }
+    }
+}
+
+@include mobile {
+.mypage {
+    .full_page {
+        padding: 10vh 8%;
+    }
+    h1{
+        color : #4a4a4a;
+        font-size: 40px;
+        margin-top: 0;
+    }
+    .userInfo{
+        background-color: rgb(228, 228, 228);
+        border-radius: 30px;
+        width: 80%;
+        padding: 10%;
+        h1{
+            color : #4a4a4a;
+            font-size: 1rem;
+            margin: 0;
+        }
+        div {
+            color : #4a4a4a;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        input {
+            width: 200px;
+        }
+    }
+    button.changeBtn {
+        margin: 5%;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color : #4a4a4a;
+        text-decoration: underline;
+    }
+    .changePasswordModal {
+        background-color: rgb(228, 228, 228);
+        border-radius: 30px;
+        width: 80%;
+        padding: 10%;
+    }
+}
+}

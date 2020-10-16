@@ -81,6 +81,7 @@
       margin-top: 10vh;
       color: #4a4a4a;
       height: 30px;
+      font-size: 1.2rem;
     }
     .closeSideSchedule {
       float: right;
@@ -169,6 +170,7 @@
       float: left;
       width: 33.3%;
       text-align: center;
+      font-size: 1rem;
     }
     span:hover {
       background-color: rgba(255, 255, 255, 0.5);
@@ -178,10 +180,12 @@
 
   // 전체 달력
   .Calendar{
+    position: absolute;
     user-select: none;
     margin: 10vh 5%;
     min-height: 80vh;
     max-height: 80vh;
+    width: 90%;
     .head{
       display: flex;
       // justify-content: space-between;
@@ -196,10 +200,11 @@
           cursor: pointer;
           display: inline-flex;
           margin: 0px 18px;
-          padding: 0;
+          padding-top: 50px;
           background-color: white;
           font-stretch: extra-expanded;
           transform: scaleY(0.5);
+          font-size: 2rem;
         }
         &.add_schedule{
           cursor: pointer;
@@ -217,6 +222,7 @@
         }
       }
       span.title{
+        width: fit-content;
         color: #4a4a4a;
         font-size: 1.3rem;
         padding: 0px 30px 0px 12px;
@@ -262,6 +268,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
           }
         }
       }
@@ -317,6 +324,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
+            text-align: left;
           }
         }
       }
@@ -372,6 +381,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
+            text-align: left;
           }
         }
       }
@@ -427,6 +438,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
+            text-align: left;
           }
         }
       }
@@ -454,10 +467,11 @@
           cursor: pointer;
           display: inline-flex;
           margin: 0px 18px;
-          padding: 0;
+          padding-top: 50px;
           background-color: white;
           font-stretch: extra-expanded;
           transform: scaleY(0.5);
+          font-size: 2rem;
         }
         &.add_schedule{
           cursor: pointer;
@@ -474,6 +488,7 @@
         }
       }
       span.title{
+        width: fit-content;
         color: #4a4a4a;
         font-size: 1.3rem;
         padding: 0px 30px 0px 12px;
@@ -491,6 +506,7 @@
           .box span.text{
             border-top: none;
             align-items: flex-end;
+            font-size: 0.8rem;
           }
           .box:hover > span.text{
             background-color: white;
@@ -519,6 +535,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
           }
         }
       }
@@ -542,7 +559,6 @@
           position: relative;
           display: inline-flex;
           width: calc(100%/7);
-          font-size: 12pt;
           margin-top: 0.5rem;
           &:first-child{
             color: rgb(255, 136, 61);
@@ -566,7 +582,6 @@
           span.text{
             border-top: gray 1px solid;
             display: block;
-            // align-items: center;
             padding: 3px 4px;
             width: 75%;
             height: 100%;
@@ -574,6 +589,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
+            text-align: left;
           }
         }
       }
@@ -629,6 +646,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
+            text-align: left;
           }
         }
       }
@@ -684,6 +703,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
+            font-size: 0.8rem;
+            text-align: left;
           }
         }
       }
@@ -692,6 +713,12 @@
 }
 
 @include mobile {
+
+  .home .full_page{
+    min-height: 100vh;
+    max-height: 100vh;
+    position: relative;
+  }
 
   // 달력에 일정 표시용
   .body {
@@ -759,14 +786,16 @@
 
   // 아래에 디테일한 일정 표시
   .sideSchedule {
-    position: fixed;
-    width: 84%;
-    margin: 10% 5.5%;
-    border-top: #4a4a4ab6 2px solid;
+    position: absolute;
+    flex: auto;
+    width: 89%;
+    margin: 5% 6% 20% 6%;
+    border-top: #4a4a4ab6 1px solid;
     .date{
       color: #4a4a4a;
       height: 30px;
-      margin: 20px 10px;
+      margin: 20px 10px 20px 10px;
+      font-size: 1rem;
     }
     .closeSideSchedule {
       float: right;
@@ -797,12 +826,12 @@
       padding: 0px;
       div {
         color: #4a4a4a;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         padding-left: 10px;
         margin-bottom: 0.5rem;
         &.gift{
           color: #8f8f8f;
-          font-size: 0.7rem;
+          font-size: 0.6rem;
           padding-left: 0;
         }
         &.결혼식 {
@@ -848,13 +877,14 @@
     z-index: 1;
     border-radius: 20px;
     padding: 20px;
-    width: 250px;
+    width: 200px;
     top: 16vh;
     span {
-      padding: 10px 0px;
+      padding-bottom: 15px;
       float: left;
       width: 33.3%;
       text-align: center;
+      font-size: 0.7rem;
     }
     span:hover {
       background-color: rgba(255, 255, 255, 0.5);
@@ -874,7 +904,7 @@
       align-items: center;
       padding: 0px 12px;
       height: 40px;
-      margin-bottom: 30px;
+      margin-bottom: 0.8rem;
       button{
         outline: none;
         border: none;
@@ -882,10 +912,11 @@
           cursor: pointer;
           display: inline-flex;
           margin: 0px 18px;
-          padding: 0;
+          padding-top: 50px;
           background-color: white;
           font-stretch: extra-expanded;
           transform: scaleY(0.5);
+          font-size: 2rem;
         }
         &.add_schedule{
           cursor: pointer;
@@ -904,7 +935,7 @@
       }
       span.title{
         color: #4a4a4a;
-        font-size: 1.3rem;
+        font-size: 1rem;
         padding: 0px 30px 0px 12px;
         border-right: gray 1px solid;
       }
@@ -913,8 +944,8 @@
       // 요일
       .row{
         display: flex;
-        min-height: 40px;
-        max-height: 40px;
+        min-height: 10px;
+        max-height: 10px;
         &:first-child{
           cursor: initial;
           .box span.text{
@@ -930,7 +961,7 @@
           position: relative;
           display: inline-flex;
           width: calc(100%/7);
-          font-size: 10pt;
+          font-size: 0.7rem;
           margin: 0.5rem;
           &:first-child{
             color: rgb(255, 136, 61);
@@ -971,7 +1002,7 @@
           position: relative;
           display: inline-flex;
           width: calc(100%/7);
-          font-size: 12pt;
+          font-size: 0.8rem;
           margin-top: 0.5rem;
           &:first-child{
             color: rgb(255, 136, 61);
@@ -1026,7 +1057,7 @@
           position: relative;
           display: inline-flex;
           width: calc(100%/7);
-          font-size: 12pt;
+          font-size: 0.8rem;
           margin-top: 0.5rem;
           &:first-child{
             color: rgb(255, 136, 61);
@@ -1081,7 +1112,7 @@
           position: relative;
           display: inline-flex;
           width: calc(100%/7);
-          font-size: 12pt;
+          font-size: 0.8rem;
           margin-top: 0.5rem;
           &:first-child{
             color: rgb(255, 136, 61);
@@ -1122,9 +1153,7 @@
   // 상단 달력
   .sideCalendar{
     user-select: none;
-    margin: 10vh 5%;
-    min-height: 40vh;
-    max-height: 40vh;
+    margin: 10vh 5% 5% 5%;
     .head{
       display: flex;
       // justify-content: space-between;
@@ -1139,10 +1168,11 @@
           cursor: pointer;
           display: inline-flex;
           margin: 0px 18px;
-          padding: 0;
+          padding-top: 50px;
           background-color: white;
           font-stretch: extra-expanded;
           transform: scaleY(0.5);
+          font-size: 2rem;
         }
         &.add_schedule{
           cursor: pointer;
@@ -1160,7 +1190,7 @@
       }
       span.title{
         color: #4a4a4a;
-        font-size: 1.3rem;
+        font-size: 1rem;
         padding: 0px 30px 0px 12px;
         border-right: gray 1px solid;
       }
@@ -1169,8 +1199,8 @@
       // 요일
       .row{
         display: flex;
-        min-height: 30px;
-        max-height: 30px;
+        min-height: 10px;
+        max-height: 10px;
         &:first-child{
           cursor: initial;
           .box span.text{
@@ -1186,7 +1216,7 @@
           position: relative;
           display: inline-flex;
           width: calc(100%/7);
-          font-size: 10pt;
+          font-size: 0.7rem;
           margin: 0.5rem;
           &:first-child{
             color: rgb(255, 136, 61);
@@ -1210,7 +1240,7 @@
       .row5{
         display: flex;
         cursor: pointer;
-        min-height: 71.4px;
+        min-height: 57px;
         &:first-child{
           cursor: initial;
           .box span.text{
@@ -1226,7 +1256,7 @@
           position: relative;
           display: inline-flex;
           width: calc(100%/7);
-          font-size: 12pt;
+          font-size: 0.8rem;
           margin-top: 0.5rem;
           &:first-child{
             color: rgb(255, 136, 61);
@@ -1265,7 +1295,7 @@
       .row6{
         display: flex;
         cursor: pointer;
-        min-height: 59.5px;
+        min-height: 47.5px;
         &:first-child{
           cursor: initial;
           .box span.text{
@@ -1281,7 +1311,7 @@
           position: relative;
           display: inline-flex;
           width: calc(100%/7);
-          font-size: 12pt;
+          font-size: 0.8rem;
           margin-top: 0.5rem;
           &:first-child{
             color: rgb(255, 136, 61);
@@ -1320,7 +1350,7 @@
       .row4{
         display: flex;
         cursor: pointer;
-        min-height: 89.25px;
+        min-height: 71.25px;
         &:first-child{
           cursor: initial;
           .box span.text{
@@ -1336,7 +1366,7 @@
           position: relative;
           display: inline-flex;
           width: calc(100%/7);
-          font-size: 12pt;
+          font-size: 0.8rem;
           margin-top: 0.5rem;
           &:first-child{
             color: rgb(255, 136, 61);
