@@ -4,8 +4,8 @@ import NaverLogin from 'react-naver-login';
 export default function NaverSignUp(props) {
   function responseNaver(res) {
     axios.post('https://don-forget-server.com/user/signin', {
-      email: ['naver', res.profile.emails[0].value],
-      name: res.profile.displayName
+      email: ['naver', res.user.getEmail()],
+      name: res.getName()
     })
       .then((response) => response.data)
       .then((response) => {
@@ -27,8 +27,8 @@ export default function NaverSignUp(props) {
     <>
       <NaverLogin
         clientId= 'RVzosz8NSQef332q56bi'
-        callbackUrl= "https://don-forget-server.com/oauth/naver/callback"
-        // isPopup = {false}
+        callbackUrl= "http://localhost:3000/home"
+        isPopup = {true}
         // callbackHandle = {false}
         render={(props) => <button className="naver" onClick={props.onClick}>Sign in with Naver</button>}
         // buttonText="Naver"
