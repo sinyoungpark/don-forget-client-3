@@ -13,7 +13,6 @@ function Intro() {
           <img className="logo" src={Logo} alt="Logo_don-forget" />
           <div className="title">돈't forget</div>
           <div className="desc">laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium</div>
-          <a href="kakaotalk://">토스앱 바로가기</a>
         </div>
       </div>
     </div>

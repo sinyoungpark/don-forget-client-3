@@ -4,6 +4,8 @@ import './Home.scss';
 import moment, { Moment as MomentTypes } from 'moment';
 import Modal from "./Modal"
 import axios from "axios"
+import kakaobank from '../kakaobank.png';
+import toss from '../toss.png';
 
 function Home({ userId, history }) {
 
@@ -195,6 +197,18 @@ function Home({ userId, history }) {
                         {obj.event_target} {obj.type}
                         <div className="gift">{obj.gift}</div>
                       </div>
+                      <span className="transferIcon">
+                        <span className="kakaobank">
+                          <a href="kakaobank://">
+                            <img src={kakaobank}></img>
+                          </a>
+                        </span>
+                        <span className="toss">
+                          <a href="supertoss://">
+                            <img src={toss}></img>
+                          </a>
+                        </span>
+                      </span>
                     </li>
                   )
                 }
