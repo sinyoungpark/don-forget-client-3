@@ -121,21 +121,8 @@ function Home({ userId, history }) {
   const nextMonthInfo = () => {
     axios.get(`https://don-forget-server.com/schedule/expectNextCost/${window.sessionStorage.getItem("id")}`)
       .then((res) => {
-        console.log('fs')
-        const next_month_data = res.data;
-        const event_count = next_month_data.count;
-        let expect_cost_money = 0;
-        let expect_gift_count = 0;
-        for(let obj of next_month_data.rows){
-          const give_type = obj.gift.split(':')[0];
-          if(give_type === "현금"){
-            expect_cost_money += parseInt(obj.gift.split(':')[1]);
-          }else if(give_type === "선물"){
-            expect_gift_count += 1;
-          }
-        }
-        console.log('expect : ',[ event_count, expect_cost_money, expect_gift_count ]);
-        setNextMonth([ event_count, expect_cost_money, expect_gift_count ]);
+        console.log('res.data : ',res.data);
+        setNextMonth(res.data);
       })
       .catch(err => console.error(err));
   }
