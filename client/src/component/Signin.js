@@ -123,7 +123,7 @@ export default function Signin(props) {
           </div>
           <div className="findPwBtn">
             <button>취소</button>
-            <button onClick={handleFindPw}>다음</button>
+            <button className="nextBtn" onClick={handleFindPw}>다음</button>
           </div>
         </div>
       </form>
@@ -136,7 +136,7 @@ export default function Signin(props) {
           </div>
           <div className="findPwBtn">
             <button>취소</button>
-            <button onClick={openPwSettingModal}>다음</button>
+            <button className="nextBtn" onClick={openPwSettingModal}>다음</button>
           </div>
         </div>
       </form>
