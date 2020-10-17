@@ -23,6 +23,24 @@ function Home({ userId, history }) {
   const [data, setData] = useState(null);
   // 다음달 지출 및 예상 이벤트 가져오기.
   const [nextMonth, setNextMonth] = useState([]);
+  
+  //수정이 생길 때마다 setUseEffect 
+  const [isUseEffect, setUseEffect] = useState(true);
+
+  useEffect(() => {
+    // 선택한 날짜에 맞게 월 업데이트
+    setMonth(selectedDate._locale._months[selectedDate.month()])
+  });
+  
+  //스케쥴에 변화가 있을 때마다 get요청 ㄱㄱ
+  useEffect(() => {
+    if (isUseEffect){
+      getSchedule();
+      nextMonthInfo();
+      setUseEffect(false);
+    }
+  });
+
 
   const generate = () => {
     // const today = moment();
@@ -127,19 +145,6 @@ function Home({ userId, history }) {
       .catch(err => console.error(err));
   }
 
-  useEffect(() => {
-    // 선택한 날짜에 맞게 월 업데이트
-    setMonth(selectedDate._locale._months[selectedDate.month()])
-  });
-
-  useEffect(() => {
-    getSchedule();
-  }, []);
-
-  useEffect(() => {
-    nextMonthInfo();
-  }, [])
-
   return (
     <div className="home">
       <div className="full_page">
@@ -156,8 +161,8 @@ function Home({ userId, history }) {
                 nextMonth[1] 총 주어야할 현금 액수
                 nextMonth[2] 총 주어야할 선물 개수
             */}
-            <div>{`다음달 ${nextMonth[0]}개의 이벤트가 있어요!`}</div>
-            <div>{`현금:${nextMonth[1]}(원),선물:${nextMonth[2]}(개)`}</div>
+            <div>{nextMonth[0] === undefined ? `이벤트가 아직 없네요!` : `다음달 ${nextMonth[0]}개의 이벤트가 있어요!`}</div>
+            <div>{nextMonth[2] === undefined ? `` : `현금:${nextMonth[1]}(원),선물:${nextMonth[2]}(개)`}</div>
             {/* 스케줄 추가 버튼 */}
             <button className="add_schedule"
               onClick={(e) => {
@@ -255,7 +260,8 @@ function Home({ userId, history }) {
         </div>
 
         {/* 일정추가 모달 */}
-        <Modal userId={userId} isOpen={isOpen} setModal={setModal} />
+        <Modal userId={userId} isOpen={isOpen} setModal={setModal}
+        setUseEffect={setUseEffect}/>
 
       </div>
     </div>
