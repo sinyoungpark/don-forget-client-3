@@ -92,7 +92,7 @@ function MyPage(props) {
   return (
     <div className="mypage">
       <div className="full_page">
-        <h1 onClick={report_year_expenditure}>My Page</h1>
+        <h1>My Page</h1>
         <div className="userInfo">
           <h1>User Info:</h1>
           <div>{openName ? <>
