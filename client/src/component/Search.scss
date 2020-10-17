@@ -157,13 +157,13 @@
 
 @include mobile{
     .search .full_page {
-        padding: 10vh 8%;
+        padding: 14% 8%;
         overflow: auto;
         max-height: 80vh;
     
         h1{
             color : rgb(70, 67, 67);
-            font-size: 30px;
+            font-size: 36px;
             margin-bottom: 5vh;
         }
         ul{
