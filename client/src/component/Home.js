@@ -217,6 +217,18 @@ function Home({ userId, history }) {
           <h2 className="date">
             {selectedDate.format("M[/]D[(]ddd[)]")}
           </h2>
+          <span className="transferIcon">
+            <span className="kakaobank">
+              <a href="kakaobank://">
+                <img src={kakaobank}></img>
+              </a>
+            </span>
+            <span className="toss">
+              <a href="supertoss://">
+                <img src={toss}></img>
+              </a>
+            </span>
+          </span>
           {/* <button className="sideSchedule_empty"
             onClick={(e) => {
               e.preventDefault();
