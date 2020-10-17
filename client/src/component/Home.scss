@@ -83,6 +83,9 @@
       height: 30px;
       font-size: 1.2rem;
     }
+    .transferIcon {
+      display: none;
+    }
     .closeSideSchedule {
       float: right;
       margin: 0;
@@ -150,9 +153,6 @@
         &.기타 {
           border-left: 3px solid #CECECE;
         }
-      }
-      .transferIcon {
-        display: none;
       }
     }
   }
@@ -792,13 +792,34 @@
     position: absolute;
     flex: auto;
     width: 89%;
-    margin: 5% 4% 20% 4%;
+    margin: 5% 6% 20% 6%;
     border-top: #4a4a4ab6 1px solid;
     .date{
       color: #4a4a4a;
       height: 30px;
-      margin: 20px 10px 20px 0;
+      margin: 20px 10px 0px 10px;
       font-size: 1rem;
+    }
+    .transferIcon {
+      position: absolute;
+      top: 33px;
+      right: 8px;
+      .kakaobank {
+        margin-right: 3px;
+        img {
+          height: 30px;
+          border: rgba(70, 70, 70, 0.25) 1px solid;
+          border-radius: 10px;
+        }
+      }
+      .toss {
+        img {
+          height: 30px;
+          border: rgba(70, 70, 70, 0.25) 1px solid;
+          border-radius: 10px;
+          padding: 0 21px;
+        }
+      }
     }
     .closeSideSchedule {
       float: right;
@@ -825,10 +846,10 @@
     }
     ul {
       list-style: none;
+      margin-top: 36px;
       margin-left: 3px;
       padding: 0px;
       div {
-        float: left;
         width: 130px;
         color: #4a4a4a;
         font-size: 0.8rem;
@@ -840,11 +861,9 @@
           padding-left: 0;
         }
         &.결혼식 {
-          margin-right: 0;
           border-left: 3px solid #FFCECE;
         }
         &.생일 {
-          margin-right: 0;
           border-left: 3px solid #FFB65B;
         }
         &.장례식 {
@@ -870,26 +889,6 @@
         }
         &.기타 {
           border-left: 3px solid #CECECE;
-        }
-      }.transferIcon {
-        // float: left;
-        margin-top: 0;
-        float: left;
-        .kakaobank {
-          margin-right: 5px;
-          img {
-            height: 4.5vh;
-            border: rgba(70, 70, 70, 0.25) 1px solid;
-            border-radius: 10px;
-          }
-        }
-        .toss {
-          img {
-            height: 4.5vh;
-            border: rgba(70, 70, 70, 0.25) 1px solid;
-            border-radius: 10px;
-            padding: 0 15px;
-          }
         }
       }
     }

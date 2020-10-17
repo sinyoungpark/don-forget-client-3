@@ -13,6 +13,9 @@
             position: fixed;
             margin: 0;
         }
+        .transferIcon {
+          display: none;
+        }
 
         .gradient{
             display: block;
@@ -185,6 +188,28 @@
             position: fixed;
             margin: 0;
         }
+        .transferIcon {
+          position: fixed;
+          top: 18%;
+          right: 13%;
+          margin-bottom: 10px;
+          .kakaobank {
+            margin-right: 5px;
+            img {
+              height: 30px;
+              border: rgba(70, 70, 70, 0.25) 1px solid;
+              border-radius: 10px;
+            }
+          }
+          .toss {
+            img {
+              height: 30px;
+              border: rgba(70, 70, 70, 0.25) 1px solid;
+              border-radius: 10px;
+              padding: 0 21px;
+            }
+          }
+        }
     
         .gradient{
             display: block;
@@ -205,7 +230,7 @@
         }
         
         .schedule_list{
-            margin-top: 80px;
+            margin-top: 111px;
             padding: 0;
             margin-right: 5%;
             /* date css */

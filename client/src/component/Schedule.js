@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 import axios from "axios"
 import Modal from "./Modal"
 import "./Schedule.scss"
+import kakaobank from '../kakaobank.png';
+import toss from '../toss.png';
 
 
 export default function Schedule(props) {
@@ -73,6 +75,18 @@ export default function Schedule(props) {
                     setModal(!isOpen);
                 }} className="addBtn">+</button>
             </h1>
+            <span className="transferIcon">
+              <span className="kakaobank">
+                <a href="kakaobank://">
+                  <img src={kakaobank}></img>
+                </a>
+              </span>
+              <span className="toss">
+                <a href="supertoss://">
+                  <img src={toss}></img>
+                </a>
+              </span>
+            </span>
             <ul className="schedule_list">
                 {
                     data && data.map((data) => {
