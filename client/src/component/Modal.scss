@@ -18,25 +18,26 @@
             transform: translate3d(-50%, -50%, 0);
             background: whitesmoke;
             box-shadow: 0 0 5px #000;
-            width: 30%;
+            width: 35%;
             height: 60%;
-            padding: 80px;
+            padding: 45px;
+            border-radius: 10px;
         input{
             display: block;
-            margin: 20px 0px 0px 0px;
+            margin: 13px 0px 0px 0px;
             border: none;
-            border-bottom: 2px solid black;
-            width : 70%;
+            border-bottom: 1px solid black;
+            width : 100%;
             font-size: 17px;
             outline: none;
             height: 30px;
             padding-top : 20px;
             background-color: whitesmoke;
             &:focus{
-            border-color : blue;
+            border-color : #3b23a6;
             }
             &:hover{
-            border-width : 3px;
+            border-width : 2px;
             }
             &::placeholder{
             position: relative;
@@ -55,40 +56,49 @@
         display: none;
         }
         h3{
-        border-bottom : 3px solid black;
-        padding: 10px;
+        margin-top: 0;
+        border-bottom : 2px solid black;
+        padding: 10px 0;
         }
         form{
         flex: 1;
         align-items: center;
-        margin: 10% 0% 0% 20%;
+        // margin: 10% 0% 0% 20%;
         button{
+            position: relative;
+            left : 8%;
             width: 40%;
-            height: 40px;
-            border-radius: 0%;
-            border: 2px solid black;
+            background-color: white;
+            border: 1px solid rgb(201, 199, 199);
+            border-radius: 6px;
             margin-top: 10%;
-            &:hover{
-                cursor: pointer;
-            }
+            margin-right: 10px;
+            padding: 5px 20px;
+              &:hover{
+                  cursor: pointer;
+              }
             } 
 
             .buttonGroup{
                 position : relative;
-                left : 0%;
                 top : -20px;
                 .selected {
                     background-color: #3436ad;
                     color : white;
                 }
                 button{
-                    margin-bottom : 10px;
-                    border : none;
-                    background-color: whitesmoke;
-                    font-size : 20px;
+                    // margin-bottom : 10px;
+                    background-color: white;
+                    border: 1px solid rgb(201, 199, 199);
+                    border-radius: 6px;
+                    font-size : 16px;
+                    padding: 5px 20px;
                     &:hover{
                         cursor: pointer;
                     }
+                    // &#takeBtn{
+                    //   margin-left: 10px;
+                    // }
                 }
         }
     }
@@ -117,7 +127,7 @@
     content: attr(placeholder);
     position: relative;
     top: -30px;
-    font-size: 15px;
+    font-size: 13px;
     }
     input[type=date]::-webkit-calendar-picker-indicator {
         width: 10%;
@@ -138,11 +148,11 @@
 
     .event_type{
         display: block;
-        width: 72%;
-        height: 50px;
+        width: 100%;
+        height: 42px;
         border: none;
         outline : none;
-        border-bottom: 2px solid rgb(49, 111, 226);
+        border-bottom: 1px solid black;
         font-size: 17px;
         margin-top: 20px;
         color : black;
@@ -155,85 +165,92 @@
     }
 
     .modifyModal {
-    position: fixed;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
-    z-index: 10;
-    background: rgba(0,0,0,0.3);
+      position: fixed;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      z-index: 30;
+      background: rgba(0,0,0,0.3);
     .content{
-        position: absolute;
-        left:50%;
-        top:50%;
-        z-index: 2;
-        transform: translate3d(-50%, -50%, 0);
-        background: whitesmoke;
-        box-shadow: 0 0 5px #000;
-        width: 30%;
-        height: 60%;
-        padding: 80px;
+      position: absolute;
+      left:50%;
+      top:50%;
+      z-index: 2;
+      transform: translate3d(-50%, -50%, 0);
+      background: whitesmoke;
+      box-shadow: 0 0 5px #000;
+      width: 35%;
+      height: 60%;
+      padding: 45px;
+      border-radius: 10px;
     input{
-    margin: 20px 0px 0px 0px;
+    margin: 13px 0px 0px 0px;
     border: none;
-    border-bottom: 2px solid black;
-    width : 70%;
+    border-bottom: 1px solid black;
+    width : 100%;
     font-size: 17px;
     outline: none;
     height: 30px;
     padding-top : 20px;
     background-color: whitesmoke;
     &:focus{
-    border-color : blue;
+    border-color : #3b23a6;
     }
     &:hover{
-    border-width : 3px;
+    border-width : 1px;
     }
     &::placeholder{
     position: relative;
     top: 0px;
     }
     &:focus::placeholder{
-    color : #3b23a6;
-    font-size: 13px;
-    position :relative;
-    top : -30px;
-    -webkit-transition: all .15s ;
-    transition: all .15s ;
-    }
+      color : #3b23a6;
+      font-size: 13px;
+      position :relative;
+      top : -30px;
+      -webkit-transition: all .15s ;
+      transition: all .15s ;
+      }
     }
     h3{
-    border-bottom : 3px solid black;
-    padding: 10px;
+      margin-top: 0;
+      border-bottom : 2px solid black;
+      padding: 10px 0;
     }
     form{
         flex: 1;
         align-items: center;
-        margin: 10% 0% 0% 20%;
+        // margin: 10% 0% 0% 20%;
         button{
+            position: relative;
+            left : 8%;
             width: 40%;
-            height: 40px;
-            border-radius: 0%;
-            border: 2px solid black;
+            background-color: white;
+            border: 1px solid rgb(201, 199, 199);
+            border-radius: 6px;
             margin-top: 10%;
-            &:hover{
-                cursor: pointer;
-            }
+            margin-right: 10px;
+            padding: 5px 20px;
+              &:hover{
+                  cursor: pointer;
+              }
             } 
 
             .buttonGroup{
                 position : relative;
-                left : 0%;
+                // left : 0%;
                 top : -20px;
                 .selected {
                     background-color: #3436ad;
                     color : white;
                 }
                 button{
-                    margin-bottom : 10px;
-                    border : none;
-                    background-color: whitesmoke;
-                    font-size : 20px;
+                    background-color: white;
+                    border: 1px solid rgb(201, 199, 199);
+                    border-radius: 6px;
+                    font-size : 16px;
+                    padding: 5px 20px;
                     &:hover{
                         cursor: pointer;
                     }
@@ -259,14 +276,15 @@
         .content{
             position: relative;
             left:50%;
-            top:50%;
-            z-index: 3;
+            top:47%;
+            z-index: 2;
             transform: translate3d(-50%, -50%, 0);
             background: whitesmoke;
             box-shadow: 0 0 5px #000;
-            width: 50%;
-            height: 50%;
-            padding: 80px;
+            width: 60%;
+            height: 60%;
+            padding: 30px;
+            border-radius: 10px;
         input{
             margin: 10px 0px 10px 0px;
             border: none;
@@ -278,7 +296,7 @@
             padding-top : 14px;
             background-color: whitesmoke;
             &:focus{
-            border-color : blue;
+            border-color : #3b23a6;
             }
             &:hover{
             border-width : 1px;
@@ -300,45 +318,51 @@
         display: none;
         }
         h3{
-        border-bottom : 2px solid black;
-        padding-bottom: 2px;
-        font-size: medium;
+        border-bottom: 2px solid black;
+        padding-bottom: 10px;
+        font-size: 1rem;
         }
         form{
         flex: 1;
         align-items: center;
         margin: 0% 0% 0% 0%;
         position: relative;
-        top : 20px;
+        top : 10px;
         button{
-            height: 7%;
-            border-radius: 0%;
-            border: 2px solid black;
+            border-radius: 6px;
+            border: 1px solid rgb(201, 199, 199);
             position: relative;
-            left : 10%;
-            top : 40px;
+            left : 6%;
+            top : 30px;
             margin : 0px;
-            width : 40%;
+            width : 43%;
             font-size: 4px;
             margin-right: 10px;
+            background-color: white;
+            padding: 5px 20px;
             } 
             .buttonGroup{
                 position : relative;
                 left : 0%;
                 top : -50px;
                 .selected {
+                    border: 1px solid rgb(201, 199, 199);
                     background-color: #3436ad;
                     color : white;
                 }
                 button{
-                    position: relative;
-                    margin : 0px;
-                    border : none;
-                    display: inline;
-                    background-color: whitesmoke;
-                    font-size : 4px;
+                    top: 47px;
+                    background-color: white;
+                    width: 40%;
+                    padding: 5px 20px;
+                    border: 1px solid rgb(201, 199, 199);
+                    border-radius: 6px;
+                    margin: 0;
                     &:hover{
                         cursor: pointer;
+                    }
+                    &#takeBtn{
+                        margin-left: 10px;
                     }
                 }
             }
@@ -368,7 +392,7 @@
     content: attr(placeholder);
     position: relative;
     top: -10px;
-    font-size: 11px;
+    font-size: 10px;
     }
     input[type=date]::-webkit-calendar-picker-indicator {
         width: 0%;
@@ -393,7 +417,7 @@
         height: 30px;
         border: none;
         outline : none;
-        border-bottom: 2px solid rgb(49, 111, 226);
+        border-bottom: 1px solid black;
         font-size: 11px;
         margin-top: 20px;
         color : black;
@@ -406,24 +430,25 @@
     }
 
     .modifyModal {
-    position: fixed;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
-    z-index: 10;
-    background: rgba(0,0,0,0.3);
+      position: fixed;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      z-index: 30;
+      background: rgba(0,0,0,0.3);
     .content{
-        position: relative;
-        left:50%;
-        top:50%;
-        z-index: 3;
-        transform: translate3d(-50%, -50%, 0);
-        background: whitesmoke;
-        box-shadow: 0 0 5px #000;
-        width: 50%;
-        height: 50%;
-        padding: 80px;
+      position: relative;
+      left:50%;
+      top:47%;
+      z-index: 2;
+      transform: translate3d(-50%, -50%, 0);
+      background: whitesmoke;
+      box-shadow: 0 0 5px #000;
+      width: 60%;
+      height: 60%;
+      padding: 30px;
+      border-radius: 10px;
     input{
         margin: 10px 0px 10px 0px;
         border: none;
@@ -454,45 +479,52 @@
         }
     }
     h3{
-    border-bottom : 2px solid black;
-    padding: 2px;
+      border-bottom: 2px solid black;
+      padding-bottom: 10px;
+      font-size: 1rem;
     }
     form{
         flex: 1;
         align-items: center;
         margin: 0% 0% 0% 0%;
         position: relative;
-        top : 20px;
+        top : 10px;
         button{
-            height: 7%;
-            border-radius: 0%;
-            border: 2px solid black;
-            position: relative;
-            left : 10%;
-            top : 40px;
-            margin : 0px;
-            width : 40%;
-            font-size: 4px;
-            margin-right: 10px;
+          border-radius: 6px;
+          border: 1px solid rgb(201, 199, 199);
+          position: relative;
+          left : 6%;
+          top : 30px;
+          margin : 0px;
+          width : 43%;
+          font-size: 4px;
+          margin-right: 10px;
+          background-color: white;
+          padding: 5px 20px;
             } 
             .buttonGroup{
                 position : relative;
                 left : 0%;
                 top : -50px;
                 .selected {
-                    background-color: #3436ad;
-                    color : white;
+                  border: 1px solid rgb(201, 199, 199);
+                  background-color: #3436ad;
+                  color : white;
                 }
                 button{
-                    position: relative;
-                    margin : 0px;
-                    border : none;
-                    display: inline;
-                    background-color: whitesmoke;
-                    font-size : 4px;
+                  top: 47px;
+                  background-color: white;
+                  width: 40%;
+                  padding: 5px 20px;
+                  border: 1px solid rgb(201, 199, 199);
+                  border-radius: 6px;
+                  margin: 0;
                     &:hover{
                         cursor: pointer;
                     }
+                    &#takeBtn{
+                      margin-left: 10px;
+                  }
                 }
             }
         }

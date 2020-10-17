@@ -78,37 +78,37 @@ export default function Modal(props) {
         <div className={isOpen ? "addModal" : (isModify ? "modifyModal" : "none")}>
             <div className="content">
                 <h3 className="add_event">경조사 추가하기</h3>
-                <h3 className="modify_event">수정하기</h3>
+                <h3 className="modify_event">경조사 수정하기</h3>
 
                 <form>
                     <div className="buttonGroup add_event">
-                        <button value="give" className={giveAndTake === "give" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
+                        <button id="giveBtn" value="give" className={giveAndTake === "give" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
                             e.preventDefault();
                             setGiveAndTake(e.target.value);
                         }}>give</button>
-                        <button value="take" className={giveAndTake === "take" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
+                        <button id="takeBtn" value="take" className={giveAndTake === "take" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
                             e.preventDefault();
                             setGiveAndTake(e.target.value);
                         }}>take</button>
                     </div>
 
                     <div className="buttonGroup modify_event">
-                        <button value="give" className={giveAndTake === "give" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
+                        <button id="giveBtn" value="give" className={giveAndTake === "give" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
                             e.preventDefault();
                             setGiveAndTake(e.target.value);
                         }}>give</button>
-                        <button value="take" className={giveAndTake === "take" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
+                        <button id="takeBtn" value="take" className={giveAndTake === "take" ? "selected" : console.log(giveAndTake)} onClick={(e) => {
                             e.preventDefault();
                             setGiveAndTake(e.target.value);
                         }}>take</button>
                     </div>
-                    <input className="add_event" type="date" id="birthday" name="birthday" onChange={(e) => setDate(e.target.value)} placeholder="eventDate *" />
+                    <input className="add_event" type="date" id="birthday" name="birthday" onChange={(e) => setDate(e.target.value)} placeholder="경조사 날짜 *" />
 
-                    <input className="modify_event" type="date" id="birthday" defaultValue={data_date} name="birthday" onChange={(e) => setDate(e.target.value)} placeholder="eventDate *" />
+                    <input className="modify_event" type="date" id="birthday" defaultValue={data_date} name="birthday" onChange={(e) => setDate(e.target.value)} placeholder="경조사 날짜 *" />
 
-                    <input className="add_event" type="text" placeholder="event target *" label="event target" onChange={(e) => setTarget(e.target.value)} />
+                    <input className="add_event" type="text" placeholder="경조사 대상(사람 이름) *" label="event target" onChange={(e) => setTarget(e.target.value)} />
 
-                    <input className="modify_event" defaultValue={data_event_target} type="text" placeholder="event target *" label="event target" onChange={(e) => setTarget(e.target.value)} />
+                    <input className="modify_event" defaultValue={data_event_target} type="text" placeholder="경조사 대상(사람 이름) *" label="event target" onChange={(e) => setTarget(e.target.value)} />
 
                     <select className="event_type add_event" onChange={(e) => setType(e.target.value)}>
                         <option value="" disabled selected> 경조사 종류</option>
@@ -138,7 +138,7 @@ export default function Modal(props) {
                         <option value="기타">기타</option>
                     </select>
 
-                    <input className="add_event" type="text" placeholder="gift *" label="gift" onChange={(e) => setGift(e.target.value)} />
+                    <input className="add_event" type="text" placeholder="주거나 받은 내역(선물/현금) *" label="주거나 받은 내역(선물/현금)" onChange={(e) => setGift(e.target.value)} />
 
                     <input className="modify_event" defaultValue={data_gift} type="text" placeholder="gift *" label="gift" onChange={(e) => setGift(e.target.value)} />
 
