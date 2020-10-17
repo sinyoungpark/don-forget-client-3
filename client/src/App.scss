@@ -33,7 +33,7 @@ body{
   background-color: #ffffff;
   z-index: 1;
   animation-name: fullBackground;
-  animation-duration: 8s;
+  animation-duration: 4s;
   left : 0.3%;
 }
 
@@ -56,7 +56,7 @@ body{
   top: 0px;
   left: 6%;
   animation-name : sideBackground;
-  animation-duration: 8s;
+  animation-duration: 4s;
 }
 
 /* sideBackground animation*/
@@ -108,7 +108,7 @@ body{
   background-color: #ffffff;
   z-index: 1;
   animation-name: fullBackground;
-  animation-duration: 8s;
+  animation-duration: 2s;
   left : 0.3%;
 }
 
@@ -128,7 +128,7 @@ body{
   z-index:3;
   top: 0px;
   animation-name : sideBackground;
-  animation-duration: 8s;
+  // animation-duration: 8s;
 }
 
 /* sideBackground animation*/

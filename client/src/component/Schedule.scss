@@ -177,14 +177,14 @@
 
 @include mobile {
     .schedule{
-        padding: 10vh 8%;
+        padding: 14% 8%;
         overflow-y: overlay;
         max-height: 80vh;
     
         /* schedule h1 css */
         h1{
             color : #4a4a4a;
-            font-size: 40px;
+            font-size: 36px;
             position: fixed;
             margin: 0;
         }
