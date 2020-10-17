@@ -21,6 +21,8 @@ function Home({ userId, history }) {
   const [isOpen, setModal] = useState(false);
   // 일정 받아오기
   const [data, setData] = useState(null);
+  // 다음달 지출 및 예상 이벤트 가져오기.
+  const [nextMonth, setNextMonth] = useState([]);
 
   const generate = () => {
     // const today = moment();
@@ -115,6 +117,29 @@ function Home({ userId, history }) {
       })
   }
 
+  //다음달 정보 가져오는 기능 구현
+  const nextMonthInfo = () => {
+    axios.get(`https://don-forget-server.com/schedule/expectNextCost/${window.sessionStorage.getItem("id")}`)
+      .then((res) => {
+        console.log('fs')
+        const next_month_data = res.data;
+        const event_count = next_month_data.count;
+        let expect_cost_money = 0;
+        let expect_gift_count = 0;
+        for(let obj of next_month_data.rows){
+          const give_type = obj.gift.split(':')[0];
+          if(give_type === "현금"){
+            expect_cost_money += parseInt(obj.gift.split(':')[1]);
+          }else if(give_type === "선물"){
+            expect_gift_count += 1;
+          }
+        }
+        console.log('expect : ',[ event_count, expect_cost_money, expect_gift_count ]);
+        setNextMonth([ event_count, expect_cost_money, expect_gift_count ]);
+      })
+      .catch(err => console.error(err));
+  }
+
   useEffect(() => {
     // 선택한 날짜에 맞게 월 업데이트
     setMonth(selectedDate._locale._months[selectedDate.month()])
@@ -123,6 +148,10 @@ function Home({ userId, history }) {
   useEffect(() => {
     getSchedule();
   }, []);
+
+  useEffect(() => {
+    nextMonthInfo();
+  }, [])
 
   return (
     <div className="home">
@@ -134,6 +163,14 @@ function Home({ userId, history }) {
             <button className="select_month" onClick={selectMonth}>
               {openSelectMonth ? "˄" : "˅"}
             </button>
+            {/* 
+              다음달 예상 지출 
+                nextMonth[0] 다음달 총 이벤트 개수
+                nextMonth[1] 총 주어야할 현금 액수
+                nextMonth[2] 총 주어야할 선물 개수
+            */}
+            <div>{`다음달 ${nextMonth[0]}개의 이벤트가 있어요!`}</div>
+            <div>{`현금:${nextMonth[1]}(원),선물:${nextMonth[2]}(개)`}</div>
             {/* 스케줄 추가 버튼 */}
             <button className="add_schedule"
               onClick={(e) => {
