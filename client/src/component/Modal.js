@@ -17,7 +17,6 @@ export default function Modal(props) {
     const [giveAndTake, setGiveAndTake] = useState("");
 
 
-
     console.log(data_event_type);
     function handleSaveBtn(e) {
 
@@ -35,11 +34,13 @@ export default function Modal(props) {
                 .then((res) => console.log(res.data))
                 .then(() => {
                     setModal(!isOpen);
-                    setUseEffect(!controllUseEffect);
                     setDate("");
                     setTarget("");
                     setGift("");
                     setGiveAndTake("");
+                    if (setUseEffect){
+                        setUseEffect(!controllUseEffect);
+                    }
                 })
         }
         else {
