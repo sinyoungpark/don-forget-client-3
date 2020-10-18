@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { withRouter } from "react-router-dom";
 import './Home.scss';
 import moment, { Moment as MomentTypes } from 'moment';
@@ -17,6 +17,7 @@ function Home({ userId, history }) {
   const [selectedDate, setSelectedDate] = useState(moment());
   const [month, setMonth] = useState(selectedDate._locale._months[selectedDate.month()])
   // 월 선택 모달
+  const ref = useRef(null);
   const [openSelectMonth, setOpenSelectMonth] = useState(false)
   const [year, setYear] = useState(moment().year())
   // 오른쪽 일정 창 오픈
@@ -106,6 +107,21 @@ function Home({ userId, history }) {
     setOpenSelectMonth(!openSelectMonth);
   }
 
+  //모달창 바깥 부분 클릭시 모달창 꺼지는 함수
+  const handleClickOutside = (event) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      setOpenSelectMonth(false);
+      setModal(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  }, []);
+
   const monthModal = () => {
     return (<>
       <span onClick={() => setYear(year - 1)}>&lt;</span>
@@ -160,7 +176,7 @@ function Home({ userId, history }) {
                 setSelectedDate(moment().month(num).date(1))
               }}><ChevronLeftSharpIcon />
             </button>
-            <span className="title" onClick={selectMonth}>{month}</span>
+            <span className="title" onClick={selectMonth} ref={ref}>{month}</span>
             {/* 월 선택 모달 오픈 버튼 */}
             {/* <button className="select_month" onClick={selectMonth}>
               {openSelectMonth ? "˄" : "˅"}
@@ -178,7 +194,7 @@ function Home({ userId, history }) {
               onClick={(e) => {
                 e.preventDefault();
                 setModal(!isOpen);
-              }}>
+              }} ref={ref}>
             <AddIcon />
             </button>
             <button className="rightBtn" onClick={() => {
