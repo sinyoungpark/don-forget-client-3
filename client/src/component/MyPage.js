@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { withRouter } from "react-router-dom";
 import './MyPage.scss';
 import axios from "axios";
+import Chart from './Mypage_Chart';
 
 function MyPage(props) {
 
@@ -14,7 +15,6 @@ function MyPage(props) {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [newPasswordCheck, setNewPasswordCheck] = useState("");
-  const [statistics, setStatistics] = useState({});
 
   const signoutHandler = () => {
     console.log('signoutHandler');
@@ -79,16 +79,6 @@ function MyPage(props) {
     }
   }
 
-  //월별 통계를 가져와서 월별 지출 총 금액, 준 선물 총 개수를 정리해준다.
-  const report_year_expenditure = () => {
-    axios.get(`https://don-forget-server.com/schedule/statistics/${window.sessionStorage.getItem("id")}`)
-      .then(res => {
-        const data = res.data;
-        console.log(data)
-        setStatistics(data);
-      })
-  }
-
   return (
     <div className="mypage">
       <div className="full_page">
@@ -105,6 +95,8 @@ function MyPage(props) {
         <button className="changeBtn" onClick={() => setOpenName(!openName)}>이름 변경</button>
         <button className="changeBtn" onClick={() => setOpenPassword(!openPassword)}>비밀번호 변경</button>
         <button className="changeBtn" onClick={signoutHandler}>로그아웃</button>
+
+        <Chart/>
 
         <div className={openPassword ? "changePasswordModal" : "none"}>
           <input type="password" placeholder="기존 비밀번호"
