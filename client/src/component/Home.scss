@@ -162,12 +162,13 @@
     background-color: #ededed;
     color: #4a4a4a;
     box-shadow: -1px -1px 10px 0 rgba(0, 0, 0, 0.3);
-    position: fixed;
+    position: absolute;
     z-index: 1;
     border-radius: 20px;
     padding: 20px;
     width: 250px;
-    top: 16vh;
+    top: 9%;
+    left: 35%;
     span {
       padding: 10px 0px;
       float: left;
@@ -199,37 +200,53 @@
       button{
         outline: none;
         border: none;
-        &.select_month{
+        background-color: white;
+        &.leftBtn {
           cursor: pointer;
-          display: inline-flex;
-          margin: 0px 18px;
-          padding-top: 50px;
-          background-color: white;
-          font-stretch: extra-expanded;
-          transform: scaleY(0.5);
-          font-size: 2rem;
+          position: absolute;
+          left: 24%;
+          padding-top: 20px;
         }
+        .MuiSvgIcon-root {
+          width: 36px;
+          height: 36px;
+          background-color: white;
+        }
+        // &.select_month{
+        //   cursor: pointer;
+        //   display: inline-flex;
+        //   margin: 0px 18px;
+        //   padding-top: 50px;
+        //   background-color: white;
+        //   font-stretch: extra-expanded;
+        //   transform: scaleY(0.5);
+        //   font-size: 2rem;
+        // }
         &.add_schedule{
           cursor: pointer;
-          display: inline-flex;
-          align-items: center;
-          padding: 0.7rem;
           width: 30px;
           height: 30px;
-          border-radius: 50%;
-          background-color: #e6e6e6;
           font-size: 1rem;
-          color: white;
-          margin-left: auto;
-          margin-right: 0;
+          color: #3b23a6;
+          position: absolute;
+          right: 2%;
+          padding-top: 2px;
+        }
+        &.rightBtn {
+          cursor: pointer;
+          position: absolute;
+          right: 24%;
+          padding-top: 20px;
         }
       }
       span.title{
-        width: fit-content;
+        cursor: pointer;
+        // width: fit-content;
         color: #4a4a4a;
         font-size: 1.3rem;
-        padding: 0px 30px 0px 12px;
-        border-right: gray 1px solid;
+        position: absolute;
+        left: 45%;
+        width: 100px;
       }
     }
     .body{
@@ -466,36 +483,53 @@
       button{
         outline: none;
         border: none;
-        &.select_month{
+        background-color: white;
+        &.leftBtn {
           cursor: pointer;
-          display: inline-flex;
-          margin: 0px 18px;
-          padding-top: 50px;
-          background-color: white;
-          font-stretch: extra-expanded;
-          transform: scaleY(0.5);
-          font-size: 2rem;
+          position: absolute;
+          left: 19%;
+          padding-top: 20px;
         }
+        .MuiSvgIcon-root {
+          width: 36px;
+          height: 36px;
+          background-color: white;
+        }
+        // &.select_month{
+        //   cursor: pointer;
+        //   display: inline-flex;
+        //   margin: 0px 18px;
+        //   padding-top: 50px;
+        //   background-color: white;
+        //   font-stretch: extra-expanded;
+        //   transform: scaleY(0.5);
+        //   font-size: 2rem;
+        // }
         &.add_schedule{
           cursor: pointer;
-          display: inline-flex;
-          align-items: center;
-          padding: 0.55rem;
           width: 30px;
           height: 30px;
-          border-radius: 50%;
-          background-color: #e6e6e6;
           font-size: 1rem;
-          color: white;
-          margin-left: auto;
+          color: #3b23a6;
+          position: absolute;
+          right: 36%;
+          padding-top: 2px;
+        }
+        &.rightBtn {
+          cursor: pointer;
+          position: absolute;
+          right: 48%;
+          padding-top: 20px;
         }
       }
       span.title{
-        width: fit-content;
+        cursor: pointer;
+        // width: fit-content;
         color: #4a4a4a;
         font-size: 1.3rem;
-        padding: 0px 30px 0px 12px;
-        border-right: gray 1px solid;
+        position: absolute;
+        left: 30%;
+        width: 100px;
       }
     }
     .body{
@@ -899,12 +933,13 @@
     background-color: #ededed;
     color: #4a4a4a;
     box-shadow: -1px -1px 10px 0 rgba(0, 0, 0, 0.3);
-    position: fixed;
+    position: absolute;
     z-index: 1;
     border-radius: 20px;
     padding: 20px;
     width: 200px;
-    top: 16vh;
+    top: 9%;
+    left: 17%;
     span {
       padding-bottom: 15px;
       float: left;
@@ -921,7 +956,7 @@
   // 전체 달력
   .Calendar{
     user-select: none;
-    margin: 10vh 5%;
+    margin: 10% 5%;
     min-height: 80vh;
     max-height: 80vh;
     .head{
@@ -934,36 +969,52 @@
       button{
         outline: none;
         border: none;
-        &.select_month{
+        background-color: white;
+        &.leftBtn {
           cursor: pointer;
-          display: inline-flex;
-          margin: 0px 18px;
-          padding-top: 50px;
-          background-color: white;
-          font-stretch: extra-expanded;
-          transform: scaleY(0.5);
-          font-size: 2rem;
+          position: absolute;
+          left: 24%;
+          padding-top: 25px;
         }
+        .MuiSvgIcon-root {
+          background-color: white;
+        }
+        // &.select_month{
+        //   cursor: pointer;
+        //   display: inline-flex;
+        //   margin: 0px 18px;
+        //   padding-top: 50px;
+        //   background-color: white;
+        //   font-stretch: extra-expanded;
+        //   transform: scaleY(0.5);
+        //   font-size: 2rem;
+        //   position: absolute;
+        //   right: 33%;
+        // }
         &.add_schedule{
           cursor: pointer;
-          display: inline-flex;
-          align-items: center;
-          padding: 0.55rem;
           width: 30px;
           height: 30px;
-          border-radius: 50%;
-          background-color: #e6e6e6;
           font-size: 1rem;
-          color: white;
-          margin-left: auto;
-          margin-right: 0;
+          position: absolute;
+          right: 5%;
+          padding-top: 12px;
+          color: #3b23a6;
+        }
+        &.rightBtn {
+          cursor: pointer;
+          position: absolute;
+          right: 24%;
+          padding-top: 25px;
         }
       }
       span.title{
+        cursor: pointer;
         color: #4a4a4a;
         font-size: 1rem;
-        padding: 0px 30px 0px 12px;
-        border-right: gray 1px solid;
+        position: absolute;
+        left: 42%;
+        width: 100px;
       }
     }
     .body{
@@ -1190,35 +1241,50 @@
       button{
         outline: none;
         border: none;
-        &.select_month{
+        background-color: white;
+        &.leftBtn {
           cursor: pointer;
-          display: inline-flex;
-          margin: 0px 18px;
-          padding-top: 50px;
-          background-color: white;
-          font-stretch: extra-expanded;
-          transform: scaleY(0.5);
-          font-size: 2rem;
+          position: absolute;
+          left: 24%;
+          padding-top: 25px;
         }
+        .MuiSvgIcon-root {
+          background-color: white;
+        }
+        // &.select_month{
+        //   cursor: pointer;
+        //   display: inline-flex;
+        //   margin: 0px 18px;
+        //   padding-top: 50px;
+        //   background-color: white;
+        //   font-stretch: extra-expanded;
+        //   transform: scaleY(0.5);
+        //   font-size: 2rem;
+        // }
         &.add_schedule{
           cursor: pointer;
-          display: inline-flex;
-          align-items: center;
-          padding: 0.55rem;
           width: 30px;
           height: 30px;
-          border-radius: 50%;
-          background-color: #e6e6e6;
           font-size: 1rem;
-          color: white;
-          margin-left: auto;
+          position: absolute;
+          right: 5%;
+          padding-top: 12px;
+          color: #3b23a6;
+        }
+        &.rightBtn {
+          cursor: pointer;
+          position: absolute;
+          right: 24%;
+          padding-top: 25px;
         }
       }
       span.title{
+        cursor: pointer;
         color: #4a4a4a;
         font-size: 1rem;
-        padding: 0px 30px 0px 12px;
-        border-right: gray 1px solid;
+        position: absolute;
+        left: 42%;
+        width: 100px;
       }
     }
     .body{

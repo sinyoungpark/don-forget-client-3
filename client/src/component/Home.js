@@ -6,6 +6,10 @@ import Modal from "./Modal"
 import axios from "axios"
 import kakaobank from '../kakaobank.png';
 import toss from '../toss.png';
+import ChevronLeftSharpIcon from '@material-ui/icons/ChevronLeftSharp';
+import ChevronRightSharpIcon from '@material-ui/icons/ChevronRightSharp';
+import AddIcon from '@material-ui/icons/Add';
+
 
 function Home({ userId, history }) {
 
@@ -47,6 +51,7 @@ function Home({ userId, history }) {
     const today = selectedDate;
     console.log(today);
     console.log(month);
+    // console.log(selectedDate.add(1, "M").endOf('month'));
     const startWeek = today.clone().startOf('month').week();
     const endWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
     let calendar = [];
@@ -150,11 +155,16 @@ function Home({ userId, history }) {
       <div className="full_page">
         <div className={openSchedule ? "sideCalendar" : "Calendar"}>
           <div className="head">
-            <span className="title">{month}</span>
-            {/* 월 선택 모달 오픈 버튼 */}
-            <button className="select_month" onClick={selectMonth}>
-              {openSelectMonth ? "˄" : "˅"}
+            <button className="leftBtn" onClick={() => {
+                let num = moment().month(month).format("M") - 2;
+                setSelectedDate(moment().month(num).date(1))
+              }}><ChevronLeftSharpIcon />
             </button>
+            <span className="title" onClick={selectMonth}>{month}</span>
+            {/* 월 선택 모달 오픈 버튼 */}
+            {/* <button className="select_month" onClick={selectMonth}>
+              {openSelectMonth ? "˄" : "˅"}
+            </button> */}
             {/* 
               다음달 예상 지출 
                 nextMonth[0] 다음달 총 이벤트 개수
@@ -168,7 +178,14 @@ function Home({ userId, history }) {
               onClick={(e) => {
                 e.preventDefault();
                 setModal(!isOpen);
-              }}>+</button>
+              }}>
+            <AddIcon />
+            </button>
+            <button className="rightBtn" onClick={() => {
+                let num = moment().month(month).format("M");
+                setSelectedDate(moment().month(num).date(1))
+              }}><ChevronRightSharpIcon />
+            </button>
           </div>
           {/* 월 선택 모달 */}
           <div className="selectMonth" style={openSelectMonth ? { display: "inline-block" } : { display: "none" }}>
@@ -209,18 +226,6 @@ function Home({ userId, history }) {
           <h2 className="date">
             {selectedDate.format("M[/]D[(]ddd[)]")}
           </h2>
-          <span className="transferIcon">
-            <span className="kakaobank">
-              <a href="kakaobank://">
-                <img src={kakaobank}></img>
-              </a>
-            </span>
-            <span className="toss">
-              <a href="supertoss://">
-                <img src={toss}></img>
-              </a>
-            </span>
-          </span>
           {/* <button className="sideSchedule_empty"
             onClick={(e) => {
               e.preventDefault();

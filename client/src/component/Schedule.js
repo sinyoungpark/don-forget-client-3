@@ -5,6 +5,7 @@ import Modal from "./Modal"
 import "./Schedule.scss"
 import kakaobank from '../kakaobank.png';
 import toss from '../toss.png';
+import AddIcon from '@material-ui/icons/Add';
 
 
 export default function Schedule(props) {
@@ -73,7 +74,7 @@ export default function Schedule(props) {
                 <button onClick={(e) => {
                     e.preventDefault();
                     setModal(!isOpen);
-                }} className="addBtn">+</button>
+                }} className="addBtn"><AddIcon /></button>
             </h1>
             <span className="transferIcon">
               <span className="kakaobank">
