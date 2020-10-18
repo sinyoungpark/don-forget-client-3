@@ -50,8 +50,8 @@ function Home({ userId, history }) {
   const generate = () => {
     // const today = moment();
     const today = selectedDate;
-    console.log(today);
-    console.log(month);
+    // console.log(today);
+    // console.log(month);
     // console.log(selectedDate.add(1, "M").endOf('month'));
     const startWeek = today.clone().startOf('month').week();
     const endWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
@@ -109,9 +109,16 @@ function Home({ userId, history }) {
 
   //모달창 바깥 부분 클릭시 모달창 꺼지는 함수
   const handleClickOutside = (event) => {
+    console.log('event : ',event.path);
+    console.log('boolean : ',event.path[0].className);
+    // console.log('contain?: ',event.path['div.addMoal'])
     if (ref.current && !ref.current.contains(event.target)) {
-      setOpenSelectMonth(false);
-      setModal(false);
+      let arr = ['content','add_event','event_type add_event', 'selectMonth'];
+      if(arr.includes(event.path[0].className)) return;
+      else{
+        setModal(false);
+        setOpenSelectMonth(false);
+      }
     }
   };
 
@@ -194,7 +201,9 @@ function Home({ userId, history }) {
               onClick={(e) => {
                 e.preventDefault();
                 setModal(!isOpen);
-              }} ref={ref}>
+              }}
+              ref={ref}
+            >
             <AddIcon />
             </button>
             <button className="rightBtn" onClick={() => {
@@ -242,12 +251,6 @@ function Home({ userId, history }) {
           <h2 className="date">
             {selectedDate.format("M[/]D[(]ddd[)]")}
           </h2>
-          {/* <button className="sideSchedule_empty"
-            onClick={(e) => {
-              e.preventDefault();
-              setModal(!isOpen);
-            }}> + 일정추가 </button> */}
-
           <ul>
             {/* 일정 유무 확인해서 <li>로 랜더 */}
             {(data !== null) ?
@@ -283,7 +286,6 @@ function Home({ userId, history }) {
         {/* 일정추가 모달 */}
         <Modal userId={userId} isOpen={isOpen} setModal={setModal}
         setUseEffect={setUseEffect}/>
-
       </div>
     </div>
   );
