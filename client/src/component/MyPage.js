@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { withRouter } from "react-router-dom";
 import './MyPage.scss';
 import axios from "axios";
@@ -14,6 +14,7 @@ function MyPage(props) {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [newPasswordCheck, setNewPasswordCheck] = useState("");
+  const [statistics, setStatistics] = useState({});
 
   const signoutHandler = () => {
     console.log('signoutHandler');
@@ -76,6 +77,16 @@ function MyPage(props) {
     else {
       alert("비밀번호가 일치하지 않습니다.");
     }
+  }
+
+  //월별 통계를 가져와서 월별 지출 총 금액, 준 선물 총 개수를 정리해준다.
+  const report_year_expenditure = () => {
+    axios.get(`https://don-forget-server.com/schedule/statistics/${window.sessionStorage.getItem("id")}`)
+      .then(res => {
+        const data = res.data;
+        console.log(data)
+        setStatistics(data);
+      })
   }
 
   return (

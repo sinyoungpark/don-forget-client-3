@@ -17,7 +17,6 @@ export default function Modal(props) {
     const [giveAndTake, setGiveAndTake] = useState("");
 
 
-
     console.log(data_event_type);
     function handleSaveBtn(e) {
 
@@ -35,11 +34,13 @@ export default function Modal(props) {
                 .then((res) => console.log(res.data))
                 .then(() => {
                     setModal(!isOpen);
-                    setUseEffect(!controllUseEffect);
                     setDate("");
                     setTarget("");
                     setGift("");
                     setGiveAndTake("");
+                    if (setUseEffect){
+                        setUseEffect(!controllUseEffect);
+                    }
                 })
         }
         else {
@@ -102,9 +103,9 @@ export default function Modal(props) {
                             setGiveAndTake(e.target.value);
                         }}>take</button>
                     </div>
-                    <input className="add_event" type="date" id="birthday" name="birthday" onChange={(e) => setDate(e.target.value)} placeholder="경조사 날짜 *" />
+                    <input className="add_event" type="date" id="birthday" name="birthday" onChange={(e) => setDate(e.target.value)} label="경조사 날짜 *" />
 
-                    <input className="modify_event" type="date" id="birthday" defaultValue={data_date} name="birthday" onChange={(e) => setDate(e.target.value)} placeholder="경조사 날짜 *" />
+                    <input className="modify_event" type="date" id="birthday" defaultValue={data_date} name="birthday" onChange={(e) => setDate(e.target.value)} label="경조사 날짜 *" />
 
                     <input className="add_event" type="text" placeholder="경조사 대상(사람 이름) *" label="event target" onChange={(e) => setTarget(e.target.value)} />
 

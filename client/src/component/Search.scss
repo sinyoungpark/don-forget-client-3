@@ -301,6 +301,10 @@
         background-color: transparent;
         border: none;
         padding: 0;
+        .MuiAvatar-root {
+          width: 33px;
+          height: 33px;
+        }
         &:hover{
             border-radius: 50%;
         }
