@@ -144,23 +144,25 @@ export default function Modal(props) {
 
                     
 
+                    <div className="giftInput">
+                      <select name="gift_type" className="gift_type add_event" value={giftType} onChange={e => {
+                          // console.log('value : ',e.target.value)
+                          if(e.target.value === '선물'){
+                              setInputType('text');
+                          }else if(e.target.value === '현금'){
+                              setInputType('number');
+                          }
+                          setGiftType(e.target.value)
+                          //option 변경시 input값 초기화
+                          document.getElementsByTagName('input')[4].value = "";
+                      }}>
+                          <option value='' disabled selected>선물 / 현금</option>
+                          <option value='선물'>선물</option>
+                          <option value='현금'>현금</option>
+                      </select>
+                      <input className="gift_money add_event" type={inputType} placeholder="주거나 받은 내역 *" name="input_give_and_take" label="주거나 받은 내역(선물/현금)" onChange={(e) => setGift(e.target.value)} />
+                    </div>
                     
-                    <select name="gift_type" className="add_event" value={giftType} onChange={e => {
-                        // console.log('value : ',e.target.value)
-                        if(e.target.value === '선물'){
-                            setInputType('text');
-                        }else if(e.target.value === '현금'){
-                            setInputType('number');
-                        }
-                        setGiftType(e.target.value)
-                        //option 변경시 input값 초기화
-                        document.getElementsByTagName('input')[4].value = "";
-                    }}>
-                        <option value='' disabled selected>-- 선택 --</option>
-                        <option value='선물'>선물</option>
-                        <option value='현금'>현금</option>
-                    </select>
-                    <input className="add_event" type={inputType} placeholder="주거나 받은 내역(선물/현금) *" name="input_give_and_take" label="주거나 받은 내역(선물/현금)" onChange={(e) => setGift(e.target.value)} />
                     
                     <button className="add_event" onClick={(e) => {
                         e.preventDefault();
@@ -169,23 +171,24 @@ export default function Modal(props) {
                     <button className="add_event" onClick={handleSaveBtn}>저장하기</button>
 
 
-                    
-                    <select name="gift_type" className="modify_event" value={giftType} onChange={e => {
-                        // console.log('value : ',e.target.value)
-                        if(e.target.value === '선물'){
-                            setInputType('text');
-                        }else if(e.target.value === '현금'){
-                            setInputType('number');
-                        }
-                        setGiftType(e.target.value)
-                        //option 변경시 input값 초기화
-                        document.getElementsByTagName('input')[4].value = "";
-                    }}>
-                        <option value=''>-- 선택 --</option>
-                        <option value='선물'>선물</option>
-                        <option value='현금'>현금</option>
-                    </select>
-                    <input className="modify_event" type={inputType} defaultValue={data_gift} placeholder="주거나 받은 내역(선물/현금) *" name="input_give_and_take" label="주거나 받은 내역(선물/현금)" onChange={(e) => setGift(e.target.value)} />
+                    <div className="giftInput">
+                      <select name="gift_type" className="gift_type modify_event" value={giftType} onChange={e => {
+                          // console.log('value : ',e.target.value)
+                          if(e.target.value === '선물'){
+                              setInputType('text');
+                          }else if(e.target.value === '현금'){
+                              setInputType('number');
+                          }
+                          setGiftType(e.target.value)
+                          //option 변경시 input값 초기화
+                          document.getElementsByTagName('input')[4].value = "";
+                      }}>
+                          <option value=''>선물 / 현금</option>
+                          <option value='선물'>선물</option>
+                          <option value='현금'>현금</option>
+                      </select>
+                      <input className="gift_money modify_event" type={inputType} defaultValue={data_gift} placeholder="주거나 받은 내역 *" name="input_give_and_take" label="주거나 받은 내역(선물/현금)" onChange={(e) => setGift(e.target.value)} />
+                    </div>
 
                     
                     <button className="modify_event" onClick={(e) => {
