@@ -113,8 +113,8 @@ function Home({ userId, history }) {
     console.log('boolean : ',event.path[0].className);
     // console.log('contain?: ',event.path['div.addMoal'])
     if (ref.current && !ref.current.contains(event.target)) {
-      let arr = ['content','add_event','event_type add_event', 'selectMonth'];
-      if(arr.includes(event.path[0].className)) return;
+      console.log('first');
+      if(event.path[0].className !== 'addModal' || event.path[0].className !== 'Calendar') return;
       else{
         setModal(false);
         setOpenSelectMonth(false);
@@ -130,23 +130,20 @@ function Home({ userId, history }) {
   }, []);
 
   const monthModal = () => {
+    const Calendar = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV' ,'DEC'];
+    const listMonthSpan = Calendar.map((mon,index) => {
+      return <span onClick={() => {
+        setSelectedDate(moment().year(year).month(index).date(1));
+        setOpenSelectMonth(false);
+      }}>{mon}</span>
+    })
     return (<>
       <span onClick={() => setYear(year - 1)}>&lt;</span>
       <span>{year}</span>
       <span onClick={() => setYear(year + 1)}>&gt;</span>
       <hr />
-      <span onClick={() => setSelectedDate(moment().year(year).month(0).date(1))}>JAN</span>
-      <span onClick={() => setSelectedDate(moment().year(year).month(1).date(1))}>FEB</span>
-      <span onClick={() => setSelectedDate(moment().year(year).month(2).date(1))}>MAR</span>
-      <span onClick={() => setSelectedDate(moment().year(year).month(3).date(1))}>APR</span>
-      <span onClick={() => setSelectedDate(moment().year(year).month(4).date(1))}>MAY</span>
-      <span onClick={() => setSelectedDate(moment().year(year).month(5).date(1))}>JUN</span>
-      <span onClick={() => setSelectedDate(moment().year(year).month(6).date(1))}>JUL</span>
-      <span onClick={() => setSelectedDate(moment().year(year).month(7).date(1))}>AUG</span>
-      <span onClick={() => setSelectedDate(moment().year(year).month(8).date(1))}>SEP</span>
-      <span onClick={() => setSelectedDate(moment().year(year).month(9).date(1))}>OCT</span>
-      <span onClick={() => setSelectedDate(moment().year(year).month(10).date(1))}>NOV</span>
-      <span onClick={() => setSelectedDate(moment().year(year).month(11).date(1))}>DEC</span>
+      
+      {listMonthSpan}
     </>
     )
   }
@@ -171,6 +168,18 @@ function Home({ userId, history }) {
         setNextMonth(res.data);
       })
       .catch(err => console.error(err));
+  }
+
+  const makeWeek = () => {
+    const week = ['SUN','MON','TUE','WED','THU','FRI','SAT']
+    const week_Calendar = week.map((day) => {
+      return (
+        <div className="box">
+          <span className="text">{day}</span>
+        </div>
+      )
+    })
+    return week_Calendar;
   }
 
   return (
@@ -216,30 +225,10 @@ function Home({ userId, history }) {
           <div className="selectMonth" style={openSelectMonth ? { display: "inline-block" } : { display: "none" }}>
             {monthModal()}
           </div>
-
+          
           <div className="body">
             <div className="row">
-              <div className="box">
-                <span className="text">SUN</span>
-              </div>
-              <div className="box">
-                <span className="text">MON</span>
-              </div>
-              <div className="box">
-                <span className="text">TUE</span>
-              </div>
-              <div className="box">
-                <span className="text">WED</span>
-              </div>
-              <div className="box">
-                <span className="text">THU</span>
-              </div>
-              <div className="box">
-                <span className="text">FRI</span>
-              </div>
-              <div className="box">
-                <span className="text">SAT</span>
-              </div>
+              {makeWeek()}
             </div>
             {generate()}
           </div>
