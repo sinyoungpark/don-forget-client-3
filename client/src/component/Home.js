@@ -9,6 +9,11 @@ import toss from '../toss.png';
 import ChevronLeftSharpIcon from '@material-ui/icons/ChevronLeftSharp';
 import ChevronRightSharpIcon from '@material-ui/icons/ChevronRightSharp';
 import AddIcon from '@material-ui/icons/Add';
+import {Alert, AlertTitle} from '@material-ui/lab';
+import IconButton from '@material-ui/core/IconButton';
+import Collapse from '@material-ui/core/Collapse';
+import Button from '@material-ui/core/Button';
+import CloseIcon from '@material-ui/icons/Close';
 
 
 function Home({ userId, history }) {
@@ -31,6 +36,9 @@ function Home({ userId, history }) {
   
   //수정이 생길 때마다 setUseEffect 
   const [isUseEffect, setUseEffect] = useState(true);
+
+  // 다음달 알림 메시지
+  const [open, setOpen] = useState(true);
 
   useEffect(() => {
     // 선택한 날짜에 맞게 월 업데이트
@@ -197,14 +205,6 @@ function Home({ userId, history }) {
             {/* <button className="select_month" onClick={selectMonth}>
               {openSelectMonth ? "˄" : "˅"}
             </button> */}
-            {/* 
-              다음달 예상 지출 
-                nextMonth[0] 다음달 총 이벤트 개수
-                nextMonth[1] 총 주어야할 현금 액수
-                nextMonth[2] 총 주어야할 선물 개수
-            */}
-            <div>{nextMonth[0] === undefined ? `이벤트가 아직 없네요!` : `다음달 ${nextMonth[0]}개의 이벤트가 있어요!`}</div>
-            <div>{nextMonth[2] === undefined ? `` : `현금:${nextMonth[1]}(원),선물:${nextMonth[2]}(개)`}</div>
             {/* 스케줄 추가 버튼 */}
             <button className="add_schedule"
               onClick={(e) => {
@@ -227,6 +227,24 @@ function Home({ userId, history }) {
           </div>
           
           <div className="body">
+            {/* 
+              다음달 예상 지출 
+                nextMonth[0] 다음달 총 이벤트 개수
+                nextMonth[1] 총 주어야할 현금 액수
+                nextMonth[2] 총 주어야할 선물 개수
+            */}
+            <div className="alertNextMonth">
+              <Collapse in={open}>
+                <Alert action={
+                  <IconButton aria-label="close" color="inherit" size="small" onClick={() => {setOpen(false)}}>
+                    <CloseIcon fontSize="inherit" />
+                  </IconButton>
+                }>
+                  <AlertTitle><div className="alertNextMonthTitle">{nextMonth[0] === undefined ? `이벤트가 아직 없네요!` : `다음달 ${nextMonth[0]}개의 이벤트가 있어요!`}</div></AlertTitle>
+                  <div className="alertNextMonthContent">{nextMonth[2] === undefined ? `` : `지출 예상 금액: ${nextMonth[1]}원`}</div> <div className="alertNextMonthContent">{`지출 예상 선물: ${nextMonth[2]}개`}</div>
+                </Alert>
+              </Collapse>
+            </div>
             <div className="row">
               {makeWeek()}
             </div>
