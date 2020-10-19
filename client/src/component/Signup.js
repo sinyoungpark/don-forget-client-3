@@ -17,7 +17,9 @@ function Signup({ history }) {
   //회원가입 실패 alert 창 !
   const [wrongEmail, setWrongEmail] = useState(false);
   const [wrongPW, setWrongPW] = useState(false);
-
+  const [wrongName, setWrongName] = useState(false);
+  const [wrongQuestion, setWrongQuestion] = useState(false);
+  const [wrongAnswer, setWrongAnswer] = useState(false);
 
   const onChangeHandler = (e) => {
     if (e.target.name === "email") {
@@ -56,7 +58,7 @@ function Signup({ history }) {
     console.log("question:", question);
     console.log("answer:", answer);
     e.preventDefault();
-    if (validate(email) && (password === passwordCheck)) {
+    if (validate(email) && (password === passwordCheck) && (name !== "") && (question !== "") && (answer !== "")) {
       axios.post('https://don-forget-server.com/user/signup', {
         email: email,
         name: name,
@@ -70,6 +72,9 @@ function Signup({ history }) {
     else {
       validate(email) ? setWrongEmail(false) : setWrongEmail(true);
       ((password === passwordCheck) && password !== "") ? setWrongPW(false) : setWrongPW(true);
+      (name !== "") ? setWrongName(false) : setWrongName(true);
+      (question !== "") ? setWrongQuestion(false) : setWrongQuestion(true);
+      (answer !== "") ? setWrongAnswer(false) : setWrongAnswer(true);
     }
   }
 
@@ -79,27 +84,39 @@ function Signup({ history }) {
         <img className="logo" src={Logo} alt="Logo_don-forget" />
         <h1>Sign up</h1>
         <form className="inputValue">
-          <input type="text" name="email" onChange={onChangeHandler} placeholder="Email Address *" label="Email Address" />
-          <input type="text" name="name" onChange={onChangeHandler} placeholder="Name *" label="Name *" />
-          <input type="password" name="password" placeholder="Password *" label="password" onChange={onChangeHandler} />
-          <input type="password" name="passwordCheck" placeholder="PasswordCheck *" label="passwordCheck" onChange={onChangeHandler} />
+          <input type="text" name="email" onChange={onChangeHandler} placeholder="이메일 주소 *" label="이메일 주소" />
+          <input type="text" name="name" onChange={onChangeHandler} placeholder="이름 *" label="이름 *" />
+          <input type="password" name="password" placeholder="비밀번호 *" label="비밀번호" onChange={onChangeHandler} />
+          <input type="password" name="passwordCheck" placeholder="비밀번호 확인 *" label="비밀번호 확인" onChange={onChangeHandler} />
           <select className="question" onChange={selectOptionHandler}>
-            <option value="" disabled selected>Password Hint: *</option>
+            <option value="" disabled selected>비밀번호 찾기 힌트 질문: *</option>
             <option value="1">가장 기억에 남는 선생님 성함은?</option>
             <option value="2">내가 존경하는 인물은?</option>
             <option value="3">나의 노래방 애창곡은?</option>
           </select>
-          <input type="text" name="answer" placeholder="Answer *" label="answer" onChange={onChangeHandler} />
+          <input type="text" name="answer" placeholder="비밀번호 찾기 힌트 답 *" label="비밀번호 찾기 힌트 답" onChange={onChangeHandler} />
           <input name="agree" type="checkbox"></input>
           <label htmlFor="agree">개인정보 수집 동의</label>
           <div className={wrongEmail ? "alert" : "none"}>
             <strong> ⚠️ &nbsp; Error</strong>
-                    유효하지 않은 이메일입니다.
-                </div>
+             유효하지 않은 이메일입니다.
+          </div>
           <div className={wrongPW ? "alert" : "none"}>
             <strong> ⚠️ &nbsp; Error</strong>
-            비밀번호가 일치하지 않습니다
-                </div>
+            비밀번호가 일치하지 않습니다.
+          </div>
+          <div className={wrongName ? "alert" : "none"}>
+            <strong> ⚠️ &nbsp; Error</strong>
+            이름을 입력해주세요.
+          </div>
+          <div className={wrongQuestion ? "alert" : "none"}>
+            <strong> ⚠️ &nbsp; Error</strong>
+            비밀번호 찾기 힌트 질문을 선택해주세요.
+          </div>
+          <div className={wrongAnswer ? "alert" : "none"}>
+            <strong> ⚠️ &nbsp; Error</strong>
+            비밀번호 찾기 힌트 답을 입력해주세요.
+          </div>
           <button onClick={signUpBtnHandler}>회원가입</button>
         </form>
       </div>
