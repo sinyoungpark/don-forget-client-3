@@ -12,23 +12,27 @@ export default function Modal(props) {
     const [gift, setGift] = useState("");
 
     /* get요청으로 받아온 값들 -> 수정 시 필요 */
-    const { userId, isOpen, setModal, isModify, data_date, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify, setUseEffect, controllUseEffect, data_giveandtake, setAgain } = props;
+    const { userId, isOpen, setModal, isModify, data_date, data_giftType, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify, setUseEffect, controllUseEffect, data_giveandtake, setAgain } = props;
 
     const [giveAndTake, setGiveAndTake] = useState("");
+    const [giftType, setGiftType] = useState("");
+    const [inputType, setInputType] = useState("");
 
 
-    console.log(data_event_type);
     function handleSaveBtn(e) {
-
+        
         e.preventDefault();
+        
+        console.log(date,eventTarget,eventType,gift,giveAndTake,giftType);
 
-        if (date && eventTarget && eventType && gift && giveAndTake) {
+
+        if (date && eventTarget && eventType && gift && giveAndTake && giftType) {
             console.log(giveAndTake);
             axios.post(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
                 date: date,
                 event_target: eventTarget,
                 type: eventType,
-                gift: gift,
+                gift: [giftType,gift],
                 giveandtake: giveAndTake
             })
                 .then((res) => console.log(res.data))
@@ -55,7 +59,7 @@ export default function Modal(props) {
             date: date ? date : data_date,
             event_target: eventTarget ? eventTarget : data_event_target,
             type: eventType ? eventType : data_event_type,
-            gift: gift ? gift : data_gift,
+            gift: gift ? [giftType,gift] : [data_giftType,data_gift],
             giveandtake: giveAndTake ? giveAndTake : data_giveandtake
         }, {
             params: {
@@ -65,7 +69,6 @@ export default function Modal(props) {
             .then((res) => console.log(res.data))
             .then(() => {
                 handleModify(!isModify);
-
                 if (setUseEffect) {
                     setUseEffect(!controllUseEffect);
                 }
@@ -139,20 +142,56 @@ export default function Modal(props) {
                         <option value="기타">기타</option>
                     </select>
 
-                    <input className="add_event" type="text" placeholder="주거나 받은 내역(선물/현금) *" label="주거나 받은 내역(선물/현금)" onChange={(e) => setGift(e.target.value)} />
+                    
 
-                    <input className="modify_event" defaultValue={data_gift} type="text" placeholder="gift *" label="gift" onChange={(e) => setGift(e.target.value)} />
-
+                    
+                    <select name="gift_type" className="add_event" value={giftType} onChange={e => {
+                        // console.log('value : ',e.target.value)
+                        if(e.target.value === '선물'){
+                            setInputType('text');
+                        }else if(e.target.value === '현금'){
+                            setInputType('number');
+                        }
+                        setGiftType(e.target.value)
+                        //option 변경시 input값 초기화
+                        document.getElementsByTagName('input')[4].value = "";
+                    }}>
+                        <option value='' disabled selected>-- 선택 --</option>
+                        <option value='선물'>선물</option>
+                        <option value='현금'>현금</option>
+                    </select>
+                    <input className="add_event" type={inputType} placeholder="주거나 받은 내역(선물/현금) *" name="input_give_and_take" label="주거나 받은 내역(선물/현금)" onChange={(e) => setGift(e.target.value)} />
+                    
                     <button className="add_event" onClick={(e) => {
                         e.preventDefault();
-                        setModal(!isOpen)
+                        setModal(false)
                     }}>취소</button>
+                    <button className="add_event" onClick={handleSaveBtn}>저장하기</button>
 
+
+                    
+                    <select name="gift_type" className="modify_event" value={giftType} onChange={e => {
+                        // console.log('value : ',e.target.value)
+                        if(e.target.value === '선물'){
+                            setInputType('text');
+                        }else if(e.target.value === '현금'){
+                            setInputType('number');
+                        }
+                        setGiftType(e.target.value)
+                        //option 변경시 input값 초기화
+                        document.getElementsByTagName('input')[4].value = "";
+                    }}>
+                        <option value=''>-- 선택 --</option>
+                        <option value='선물'>선물</option>
+                        <option value='현금'>현금</option>
+                    </select>
+                    <input className="modify_event" type={inputType} defaultValue={data_gift} placeholder="주거나 받은 내역(선물/현금) *" name="input_give_and_take" label="주거나 받은 내역(선물/현금)" onChange={(e) => setGift(e.target.value)} />
+
+                    
                     <button className="modify_event" onClick={(e) => {
                         e.preventDefault();
                         handleModify(!isModify);
                     }}>취소</button>
-                    <button className="add_event" onClick={handleSaveBtn}>저장하기</button>
                     <button className="modify_event" onClick={handleModifyBtn} name={schedule_id} value={event_id}>수정하기</button>
                 </form>
             </div>

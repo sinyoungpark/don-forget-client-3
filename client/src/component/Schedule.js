@@ -25,6 +25,8 @@ export default function Schedule(props) {
     const [curSchduleId, setCurScheduleId] = useState("");
     const [curEventId, setCurEventId] = useState("");
     const [curGiveAndTake, setCurGiveAndTake] = useState("");
+    //현금?선물?인지 확인
+    const [curGiftType, setCurGiftType] = useState("");
 
     //새로운 변화가 생길 시에만 useEffect가 동작하도록 
     const [controllUseEffect, setUseEffect] = useState(true);
@@ -60,10 +62,11 @@ export default function Schedule(props) {
         setCurDate(date);
         setCurTarget(event_target);
         setEventType(event_type);
-        setCurGift(data_gift);
+        setCurGift(data_gift.split(':')[1]);
         setCurScheduleId(schedule_id);
         setCurEventId(event_id);
         setCurGiveAndTake(data_giveandtake);
+        setCurGiftType(data_gift.split(':')[0])
         handleModify(!isModify);
     }
 
@@ -104,7 +107,7 @@ export default function Schedule(props) {
                                     <span className={data.type}>{data.giveandtake === "give" ? "→" : "←"}</span>
                                     <span className="type">{data.event_target} {data.type}</span>
                                     <span className="gift">{data.gift}</span>
-                                    <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} setUseEffect={setUseEffect} controllUseEffect={controllUseEffect} data_giveandtake={curGiveAndTake} />
+                                    <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} data_giftType={curGiftType} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} setUseEffect={setUseEffect} controllUseEffect={controllUseEffect} data_giveandtake={curGiveAndTake} />
                                 </li>
                             </div>
                         )
