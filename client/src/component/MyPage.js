@@ -85,7 +85,7 @@ function MyPage(props) {
     <div className="mypage">
       <div className="full_page">
         <h1>My Page</h1>
-        <div style={{ width: "90%", marginTop: 20, marginBottom: 20 }}>
+        <div className="chart">
           <Chart />
         </div>
         <div className="userInfo">
@@ -96,22 +96,32 @@ function MyPage(props) {
             <button onClick={changeNameHandler}>✔︎</button>
           </> : name}</div>
           <div>{email}</div>
+          <div className="mypage_buttons">
+            <button className="changeBtn" onClick={() => setOpenName(!openName)}>이름 변경</button>
+            <button className="changeBtn" onClick={() => setOpenPassword(!openPassword)}>비밀번호 변경</button>
+            <button className="changeBtn" onClick={signoutHandler}>로그아웃</button>
+          </div>
         </div>
-        <button className="changeBtn" onClick={() => setOpenName(!openName)}>이름 변경</button>
-        <button className="changeBtn" onClick={() => setOpenPassword(!openPassword)}>비밀번호 변경</button>
-        <button className="changeBtn" onClick={signoutHandler}>로그아웃</button>
 
         <div className={openPassword ? "changePasswordModal" : "none"}>
-          <input type="password" placeholder="기존 비밀번호"
-            onChange={(e) => setOldPassword(e.target.value)}></input>
-          <button onClick={checkPasswordHandler}>check!</button>
-          <div className={isRightPassword ? "newPw" : "none"}>
-            <input type="password" placeholder="새 비밀번호"
-              onChange={(e) => setNewPassword(e.target.value)}></input>
-            <input type="password" placeholder="새 비밀번호 확인"
-              onChange={(e) => setNewPasswordCheck(e.target.value)}></input>
-            <button onClick={changePasswordHandler}>변경</button>
+          <div className="changePW_content">
+
+            <h3>비밀번호 변경하기</h3>
+
+            <h4>Step 1.</h4>
+            <input type="password" placeholder="기존 비밀번호"
+              onChange={(e) => setOldPassword(e.target.value)}></input>
             <button onClick={() => setOpenPassword(false)}>취소</button>
+            <button onClick={checkPasswordHandler}>확인</button>
+            <div className={isRightPassword ? "newPw" : "none"}>
+              <h4>Step 2.</h4>
+              <input type="password" placeholder="새 비밀번호"
+                onChange={(e) => setNewPassword(e.target.value)}></input>
+              <input type="password" placeholder="새 비밀번호 확인"
+                onChange={(e) => setNewPasswordCheck(e.target.value)}></input>
+              <button onClick={() => setOpenPassword(false)}>취소</button>
+              <button onClick={changePasswordHandler}>변경</button>
+            </div>
           </div>
         </div>
       </div>
