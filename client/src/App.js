@@ -10,8 +10,7 @@ import "./App.scss"
 import { CSSTransitionGroup } from "react-transition-group";
 import Schedule from "./component/Schedule";
 import Search from './component/Search';
-
-
+import cookie from 'react-cookies'
 
 
 
@@ -45,7 +44,7 @@ function App(props) {
                   return <Intro />
                 }} />
                 <Route path="/signin" render={() => {
-                  if (window.sessionStorage.getItem("id") || document.cookie) {
+                  if (window.sessionStorage.getItem("id") || cookie.load('id')) {
                     return <Redirect to="/" />
                   } else {
                     return <Signin setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} userId={userId} />
@@ -55,35 +54,35 @@ function App(props) {
                   return <Signup />
                 }} />
                 <Route exact path="/home" render={() => {
-                  if (window.sessionStorage.getItem("id")|| document.cookie) {
+                  if (window.sessionStorage.getItem("id")|| cookie.load('id')) {
                     return <Home />
                   } else {
                     return <Redirect to="/" />
                   }
                 }} />
                 <Route exact path="/schedule" render={() => {
-                  if (window.sessionStorage.getItem("id")|| document.cookie) {
+                  if (window.sessionStorage.getItem("id")|| cookie.load('id')) {
                     return <Schedule userId={userId} />
                   } else {
                     return <Redirect to="/" />
                   }
                 }} />
                 <Route exact path="/search" render={() => {
-                  if (window.sessionStorage.getItem("id")|| document.cookie) {
+                  if (window.sessionStorage.getItem("id")|| cookie.load('id')) {
                     return <Search userId={userId} />
                   } else {
                     return <Redirect to="/" />
                   }
                 }} />
                 <Route exact path="/mypage" render={() => {
-                  if (window.sessionStorage.getItem("id")|| document.cookie) {
+                  if (window.sessionStorage.getItem("id")|| cookie.load('id')) {
                     return <MyPage setIsLogin={setIsLogin} email={email} setEmail={setEmail} name={name} setName={setName} />
                   } else {
                     return <Redirect to="/" />
                   }
                 }} />
                 <Route path="/" render={() => {
-                  if (window.sessionStorage.getItem("id")|| document.cookie) {
+                  if (window.sessionStorage.getItem("id")|| cookie.load('id')) {
                     return <Redirect to="/home" />
                   } else {
                     return <Redirect to="/intro" />
