@@ -83,6 +83,9 @@ function MyPage(props) {
     <div className="mypage">
       <div className="full_page">
         <h1>My Page</h1>
+        <div style={{ width: "90%", marginTop: 20, marginBottom: 20 }}>
+          <Chart />
+        </div>
         <div className="userInfo">
           <h1>User Info:</h1>
           <div>{openName ? <>
@@ -95,8 +98,6 @@ function MyPage(props) {
         <button className="changeBtn" onClick={() => setOpenName(!openName)}>이름 변경</button>
         <button className="changeBtn" onClick={() => setOpenPassword(!openPassword)}>비밀번호 변경</button>
         <button className="changeBtn" onClick={signoutHandler}>로그아웃</button>
-
-        <Chart/>
 
         <div className={openPassword ? "changePasswordModal" : "none"}>
           <input type="password" placeholder="기존 비밀번호"

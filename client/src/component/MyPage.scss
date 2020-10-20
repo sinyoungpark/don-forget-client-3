@@ -11,7 +11,7 @@
             margin-top: 0;
         }
         .userInfo{
-            background-color: rgb(228, 228, 228);
+            background-color: rgb(245, 245, 245);
             border-radius: 30px;
             width: 80%;
             padding: 40px;
@@ -38,7 +38,7 @@
             text-decoration: underline;
         }
         .changePasswordModal {
-            background-color: rgb(228, 228, 228);
+            background-color: rgb(245, 245, 245);
             border-radius: 30px;
             width: 80%;
             padding: 40px;
@@ -57,7 +57,7 @@
         margin-top: 0;
     }
     .userInfo{
-        background-color: rgb(228, 228, 228);
+        background-color: rgb(245, 245, 245);
         border-radius: 30px;
         width: 80%;
         padding: 10%;
@@ -84,10 +84,17 @@
         text-decoration: underline;
     }
     .changePasswordModal {
-        background-color: rgb(228, 228, 228);
+        background-color: rgb(245, 245, 245);
         border-radius: 30px;
         width: 80%;
         padding: 10%;
     }
 }
+}
+
+
+
+// 차트 위 gift, money 폰트 사이즈
+.recharts-default-legend span{
+    font-size: 0.8rem;
 }
