@@ -9,7 +9,7 @@ import toss from '../toss.png';
 import ChevronLeftSharpIcon from '@material-ui/icons/ChevronLeftSharp';
 import ChevronRightSharpIcon from '@material-ui/icons/ChevronRightSharp';
 import AddIcon from '@material-ui/icons/Add';
-import {Alert, AlertTitle} from '@material-ui/lab';
+import { Alert, AlertTitle } from '@material-ui/lab';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import Button from '@material-ui/core/Button';
@@ -33,7 +33,7 @@ function Home({ userId, history }) {
   const [data, setData] = useState(null);
   // 다음달 지출 및 예상 이벤트 가져오기.
   const [nextMonth, setNextMonth] = useState([]);
-  
+
   //수정이 생길 때마다 setUseEffect 
   const [isUseEffect, setUseEffect] = useState(true);
 
@@ -44,10 +44,10 @@ function Home({ userId, history }) {
     // 선택한 날짜에 맞게 월 업데이트
     setMonth(selectedDate._locale._months[selectedDate.month()])
   });
-  
+
   //스케쥴에 변화가 있을 때마다 get요청 ㄱㄱ
   useEffect(() => {
-    if (isUseEffect){
+    if (isUseEffect) {
       getSchedule();
       nextMonthInfo();
       setUseEffect(false);
@@ -117,13 +117,13 @@ function Home({ userId, history }) {
 
   //모달창 바깥 부분 클릭시 모달창 꺼지는 함수
   const handleClickOutside = (event) => {
-    console.log('event : ',event.path);
-    console.log('boolean : ',event.path[0].className);
+    console.log('event : ', event.path);
+    console.log('boolean : ', event.path[0].className);
     // console.log('contain?: ',event.path['div.addMoal'])
     if (ref.current && !ref.current.contains(event.target)) {
       console.log('first');
-      if(event.path[0].className !== 'addModal' || event.path[0].className !== 'Calendar') return;
-      else{
+      if (event.path[0].className !== 'addModal' || event.path[0].className !== 'Calendar') return;
+      else {
         setModal(false);
         setOpenSelectMonth(false);
       }
@@ -138,8 +138,8 @@ function Home({ userId, history }) {
   }, []);
 
   const monthModal = () => {
-    const Calendar = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV' ,'DEC'];
-    const listMonthSpan = Calendar.map((mon,index) => {
+    const Calendar = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    const listMonthSpan = Calendar.map((mon, index) => {
       return <span onClick={() => {
         setSelectedDate(moment().year(year).month(index).date(1));
         setOpenSelectMonth(false);
@@ -150,7 +150,7 @@ function Home({ userId, history }) {
       <span>{year}</span>
       <span onClick={() => setYear(year + 1)}>&gt;</span>
       <hr />
-      
+
       {listMonthSpan}
     </>
     )
@@ -172,14 +172,14 @@ function Home({ userId, history }) {
   const nextMonthInfo = () => {
     axios.get(`https://don-forget-server.com/schedule/expectNextCost/${window.sessionStorage.getItem("id")}`)
       .then((res) => {
-        console.log('res.data : ',res.data);
+        console.log('res.data : ', res.data);
         setNextMonth(res.data);
       })
       .catch(err => console.error(err));
   }
 
   const makeWeek = () => {
-    const week = ['SUN','MON','TUE','WED','THU','FRI','SAT']
+    const week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
     const week_Calendar = week.map((day) => {
       return (
         <div className="box">
@@ -196,9 +196,9 @@ function Home({ userId, history }) {
         <div className={openSchedule ? "sideCalendar" : "Calendar"}>
           <div className="head">
             <button className="leftBtn" onClick={() => {
-                let num = moment().month(month).format("M") - 2;
-                setSelectedDate(moment().month(num).date(1))
-              }}><ChevronLeftSharpIcon />
+              let num = moment().month(month).format("M") - 2;
+              setSelectedDate(moment().month(num).date(1))
+            }}><ChevronLeftSharpIcon />
             </button>
             <span className="title" onClick={selectMonth} ref={ref}>{month}</span>
             {/* 월 선택 모달 오픈 버튼 */}
@@ -213,19 +213,19 @@ function Home({ userId, history }) {
               }}
               ref={ref}
             >
-            <AddIcon />
+              <AddIcon />
             </button>
             <button className="rightBtn" onClick={() => {
-                let num = moment().month(month).format("M");
-                setSelectedDate(moment().month(num).date(1))
-              }}><ChevronRightSharpIcon />
+              let num = moment().month(month).format("M");
+              setSelectedDate(moment().month(num).date(1))
+            }}><ChevronRightSharpIcon />
             </button>
           </div>
           {/* 월 선택 모달 */}
           <div className="selectMonth" style={openSelectMonth ? { display: "inline-block" } : { display: "none" }}>
             {monthModal()}
           </div>
-          
+
           <div className="body">
             {/* 
               다음달 예상 지출 
@@ -236,12 +236,12 @@ function Home({ userId, history }) {
             <div className="alertNextMonth">
               <Collapse in={open}>
                 <Alert action={
-                  <IconButton aria-label="close" color="inherit" size="small" onClick={() => {setOpen(false)}}>
+                  <IconButton aria-label="close" color="inherit" size="small" onClick={() => { setOpen(false) }}>
                     <CloseIcon fontSize="inherit" />
                   </IconButton>
                 }>
                   <AlertTitle><div className="alertNextMonthTitle">{nextMonth[0] === undefined ? `이벤트가 아직 없네요!` : `다음달 ${nextMonth[0]}개의 이벤트가 있어요!`}</div></AlertTitle>
-                  <div className="alertNextMonthContent">{nextMonth[2] === undefined ? `` : `지출 예상 금액: ${nextMonth[1]}원`}</div> <div className="alertNextMonthContent">{`지출 예상 선물: ${nextMonth[2]}개`}</div>
+                  <span className="alertNextMonthContent">{nextMonth[2] === undefined ? `` : `지출 예상 금액: ${nextMonth[1]}원`}</span> <span className="alertNextMonthContent">{`지출 예상 선물: ${nextMonth[2]}개`}</span>
                 </Alert>
               </Collapse>
             </div>
@@ -292,7 +292,7 @@ function Home({ userId, history }) {
 
         {/* 일정추가 모달 */}
         <Modal userId={userId} isOpen={isOpen} setModal={setModal}
-        setUseEffect={setUseEffect}/>
+          setUseEffect={setUseEffect} />
       </div>
     </div>
   );
