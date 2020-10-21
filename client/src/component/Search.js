@@ -8,7 +8,7 @@ import Modal from "./Modal";
 
 
 function Search(props) {
-  const { userId, setUseEffect, controllUseEffect, setSchedule } = props;
+  const { userId, setUseEffect, controllUseEffect, setSchedule, isSchedule} = props;
 
   const [searchKeyword, setSearchKeyword] = useState("");
   const [searchData, setSearchData] = useState(null);
@@ -26,6 +26,9 @@ function Search(props) {
 
   //다시 get 요청
   const [searchAgain, setAgain] = useState(false);
+
+  //현재 선택된 태크 
+  const [curTag, setTag] = useState("");
 
   useEffect(() => {
     if (searchAgain) {
@@ -89,13 +92,20 @@ function Search(props) {
 
   const handleTag = (e) => {
     console.log(e.target.value)
-    axios.post(`https://don-forget-server.com/search/${window.sessionStorage.getItem("id")}`, {
+    if (curTag === e.target.value){
+      console.log("hi")
+      setSchedule(true);
+      setTag("");
+    } else {
+      setTag(e.target.value);
+      axios.post(`https://don-forget-server.com/search/${window.sessionStorage.getItem("id")}`, {
       data: e.target.value
     })
       .then((res) => {
         setSearchData(res.data);
         setSchedule(false);
       })
+    }
   }
 
 
@@ -105,13 +115,14 @@ function Search(props) {
       <div className="full_page">
         <input type="text" className="search_input"
           placeholder="날짜 혹은 이벤트 이름을 입력해주세요."
-          onChange={onChangeHandler}></input>
-        <button className="search_btn"
+          onChange={onChangeHandler}
+          onKeyPress={clickSearch} ></input>
+        {/* <button className="search_btn"
           onClick={clickSearch}>
           <Avatar className="icon">
             <SearchIcon />
           </Avatar>
-        </button>
+        </button> */}
         <div className="tag">
           <button className="생일" onClick={handleTag} value="생일">#생일</button>
           <button className="결혼식" onClick={handleTag} value="결혼식">#결혼식</button>
@@ -124,7 +135,7 @@ function Search(props) {
           <button className="기념일" onClick={handleTag} value="기념일">#기념일</button>
           <button className="기타" onClick={handleTag} value="기타">#기타</button>
         </div>
-        <ul className="search_list">
+        <ul className={isSchedule ?"none" : "search_list"} >
           {
             searchData && searchData.map((data) => {
               const date = String(data.date).slice(0, 10);
