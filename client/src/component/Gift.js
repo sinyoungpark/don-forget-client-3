@@ -47,7 +47,7 @@ function Gift(props) {
   }
 
   return (
-    <div className="search">
+    <div className="gift">
       <div className="full_page">
         <h1>Search</h1>
         <input type="text" className="search_input"
@@ -57,7 +57,7 @@ function Gift(props) {
           <Avatar className="icon"> <SearchIcon /> </Avatar>
         </button>
 
-        <ul className="search_tags">
+        <ul className="gift_tags">
           {tags.map((tag, i) => {
             return (<li key={i}
               onClick={() => {
@@ -67,7 +67,7 @@ function Gift(props) {
           })}
         </ul>
 
-        <ul className="search_list">
+        <ul className="gift_list">
           {searchData && searchData.map((data, i) => {
             return (
               <div key={i}> </div>
