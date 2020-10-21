@@ -28,9 +28,9 @@ export default function NaverSignUp(props) {
       <NaverLogin
         clientId= 'RVzosz8NSQef332q56bi'
         callbackUrl= "http://localhost:3000/home"
-        isPopup = {true}
+        isPopup = {false}
         // callbackHandle = {false}
-        render={(props) => <button className="naver" onClick={props.onClick}>Sign in with Naver</button>}
+        render={(props) => <div onClick={props.onClick}>Naver Login</div>}
         // buttonText="Naver"
         onSuccess={responseNaver}
         onFailure={responseFail}
