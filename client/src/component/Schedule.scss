@@ -12,6 +12,7 @@
             font-size: 40px;
             position: fixed;
             margin: 0;
+            z-index: 2;
         }
         .transferIcon {
           display: none;
@@ -25,6 +26,7 @@
             top: 10px;
             background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 20%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 80%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%);
             pointer-events: none;
+            z-index: 1;
         }
 
         ul{
@@ -43,17 +45,18 @@
             .date{
                 color : #505050;
                 font-size: 1.2rem;
-                margin: auto;
+                margin-top: auto;
+                margin-bottom: auto;
             } 
             /* schedule list css */
             li{
                 border: 1px solid rgb(151, 149, 149);
-                width: 79%;
+                width: 100%;
                 max-height: 30px;
                 padding: 5px 20px;
-                border-radius: 10px;
-                margin: 4px 0;
-                margin-left: auto;
+                border-radius: 30px;
+                margin: 4px 15px 4px 40px;
+                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
                 
                 /* 수정, 삭제 button css*/
                 .li_button{
@@ -77,51 +80,61 @@
                 margin-right: 1vh;
                 font-size: 0.9rem;
                 &.결혼식 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #FFCECE;
                     border-left: 3px solid #FFCECE;
                 }
                 &.생일 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #FFB65B;
                     border-left: 3px solid #FFB65B;
                 }
                 &.장례식 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #737272;
                     border-left: 3px solid #737272;
                 }
                 &.집들이 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #6BACF8;
                     border-left: 3px solid #6BACF8;
                 }
                 &.취직 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #FFF00C;
                     border-left: 3px solid #FFF00C;
                 }
                 &.입학 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #A4F256;
                     border-left: 3px solid #A4F256;
                 }
                 &.출산 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #FF6666;
                     border-left: 3px solid #FF6666;
                 }
                 &.돌잔치 {
+                    font-weight: 900;
                     padding-left: 0; 
                     color: #97ECCF;
                     border-left: 3px solid #97ECCF;
                 }
                 &.기념일 {
+                    font-weight: 900;
                     padding-left: 0; 
                     color: #E1C5FF;
                     border-left: 3px solid #E1C5FF;
                 }
                 &.기타 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #CECECE;
                     border-left: 3px solid #CECECE;
@@ -185,6 +198,7 @@
             font-size: 36px;
             position: fixed;
             margin: 0;
+            z-index: 2;
         }
         .transferIcon {
           position: fixed;
@@ -197,6 +211,7 @@
               height: 30px;
               border: rgba(70, 70, 70, 0.25) 1px solid;
               border-radius: 10px;
+              background-color: white;
             }
           }
           .toss {
@@ -205,19 +220,20 @@
               border: rgba(70, 70, 70, 0.25) 1px solid;
               border-radius: 10px;
               padding: 0 21px;
+              background-color: white;
             }
           }
         }
     
-        .gradient{
-            display: block;
-            position: fixed;
-            width: 80%;
-            height: 100vh;
-            top: 10px;
-            background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 20%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 80%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%);
-            pointer-events: none;
-        }
+        // .gradient{
+        //     display: block;
+        //     position: fixed;
+        //     width: 80%;
+        //     height: 100vh;
+        //     top: 10px;
+        //     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 25%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 90%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%);
+        //     pointer-events: none;
+        // }
     
         ul{
             list-style:none;
@@ -228,24 +244,24 @@
         }
         
         .schedule_list{
-            margin-top: 111px;
+            // margin-top: 111px;
             padding: 0;
-            margin-right: 5%;
             /* date css */
             .date{
                 color : #505050;
                 font-size: 1rem;
-                margin: auto;
+                margin-top: auto;
+                margin-bottom: auto;
             } 
             /* schedule list css */
             li{
                 border: 1px solid rgb(151, 149, 149);
-                width: 70%;
-                height: 30px;
-                padding: 1px 9px 0.5px;
-                border-radius: 10px;
-                margin: 4px 0;
-                margin-left: auto;
+                width: 90%;
+                max-height: 30px;
+                padding: 5px 20px;
+                border-radius: 30px;
+                margin: 4px 20px 4px 30px;
+                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
                 
                 /* 수정, 삭제 button css*/
                 .li_button{
@@ -269,51 +285,61 @@
                 margin-right: 1vh;
                 font-size: 0.9rem;
                 &.결혼식 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #FFCECE;
                     border-left: 3px solid #FFCECE;
                 }
                 &.생일 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #FFB65B;
                     border-left: 3px solid #FFB65B;
                 }
                 &.장례식 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #737272;
                     border-left: 3px solid #737272;
                 }
                 &.집들이 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #6BACF8;
                     border-left: 3px solid #6BACF8;
                 }
                 &.취직 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #FFF00C;
                     border-left: 3px solid #FFF00C;
                 }
                 &.입학 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #A4F256;
                     border-left: 3px solid #A4F256;
                 }
                 &.출산 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #FF6666;
                     border-left: 3px solid #FF6666;
                 }
                 &.돌잔치 {
+                    font-weight: 900;
                     padding-left: 0; 
                     color: #97ECCF;
                     border-left: 3px solid #97ECCF;
                 }
                 &.기념일 {
+                    font-weight: 900;
                     padding-left: 0; 
                     color: #E1C5FF;
                     border-left: 3px solid #E1C5FF;
                 }
                 &.기타 {
+                    font-weight: 900;
                     padding-left: 0;
                     color: #CECECE;
                     border-left: 3px solid #CECECE;
@@ -351,7 +377,7 @@
         
         // 스크롤바
         &::-webkit-scrollbar {
-            width: 100px;
+            width: 30px;
         }
         &::-webkit-scrollbar-track {
             background-color: transparent;
@@ -360,7 +386,7 @@
             border-radius: 100px;
             background-color: rgb(225, 225, 225);
             background-clip: padding-box;
-            border: 45px solid transparent;
+            border: 10px solid transparent;
         }
         &::-webkit-scrollbar-button {
             width: 0;

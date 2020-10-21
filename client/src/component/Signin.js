@@ -6,10 +6,6 @@ import { CSSTransitionGroup } from "react-transition-group";
 import axios from "axios";
 import Logo from '../Logo.png';
 
-//import kakao-api
-import KakaoSignUp from "./Kakao";
-import NaverSignUp from "./Naver";
-
 export default function Signin(props) {
   const { setIsLogin, setEmail, setName, setUserId } = props;
   const [email, inputEmail] = useState("");
@@ -110,8 +106,7 @@ export default function Signin(props) {
                 </div>
       </form>
       <span>
-        <KakaoSignUp setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} />
-        {/* <NaverSignUp setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} /> */}
+        {/*  <KakaoSignUp setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} /> */}
       </span>
       <form className={isOpenStepOne ? "modal" : "none"}>
         <div className="content">

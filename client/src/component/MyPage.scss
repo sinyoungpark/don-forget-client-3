@@ -11,7 +11,7 @@
             margin-top: 0;
         }
         .userInfo{
-            background-color: rgb(228, 228, 228);
+            background-color: rgb(245, 245, 245);
             border-radius: 30px;
             width: 80%;
             padding: 40px;
@@ -29,19 +29,102 @@
                 width: 30%;
             }
         }
-        button.changeBtn {
-            margin: 10px 20px;
-            padding: 0;
-            border: none;
-            background: transparent;
-            color : #4a4a4a;
-            text-decoration: underline;
+        .mypage_buttons{
+            display: flex;
+            justify-content: flex-end;
+            .changeBtn {
+                color : #4a4a4a;
+                margin-left: 10px;
+                font-size: 0.7rem;
+            }
         }
         .changePasswordModal {
-            background-color: rgb(228, 228, 228);
-            border-radius: 30px;
-            width: 80%;
-            padding: 40px;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 30;
+            background: rgba(0, 0, 0, 0.3);
+            .changePW_content{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                z-index: 2;
+                transform: translate3d(-50%, -50%, 0);
+                background: whitesmoke;
+                box-shadow: 0 0 5px #000;
+                width: 35%;
+                padding: 45px;
+                border-radius: 10px;
+            }
+            h3 {
+                margin-top: 0;
+                border-bottom: 2px solid black;
+                padding: 10px 0;
+            }
+            h4{
+                margin: 0;
+            }
+            input {
+                display: block;
+                margin: 12px 0px 0px 0px;
+                border: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+                width: 100%;
+                font-size: 15px;
+                outline: none;
+                height: 30px;
+                padding-top: 20px;
+                background-color: whitesmoke;
+        
+                &:focus {
+                  border-color: #3b23a6;
+                }
+        
+                &:hover {
+                  border-width: 2px;
+                }
+        
+                &::placeholder {
+                  position: relative;
+                  top: 0px;
+                }
+        
+                &:focus::placeholder {
+                  color: #3b23a6;
+                  font-size: 13px;
+                  position: relative;
+                  top: -30px;
+                  -webkit-transition: all .15s;
+                  transition: all .15s;
+                }
+            }
+            button {
+                position: relative;
+                left: 8%;
+                width: 40%;
+                background-color: white;
+                border: 1px solid rgb(201, 199, 199);
+                border-radius: 6px;
+                margin-top: 5%;
+                margin-bottom: 10%;
+                margin-right: 10px;
+                padding: 5px 20px;
+      
+                &:hover {
+                  cursor: pointer;
+                }
+            }
+        }
+        .chart {
+            width: 90%;
+            margin-top: 20; 
+            margin-bottom: 20;
+        }
+        // 차트 위 gift, money 폰트 사이즈
+        .recharts-default-legend span{
+            font-size: 0.8rem;
         }
     }
 }
@@ -57,10 +140,11 @@
         margin-top: 0;
     }
     .userInfo{
-        background-color: rgb(228, 228, 228);
+        background-color: rgb(245, 245, 245);
         border-radius: 30px;
         width: 80%;
         padding: 10%;
+        margin: 5%;
         h1{
             color : #4a4a4a;
             font-size: 1rem;
@@ -75,19 +159,29 @@
             width: 200px;
         }
     }
-    button.changeBtn {
-        margin: 5%;
-        padding: 0;
-        border: none;
-        background: transparent;
-        color : #4a4a4a;
-        text-decoration: underline;
+    .mypage_buttons{
+        display: flex;
+        justify-content: flex-end;
+        .changeBtn {
+            color : #4a4a4a;
+            margin: 4px;
+            font-size: 0.6rem;
+        }
     }
     .changePasswordModal {
-        background-color: rgb(228, 228, 228);
+        background-color: rgb(245, 245, 245);
         border-radius: 30px;
         width: 80%;
         padding: 10%;
+    }
+    .chart {
+        width: 100%;
+        margin-top: 10; 
+        margin-bottom: 25;
+    }
+    // 차트 위 gift, money 폰트 사이즈
+    .recharts-default-legend span{
+        font-size: 0.7rem;
     }
 }
 }

@@ -8,7 +8,7 @@ import Modal from "./Modal";
 
 
 function Search(props) {
-  const { userId } = props;
+  const { userId, setUseEffect, controllUseEffect, setSchedule } = props;
 
   const [searchKeyword, setSearchKeyword] = useState("");
   const [searchData, setSearchData] = useState(null);
@@ -23,12 +23,12 @@ function Search(props) {
   const [curDataGift, setCurGift] = useState("");
   const [curSchduleId, setCurScheduleId] = useState("");
   const [curEventId, setCurEventId] = useState("");
- 
+
   //다시 get 요청
   const [searchAgain, setAgain] = useState(false);
 
   useEffect(() => {
-    if (searchAgain){
+    if (searchAgain) {
       axios.post(`https://don-forget-server.com/search/${window.sessionStorage.getItem("id")}`, {
         data: searchKeyword
       })
@@ -36,24 +36,32 @@ function Search(props) {
           console.log(res.data);
           setSearchData(res.data);
           setAgain(false);
+          setUseEffect(!controllUseEffect)
         });
     }
   })
 
 
   function handleDeleteBtn(e) {
-    axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`,{
-      params : {
-        schedule_id : e.target.name
+    axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
+      params: {
+        schedule_id: e.target.name
       }
     })
       .then((res) => {
         clickSearch()
+        setUseEffect(!controllUseEffect)
       });
   }
 
   const onChangeHandler = (e) => {
-    setSearchKeyword(e.target.value);
+    if (e.target.value === "") {
+      setSearchData([]);
+      setSchedule(true);
+    } else {
+      setSchedule(false);
+      setSearchKeyword(e.target.value);
+    }
   }
 
   const clickSearch = () => {
@@ -79,11 +87,22 @@ function Search(props) {
   }
 
 
+  const handleTag = (e) => {
+    console.log(e.target.value)
+    axios.post(`https://don-forget-server.com/search/${window.sessionStorage.getItem("id")}`, {
+      data: e.target.value
+    })
+      .then((res) => {
+        setSearchData(res.data);
+        setSchedule(false);
+      })
+  }
+
+
   return (
     <div className="search">
       <div className="gradient"></div>
       <div className="full_page">
-        <h1>Search</h1>
         <input type="text" className="search_input"
           placeholder="날짜 혹은 이벤트 이름을 입력해주세요."
           onChange={onChangeHandler}></input>
@@ -93,6 +112,18 @@ function Search(props) {
             <SearchIcon />
           </Avatar>
         </button>
+        <div className="tag">
+          <button className="생일" onClick={handleTag} value="생일">#생일</button>
+          <button className="결혼식" onClick={handleTag} value="결혼식">#결혼식</button>
+          <button className="장례식" onClick={handleTag} value="장례식">#장례식</button>
+          <button className="집들이" onClick={handleTag} value="집들이">#집들이</button>
+          <button className="취직" onClick={handleTag} value="취직">#취직</button>
+          <button className="입학" onClick={handleTag} value="입학">#입학</button>
+          <button className="출산" onClick={handleTag} value="출산" >#출산</button>
+          <button className="돌잔치" onClick={handleTag} value="돌잔치">#돌잔치</button>
+          <button className="기념일" onClick={handleTag} value="기념일">#기념일</button>
+          <button className="기타" onClick={handleTag} value="기타">#기타</button>
+        </div>
         <ul className="search_list">
           {
             searchData && searchData.map((data) => {
@@ -110,13 +141,13 @@ function Search(props) {
                     <span className={data.type}>{data.giveandtake === "give" ? "→" : "←"}</span>
                     <span className="type">{data.event_target} {data.type}</span>
                     <span className="gift">{data.gift}</span>
-                    <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} searchKeyword={searchKeyword} searchData={searchData} setAgain={setAgain}/>
+                    <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} searchKeyword={searchKeyword} searchData={searchData} setAgain={setAgain} />
                   </li>
                 </div>
               )
             })
           }
-          
+
         </ul>
       </div>
     </div>
