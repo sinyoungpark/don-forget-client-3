@@ -11,7 +11,7 @@ import { CSSTransitionGroup } from "react-transition-group";
 import Schedule from "./component/Schedule";
 import Search from './component/Search';
 import cookie from 'react-cookies'
-
+import Gift from "./component/Gift"
 
 
 function App(props) {
@@ -67,9 +67,9 @@ function App(props) {
                     return <Redirect to="/" />
                   }
                 }} />
-                <Route exact path="/search" render={() => {
+                <Route exact path="/gift" render={() => {
                   if (window.sessionStorage.getItem("id")|| cookie.load('id')) {
-                    return <Search userId={userId} />
+                    return <Gift userId={userId} />
                   } else {
                     return <Redirect to="/" />
                   }
