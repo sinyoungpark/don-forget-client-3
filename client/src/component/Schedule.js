@@ -95,7 +95,7 @@ export default function Schedule(props) {
               </span>
             </span>
             <div className="search">
-                <Search userId={userId} controllUseEffect={controllUseEffect} setUseEffect={setUseEffect} setSchedule={setSchedule}/>
+                <Search userId={userId} controllUseEffect={controllUseEffect} setUseEffect={setUseEffect} setSchedule={setSchedule} isSchedule={isSchedule}/>
                 </div>
             <ul className={isSchedule ? "schedule_list" : "none"} >
                 {
