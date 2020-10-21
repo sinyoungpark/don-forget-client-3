@@ -225,15 +225,15 @@
           }
         }
     
-        .gradient{
-            display: block;
-            position: fixed;
-            width: 80%;
-            height: 100vh;
-            top: 10px;
-            background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 25%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 90%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%);
-            pointer-events: none;
-        }
+        // .gradient{
+        //     display: block;
+        //     position: fixed;
+        //     width: 80%;
+        //     height: 100vh;
+        //     top: 10px;
+        //     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 25%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 90%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%);
+        //     pointer-events: none;
+        // }
     
         ul{
             list-style:none;
@@ -244,7 +244,7 @@
         }
         
         .schedule_list{
-            margin-top: 111px;
+            // margin-top: 111px;
             padding: 0;
             /* date css */
             .date{

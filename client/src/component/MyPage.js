@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import './MyPage.scss';
 import axios from "axios";
 import Chart from './Mypage_Chart';
+import cookie from 'react-cookies'
 
 function MyPage(props) {
 
@@ -24,6 +25,7 @@ function MyPage(props) {
         setEmail("");
         setName("");
         window.sessionStorage.clear();
+        cookie.remove('id');
       })
       .then(() => { history.push('/intro') })
       .catch((err) => console.log(err));
