@@ -6,7 +6,7 @@ import "./Schedule.scss"
 import kakaobank from '../kakaobank.png';
 import toss from '../toss.png';
 import AddIcon from '@material-ui/icons/Add';
-
+import Search from "./Search"
 
 export default function Schedule(props) {
     const { userId } = props;
@@ -30,6 +30,9 @@ export default function Schedule(props) {
 
     //새로운 변화가 생길 시에만 useEffect가 동작하도록 
     const [controllUseEffect, setUseEffect] = useState(true);
+
+    //schedule 리스트를 띄움? 안띄움
+    const [isSchedule, setSchedule] = useState(true);
 
     useEffect(() => {
         if (controllUseEffect) {
@@ -91,7 +94,10 @@ export default function Schedule(props) {
                 </a>
               </span>
             </span>
-            <ul className="schedule_list">
+            <div className="search">
+                <Search userId={userId} controllUseEffect={controllUseEffect} setUseEffect={setUseEffect} setSchedule={setSchedule}/>
+                </div>
+            <ul className={isSchedule ? "schedule_list" : "none"} >
                 {
                     data && data.map((data) => {
                         const date = String(data.date).slice(0, 10);
