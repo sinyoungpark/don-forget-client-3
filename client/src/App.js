@@ -12,7 +12,6 @@ import Schedule from "./component/Schedule";
 import Gift from './component/Gift';
 import Search from './component/Search';
 import cookie from 'react-cookies'
-import Gift from "./component/Gift"
 
 
 function App(props) {
