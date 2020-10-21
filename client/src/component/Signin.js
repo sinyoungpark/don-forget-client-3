@@ -106,7 +106,7 @@ export default function Signin(props) {
                 </div>
       </form>
       <span>
-//         <KakaoSignUp setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} />
+{/* <KakaoSignUp setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} /> */}
         
 
       </span>

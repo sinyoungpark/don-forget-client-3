@@ -272,11 +272,11 @@
 
 @include mobile{
     .search .full_page {
-        padding: 23% 0%;
-        overflow: auto;
-        max-height: 20vh;
-        div.tag {
+        padding: 23% 0% 0% 0%;
+        // overflow: auto;
+        // max-height: 20vh;
 
+        div.tag {
             button {
                 &:hover{
                     cursor: pointer;
@@ -370,11 +370,11 @@
             }
         }
     
-        h1{
-            color : rgb(70, 67, 67);
-            font-size: 36px;
-            margin-bottom: 5vh;
-        }
+        // h1{
+        //     color : rgb(70, 67, 67);
+        //     font-size: 35px;
+        //     margin-bottom: 5vh;
+        // }
         ul{
             list-style:none;
         }
