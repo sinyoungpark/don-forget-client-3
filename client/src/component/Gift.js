@@ -6,6 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import axios from "axios";
 
 function Gift() {
+
   const [searchKeyword, setSearchKeyword] = useState("");
   const [searchData, setSearchData] = useState([]);
   const tags = ["20대 여자 생일 선물", "30대 남자 생일 선물", "입학 선물", "30대 여자 집들이 선물", "설 선물", "출산용품", "결혼 선물", "취직 축하 선물", "수능 응원"]
@@ -22,8 +23,8 @@ function Gift() {
   const clickSearch = () => {
     setFetching(true);
     console.log(searchKeyword)
-    axios.post(`https://don-forget-server.com/search/${window.sessionStorage.getItem("id")}`, {
-      data: searchKeyword
+    axios.get(`https://don-forget-server.com/gift/find`, {
+      params: { query: searchKeyword }
     })
       .then((res) => {
         let fourResult = res.data.slice(preItems, items)
@@ -36,8 +37,8 @@ function Gift() {
 
   const clickTagSearch = (tag) => {
     console.log(tag)
-    axios.post(`https://don-forget-server.com/search/${window.sessionStorage.getItem("id")}`, {
-      data: tag
+    axios.get(`https://don-forget-server.com/gift/find`, {
+      params: { query: tag }
     })
       .then((res) => {
         // 아직 infinite scroll 적용X!! 직접 서치부터 수정하겠습니다~~~
@@ -69,7 +70,7 @@ function Gift() {
   return (
     <div className="gift">
       <div className="full_page">
-        <h1>Search</h1>
+        <h1>Gift</h1>
         <input type="text" className="search_input"
           placeholder="선물을 검색해주세요."
           onChange={onChangeHandler}></input>
@@ -93,11 +94,12 @@ function Gift() {
             return (
               <div key={i} style={{ borderWidth: 1, borderStyle: "solid", borderColor: "grey", borderRadius: "20px", padding: "10px", margin: "10px", width: "40%", display: "inline-block" }}>
                 <div>데이터</div>
-                <div>예시</div>
-                <div>{data.date}</div>
-                <div>{data.event_target}</div>
-                <div>{data.type}</div>
-                <div>{data.gift}</div>
+                <div>{data.category1}</div>
+                <div>{data.title}</div>
+                <a>{data.link}</a>
+                <div>{data.lprice}</div>
+                <div>{data.hprice}</div>
+                <div>{data.brand}</div>
               </div>
             )
           })}
