@@ -1,0 +1,522 @@
+@import "../mixin";
+
+@include desktop {
+    .search .full_page {
+        padding: 10vh 1%;
+        overflow: auto;
+        max-height: 80vh;
+        position : relative;
+        
+        div.tag {
+
+            button {
+                &:hover{
+                    cursor: pointer;
+                }
+                padding : 8px;
+                border-radius: 15px;
+                margin : 0.5% ;
+                font-size: medium;
+                background-color: white;
+            }
+            button.생일 {
+                padding-left: 10px;
+                border: 3px solid #FFB65B;
+                background-color: 3px solid #FFB65B;
+                outline: none;
+                &:hover{
+                    background-color: #FFB65B;
+                }
+            }
+            button.장례식 {
+                padding-left: 10px;
+                border: 3px solid #737272;
+                outline: none;
+                &:hover{
+                    background-color: #737272;
+                }
+            }
+            button.집들이 {
+                padding-left: 10px;
+                border: 3px solid #6BACF8;
+                outline: none;
+                &:hover{
+                    background-color: #6BACF8;
+                }
+            }
+            button.취직 {
+                padding-left: 10px;
+                border: 3px solid #FFF00C;
+                outline: none;
+                &:hover{
+                    background-color: #FFF00C;
+                }
+            }
+            button.입학 {
+                padding-left: 10px;
+                border: 3px solid #A4F256;
+                outline: none;
+                &:hover{
+                    background-color: #A4F256;
+                }
+            }
+            button.출산 {
+                padding-left: 10px;
+                border: 3px solid #FF6666;
+                outline: none;
+                &:hover{
+                    background-color: #FF6666;
+                }
+            }
+            button.돌잔치 {
+                padding-left: 10px; 
+                border: 3px solid #97ECCF;
+                outline: none;
+                &:hover{
+                    background-color: #97ECCF;
+                }
+            }
+            button.기념일 {
+                padding-left: 10px; 
+                border: 3px solid #E1C5FF;
+                outline: none;
+                &:hover{
+                    background-color: #E1C5FF;
+                }
+            }
+            button.기타 {
+                padding-left: 10px;
+                border: 3px solid #CECECE;
+                outline: none;
+                &:hover{
+                    background-color: #CECECE;
+                }
+            }
+            button.결혼식 {
+                padding-left: 10px;
+                border: 3px solid #FFCECE;
+                outline: none;
+                &:hover{
+                    background-color: #FFCECE;
+                }
+            }
+        }
+
+        h1{
+            color : rgb(70, 67, 67);
+            font-size: 40px;
+            margin-top: 0;
+        }
+    
+        ul{
+            list-style:none;
+            padding-left: 0;
+        }
+    
+        .search_tags{
+            padding: 0 1rem;
+            li {
+                font-size: 0.6rem;
+                color: #4a4a4a;
+                display: inline-block;
+                margin: 4px;
+                padding: 5px 10px;
+                background-color: transparent;
+                border: rgb(151, 149, 149) 1px solid;
+                border-radius: 50px;
+                outline:none;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        .search_list{
+            /* schedule list css */
+            margin: 0;
+            margin-top: 0%;
+            li{
+                border: 1px solid rgb(151, 149, 149);
+                width: 70%;
+                padding: 2% 4%;
+                border-radius: 40px;
+                margin: 1%;
+                margin-left: 10%;
+        
+            &:hover{
+                .li_button{
+                    display : flex;
+                    float: right;
+                    border: none;
+                    background-color: white;
+                    left : 80%;
+                    font-weight: 400;
+                    color: rgb(160, 156, 156);
+                    font-size: 16px;
+                    padding : 0px 0px 0px 10px;
+                }
+            }
+                .li_button{
+                margin: 0px;
+                }
+            }
+            /* date css */
+            .date{
+                margin-top: 0.95rem;
+                font-size: 1.2rem;
+            } 
+            
+            /* schedule list안에 내용 css 담당 */
+            span{
+                color : rgb(70, 67, 67);
+                margin-right: 1vh;
+                font-size: 0.9rem;
+                &.결혼식 {
+                    color : #FFCECE;
+                    border-left: 3px solid #FFCECE;
+                }
+                &.생일 {
+                    padding-left: 10px;
+                    border-left: 3px solid #FFB65B;
+                }
+                &.장례식 {
+                    padding-left: 10px;
+                    border-left: 3px solid #737272;
+                }
+                &.집들이 {
+                    padding-left: 10px;
+                    border-left: 3px solid #6BACF8;
+                }
+                &.취직 {
+                    padding-left: 10px;
+                    border-left: 3px solid #FFF00C;
+                }
+                &.입학 {
+                    padding-left: 10px;
+                    border-left: 3px solid #A4F256;
+                }
+                &.출산 {
+                    padding-left: 10px;
+                    border-left: 3px solid #FF6666;
+                }
+                &.돌잔치 {
+                    padding-left: 10px; 
+                    border-left: 3px solid #97ECCF;
+                }
+                &.기념일 {
+                    padding-left: 10px; 
+                    border-left: 3px solid #E1C5FF;
+                }
+                &.기타 {
+                    padding-left: 10px;
+                    border-left: 3px solid #CECECE;
+                }
+            }
+            .gift{
+                color: rgb(160, 156, 156);
+            }
+            .type{
+                color: rgb(70, 67, 67);
+            }
+            
+            /* 수정, 삭제 button css*/
+            .li_button{
+            display:none;
+            }
+            
+            /* add schedule button css */
+            .addBtn{
+                position: relative;
+                width: 6vh;
+                height: 6vh;
+                border-radius: 50%;
+                border: none;
+                top: -10vh;
+                left : 80%;
+            }
+        }
+    }
+    
+    .search_input{
+        display: inline-block;
+        margin: 0;
+        width: 85%;
+        height: 40px;
+        padding: 0 20px;
+        background-color: transparent;
+        border: #4a4a4a 1px solid;
+        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 50px;
+        outline:none;
+        &:focus{
+            border-color : blue;
+        }
+    }
+    
+    .search_btn{
+        position : relative;
+        left : 3%;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        outline:none;
+        &:hover{
+            border-radius: 50%;
+            box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+    }
+    
+}
+
+@include mobile{
+    .search .full_page {
+        padding: 23% 0%;
+        overflow: auto;
+        max-height: 20vh;
+        div.tag {
+
+            button {
+                &:hover{
+                    cursor: pointer;
+                }
+                padding : 8px;
+                border-radius: 15px;
+                margin : 0.6%;
+                font-size: small;
+                background-color: white;
+            }
+            button.생일 {
+                padding-left: 10px;
+                border: 3px solid #FFB65B;
+                background-color: 3px solid #FFB65B;
+                outline: none;
+                &:hover{
+                    background-color: #FFB65B;
+                }
+            }
+            button.장례식 {
+                padding-left: 10px;
+                border: 3px solid #737272;
+                outline: none;
+                &:hover{
+                    background-color: #737272;
+                }
+            }
+            button.집들이 {
+                padding-left: 10px;
+                border: 3px solid #6BACF8;
+                outline: none;
+                &:hover{
+                    background-color: #6BACF8;
+                }
+            }
+            button.취직 {
+                padding-left: 10px;
+                border: 3px solid #FFF00C;
+                outline: none;
+                &:hover{
+                    background-color: #FFF00C;
+                }
+            }
+            button.입학 {
+                padding-left: 10px;
+                border: 3px solid #A4F256;
+                outline: none;
+                &:hover{
+                    background-color: #A4F256;
+                }
+            }
+            button.출산 {
+                padding-left: 10px;
+                border: 3px solid #FF6666;
+                outline: none;
+                &:hover{
+                    background-color: #FF6666;
+                }
+            }
+            button.돌잔치 {
+                padding-left: 10px; 
+                border: 3px solid #97ECCF;
+                outline: none;
+                &:hover{
+                    background-color: #97ECCF;
+                }
+            }
+            button.기념일 {
+                padding-left: 10px; 
+                border: 3px solid #E1C5FF;
+                outline: none;
+                &:hover{
+                    background-color: #E1C5FF;
+                }
+            }
+            button.기타 {
+                padding-left: 10px;
+                border: 3px solid #CECECE;
+                outline: none;
+                &:hover{
+                    background-color: #CECECE;
+                }
+            }
+            button.결혼식 {
+                padding-left: 10px;
+                border: 3px solid #FFCECE;
+                outline: none;
+                &:hover{
+                    background-color: #FFCECE;
+                }
+            }
+        }
+    
+        h1{
+            color : rgb(70, 67, 67);
+            font-size: 36px;
+            margin-bottom: 5vh;
+        }
+        ul{
+            list-style:none;
+        }
+    
+        .date_li {
+            display: flex;
+        }
+    
+        .search_list{
+            /* schedule list css */
+            margin: 0px;
+            margin-top: 30px;
+            padding : 0px;
+            li{
+                border: 1px solid rgb(151, 149, 149);
+                width: 70%;
+                padding: 2% 4%;
+                border-radius: 40px;
+                margin: 1%;
+                margin-left: 3%;
+                height: 20px;
+            &:hover{
+                .li_button{
+                    display : flex;
+                    float: right;
+                    border: none;
+                    background-color: white;
+                    left : 80%;
+                    color: rgb(160, 156, 156);
+                    font-size: 0.7rem;
+                }
+            }
+                .li_button{
+                margin: 0px;
+                }
+            }
+            /* date css */
+            .date{
+                margin-top: 0.8rem;
+                font-size: 0.95rem;
+            } 
+            
+            /* schedule list안에 내용 css 담당 */
+            span{
+                color : rgb(70, 67, 67);
+                margin-right: 1vh;
+                font-size: 0.9rem;
+                padding-left: 3px;
+                &.결혼식 {
+                    color : #FFCECE;
+                    border-left: 3px solid #FFCECE;
+                }
+                &.생일 {
+                    color : #FFB65B;
+                    border-left: 3px solid #FFB65B;
+                }
+                &.장례식 {
+                   color : #737272;
+                    border-left: 3px solid #737272;
+                }
+                &.집들이 {
+                    color :#6BACF8;;
+                    border-left: 3px solid #6BACF8;
+                }
+                &.취직 {
+                    color : #FFF00C;
+                    border-left: 3px solid #FFF00C;
+                }
+                &.입학 {
+                    color :#A4F256;
+                    border-left: 3px solid #A4F256;
+                }
+                &.출산 {
+                    color : #FF6666;
+                    border-left: 3px solid #FF6666;
+                }
+                &.돌잔치 {
+                    color : #97ECCF;
+                    border-left: 3px solid #97ECCF;
+                }
+                &.기념일 {
+                    color :  #E1C5FF;
+                    border-left: 3px solid #E1C5FF;
+                }
+                &.기타 {
+                    color : #CECECE;
+                    border-left: 3px solid #CECECE;
+                }
+            }
+            .gift{
+                color: rgb(160, 156, 156);
+            }
+            .type{
+                color: rgb(70, 67, 67);
+            }
+            
+            /* 수정, 삭제 button css*/
+            .li_button{
+            display:none;
+            }
+            
+            /* add schedule button css */
+            .addBtn{
+                position: relative;
+                width: 6vh;
+                height: 6vh;
+                border-radius: 50%;
+                border: none;
+                top: -10vh;
+                left : 80%;
+            }
+        }
+    }
+    
+    .search_input{
+        display: inline-block;
+        position : relative;
+        margin: 0 0px 10px;
+        width: 80%;
+        height: 30px;
+        padding: 10 20px;
+        background-color: transparent;
+        border: #4a4a4a 2px solid;
+        border-radius: 50px;
+        outline:none;
+        &:focus{
+            box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
+            border-color : blue;
+        }
+    }
+    
+    .search_btn{
+        float: right;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        .MuiAvatar-root {
+          width: 33px;
+          height: 33px;
+        }
+        &:hover{
+            border-radius: 50%;
+        }
+    }   
+}
