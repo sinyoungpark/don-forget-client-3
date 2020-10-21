@@ -27,7 +27,7 @@ export default function GoogleSignUp(props) {
     <>
       <GoogleLogin
         clientId={'85751289442-5o0ul7v700sr29t6rg1de1pjord5a5k4.apps.googleusercontent.com'}
-        buttonText="Google Login"
+        buttonText="구글로 로그인하기"
         onSuccess={responseGoogle}
         onFailure={responseFail}
         // getProfile={true}

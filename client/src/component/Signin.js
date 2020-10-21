@@ -106,7 +106,7 @@ export default function Signin(props) {
                     아이디와 비밀번호가 일치하지 않습니다.
                 </div>
       </form>
-      <span>
+      <span className="socialLogin">
          <GoogleSignUp setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} />
       </span>
       <form className={isOpenStepOne ? "modal" : "none"}>
