@@ -21,24 +21,24 @@ const useStyles = makeStyles((theme) => ({
         fontSize: "large",
         // position: "fixed",
         "z-index": "99",
-        '@media(min-width: 1px) and (max-width:  757px)' : {
+        '@media(min-width: 1px) and (max-width:  757px)': {
             position: "relative",
             borderRadius: "0",
-            margin : "0px 0%",
+            margin: "0px 0%",
             display: "inline",
-            padding : "10% 9.17% 7%",
-            top : "30%"
+            padding: "10% 9.17% 7%",
+            top: "30%"
         }
     },
     icon: {
         backgroundColor: '#3b23a6',
         marginBottom: "100px",
-        '@media(min-width: 1px) and (max-width:  757px)' : {
+        '@media(min-width: 1px) and (max-width:  757px)': {
             display: "inline",
             position: "relative",
-            margin : "0px 0%",
-            padding : "0% 9.15% 6%",
-            top : "30%"
+            margin: "0px 0%",
+            padding: "0% 9.15% 6%",
+            top: "30%"
         }
     }
 }))
@@ -59,8 +59,8 @@ function Nav({ history, isLogin, location }) {
                     <EventIcon />
                 </Avatar>
             </a>
-            <a href="/search" >
-                <Avatar className={location.pathname === "/search" ? classes.curpath : classes.icon}>
+            <a href="/gift" >
+                <Avatar className={location.pathname === "/gift" ? classes.curpath : classes.icon}>
                     <SearchIcon />
                 </Avatar>
             </a>
