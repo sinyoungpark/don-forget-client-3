@@ -5,6 +5,7 @@ import "./Signin.scss"
 import { CSSTransitionGroup } from "react-transition-group";
 import axios from "axios";
 import Logo from '../Logo.png';
+import GoogleSignUp from './Google';
 
 export default function Signin(props) {
   const { setIsLogin, setEmail, setName, setUserId } = props;
@@ -106,7 +107,7 @@ export default function Signin(props) {
                 </div>
       </form>
       <span>
-        {/*  <KakaoSignUp setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} /> */}
+         <GoogleSignUp setIsLogin={setIsLogin} setEmail={setEmail} setName={setName} setUserId={setUserId} />
       </span>
       <form className={isOpenStepOne ? "modal" : "none"}>
         <div className="content">

@@ -1,11 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import NaverLogin from 'react-naver-login';
-export default function NaverSignUp(props) {
-  function responseNaver(res) {
+import GoogleLogin from 'react-google-login';
+export default function GoogleSignUp(props) {
+  function responseGoogle(res) {
     axios.post('https://don-forget-server.com/user/signin', {
-      email: ['naver', res.user.getEmail()],
-      name: res.getName()
+      email: ['google', res.profileObj.email],
+      name: res.profileObj.name
     })
       .then((response) => response.data)
       .then((response) => {
@@ -25,17 +25,15 @@ export default function NaverSignUp(props) {
   }
   return (
     <>
-      <NaverLogin
-        clientId= 'RVzosz8NSQef332q56bi'
-        callbackUrl= "http://localhost:3000/home"
-        isPopup = {false}
-        // callbackHandle = {false}
-        render={(props) => <div onClick={props.onClick}>Naver Login</div>}
-        // buttonText="Naver"
-        onSuccess={responseNaver}
+      <GoogleLogin
+        clientId={'85751289442-5o0ul7v700sr29t6rg1de1pjord5a5k4.apps.googleusercontent.com'}
+        buttonText="Google Login"
+        onSuccess={responseGoogle}
         onFailure={responseFail}
         // getProfile={true}
         // useDefaultStyle={false}
+        cookiePolicy={'single_host_origin'}
+        // isSignedIn={true}
       />
     </>
   );
