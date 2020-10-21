@@ -105,17 +105,31 @@
         h1{
             color : rgb(70, 67, 67);
             font-size: 40px;
-            margin-bottom: 5vh;
+            margin-top: 0;
         }
     
         ul{
             list-style:none;
+            padding-left: 0;
         }
     
-        .date_li {
-            display: flex;
+        .search_tags{
+            padding: 0 1rem;
+            li {
+                font-size: 0.6rem;
+                color: #4a4a4a;
+                display: inline-block;
+                margin: 4px;
+                padding: 5px 10px;
+                background-color: transparent;
+                border: rgb(151, 149, 149) 1px solid;
+                border-radius: 50px;
+                outline:none;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
         }
-    
         .search_list{
             /* schedule list css */
             margin: 0;
@@ -229,11 +243,11 @@
         height: 40px;
         padding: 0 20px;
         background-color: transparent;
-        border: #4a4a4a 2px solid;
+        border: #4a4a4a 1px solid;
+        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
         border-radius: 50px;
         outline:none;
         &:focus{
-            box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
             border-color : blue;
         }
     }
@@ -244,8 +258,12 @@
         background-color: transparent;
         border: none;
         padding: 0;
+        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        outline:none;
         &:hover{
             border-radius: 50%;
+            box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.3);
             cursor: pointer;
         }
     }

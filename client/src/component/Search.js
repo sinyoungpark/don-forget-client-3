@@ -8,7 +8,7 @@ import Modal from "./Modal";
 
 
 function Search(props) {
-  const { userId, setUseEffect, controllUseEffect, setSchedule} = props;
+  const { userId, setUseEffect, controllUseEffect, setSchedule } = props;
 
   const [searchKeyword, setSearchKeyword] = useState("");
   const [searchData, setSearchData] = useState(null);
@@ -55,7 +55,7 @@ function Search(props) {
   }
 
   const onChangeHandler = (e) => {
-    if (e.target.value === ""){
+    if (e.target.value === "") {
       setSearchData([]);
       setSchedule(true);
     } else {
@@ -121,7 +121,7 @@ function Search(props) {
           <button className="입학" onClick={handleTag} value="입학">#입학</button>
           <button className="출산" onClick={handleTag} value="출산" >#출산</button>
           <button className="돌잔치" onClick={handleTag} value="돌잔치">#돌잔치</button>
-          <button className="기념일" onClick={handleTag}  value="기념일">#기념일</button>
+          <button className="기념일" onClick={handleTag} value="기념일">#기념일</button>
           <button className="기타" onClick={handleTag} value="기타">#기타</button>
         </div>
         <ul className="search_list">
