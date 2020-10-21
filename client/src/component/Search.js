@@ -115,13 +115,14 @@ function Search(props) {
       <div className="full_page">
         <input type="text" className="search_input"
           placeholder="날짜 혹은 이벤트 이름을 입력해주세요."
-          onChange={onChangeHandler}></input>
-        <button className="search_btn"
+          onChange={onChangeHandler}
+          onKeyPress={clickSearch} ></input>
+        {/* <button className="search_btn"
           onClick={clickSearch}>
           <Avatar className="icon">
             <SearchIcon />
           </Avatar>
-        </button>
+        </button> */}
         <div className="tag">
           <button className="생일" onClick={handleTag} value="생일">#생일</button>
           <button className="결혼식" onClick={handleTag} value="결혼식">#결혼식</button>

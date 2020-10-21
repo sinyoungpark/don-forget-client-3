@@ -276,6 +276,7 @@
         // overflow: auto;
         // max-height: 20vh;
 
+
         div.tag {
             button {
                 &:hover{
@@ -493,7 +494,7 @@
         display: inline-block;
         position : relative;
         margin: 0 0px 10px;
-        width: 80%;
+        width: 70%;
         height: 30px;
         padding: 10 20px;
         background-color: transparent;
@@ -507,7 +508,8 @@
     }
     
     .search_btn{
-        float: right;
+        position : relative;
+        left : -100%;
         background-color: transparent;
         border: none;
         padding: 0;
