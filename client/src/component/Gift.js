@@ -35,7 +35,7 @@ function Gift() {
           let fourItems = res.data.slice(preItems, items);
           //updating data
           setBreweries(fourItems);
-          setPreItems(items);
+          setPreItems(preItems + 4);
           setItems(items + 4);
         })
     }, 500);
@@ -50,24 +50,28 @@ function Gift() {
           let fourItems = res.data.slice(preItems, items);
           //updating data
           setBreweries([...breweries, ...fourItems]);
-          setPreItems(items);
+          setPreItems(preItems + 4);
           setItems(items + 4);
         })
     }, 1500);
   }
 
-  // 태그 클릭으로 검색(아직 스크롤 적용 안됩니다~!!)
+  // 태그 클릭으로 검색
   const clickTagSearch = (tag) => {
+    setPreItems(0);
+    setItems(4);
+    setBreweries([]);
+    setSearchKeyword(tag);
     setTimeout(() => {
       axios.post(`https://don-forget-server.com/gift/find/?text=${tag}`)
         .then((res) => {
           console.log("res.data:", res.data);
           let fourItems = res.data.slice(preItems, items);
-          setBreweries([...breweries, ...fourItems]);
+          setBreweries(fourItems);
           setPreItems(preItems + 4);
           setItems(items + 4);
         })
-    }, 1500);
+    }, 500);
   }
 
   return (
@@ -90,32 +94,37 @@ function Gift() {
 
         <div
           id="scrollableDiv"
+          className="scrollableDiv"
           style={{
-            height: 400,
+            height: 350,
             overflow: 'auto',
             display: 'flex',
             flexDirection: 'column',
           }}
         >
           <InfiniteScroll
+            className="InfiniteScroll"
             dataLength={breweries.length} //This is important field to render the next data
             next={clickSearchMore}
             hasMore={hasMore}
             loader={<h4>Loading...</h4>}
-            style={{ display: 'flex', flexDirection: 'row', flexWrap: "wrap" }} //To put endMessage and loader to the top.
             scrollableTarget="scrollableDiv"
           >
             {breweries && breweries.map((data, i) => {
               console.log("breweries:", breweries)
+              let title = data.title;
+              title = title.replaceAll("<b>", "");
+              title = title.replaceAll("</b>", "");
               return (
-                <div key={i} style={{ borderWidth: 1, borderStyle: "solid", borderColor: "grey", borderRadius: "20px", padding: "10px", margin: "10px", width: "40%", display: "inline-block", fontSize: "0.7rem" }}>
-                  <div>{data.title}</div>
-                  <img src={data.image} style={{ width: "150px" }}></img>
-                  <a style={{ overflow: "hidden", wordBreak: "break-all" }}>{data.link}</a>
+                <div key={i} className="giftList">
+                  <img src={data.image} style={{ width: "100%" }}></img>
+                  <div>{title}</div>
                   <div>{data.category1}</div>
-                  <div>{data.lprice}</div>
-                  <div>{data.hprice}</div>
+                  <div>{data.lprice}원</div>
                   <div>{data.brand}</div>
+
+                  <div> <br /> <br />나중에 img클릭 시 링크연결 되도록...</div>
+                  <a style={{ overflow: "hidden", wordBreak: "break-all" }}>{data.link}</a>
                 </div>
               )
             })}
