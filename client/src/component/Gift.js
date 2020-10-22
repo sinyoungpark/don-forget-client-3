@@ -23,8 +23,8 @@ function Gift() {
   const clickSearch = () => {
     setFetching(true);
     console.log(searchKeyword)
-    axios.get(`https://don-forget-server.com/gift/find`, {
-      params: { query: searchKeyword }
+    axios.post(`https://don-forget-server.com/gift/find`, {
+      params: { text: searchKeyword }
     })
       .then((res) => {
         let fourResult = res.data.slice(preItems, items)
@@ -37,8 +37,8 @@ function Gift() {
 
   const clickTagSearch = (tag) => {
     console.log(tag)
-    axios.get(`https://don-forget-server.com/gift/find`, {
-      params: { query: tag }
+    axios.post(`https://don-forget-server.com/gift/find`, {
+      params: { text: tag }
     })
       .then((res) => {
         // 아직 infinite scroll 적용X!! 직접 서치부터 수정하겠습니다~~~
