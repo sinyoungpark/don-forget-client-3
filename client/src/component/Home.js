@@ -12,7 +12,6 @@ import AddIcon from '@material-ui/icons/Add';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
-import Button from '@material-ui/core/Button';
 import CloseIcon from '@material-ui/icons/Close';
 
 
@@ -40,6 +39,9 @@ function Home({ userId, history }) {
   // 다음달 알림 메시지
   const [open, setOpen] = useState(true);
 
+  //add_schedule에서 달력 선택 없이 바로 날짜 제공
+  const [scheduleDate, setScheduleDate] = useState("");
+
   useEffect(() => {
     // 선택한 날짜에 맞게 월 업데이트
     setMonth(selectedDate._locale._months[selectedDate.month()])
@@ -56,11 +58,7 @@ function Home({ userId, history }) {
 
 
   const generate = () => {
-    // const today = moment();
     const today = selectedDate;
-    // console.log(today);
-    // console.log(month);
-    // console.log(selectedDate.add(1, "M").endOf('month'));
     const startWeek = today.clone().startOf('month').week();
     const endWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
     let calendar = [];
@@ -201,20 +199,6 @@ function Home({ userId, history }) {
             }}><ChevronLeftSharpIcon />
             </button>
             <span className="title" onClick={selectMonth} ref={ref}>{month}</span>
-            {/* 월 선택 모달 오픈 버튼 */}
-            {/* <button className="select_month" onClick={selectMonth}>
-              {openSelectMonth ? "˄" : "˅"}
-            </button> */}
-            {/* 스케줄 추가 버튼 */}
-            <button className="add_schedule"
-              onClick={(e) => {
-                e.preventDefault();
-                setModal(!isOpen);
-              }}
-              ref={ref}
-            >
-              <AddIcon />
-            </button>
             <button className="rightBtn" onClick={() => {
               let num = moment().month(month).format("M");
               setSelectedDate(moment().month(num).date(1))
@@ -227,12 +211,6 @@ function Home({ userId, history }) {
           </div>
 
           <div className="body">
-            {/* 
-              다음달 예상 지출 
-                nextMonth[0] 다음달 총 이벤트 개수
-                nextMonth[1] 총 주어야할 현금 액수
-                nextMonth[2] 총 주어야할 선물 개수
-            */}
             <div className="alertNextMonth">
               <Collapse in={open}>
                 <Alert action={
@@ -288,11 +266,22 @@ function Home({ userId, history }) {
               : ""
             }
           </ul>
+          <div>
+            <button className="add_schedule_sideSchedule"
+              onClick={(e) => {
+                e.preventDefault();
+                setModal(!isOpen);
+              }}
+              ref={ref}
+            >
+              <AddIcon fontSize="large"/>
+            </button>
+          </div>
         </div>
 
         {/* 일정추가 모달 */}
         <Modal userId={userId} isOpen={isOpen} setModal={setModal}
-          setUseEffect={setUseEffect} />
+          setUseEffect={setUseEffect} scheduleDate={`${new Date(selectedDate).getFullYear()}-${new Date(selectedDate).getMonth()+1}-${new Date(selectedDate).getDate()}`}/>
       </div>
     </div>
   );
