@@ -8,13 +8,24 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 function Gift() {
 
-  // 4개씩 랜더 || 8개씩 랜더
-  const [addListNum, setAddListNum] = useState(8)
-  const queries = { mobile: 757 }
+  // 4개 || 8개씩 랜더
+  const [addListNum, setAddListNum] = useState(8);
 
+  const [isSearching, setIsSearching] = useState(false);
+  const [topGiftList, setTopList] = useState([]);
+
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const tags = ["20대 여자 생일 선물", "30대 남자 생일 선물", "입학 선물", "30대 여자 집들이 선물", "설 선물", "출산용품", "결혼 선물", "취직 축하 선물", "수능 응원"]
+
+  // 데이터 addListNum수 만큼 랜더
+  const [preItems, setPreItems] = useState(0);
+  const [items, setItems] = useState(addListNum); // 4 or 8
+
+  const [breweries, setBreweries] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
 
   const updateWidth = () => {
-    if (window.innerWidth < queries.mobile) {
+    if (window.innerWidth < 757) {
       setAddListNum(4);
       // console.log("mobile");
     } else {
@@ -22,7 +33,9 @@ function Gift() {
       // console.log("desktop");
     }
   }
+
   useEffect(() => {
+    // width가 변화할 때 함수 실행 됨
     updateWidth();
     console.log("addListNum:", addListNum)
     window.addEventListener("resize", updateWidth);
@@ -31,23 +44,18 @@ function Gift() {
     }
   })
 
-  const [searchKeyword, setSearchKeyword] = useState("");
+  useEffect(() => {
+    axios.get(`https://don-forget-server.com/gift/recommandGift`)
+      .then((res) => {
+        console.log(res.data);
+        return res.data
+      })
+      .then((data) => setTopList(data));
+  }, [])
 
-  const tags = ["20대 여자 생일 선물", "30대 남자 생일 선물", "입학 선물", "30대 여자 집들이 선물", "설 선물", "출산용품", "결혼 선물", "취직 축하 선물", "수능 응원"]
-
-  // 데이터 addListNum수 만큼 랜더
-  const [preItems, setPreItems] = useState(0);
-  const [items, setItems] = useState(addListNum);
-
-  const [breweries, setBreweries] = useState([]);
-  const [hasMore, setHasMore] = useState(true);
-
-  const onChangeHandler = (e) => {
-    setSearchKeyword(e.target.value);
-  }
-
-  // 검색버튼 클릭으로 키워드 검색
+  // 검색버튼 클릭으로 직접 키워드 검색
   const clickSearch = () => {
+    setIsSearching(true);
     setPreItems(0);
     setItems(addListNum);
     setBreweries([]);
@@ -57,6 +65,25 @@ function Gift() {
           console.log("res.data:", res.data);
           let fourItems = res.data.slice(preItems, items);
           //updating data
+          setBreweries(fourItems);
+          setPreItems(preItems + addListNum);
+          setItems(items + addListNum);
+        })
+    }, 500);
+  }
+
+  // 태그 클릭으로 검색
+  const clickTagSearch = (tag) => {
+    setIsSearching(true);
+    setPreItems(0);
+    setItems(addListNum);
+    setBreweries([]);
+    setSearchKeyword(tag); // 스크롤 검색 위해서 검색어 저장
+    setTimeout(() => {
+      axios.post(`https://don-forget-server.com/gift/find/?text=${tag}`)
+        .then((res) => {
+          // console.log("res.data:", res.data);
+          let fourItems = res.data.slice(preItems, items);
           setBreweries(fourItems);
           setPreItems(preItems + addListNum);
           setItems(items + addListNum);
@@ -69,32 +96,14 @@ function Gift() {
     setTimeout(() => {
       axios.post(`https://don-forget-server.com/gift/find/?text=${searchKeyword}`)
         .then((res) => {
-          console.log("res.data:", res.data);
+          // console.log("res.data:", res.data);
           let fourItems = res.data.slice(preItems, items);
           //updating data
           setBreweries([...breweries, ...fourItems]);
           setPreItems(preItems + addListNum);
           setItems(items + addListNum);
         })
-    }, 1500);
-  }
-
-  // 태그 클릭으로 검색
-  const clickTagSearch = (tag) => {
-    setPreItems(0);
-    setItems(addListNum);
-    setBreweries([]);
-    setSearchKeyword(tag);
-    setTimeout(() => {
-      axios.post(`https://don-forget-server.com/gift/find/?text=${tag}`)
-        .then((res) => {
-          console.log("res.data:", res.data);
-          let fourItems = res.data.slice(preItems, items);
-          setBreweries(fourItems);
-          setPreItems(preItems + addListNum);
-          setItems(items + addListNum);
-        })
-    }, 500);
+    }, 1000); // 시간 차 주지 않으면 스크롤 계속 내려감!
   }
 
   return (
@@ -103,7 +112,7 @@ function Gift() {
         <h1>Gift</h1>
         <input type="text" className="search_input"
           placeholder="선물을 검색해주세요."
-          onChange={onChangeHandler}></input>
+          onChange={(e) => setSearchKeyword(e.target.value)}></input>
         <button className="search_btn" onClick={clickSearch}>
           <Avatar className="icon"> <SearchIcon /> </Avatar>
         </button>
@@ -125,33 +134,60 @@ function Gift() {
             flexDirection: 'column',
           }}
         >
-          <InfiniteScroll
-            className="InfiniteScroll"
-            dataLength={breweries.length} //This is important field to render the next data
-            next={clickSearchMore}
-            hasMore={hasMore}
-            loader={<h4>Loading...</h4>}
-            scrollableTarget="scrollableDiv"
-          >
-            {breweries && breweries.map((data, i) => {
-              {/* console.log("breweries.length:", breweries.length) */ }
-              let title = data.title;
-              title = title.replaceAll("<b>", "");
-              title = title.replaceAll("</b>", "");
+          {/* 검색 전: 추천 선물 랜더, 검색 후: 검색 선물 랜더 */}
+          {isSearching ?
+            <InfiniteScroll
+              className="giftList"
+              dataLength={breweries.length} //This is important field to render the next data
+              next={clickSearchMore}
+              hasMore={hasMore}
+              loader={<h4>Loading...</h4>}
+              scrollableTarget="scrollableDiv"
+            >
+              {breweries && breweries.map((data, i) => {
+                {/* console.log("breweries.length:", breweries.length) */ }
+                let title = data.title;
+                title = title.replaceAll("<b>", "");
+                title = title.replaceAll("</b>", "");
+                if (title.length > 40) {
+                  title = title.slice(0, 40) + "..." // 45글자까지만
+                }
 
-              if (title.length > 40) {
-                title = title.slice(0, 40) + "..." // 45글자까지만
-              }
-              return (
-                <div key={i} className="giftList">
-                  <img src={data.image}></img>
-                  <div className="giftList_title">{title}</div>
-                  <div className="giftList_price">{data.lprice}원</div>
-                  <div className="giftList_category">{data.category1}</div>
-                </div>
-              )
-            })}
-          </InfiniteScroll>
+                return (
+                  <div key={i} className="giftListEntry">
+                    <img src={data.image}></img>
+                    <div className="giftList_title">{title}</div>
+                    <div className="giftList_price">{data.lprice}원</div>
+                    <div className="giftList_category">{data.category1}</div>
+                  </div>
+                )
+              })}
+            </InfiniteScroll>
+            :
+            <div className="giftList">
+              <h4># 돈't forget 추천선물로 보는 Top 8</h4>
+              {topGiftList && topGiftList.map((data, i) => {
+                let title = data.title;
+                title = title.replaceAll("<b>", "#");
+                title = title.replaceAll("</b>", "");
+                if (title.length > 40) {
+                  title = title.slice(0, 40) + "..." // 45글자까지만
+                }
+
+                return (
+                  <div key={i} className="giftListEntry">
+                    <img src={data.image}></img>
+                    <div className="giftList_title">{title}</div>
+                    <div className="giftList_price">{data.lprice}원</div>
+                    <div className="giftList_category">{data.category1}</div>
+                  </div>
+                )
+              })}
+            </div>
+          }
+
+
+
         </div>
       </div>
     </div>
