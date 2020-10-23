@@ -182,8 +182,7 @@ function Gift() {
                     <div className="giftList_category">{data.category1}</div>
                   </div>
                 )
-              })
-              }
+              })}
             </div>
           }
 

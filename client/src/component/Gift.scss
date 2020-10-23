@@ -181,13 +181,17 @@
         }
         
         
-        .InfiniteScroll{
+        .giftList{
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
+            h4{
+                display: block;
+                width: 100%;
+            }
         }
 
-        .giftList{
+        .giftListEntry{
             border: 1px solid grey;
             border-radius: 20px;
             width: 43%;
