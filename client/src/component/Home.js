@@ -12,7 +12,6 @@ import AddIcon from '@material-ui/icons/Add';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
-import Button from '@material-ui/core/Button';
 import CloseIcon from '@material-ui/icons/Close';
 
 
@@ -59,11 +58,7 @@ function Home({ userId, history }) {
 
 
   const generate = () => {
-    // const today = moment();
     const today = selectedDate;
-    // console.log(today);
-    // console.log(month);
-    // console.log(selectedDate.add(1, "M").endOf('month'));
     const startWeek = today.clone().startOf('month').week();
     const endWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
     let calendar = [];
@@ -81,9 +76,6 @@ function Home({ userId, history }) {
                   onClick={() => {
                     // 선택한 날짜로 이동
                     setSelectedDate(current)
-                    // console.log('selectDate : ',new Date(current));
-                    // 달력 클릭시 스케줄 추가에서 날짜를 생략하기 위해 useState에 담기
-                    // setScheduleDate('date : ',`${new Date(current).getFullYear()}-${new Date(current).getMonth()+1}-${new Date(current).getDate()}`)
                     // 오른쪽 일정 오픈
                     setOpenSchedule(true)
                   }}
@@ -207,20 +199,6 @@ function Home({ userId, history }) {
             }}><ChevronLeftSharpIcon />
             </button>
             <span className="title" onClick={selectMonth} ref={ref}>{month}</span>
-            {/* 월 선택 모달 오픈 버튼 */}
-            {/* <button className="select_month" onClick={selectMonth}>
-              {openSelectMonth ? "˄" : "˅"}
-            </button> */}
-            {/* 스케줄 추가 버튼 */}
-            {/* <button className="add_schedule"
-              onClick={(e) => {
-                e.preventDefault();
-                setModal(!isOpen);
-              }}
-              ref={ref}
-            >
-              <AddIcon />
-            </button> */}
             <button className="rightBtn" onClick={() => {
               let num = moment().month(month).format("M");
               setSelectedDate(moment().month(num).date(1))
@@ -233,12 +211,6 @@ function Home({ userId, history }) {
           </div>
 
           <div className="body">
-            {/* 
-              다음달 예상 지출 
-                nextMonth[0] 다음달 총 이벤트 개수
-                nextMonth[1] 총 주어야할 현금 액수
-                nextMonth[2] 총 주어야할 선물 개수
-            */}
             <div className="alertNextMonth">
               <Collapse in={open}>
                 <Alert action={
