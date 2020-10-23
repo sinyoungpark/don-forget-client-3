@@ -40,6 +40,9 @@ function Home({ userId, history }) {
   // 다음달 알림 메시지
   const [open, setOpen] = useState(true);
 
+  //add_schedule에서 달력 선택 없이 바로 날짜 제공
+  const [scheduleDate, setScheduleDate] = useState("");
+
   useEffect(() => {
     // 선택한 날짜에 맞게 월 업데이트
     setMonth(selectedDate._locale._months[selectedDate.month()])
@@ -78,6 +81,9 @@ function Home({ userId, history }) {
                   onClick={() => {
                     // 선택한 날짜로 이동
                     setSelectedDate(current)
+                    // console.log('selectDate : ',new Date(current));
+                    // 달력 클릭시 스케줄 추가에서 날짜를 생략하기 위해 useState에 담기
+                    // setScheduleDate('date : ',`${new Date(current).getFullYear()}-${new Date(current).getMonth()+1}-${new Date(current).getDate()}`)
                     // 오른쪽 일정 오픈
                     setOpenSchedule(true)
                   }}
@@ -206,7 +212,7 @@ function Home({ userId, history }) {
               {openSelectMonth ? "˄" : "˅"}
             </button> */}
             {/* 스케줄 추가 버튼 */}
-            <button className="add_schedule"
+            {/* <button className="add_schedule"
               onClick={(e) => {
                 e.preventDefault();
                 setModal(!isOpen);
@@ -214,7 +220,7 @@ function Home({ userId, history }) {
               ref={ref}
             >
               <AddIcon />
-            </button>
+            </button> */}
             <button className="rightBtn" onClick={() => {
               let num = moment().month(month).format("M");
               setSelectedDate(moment().month(num).date(1))
@@ -288,11 +294,22 @@ function Home({ userId, history }) {
               : ""
             }
           </ul>
+          <div>
+            <button className="add_schedule_sideSchedule"
+              onClick={(e) => {
+                e.preventDefault();
+                setModal(!isOpen);
+              }}
+              ref={ref}
+            >
+              <AddIcon fontSize="large"/>
+            </button>
+          </div>
         </div>
 
         {/* 일정추가 모달 */}
         <Modal userId={userId} isOpen={isOpen} setModal={setModal}
-          setUseEffect={setUseEffect} />
+          setUseEffect={setUseEffect} scheduleDate={`${new Date(selectedDate).getFullYear()}-${new Date(selectedDate).getMonth()+1}-${new Date(selectedDate).getDate()}`}/>
       </div>
     </div>
   );

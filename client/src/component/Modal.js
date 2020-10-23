@@ -12,7 +12,7 @@ export default function Modal(props) {
     const [gift, setGift] = useState("");
 
     /* get요청으로 받아온 값들 -> 수정 시 필요 */
-    const { userId, isOpen, setModal, isModify, data_date, data_giftType, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify, setUseEffect, controllUseEffect, data_giveandtake, setAgain } = props;
+    const { userId, isOpen, setModal, isModify, data_date, data_giftType, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify, setUseEffect, controllUseEffect, data_giveandtake, setAgain, scheduleDate } = props;
 
     const [giveAndTake, setGiveAndTake] = useState("");
     const [giftType, setGiftType] = useState("");
@@ -23,13 +23,13 @@ export default function Modal(props) {
         
         e.preventDefault();
         
-        console.log(date,eventTarget,eventType,gift,giveAndTake,giftType);
+        console.log(date,eventTarget,eventType,gift,giveAndTake,giftType,scheduleDate);
 
 
-        if (date && eventTarget && eventType && gift && giveAndTake && giftType) {
+        if (eventTarget && eventType && gift && giveAndTake && giftType && scheduleDate) {
             console.log(giveAndTake);
             axios.post(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
-                date: date,
+                date: scheduleDate,
                 event_target: eventTarget,
                 type: eventType,
                 gift: [giftType,gift],
@@ -106,9 +106,9 @@ export default function Modal(props) {
                             setGiveAndTake(e.target.value);
                         }}>take</button>
                     </div>
-                    <input className="add_event" type="date" id="birthday" name="birthday" onChange={(e) => setDate(e.target.value)} label="경조사 날짜 *" />
+                    {/* <input className="add_event" type="date" id="birthday" name="birthday" onChange={(e) => setDate(e.target.value)} label="경조사 날짜 *" /> */}
 
-                    <input className="modify_event" type="date" id="birthday" defaultValue={data_date} name="birthday" onChange={(e) => setDate(e.target.value)} label="경조사 날짜 *" />
+                    {/* <input className="modify_event" type="date" id="birthday" defaultValue={data_date} name="birthday" onChange={(e) => setDate(e.target.value)} label="경조사 날짜 *" /> */}
 
                     <input className="add_event" type="text" placeholder="경조사 대상(사람 이름) *" label="event target" onChange={(e) => setTarget(e.target.value)} />
 
@@ -154,7 +154,7 @@ export default function Modal(props) {
                           }
                           setGiftType(e.target.value)
                           //option 변경시 input값 초기화
-                          document.getElementsByTagName('input')[4].value = "";
+                          document.getElementsByTagName('input')[3].value = "";
                       }}>
                           <option value='' disabled selected>선물 / 현금</option>
                           <option value='선물'>선물</option>
