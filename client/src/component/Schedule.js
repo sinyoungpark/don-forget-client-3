@@ -6,7 +6,9 @@ import "./Schedule.scss"
 import kakaobank from '../kakaobank.png';
 import toss from '../toss.png';
 import AddIcon from '@material-ui/icons/Add';
-import Search from "./Search"
+import Search from "./Search";
+import { Container, Button, Link } from 'react-floating-action-button';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 export default function Schedule(props) {
     const { userId } = props;
@@ -82,7 +84,7 @@ export default function Schedule(props) {
                     setModal(!isOpen);
                 }} className="addBtn"><AddIcon /></button>
             </h1>
-            <span className="transferIcon">
+            {/* <span className="transferIcon">
               <span className="kakaobank">
                 <a href="kakaobank://">
                   <img src={kakaobank}></img>
@@ -93,7 +95,7 @@ export default function Schedule(props) {
                   <img src={toss}></img>
                 </a>
               </span>
-            </span>
+            </span> */}
             <div className="search">
                 <Search userId={userId} controllUseEffect={controllUseEffect} setUseEffect={setUseEffect} setSchedule={setSchedule} isSchedule={isSchedule}/>
                 </div>
@@ -121,6 +123,16 @@ export default function Schedule(props) {
                 }
             </ul>
             <Modal userId={userId} isOpen={isOpen} setModal={setModal} setUseEffect={setUseEffect} controllUseEffect={controllUseEffect} />
+            <Container className="transferIcon">
+              <Link href="kakaobank://"
+                  tooltip="카카오뱅크"
+                  className="kakao"/>
+              <Link href="supertoss://"
+                  tooltip="토스"
+                  className="toss" />
+              <AttachMoneyIcon
+                  className="won" />
+            </Container>
         </div>
     )
 }
