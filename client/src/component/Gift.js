@@ -8,13 +8,36 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 function Gift() {
 
+  // 4개씩 랜더 || 8개씩 랜더
+  const [addListNum, setAddListNum] = useState(8)
+  const queries = { mobile: 757 }
+
+
+  const updateWidth = () => {
+    if (window.innerWidth < queries.mobile) {
+      setAddListNum(4);
+      // console.log("mobile");
+    } else {
+      setAddListNum(8);
+      // console.log("desktop");
+    }
+  }
+  useEffect(() => {
+    updateWidth();
+    console.log("addListNum:", addListNum)
+    window.addEventListener("resize", updateWidth);
+    return () => {
+      window.removeEventListener("resize", updateWidth)
+    }
+  })
+
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const tags = ["20대 여자 생일 선물", "30대 남자 생일 선물", "입학 선물", "30대 여자 집들이 선물", "설 선물", "출산용품", "결혼 선물", "취직 축하 선물", "수능 응원"]
 
-  // 데이터 4개씩 랜더
+  // 데이터 addListNum수 만큼 랜더
   const [preItems, setPreItems] = useState(0);
-  const [items, setItems] = useState(4);
+  const [items, setItems] = useState(addListNum);
 
   const [breweries, setBreweries] = useState([]);
   const [hasMore, setHasMore] = useState(true);
@@ -26,7 +49,7 @@ function Gift() {
   // 검색버튼 클릭으로 키워드 검색
   const clickSearch = () => {
     setPreItems(0);
-    setItems(4);
+    setItems(addListNum);
     setBreweries([]);
     setTimeout(() => {
       axios.post(`https://don-forget-server.com/gift/find/?text=${searchKeyword}`)
@@ -35,8 +58,8 @@ function Gift() {
           let fourItems = res.data.slice(preItems, items);
           //updating data
           setBreweries(fourItems);
-          setPreItems(preItems + 4);
-          setItems(items + 4);
+          setPreItems(preItems + addListNum);
+          setItems(items + addListNum);
         })
     }, 500);
   }
@@ -50,8 +73,8 @@ function Gift() {
           let fourItems = res.data.slice(preItems, items);
           //updating data
           setBreweries([...breweries, ...fourItems]);
-          setPreItems(preItems + 4);
-          setItems(items + 4);
+          setPreItems(preItems + addListNum);
+          setItems(items + addListNum);
         })
     }, 1500);
   }
@@ -59,7 +82,7 @@ function Gift() {
   // 태그 클릭으로 검색
   const clickTagSearch = (tag) => {
     setPreItems(0);
-    setItems(4);
+    setItems(addListNum);
     setBreweries([]);
     setSearchKeyword(tag);
     setTimeout(() => {
@@ -68,8 +91,8 @@ function Gift() {
           console.log("res.data:", res.data);
           let fourItems = res.data.slice(preItems, items);
           setBreweries(fourItems);
-          setPreItems(preItems + 4);
-          setItems(items + 4);
+          setPreItems(preItems + addListNum);
+          setItems(items + addListNum);
         })
     }, 500);
   }
@@ -96,7 +119,7 @@ function Gift() {
           id="scrollableDiv"
           className="scrollableDiv"
           style={{
-            height: 350,
+            height: 400,
             overflow: 'auto',
             display: 'flex',
             flexDirection: 'column',
@@ -111,20 +134,20 @@ function Gift() {
             scrollableTarget="scrollableDiv"
           >
             {breweries && breweries.map((data, i) => {
-              console.log("breweries:", breweries)
+              {/* console.log("breweries.length:", breweries.length) */ }
               let title = data.title;
               title = title.replaceAll("<b>", "");
               title = title.replaceAll("</b>", "");
+
+              if (title.length > 40) {
+                title = title.slice(0, 40) + "..." // 45글자까지만
+              }
               return (
                 <div key={i} className="giftList">
-                  <img src={data.image} style={{ width: "100%" }}></img>
-                  <div>{title}</div>
-                  <div>{data.category1}</div>
-                  <div>{data.lprice}원</div>
-                  <div>{data.brand}</div>
-
-                  <div> <br /> <br />나중에 img클릭 시 링크연결 되도록...</div>
-                  <a style={{ overflow: "hidden", wordBreak: "break-all" }}>{data.link}</a>
+                  <img src={data.image}></img>
+                  <div className="giftList_title">{title}</div>
+                  <div className="giftList_price">{data.lprice}원</div>
+                  <div className="giftList_category">{data.category1}</div>
                 </div>
               )
             })}
