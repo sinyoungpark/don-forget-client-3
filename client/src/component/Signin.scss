@@ -101,8 +101,9 @@
           position: relative;
           width : 100%;
           button{
+            box-shadow: none !important;
             background-image: url("../googleLogo.png");
-            background-position: 25% 50%;
+            background-position: 30% 50%;
             background-size: 36px;
             background-repeat: no-repeat;
             background-color: rgb(209, 53, 50) !important;
@@ -112,8 +113,7 @@
             width: 400px;
             height: 30px;
             border-radius: 5px !important;
-            font-size: medium;
-            padding: 20px !important;
+            padding: 20px 20px 20px 35px !important;
             div {
               background-color: rgb(209, 53, 50) !important;
               svg {
@@ -124,12 +124,26 @@
               position: relative;
               left: 28%;
             }
-          // &:hover{
-          //     background-color: hsl(61, 86%, 37%);
-          //     cursor: pointer;
-          //     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-          //     border-color: hsl(61, 76%, 60%);
-          // }
+            &.FBLogin {
+              box-shadow: none !important;
+              display: block;
+              width: 400px;
+              margin: 10px auto;
+              background-image: url("../facebookLogo.png");
+              background-position: 25% 50%;
+              background-size: 36px;
+              background-repeat: no-repeat;
+              background-color: rgb(45, 66, 139) !important;
+              height: 42px;
+              border-radius: 5px !important;
+              font-size: 14px;
+              padding-top: 9px !important;
+              padding-left: 46px !important;
+              &:hover{
+                  opacity: 0.9;
+                  cursor: pointer;
+              }
+            }
         } 
       }
         
@@ -314,8 +328,9 @@
           position: relative;
           width : 100%;
           button{
+            box-shadow: none;
             background-image: url("../googleLogo.png");
-            background-position: 20% 50%;
+            background-position: 24% 50%;
             background-size: 30px;
             background-repeat: no-repeat;
             background-color: rgb(209, 53, 50) !important;
@@ -326,7 +341,7 @@
             height: 30px;
             border-radius: 5px !important;
             font-size: medium;
-            padding: 19px !important;
+            padding: 19px 19px 19px 30px !important;
             div {
               background-color: rgb(209, 53, 50) !important;
               svg {
@@ -338,12 +353,26 @@
               position: relative;
               left: 20%;
             }
-          // &:hover{
-          //     background-color: hsl(61, 86%, 37%);
-          //     cursor: pointer;
-          //     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-          //     border-color: hsl(61, 76%, 60%);
-          // }
+            &.FBLogin {
+              display: block;
+              width: 300px;
+              margin: 10px auto;
+              background-image: url("../facebookLogo.png");
+              background-position: 18% 50%;
+              background-size: 30px;
+              background-repeat: no-repeat;
+              background-color: rgb(45, 66, 139) !important;
+              height: 40px;
+              border-radius: 5px !important;
+              font-size: 14px;
+              padding-top: 9px !important;
+              padding-left: 46px !important;
+              border: 1px solid transparent;
+              &:hover{
+                  opacity: 0.9;
+                  cursor: pointer;
+              }
+            }
         } 
       }
         
