@@ -2,7 +2,7 @@ import React from "react"
 import { withRouter } from "react-router-dom"
 import "./Nav.scss"
 import Avatar from '@material-ui/core/Avatar';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+
 import HomeIcon from '@material-ui/icons/Home';
 import EventIcon from '@material-ui/icons/Event';
 import SearchIcon from '@material-ui/icons/Search';
@@ -12,33 +12,34 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
     curpath: {
         backgroundColor: '#ffffff',
-        marginBottom: "100px",
         color: '#ff4705',
         border: "2px solid white",
         width: "35%",
         height: "8%",
         borderRadius: "20px",
+        marginBottom: "100px",
         fontSize: "large",
-        // position: "fixed",
         "z-index": "99",
         '@media(min-width: 1px) and (max-width:  757px)': {
-            position: "relative",
+            marginBottom: "0",
+            height: "85%",
+            width: "80%",
             borderRadius: "0",
-            margin: "0px 0%",
-            display: "inline",
-            padding: "10% 9.17% 7%",
-            top: "30%"
+            padding: "6%"
         }
     },
     icon: {
         backgroundColor: '#3b23a6',
+        padding:"6%",
         marginBottom: "100px",
+        "&:hover":{
+            backgroundColor:"#7354ff"
+        },
         '@media(min-width: 1px) and (max-width:  757px)': {
-            display: "inline",
-            position: "relative",
-            margin: "0px 0%",
-            padding: "0% 9.15% 6%",
-            top: "30%"
+            marginBottom: "0px",
+            padding:"0%",
+            width:"80%",
+            height:"80%"
         }
     }
 }))

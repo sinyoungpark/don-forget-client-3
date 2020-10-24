@@ -57,7 +57,7 @@
     top: 0;
     a {
       position: relative;
-      left : 10%;
+      left : 6%;
       color: #ffffff;
       top: 130px;
     }
@@ -127,6 +127,7 @@
   
   /*sidenav css*/
   div.sidenav {
+    display: flex;
     position: fixed;
     overflow: hidden;
     background-color: #3b23a6;
@@ -136,13 +137,13 @@
     bottom : 0%;
     left : -0px;
     a {
-      left : 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 25%;
+      height: 100%;
       color: #f2f2f2;
       text-decoration: none;
-    }
-    &:hover{
-      // background-color: #ddd;
-      color: black;
     }
     .loginBtn {
       display: none;
@@ -150,23 +151,6 @@
     .cur{
       font-size: 100px;
     }
-    // .makeStyles-curpath-1{
-    //   position: relative;
-    //   animation-name : curpath;
-    //   animation-duration: 7s;
-    //   border-radius: 0;
-    //   margin : 0px 0% ;
-    //   display: inline;
-    //   padding : 10% 9.17% 7%;
-    //   top : 30%;
-    // }
-    // .makeStyles-icon-2 {
-    //   display: inline;
-    //   position: relative;
-    //   margin : 0px 0%;
-    //   padding : 0% 9.15% 6%;
-    //   top : 30%;
-    // }
   }
   @keyframes curpath{
     0% { top : 80%; }
