@@ -24,6 +24,9 @@ function Gift() {
   const [breweries, setBreweries] = useState([]);
   const [hasMore, setHasMore] = useState(true);
 
+  const [isSearchingEmoticon, setIsSearchingEmoticon] = useState(false);
+  const [emoticon, setEmoticon] = useState([]);
+
   const updateWidth = () => {
     if (window.innerWidth < 757) {
       setAddListNum(4);
@@ -65,6 +68,7 @@ function Gift() {
   // 검색버튼 클릭으로 직접 키워드 검색
   const clickSearch = () => {
     setIsSearching(true);
+    setIsSearchingEmoticon(false);
     setPreItems(0);
     setItems(addListNum);
     setBreweries([]);
@@ -84,6 +88,7 @@ function Gift() {
   // 태그 클릭으로 검색
   const clickTagSearch = (tag) => {
     setIsSearching(true);
+    setIsSearchingEmoticon(false);
     setPreItems(0);
     setItems(addListNum);
     setBreweries([]);
@@ -98,6 +103,23 @@ function Gift() {
           setItems(items + addListNum);
         })
     }, 500);
+  }
+
+  // 카카오 이모티콘 순위
+  const clickKakaoSearch = () => {
+    setIsSearching(true);
+    setIsSearchingEmoticon(true);
+    setPreItems(0);
+    setItems(addListNum);
+    setBreweries([]);
+    // setSearchKeyword("카카오톡 이모티콘 순위");
+    setTimeout(() => {
+      axios.get(`https://don-forget-server.com/gift/imoticonList`)
+        .then((res) => {
+          console.log("res.data:", res.data.items);
+          setEmoticon(res.data.items);
+        })
+    }, 0);
   }
 
   // 스크롤 시 다음 데이터 불러오기
@@ -131,6 +153,8 @@ function Gift() {
             return (<li key={i}
               onClick={() => clickTagSearch(tag)}>{tag}</li>)
           })}
+          <li key={99}
+            onClick={() => clickKakaoSearch()}>카카오톡 이모티콘 순위</li>
         </ul>
 
         <div
@@ -143,35 +167,56 @@ function Gift() {
             flexDirection: 'column',
           }}
         >
-          {/* 검색 전: 추천 선물 랜더, 검색 후: 검색 선물 랜더 */}
-          {isSearching ?
-            <InfiniteScroll
-              className="giftList"
-              dataLength={breweries.length} //This is important field to render the next data
-              next={clickSearchMore}
-              hasMore={hasMore}
-              loader={<h4>Loading...</h4>}
-              scrollableTarget="scrollableDiv"
-            >
-              {breweries && breweries.map((data, i) => {
-                {/* console.log("breweries.length:", breweries.length) */ }
-                let title = data.title;
-                title = title.replaceAll("<b>", "");
-                title = title.replaceAll("</b>", "");
-                if (title.length > 40) {
-                  title = title.slice(0, 40) + "..." // 45글자까지만
-                }
+          {/* 검색 true: 검색 선물 랜더, 검색 false: 추천 선물 랜더*/}
+          {isSearching ? <>
+            {/* 카카오이모티콘검색 || 그냥검색 */}
+            {isSearchingEmoticon ?
+              <div className="giftList">
+                <h4># 카카오톡 이모티콘 top 10</h4>
+                {emoticon && emoticon.map((data, i) => {
+                  return (
+                    <div key={i} className="emoticonEntry" onClick={() => window.open(`https://e.kakao.com/t/${data.titleUrl}`)}>
+                      <span className="emoticon_ranking">{i + 1}</span>
+                      <img src={data.titleDetailUrl}></img>
+                      <div className="emoticon_text">
+                        <div className="emoticon_title">{data.title}</div>
+                        <div className="emoticon_artist">{data.artist}</div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div> :
+              <InfiniteScroll
+                className="giftList"
+                dataLength={breweries.length} //This is important field to render the next data
+                next={clickSearchMore}
+                hasMore={hasMore}
+                loader={<h4>Loading...</h4>}
+                scrollableTarget="scrollableDiv"
+              >
+                {breweries && breweries.map((data, i) => {
+                  {/* console.log("breweries.length:", breweries.length) */ }
+                  let title = data.title;
+                  title = title.replaceAll("<b>", "");
+                  title = title.replaceAll("</b>", "");
+                  if (title.length > 40) {
+                    title = title.slice(0, 40) + "..." // 45글자까지만
+                  }
 
-                return (
-                  <div key={i} className="giftListEntry" onClick={(e) => clickProduct(data)}>
-                    <img src={data.image}></img>
-                    <div className="giftList_title">{title}</div>
-                    <div className="giftList_price">{data.lprice}원</div>
-                    <div className="giftList_category">{data.category1}</div>
-                  </div>
-                )
-              })}
-            </InfiniteScroll>
+                  return (
+                    <div key={i} className="giftListEntry" onClick={(e) => {
+                      clickProduct(data)
+                      window.open(`${data.link}`)
+                    }}>
+                      <img src={data.image}></img>
+                      <div className="giftList_title">{title}</div>
+                      <div className="giftList_price">{data.lprice}원</div>
+                      <div className="giftList_category">{data.category1}</div>
+                    </div>
+                  )
+                })}
+              </InfiniteScroll>}
+          </>
             :
             <div className="giftList">
               <h4># 돈't forget 추천선물로 보는 Top 8</h4>
@@ -184,7 +229,10 @@ function Gift() {
                 }
 
                 return (
-                  <div key={i} className="giftListEntry" onClick={(e) => clickProduct(data)}>
+                  <div key={i} className="giftListEntry" onClick={(e) => {
+                    clickProduct(data)
+                    window.open(`${data.link}`)
+                  }}>
                     <span className="giftList_ranking">{i + 1}</span>
                     <img src={data.image}></img>
                     <div className="giftList_title">{title}</div>
