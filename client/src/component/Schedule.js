@@ -67,11 +67,11 @@ export default function Schedule(props) {
         setCurDate(date);
         setCurTarget(event_target);
         setEventType(event_type);
-        setCurGift(data_gift.split(':')[1]);
+        setCurGift(data_gift[1]);
         setCurScheduleId(schedule_id);
         setCurEventId(event_id);
         setCurGiveAndTake(data_giveandtake);
-        setCurGiftType(data_gift.split(':')[0])
+        setCurGiftType(data_gift[0])
         handleModify(!isModify);
     }
 
@@ -105,7 +105,7 @@ export default function Schedule(props) {
                         const date = String(data.date).slice(0, 10);
                         return (
                             <div className="date_li">
-                                <div className="date">{date.slice(5, 7)}/{date.slice(8)}</div>
+                                <div className="date">{date.slice(5, 7)} / {date.slice(8)}</div>
                                 <li key={data.id}>
                                 <button className="li_button" onClick={(e) => {
                                         e.preventDefault();
@@ -114,7 +114,8 @@ export default function Schedule(props) {
                                     <button className="li_button" onClick={handleDeleteBtn} name={data.id} value={data.event_id}>삭제</button>
                                     <span className={data.type}>{data.giveandtake === "give" ? "→" : "←"}</span>
                                     <span className="type">{data.event_target} {data.type}</span>
-                                    <span className="gift">{data.gift}</span>
+                                    <span className="gift">{data.gift[0]}</span>
+                                    <span className="gift">{data.gift[0] === "현금" ? data.gift[1] + ` 원` : data.gift[1]} </span>
                                     <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} data_giftType={curGiftType} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} setUseEffect={setUseEffect} controllUseEffect={controllUseEffect} data_giveandtake={curGiveAndTake} />
                                 </li>
                             </div>

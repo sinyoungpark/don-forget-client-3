@@ -151,7 +151,8 @@ function Search(props) {
                     <button className="li_button" onClick={handleDeleteBtn} name={data.id} value={data.event_id}>삭제</button>
                     <span className={data.type}>{data.giveandtake === "give" ? "→" : "←"}</span>
                     <span className="type">{data.event_target} {data.type}</span>
-                    <span className="gift">{data.gift}</span>
+                    <span className="gift">{data.gift[0]}</span>
+                                    <span className="gift">{data.gift[0] === "현금" ? data.gift[1] + ` 원` : data.gift[1]} </span>
                     <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} searchKeyword={searchKeyword} searchData={searchData} setAgain={setAgain} />
                   </li>
                 </div>
