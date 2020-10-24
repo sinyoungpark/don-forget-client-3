@@ -45,6 +45,7 @@ function Gift() {
   })
 
   useEffect(() => {
+    // 추천선물 받아오기
     axios.get(`https://don-forget-server.com/gift/recommandGift`)
       .then((res) => {
         console.log(res.data);
@@ -52,6 +53,14 @@ function Gift() {
       })
       .then((data) => setTopList(data));
   }, [])
+
+  // 클릭해서 조회수 올리기!
+  const clickProduct = (data) => {
+    axios.post(`https://don-forget-server.com/gift/clickProduct`, data)
+      .then((res) => {
+        console.log("message:", res.data.message);
+      })
+  }
 
   // 검색버튼 클릭으로 직접 키워드 검색
   const clickSearch = () => {
@@ -154,7 +163,7 @@ function Gift() {
                 }
 
                 return (
-                  <div key={i} className="giftListEntry">
+                  <div key={i} className="giftListEntry" onClick={(e) => clickProduct(data)}>
                     <img src={data.image}></img>
                     <div className="giftList_title">{title}</div>
                     <div className="giftList_price">{data.lprice}원</div>
@@ -175,18 +184,17 @@ function Gift() {
                 }
 
                 return (
-                  <div key={i} className="giftListEntry">
+                  <div key={i} className="giftListEntry" onClick={(e) => clickProduct(data)}>
+                    <span className="giftList_ranking">{i + 1}</span>
                     <img src={data.image}></img>
                     <div className="giftList_title">{title}</div>
                     <div className="giftList_price">{data.lprice}원</div>
-                    <div className="giftList_category">{data.category1}</div>
+                    <div className="giftList_category">조회수 {data.clickCount}</div>
                   </div>
                 )
               })}
             </div>
           }
-
-
 
         </div>
       </div>
