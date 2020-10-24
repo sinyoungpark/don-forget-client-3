@@ -118,7 +118,7 @@ function Gift() {
   return (
     <div className="gift">
       <div className="full_page">
-        <h1>Gift</h1>
+        <h1>이런 선물 어때요?</h1>
         <input type="text" className="search_input"
           placeholder="선물을 검색해주세요."
           onChange={(e) => setSearchKeyword(e.target.value)}></input>
@@ -137,7 +137,7 @@ function Gift() {
           id="scrollableDiv"
           className="scrollableDiv"
           style={{
-            height: 400,
+            // height: 600,
             overflow: 'auto',
             display: 'flex',
             flexDirection: 'column',
