@@ -256,7 +256,7 @@
     .search_input{
         display: inline-block;
         margin: 0;
-        width: 85%;
+        width: 53%;
         height: 40px;
         padding: 0 20px;
         background-color: transparent;
@@ -264,11 +264,13 @@
         box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
         border-radius: 50px;
         outline:none;
+        transition: width 1s;
         &:hover{
             border-color : blue;
         }
         &:focus{
             border-color : blue;
+            width : 90%;
         }
     }
     
