@@ -24,12 +24,38 @@ export default function Modal(props) {
         e.preventDefault();
         
         console.log(date,eventTarget,eventType,gift,giveAndTake,giftType,scheduleDate);
-
-
-        if (eventTarget && eventType && gift && giveAndTake && giftType && scheduleDate) {
+ 
+        if (scheduleDate){
+            if (eventTarget && eventType && gift && giveAndTake && giftType && scheduleDate) {
+                console.log(giveAndTake);
+                axios.post(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
+                    date: scheduleDate,
+                    event_target: eventTarget,
+                    type: eventType,
+                    gift: [giftType,gift],
+                    giveandtake: giveAndTake
+                })
+                    .then((res) => console.log(res.data))
+                    .then(() => {
+                        setModal(!isOpen);
+                        setDate("");
+                        setTarget("");
+                        setGift("");
+                        setGiveAndTake("");
+                        if (setUseEffect){
+                            setUseEffect(!controllUseEffect);
+                        }
+                    })
+            }
+            else {
+                alert("입력해주세요")
+            }
+        }
+        else {
+        if (eventTarget && eventType && gift && giveAndTake && giftType && date) {
             console.log(giveAndTake);
             axios.post(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
-                date: scheduleDate,
+                date: date,
                 event_target: eventTarget,
                 type: eventType,
                 gift: [giftType,gift],
@@ -50,6 +76,7 @@ export default function Modal(props) {
         else {
             alert("입력해주세요")
         }
+    }
     }
 
     function handleModifyBtn(e) {
@@ -106,10 +133,12 @@ export default function Modal(props) {
                             setGiveAndTake(e.target.value);
                         }}>take</button>
                     </div>
-                    {/* <input className="add_event" type="date" id="birthday" name="birthday" onChange={(e) => setDate(e.target.value)} label="경조사 날짜 *" /> */}
-
-                    {/* <input className="modify_event" type="date" id="birthday" defaultValue={data_date} name="birthday" onChange={(e) => setDate(e.target.value)} label="경조사 날짜 *" /> */}
-
+                    {
+                        !scheduleDate ? <input className="add_event" type="date" id="birthday" name="birthday" onChange={(e) => setDate(e.target.value)} label="경조사 날짜 *" /> : console.log(false)
+                    }
+                    {
+                        !scheduleDate ?  <input className="modify_event" type="date" id="birthday" defaultValue={data_date} name="birthday" onChange={(e) => setDate(e.target.value)} label="경조사 날짜 *" /> : console.log(false)
+                    }
                     <input className="add_event" type="text" placeholder="경조사 대상(사람 이름) *" label="event target" onChange={(e) => setTarget(e.target.value)} />
 
                     <input className="modify_event" defaultValue={data_event_target} type="text" placeholder="경조사 대상(사람 이름) *" label="event target" onChange={(e) => setTarget(e.target.value)} />

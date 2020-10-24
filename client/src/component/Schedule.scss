@@ -2,29 +2,31 @@
 
 @include desktop {
     .schedule{
-        padding: 10vh 8%;
-        overflow-y: overlay;
+        // padding: 10vh 8%;
+        // overflow-y: overlay;
         max-height: 80vh;
-
+        margin-left : 20vh;
+        margin-right: 20vh;
+        margin-top: 7vh;
         /* schedule h1 css */
         h1{
             color : #4a4a4a;
             font-size: 40px;
-            position: fixed;
-            margin: 0;
+            position: absolute;
+            // margin: 0;
             z-index: 2;
         }
 
-        .gradient{
-            display: block;
-            position: fixed;
-            width: 80%;
-            height: 100vh;
-            top: 10px;
-            background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 20%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 80%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%);
-            pointer-events: none;
-            z-index: 1;
-        }
+        // .gradient{
+        //     display: block;
+        //     position: fixed;
+        //     width: 80%;
+        //     height: 100vh;
+        //     top: 10px;
+        //     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 20%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 80%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%);
+        //     pointer-events: none;
+        //     z-index: 1;
+        // }
 
         ul{
             list-style:none;
@@ -35,9 +37,10 @@
         }
         
         .schedule_list{
-            margin-top: 80px;
+
+            // margin-top: 80px;
             padding: 0;
-            margin-right: 5%;
+            // margin-right: 5%;
             /* date css */
             .date{
                 color : #505050;
@@ -48,91 +51,96 @@
             /* schedule list css */
             li{
                 border: 1px solid rgb(151, 149, 149);
-                width: 100%;
-                max-height: 30px;
-                padding: 5px 20px;
-                border-radius: 30px;
-                margin: 4px 15px 4px 40px;
-                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-                
+                width: 80%;
+                padding: 2% 4%;
+                border-radius: 40px;
+                margin: 1%;
+                margin-left: 4%;
+                box-shadow: 0px 6px 15px 0px rgb(161, 155, 155);
+
                 /* 수정, 삭제 button css*/
+
                 .li_button{
                     display: none;
                 }
                 &:hover{
+                    // background-color: #d1dfff;
+                    color : white;
+                    box-shadow: none;
                     .li_button{
                         display : flex;
                         float: right;
                         border: none;
-                        background-color: white;
-                        color: rgb(184, 184, 184);
+                        background-color:  white;
+                        color: rgb(128, 120, 120);
                         font-size: 0.9rem;
+                        cursor: pointer;
                     }
                 }
             }
 
             /* schedule list안에 내용 css 담당 */
             span{
-                color : #4a4a4a;
+                color : rgb(70, 67, 67);
                 margin-right: 1vh;
                 font-size: 0.9rem;
                 &.결혼식 {
-                    font-weight: 900;
-                    padding-left: 0;
+                    // font-weight: 900;
+                    padding-left: 10;
                     color: #FFCECE;
                     border-left: 3px solid #FFCECE;
                 }
                 &.생일 {
                     font-weight: 900;
-                    padding-left: 0;
+                    padding-left: 10;
                     color: #FFB65B;
                     border-left: 3px solid #FFB65B;
                 }
                 &.장례식 {
                     font-weight: 900;
-                    padding-left: 0;
+                    padding-left: 10;
                     color: #737272;
                     border-left: 3px solid #737272;
                 }
                 &.집들이 {
                     font-weight: 900;
-                    padding-left: 0;
+                    padding-left: 10;
                     color: #6BACF8;
                     border-left: 3px solid #6BACF8;
                 }
                 &.취직 {
                     font-weight: 900;
-                    padding-left: 0;
+                    padding-left: 10;
                     color: #FFF00C;
                     border-left: 3px solid #FFF00C;
                 }
                 &.입학 {
                     font-weight: 900;
-                    padding-left: 0;
+                    padding-left: 10;
                     color: #A4F256;
                     border-left: 3px solid #A4F256;
                 }
                 &.출산 {
                     font-weight: 900;
-                    padding-left: 0;
+                    padding-left: 10;
                     color: #FF6666;
                     border-left: 3px solid #FF6666;
                 }
                 &.돌잔치 {
                     font-weight: 900;
-                    padding-left: 0; 
+                    padding-left: 10;
                     color: #97ECCF;
                     border-left: 3px solid #97ECCF;
                 }
                 &.기념일 {
                     font-weight: 900;
-                    padding-left: 0; 
+                    padding-left: 10;
                     color: #E1C5FF;
                     border-left: 3px solid #E1C5FF;
                 }
                 &.기타 {
                     font-weight: 900;
-                    padding-left: 0;
+                    padding-left: 10;
                     color: #CECECE;
                     border-left: 3px solid #CECECE;
                 }
@@ -152,7 +160,7 @@
             height: 50px;
             border-radius: 50%;
             border : none;
-            right: 13%;
+            right: 10%;
             color: white;
             background-color: #3b23a6;
             // font-size: 1.5rem;
@@ -185,6 +193,11 @@
       display: none;
     }
 }
+
+@keyframes list{
+    0% { left : 12%; }
+    25% { left : 6%; }
+  }
 
 @include mobile {
     .schedule{
@@ -274,7 +287,8 @@
                         border: none;
                         background-color: white;
                         color: rgb(184, 184, 184);
-                        font-size: 0.9rem;
+                        font-size: 0.8rem;
+                        cursor: pointer;
                     }
                 }
             }

@@ -2,21 +2,20 @@
 
 @include desktop {
     .search .full_page {
-        padding: 10vh 1%;
+        padding: 12vh 0% 3% ;
         overflow: auto;
         max-height: 80vh;
         position : relative;
         
         div.tag {
-
             button {
                 &:hover{
                     cursor: pointer;
                 }
-                padding : 8px;
+                // padding : 8px;
                 border-radius: 15px;
-                margin : 0.5% ;
-                font-size: medium;
+                margin : 1.2% 0.5% 0% 0.5%;
+                font-size: 14px;
                 background-color: white;
             }
             button.생일 {
@@ -101,13 +100,6 @@
                 }
             }
         }
-
-        h1{
-            color : rgb(70, 67, 67);
-            font-size: 40px;
-            margin-top: 0;
-        }
-    
         ul{
             list-style:none;
             padding-left: 0;
@@ -133,16 +125,19 @@
         .search_list{
             /* schedule list css */
             margin: 0;
-            margin-top: 0%;
+            margin-top: 4%;
             li{
                 border: 1px solid rgb(151, 149, 149);
-                width: 70%;
+                width: 80%;
                 padding: 2% 4%;
                 border-radius: 40px;
                 margin: 1%;
-                margin-left: 10%;
+                margin-left: 4%;
+                box-shadow: 0px 6px 15px 0px rgb(161, 155, 155);
         
             &:hover{
+                color : white;
+                    box-shadow: none;
                 .li_button{
                     display : flex;
                     float: right;
@@ -161,8 +156,10 @@
             }
             /* date css */
             .date{
-                margin-top: 0.95rem;
+                color : #505050;
                 font-size: 1.2rem;
+                margin-top: auto;
+                margin-bottom: auto;
             } 
             
             /* schedule list안에 내용 css 담당 */
@@ -171,43 +168,63 @@
                 margin-right: 1vh;
                 font-size: 0.9rem;
                 &.결혼식 {
-                    color : #FFCECE;
+                    // font-weight: 900;
+                    padding-left: 10;
+                    color: #FFCECE;
                     border-left: 3px solid #FFCECE;
                 }
                 &.생일 {
-                    padding-left: 10px;
+                    font-weight: 900;
+                    padding-left: 10;
+                    color: #FFB65B;
                     border-left: 3px solid #FFB65B;
                 }
                 &.장례식 {
-                    padding-left: 10px;
+                    font-weight: 900;
+                    padding-left: 10;
+                    color: #737272;
                     border-left: 3px solid #737272;
                 }
                 &.집들이 {
-                    padding-left: 10px;
+                    font-weight: 900;
+                    padding-left: 10;
+                    color: #6BACF8;
                     border-left: 3px solid #6BACF8;
                 }
                 &.취직 {
-                    padding-left: 10px;
+                    font-weight: 900;
+                    padding-left: 10;
+                    color: #FFF00C;
                     border-left: 3px solid #FFF00C;
                 }
                 &.입학 {
-                    padding-left: 10px;
+                    font-weight: 900;
+                    padding-left: 10;
+                    color: #A4F256;
                     border-left: 3px solid #A4F256;
                 }
                 &.출산 {
-                    padding-left: 10px;
+                    font-weight: 900;
+                    padding-left: 10;
+                    color: #FF6666;
                     border-left: 3px solid #FF6666;
                 }
                 &.돌잔치 {
-                    padding-left: 10px; 
+                    font-weight: 900;
+                    padding-left: 10;
+                    color: #97ECCF;
                     border-left: 3px solid #97ECCF;
                 }
                 &.기념일 {
-                    padding-left: 10px; 
+                    font-weight: 900;
+                    padding-left: 10;
+                    color: #E1C5FF;
                     border-left: 3px solid #E1C5FF;
                 }
                 &.기타 {
-                    padding-left: 10px;
+                    font-weight: 900;
+                    padding-left: 10;
+                    color: #CECECE;
                     border-left: 3px solid #CECECE;
                 }
             }
@@ -247,6 +264,9 @@
         box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
         border-radius: 50px;
         outline:none;
+        &:hover{
+            border-color : blue;
+        }
         &:focus{
             border-color : blue;
         }
