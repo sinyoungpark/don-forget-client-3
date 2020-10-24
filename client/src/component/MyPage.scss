@@ -11,18 +11,21 @@
             margin-top: 0;
         }
         .userInfo{
-            background-color: rgb(245, 245, 245);
+            background-color: #EBE9F6;
+            opacity: 0.8;
             border-radius: 30px;
-            width: 80%;
-            padding: 40px;
+            width: 84%;
+            margin-top: 5%;
+            padding: 3%;
             h1{
-                color : #4a4a4a;
-                font-size: 1rem;
-                margin: 0;
+                color : #3C23A7;
+                font-size: 1.3rem;
+                margin-bottom: 1%;
             }
             div {
+                font-weight: 800;
                 color : #4a4a4a;
-                font-size: 0.9rem;
+                font-size: 1rem;
                 margin: 0;
             }
             input {
@@ -33,9 +36,24 @@
             display: flex;
             justify-content: flex-end;
             .changeBtn {
-                color : #4a4a4a;
-                margin-left: 10px;
-                font-size: 0.7rem;
+                background-color: #7D7DFF;
+                color : white;
+                border: none;
+                border-radius: 10px;
+                padding: 5px 10px;
+                margin-left: 15px;
+                font-size: 0.8rem;
+                font-weight: 800;
+            }
+            .changeBtn:hover {
+                background-color: #6b6bff;
+                color : white;
+                border: none;
+                border-radius: 10px;
+                padding: 5px 10px;
+                margin-left: 15px;
+                font-size: 0.8rem;
+                font-weight: 800;
             }
         }
         .changePasswordModal {
@@ -119,12 +137,10 @@
         }
         .chart {
             width: 90%;
-            margin-top: 20; 
-            margin-bottom: 20;
         }
         // 차트 위 gift, money 폰트 사이즈
         .recharts-default-legend span{
-            font-size: 0.8rem;
+            font-size: 1rem;
         }
     }
 }
@@ -132,41 +148,78 @@
 @include mobile {
 .mypage {
     .full_page {
-        padding: 14% 8%;
+        padding: 8% 6%;
     }
     h1{
         color : #4a4a4a;
-        font-size: 36px;
-        margin-top: 0;
+        font-size: 1.3rem;
+        margin-bottom: 3vh;
     }
     .userInfo{
-        background-color: rgb(245, 245, 245);
-        border-radius: 30px;
-        width: 80%;
-        padding: 10%;
-        margin: 5%;
+        background-color: #EBE9F6;
+        opacity: 0.8;
+        border-radius: 15px;
+        width: 84%;
+        margin-top: 10%;
+        margin-left: 2%;
+        margin-bottom: 10%;
+        padding: 3% 5%;
         h1{
-            color : #4a4a4a;
+            color : #3C23A7;
             font-size: 1rem;
-            margin: 0;
+            margin-bottom: 1%;
         }
         div {
+            font-weight: 600;
             color : #4a4a4a;
-            font-size: 0.9rem;
-            margin: 0;
+            font-size: 0.8rem;
+            margin-top: 10px;
         }
         input {
-            width: 200px;
+            font-size: 0.8rem;
+            padding-left: 1vh;
+            width: 180px;
+            border: none;
+            border-radius: 5px;
         }
     }
     .mypage_buttons{
         display: flex;
         justify-content: flex-end;
         .changeBtn {
-            color : #4a4a4a;
-            margin: 4px;
+            background-color: #7D7DFF;
+            color : white;
+            border: none;
+            border-radius: 5px;
+            padding: 4px 6px;
+            margin-top: 5%;
+            margin-left: 10px;
             font-size: 0.6rem;
+            font-weight: 600;
         }
+        .changeBtn:hover {
+            background-color: #6b6bff;
+            color : white;
+            border: none;
+            border-radius: 5px;
+            padding: 4px 6px;
+            margin-top: 5%;
+            margin-left: 10px;
+            font-size: 0.6rem;
+            font-weight: 600;
+        }
+    }
+    .clickChangeNameBtn{
+        border: none;
+        border-radius: 5px;
+        background-color: #7D7DFF;
+        color: whitesmoke;
+    }
+    .clickChangeNameBtn:hover{
+        border: none;
+        border-radius: 5px;
+        background-color: #3C23A7;
+        color: whitesmoke;
     }
     .changePasswordModal {
         background-color: rgb(245, 245, 245);

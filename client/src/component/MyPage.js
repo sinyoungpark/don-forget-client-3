@@ -89,13 +89,13 @@ function MyPage(props) {
           <Chart />
         </div>
         <div className="userInfo">
-          <h1>User Info:</h1>
-          <div>{openName ? <>
+          <h1>사용자 정보</h1>
+          <div>이름 : {openName ? <>
             <input type="text" placeholder="변경할 이름을 입력해주세요."
               onChange={(e) => setChangeName(e.target.value)}></input>
-            <button onClick={changeNameHandler}>✔︎</button>
+            <button className="clickChangeNameBtn" onClick={changeNameHandler}>✔︎</button>
           </> : name}</div>
-          <div>{email}</div>
+          <div>이메일 : {email.split('-')[1] !== undefined? email.split('-')[1] : email}</div>
           <div className="mypage_buttons">
             <button className="changeBtn" onClick={() => setOpenName(!openName)}>이름 변경</button>
             <button className="changeBtn" onClick={() => setOpenPassword(!openPassword)}>비밀번호 변경</button>
