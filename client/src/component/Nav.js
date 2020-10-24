@@ -38,8 +38,8 @@ const useStyles = makeStyles((theme) => ({
         '@media(min-width: 1px) and (max-width:  757px)': {
             marginBottom: "0px",
             padding:"0%",
-            width:"80%",
-            height:"80%"
+            width:"80px",
+            height:"80px"
         }
     }
 }))
