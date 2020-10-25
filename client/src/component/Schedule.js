@@ -97,12 +97,12 @@ export default function Schedule(props) {
               </span>
             </span> */}
             <div className="search">
-                <Search userId={userId} controllUseEffect={controllUseEffect} setUseEffect={setUseEffect} setSchedule={setSchedule} isSchedule={isSchedule}/>
-                </div>
-                <button onClick={(e) => {
-                    e.preventDefault();
-                    setModal(!isOpen);
-                }} className="addBtnTwo">경조사 추가하기</button>
+                <Search userId={userId} controllUseEffect={controllUseEffect} setUseEffect={setUseEffect} setSchedule={setSchedule} isSchedule={isSchedule} />
+            </div>
+            <button onClick={(e) => {
+                e.preventDefault();
+                setModal(!isOpen);
+            }} className="addBtnTwo">+ 경조사 추가하기</button>
             <ul className={isSchedule ? "schedule_list" : "none"} >
                 {
                     data && data.map((data) => {
@@ -111,7 +111,7 @@ export default function Schedule(props) {
                             <div className="date_li">
                                 <div className="date">{date.slice(5, 7)} / {date.slice(8)}</div>
                                 <li key={data.id}>
-                                <button className="li_button" onClick={(e) => {
+                                    <button className="li_button" onClick={(e) => {
                                         e.preventDefault();
                                         handleModifyBtn(date, data.event_target, data.type, data.gift, data.id, data.event_id, data.giveandtake);
                                     }}>수정</button>
@@ -129,14 +129,14 @@ export default function Schedule(props) {
             </ul>
             <Modal userId={userId} isOpen={isOpen} setModal={setModal} setUseEffect={setUseEffect} controllUseEffect={controllUseEffect} />
             <Container className="transferIcon">
-              <Link href="kakaobank://"
-                  tooltip="카카오뱅크"
-                  className="kakao"/>
-              <Link href="supertoss://"
-                  tooltip="토스"
-                  className="toss" />
-              <AttachMoneyIcon
-                  className="won" />
+                <Link href="kakaobank://"
+                    tooltip="카카오뱅크"
+                    className="kakao" />
+                <Link href="supertoss://"
+                    tooltip="토스"
+                    className="toss" />
+                <AttachMoneyIcon
+                    className="won" />
             </Container>
         </div>
     )

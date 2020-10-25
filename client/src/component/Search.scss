@@ -2,126 +2,100 @@
 
 @include desktop {
     .search .full_page {
-        padding: 12vh 0% 3% ;
+        padding: 10vh 0% 0% 0%;
         overflow: auto;
         max-height: 80vh;
         position : relative;
         
         div.tag {
             button {
-                &:hover{
-                    cursor: pointer;
-                }
-                // padding : 8px;
+                cursor: pointer;
                 border-radius: 15px;
                 margin : 1.2% 0.5% 0% 0.5%;
-                font-size: 14px;
+                font-size: 0.7rem;
                 background-color: white;
+                padding: 3px 10px;
+                border: none;
+                color: #4a4a4a;
+                font-weight: 600;
             }
             button.생일 {
-                padding-left: 10px;
-                border: 3px solid #FFB65B;
-                background-color: 3px solid #FFB65B;
-                outline: none;
+                border: 2px solid #FFB65B;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #FFB65B;
                 }
             }
             button.장례식 {
-                padding-left: 10px;
-                border: 3px solid #737272;
-                outline: none;
+                border: 2px solid #737272;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #737272;
                 }
             }
             button.집들이 {
-                padding-left: 10px;
-                border: 3px solid #6BACF8;
-                outline: none;
+                border: 2px solid #6BACF8;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #6BACF8;
                 }
             }
             button.취직 {
-                padding-left: 10px;
-                border: 3px solid #FFF00C;
-                outline: none;
+                border: 2px solid #FFF00C;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #FFF00C;
                 }
             }
             button.입학 {
-                padding-left: 10px;
-                border: 3px solid #A4F256;
-                outline: none;
+                border: 2px solid #A4F256;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #A4F256;
                 }
             }
             button.출산 {
-                padding-left: 10px;
-                border: 3px solid #FF6666;
-                outline: none;
+                border: 2px solid #FF6666;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #FF6666;
                 }
             }
-            button.돌잔치 {
-                padding-left: 10px; 
-                border: 3px solid #97ECCF;
-                outline: none;
+            button.돌잔치 { 
+                border: 2px solid #97ECCF;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #97ECCF;
                 }
             }
-            button.기념일 {
-                padding-left: 10px; 
-                border: 3px solid #E1C5FF;
-                outline: none;
+            button.기념일 { 
+                border: 2px solid #E1C5FF;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #E1C5FF;
                 }
             }
             button.기타 {
-                padding-left: 10px;
-                border: 3px solid #CECECE;
-                outline: none;
+                border: 2px solid #CECECE;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #CECECE;
                 }
             }
             button.결혼식 {
-                padding-left: 10px;
-                border: 3px solid #FFCECE;
-                outline: none;
+                border: 2px solid #FFCECE;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #FFCECE;
                 }
             }
         }
+        
         ul{
             list-style:none;
             padding-left: 0;
         }
-    
-        .search_tags{
-            padding: 0 1rem;
-            li {
-                font-size: 0.6rem;
-                color: #4a4a4a;
-                display: inline-block;
-                margin: 4px;
-                padding: 5px 10px;
-                background-color: transparent;
-                border: rgb(151, 149, 149) 1px solid;
-                border-radius: 50px;
-                outline:none;
-                &:hover{
-                    cursor: pointer;
-                }
-            }
-        }
+        
         .search_list{
             /* schedule list css */
             margin: 0;
@@ -137,7 +111,7 @@
         
             &:hover{
                 color : white;
-                    box-shadow: none;
+                box-shadow: none;
                 .li_button{
                     display : flex;
                     float: right;
@@ -256,7 +230,7 @@
     .search_input{
         display: inline-block;
         margin: 0;
-        width: 53%;
+        width: 90%;
         height: 40px;
         padding: 0 20px;
         background-color: transparent;
@@ -264,149 +238,106 @@
         box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
         border-radius: 50px;
         outline:none;
-        transition: width 1s;
-        &:hover{
-            border-color : blue;
-        }
         &:focus{
             border-color : blue;
-            width : 90%;
         }
     }
-    
-    .search_btn{
-        position : relative;
-        left : 3%;
-        background-color: transparent;
-        border: none;
-        padding: 0;
-        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
-        border-radius: 50%;
-        outline:none;
-        &:hover{
-            border-radius: 50%;
-            box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-        }
-    }
-    
 }
 
 @include mobile{
     .search .full_page {
-        padding: 23% 0% 0% 0%;
-        // overflow: auto;
-        // max-height: 20vh;
-       
+        padding: 8vh 0% 0% 0%;
+        overflow: auto;
+        max-height: 80vh;
+        position : relative;
 
         div.tag {
-            margin-bottom: 30%;
             button {
-                &:hover{
-                    cursor: pointer;
-                }
-                padding : 7px;
+                cursor: pointer;
                 border-radius: 15px;
-                margin : 0.6%;
-                font-size: 10px;
+                margin : 1.2% 0.5% 0% 0.5%;
+                font-size: 0.6rem;
                 background-color: white;
+                padding: 3px 10px;
+                border: none;
+                color: #4a4a4a;
             }
             button.생일 {
-                padding-left: 10px;
-                border: 3px solid #FFB65B;
-                background-color: 3px solid #FFB65B;
-                outline: none;
+                border: 2px solid #FFB65B;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #FFB65B;
                 }
             }
             button.장례식 {
-                padding-left: 10px;
-                border: 3px solid #737272;
-                outline: none;
+                border: 2px solid #737272;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #737272;
                 }
             }
             button.집들이 {
-                padding-left: 10px;
-                border: 3px solid #6BACF8;
-                outline: none;
+                border: 2px solid #6BACF8;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #6BACF8;
                 }
             }
             button.취직 {
-                padding-left: 10px;
-                border: 3px solid #FFF00C;
-                outline: none;
+                border: 2px solid #FFF00C;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #FFF00C;
                 }
             }
             button.입학 {
-                padding-left: 10px;
-                border: 3px solid #A4F256;
-                outline: none;
+                border: 2px solid #A4F256;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #A4F256;
                 }
             }
             button.출산 {
-                padding-left: 10px;
-                border: 3px solid #FF6666;
-                outline: none;
+                border: 2px solid #FF6666;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #FF6666;
                 }
             }
-            button.돌잔치 {
-                padding-left: 10px; 
-                border: 3px solid #97ECCF;
-                outline: none;
+            button.돌잔치 { 
+                border: 2px solid #97ECCF;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #97ECCF;
                 }
             }
-            button.기념일 {
-                padding-left: 10px; 
-                border: 3px solid #E1C5FF;
-                outline: none;
+            button.기념일 { 
+                border: 2px solid #E1C5FF;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #E1C5FF;
                 }
             }
             button.기타 {
-                padding-left: 10px;
-                border: 3px solid #CECECE;
-                outline: none;
+                border: 2px solid #CECECE;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #CECECE;
                 }
             }
             button.결혼식 {
-                padding-left: 10px;
-                border: 3px solid #FFCECE;
-                outline: none;
+                border: 2px solid #FFCECE;
                 &:hover{
+                    color: whitesmoke;
                     background-color: #FFCECE;
                 }
             }
         }
-    
-        // h1{
-        //     color : rgb(70, 67, 67);
-        //     font-size: 35px;
-        //     margin-bottom: 5vh;
-        // }
+
         ul{
             list-style:none;
         }
-    
-        .date_li {
-            display: flex;
-        }
-    
+
         .search_list{
             /* schedule list css */
             margin: 0px;
@@ -414,12 +345,13 @@
             padding : 0px;
             li{
                 border: 1px solid rgb(151, 149, 149);
-                width: 70%;
+                width: 80%;
                 padding: 2% 4%;
                 border-radius: 40px;
                 margin: 1%;
-                margin-left: 3%;
-                height: 20px;
+                margin-left: 4%;
+                box-shadow: 0px 6px 15px 0px rgb(161, 155, 155);
+        
             &:hover{
                 .li_button{
                     display : flex;
@@ -512,7 +444,7 @@
             }
             
             /* add schedule button css */
-            .addBtn{
+            .addBtnTwo{
                 position: relative;
                 width: 6vh;
                 height: 6vh;
@@ -526,35 +458,16 @@
     
     .search_input{
         display: inline-block;
-        position : relative;
-        margin: 0 0px 10px;
-        width: 71%;
-        height: 30px;
-        padding: 1% 0px 1% 3%;
+        margin-bottom: 5px;
+        width: 86%;
+        padding: 10px 20px;
         background-color: transparent;
-        border: #4a4a4a 2px solid;
+        border: #4a4a4a 1px solid;
+        box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
         border-radius: 50px;
         outline:none;
-        transition: width 1s;
         &:focus{
-            box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
             border-color : blue;
-            width : 100%;
         }
     }
-    
-    .search_btn{
-        position : relative;
-        left : -100%;
-        background-color: transparent;
-        border: none;
-        padding: 0;
-        .MuiAvatar-root {
-          width: 33px;
-          height: 33px;
-        }
-        &:hover{
-            border-radius: 50%;
-        }
-    }   
 }
