@@ -68,34 +68,34 @@
 
   // 우측에 디테일한 일정 표시
   .add_schedule_sideSchedule{
-    border-radius: 100%;
-    border: #3b23a6 solid 2px;
-    background-color: white;
-    margin: 50px auto;
+    border-radius: 30px;
+    // border: #3b23a6 solid 2px;
+    border: none;
+    background-color: rgba(59, 35, 166, 0.1);
+    margin: 30px auto;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    width: 70px;
-    height: 70px;
-    font-size: 1rem;
+    padding: 10px 30px;
+    font-size: 0.7rem;
+    font-weight: 900;
     color: #3b23a6;
-  }
-  .add_schedule_sideSchedule:hover{
-    border-radius: 100%;
-    opacity: 0.9;
-    transition: 0.3s;
-    border: #3b23a6 solid 2px;
-    background-color: #3b23a6;
-    margin: 50px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    width: 70px;
-    height: 70px;
-    font-size: 1rem;
-    color: whitesmoke;
+    &:hover{
+      border-radius: 30px;
+      opacity: 0.9;
+      transition: 0.3s;
+      border: none;
+      background-color: #3b23a6;
+      margin: 30px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 0.7rem;
+      font-weight: 900;
+      color: whitesmoke;
+    }
   }
   .sideSchedule {
     position: fixed;
@@ -305,7 +305,7 @@
           .MuiAlert-message {
             .alertNextMonthTitle {
               font-weight: 900;
-              font-size: 0.9rem;
+              font-size: 0.8rem;
             }
             .alertNextMonthContent {
               color: #4a4a4a;
@@ -612,7 +612,7 @@
           .MuiAlert-message {
             .alertNextMonthTitle {
               font-weight: 900;
-              font-size: 0.9rem;
+              font-size: 0.8rem;
             }
             .alertNextMonthContent {
               color: #4a4a4a;
@@ -914,34 +914,34 @@
 
   // 아래에 디테일한 일정 표시
   .add_schedule_sideSchedule{
-    border-radius: 100%;
-    border: #3b23a6 solid 2px;
-    background-color: white;
-    margin: 50px auto;
+    border-radius: 30px;
+    // border: #3b23a6 solid 2px;
+    border: none;
+    background-color: rgba(59, 35, 166, 0.1);
+    margin: 30px auto;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    width: 70px;
-    height: 70px;
-    font-size: 1rem;
+    padding: 10px 30px;
+    font-size: 0.7rem;
+    font-weight: 900;
     color: #3b23a6;
-  }
-  .add_schedule_sideSchedule:hover{
-    border-radius: 100%;
-    opacity: 0.9;
-    transition: 0.3s;
-    border: #3b23a6 solid 2px;
-    background-color: #3b23a6;
-    margin: 50px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    width: 70px;
-    height: 70px;
-    font-size: 1rem;
-    color: whitesmoke;
+    &:hover{
+      border-radius: 30px;
+      opacity: 0.9;
+      transition: 0.3s;
+      border: none;
+      background-color: #3b23a6;
+      margin: 30px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 0.7rem;
+      font-weight: 900;
+      color: whitesmoke;
+    }
   }
   .sideSchedule {
     position: absolute;
@@ -955,7 +955,7 @@
       margin: 20px 10px 0px 10px;
       font-size: 1rem;
     }
-    .transferIcon {
+    .transferIcon_home {
       position: absolute;
       top: 33px;
       right: 8px;
@@ -1169,7 +1169,7 @@
             }
             .alertNextMonthContent {
               color: #4a4a4a;
-              font-size: 0.6rem;
+              font-size: 0.7rem;
               margin-right: 0.5rem;
             }
           }
@@ -1409,7 +1409,7 @@
       button{
         outline: none;
         border: none;
-        background-color: white;
+        background-color: transparent;
         &.leftBtn {
           cursor: pointer;
           position: absolute;
@@ -1473,7 +1473,7 @@
             }
             .alertNextMonthContent {
               color: #4a4a4a;
-              font-size: 0.6rem;
+              font-size: 0.7rem;
               margin-right: 0.5rem;
             }
           }
