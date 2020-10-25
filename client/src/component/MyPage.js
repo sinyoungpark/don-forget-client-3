@@ -84,7 +84,7 @@ function MyPage(props) {
   return (
     <div className="mypage">
       <div className="full_page">
-        <h1>My Page</h1>
+        <h1>경조사 지출 통계</h1>
         <div className="chart">
           <Chart />
         </div>
