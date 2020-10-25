@@ -8,7 +8,7 @@ import Modal from "./Modal";
 
 
 function Search(props) {
-  const { userId, setUseEffect, controllUseEffect, setSchedule, isSchedule} = props;
+  const { userId, setUseEffect, controllUseEffect, setSchedule, isSchedule } = props;
 
   const [searchKeyword, setSearchKeyword] = useState("");
   const [searchData, setSearchData] = useState(null);
@@ -92,20 +92,20 @@ function Search(props) {
 
   const handleTag = (e) => {
     console.log(e.target.value)
-    if (curTag === e.target.value){
+    if (curTag === e.target.value) {
       console.log("hi")
       setSchedule(true);
       setTag("");
     } else {
       setTag(e.target.value);
       axios.post(`https://don-forget-server.com/search/${window.sessionStorage.getItem("id")}`, {
-      data: e.target.value
-    })
-      .then((res) => {
-        console.log(res.data);
-        setSearchData(res.data);
-        setSchedule(false);
+        data: e.target.value
       })
+        .then((res) => {
+          console.log(res.data);
+          setSearchData(res.data);
+          setSchedule(false);
+        })
     }
   }
 
@@ -136,7 +136,7 @@ function Search(props) {
           <button className="기념일" onClick={handleTag} value="기념일">#기념일</button>
           <button className="기타" onClick={handleTag} value="기타">#기타</button>
         </div>
-        <ul className={isSchedule ?"none" : "search_list"} >
+        <ul className={isSchedule ? "none" : "search_list"} >
           {
             searchData && searchData.map((data) => {
               const date = String(data.date).slice(0, 10);
@@ -154,7 +154,7 @@ function Search(props) {
                     <span className="type">{data.event_target} {data.type}</span>
                     <span className="gift">{data.gift[0]}</span>
                     {console.log(data.gift)}
-                                    <span className="gift">{data.gift[0] === "현금" ? data.gift[1] + ` 원` : data.gift[1]} </span>
+                    <span className="gift">{data.gift[0] === "현금" ? data.gift[1] + ` 원` : data.gift[1]} </span>
                     <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} searchKeyword={searchKeyword} searchData={searchData} setAgain={setAgain} />
                   </li>
                 </div>

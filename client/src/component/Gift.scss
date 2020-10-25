@@ -201,7 +201,7 @@
 @include mobile{
     .gift .full_page {
         padding: 8vh 7%;
-        overflow: auto;
+        overflow: hidden;
         max-height: 80vh;
         position : relative;
         
