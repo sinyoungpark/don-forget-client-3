@@ -247,7 +247,7 @@ function Home({ userId, history }) {
                         {obj.event_target} {obj.type}
                         <div className="gift">{obj.gift}</div>
                       </div>
-                      <span className="transferIcon">
+                      <span className="transferIcon_home">
                         <span className="kakaobank">
                           <a href="kakaobank://">
                             <img src={kakaobank}></img>
@@ -273,15 +273,13 @@ function Home({ userId, history }) {
                 setModal(!isOpen);
               }}
               ref={ref}
-            >
-              <AddIcon fontSize="large"/>
-            </button>
+            >+ 일정추가</button>
           </div>
         </div>
 
         {/* 일정추가 모달 */}
         <Modal userId={userId} isOpen={isOpen} setModal={setModal}
-          setUseEffect={setUseEffect} scheduleDate={`${new Date(selectedDate).getFullYear()}-${new Date(selectedDate).getMonth()+1}-${new Date(selectedDate).getDate()}`}/>
+          setUseEffect={setUseEffect} scheduleDate={`${new Date(selectedDate).getFullYear()}-${new Date(selectedDate).getMonth() + 1}-${new Date(selectedDate).getDate()}`} />
       </div>
     </div>
   );
