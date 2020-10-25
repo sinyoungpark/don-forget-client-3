@@ -3,20 +3,19 @@
 @include desktop {
     .gift .full_page {
         padding: 10vh 8%;
-        overflow: auto;
+        overflow: hidden;
         max-height: 80vh;
         position : relative;
         
         h1{
             color : rgb(70, 67, 67);
-            font-size: 40px;
-            margin-top: 0;
+            font-size: 1.5rem;
         }
         
         .gift_tags{
             list-style:none;
             padding-left: 0;
-            padding: 0 1rem;
+            padding: 0 0.7rem;
             li {
                 font-size: 0.7rem;
                 color: #4a4a4a;
@@ -39,7 +38,7 @@
         .search_input{
             display: inline-block;
             margin: 0;
-            width: 85%;
+            width: 90%;
             height: 40px;
             padding: 0 20px;
             background-color: transparent;
@@ -86,6 +85,7 @@
             h4{
                 display: block;
                 width: 100%;
+                margin-top: 0;
             }
         }
 
@@ -206,7 +206,7 @@
         
         h1{
             color : rgb(70, 67, 67);
-            font-size: 40px;
+            font-size: 1.5rem;
             margin-top: 0;
         }
     
@@ -236,7 +236,7 @@
         .search_input{
             display: inline-block;
             margin: 0;
-            width: 73%;
+            width: 90%;
             height: 40px;
             padding: 0 20px;
             background-color: transparent;

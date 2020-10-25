@@ -143,10 +143,9 @@ function Gift() {
         <h1>이런 선물 어때요?</h1>
         <input type="text" className="search_input"
           placeholder="선물을 검색해주세요."
-          onChange={(e) => setSearchKeyword(e.target.value)}></input>
-        <button className="search_btn" onClick={clickSearch}>
-          <Avatar className="icon"> <SearchIcon /> </Avatar>
-        </button>
+          onChange={(e) => setSearchKeyword(e.target.value)}
+          onKeyPress={clickSearch}
+        ></input>
 
         <ul className="gift_tags">
           {tags.map((tag, i) => {
@@ -161,7 +160,7 @@ function Gift() {
           id="scrollableDiv"
           className="scrollableDiv"
           style={{
-            // height: 600,
+            height: 400,
             overflow: 'auto',
             display: 'flex',
             flexDirection: 'column',
