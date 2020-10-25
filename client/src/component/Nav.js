@@ -4,10 +4,11 @@ import "./Nav.scss"
 import Avatar from '@material-ui/core/Avatar';
 
 import HomeIcon from '@material-ui/icons/Home';
-import EventIcon from '@material-ui/icons/Event';
+import ListIcon from '@material-ui/icons/List';
 import SearchIcon from '@material-ui/icons/Search';
-import SettingsIcon from '@material-ui/icons/Settings';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { makeStyles } from "@material-ui/core/styles";
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 
 const useStyles = makeStyles((theme) => ({
     curpath: {
@@ -52,12 +53,12 @@ function Nav({ history, isLogin, location }) {
         <div className={location.pathname === "/signin" || location.pathname === "/signup" ? "topnav fixed" : (location.pathname === "/intro" ? "topnav" : "sidenav")} >
             <a href="/home">
                 <Avatar className={location.pathname === "/home" ? classes.curpath : classes.icon}>
-                    <HomeIcon />
+                    <CalendarTodayIcon />
                 </Avatar>
             </a>
             <a href="/schedule" >
                 <Avatar className={location.pathname === "/schedule" ? classes.curpath : classes.icon}>
-                    <EventIcon />
+                    <ListIcon />
                 </Avatar>
             </a>
             <a href="/gift" >
@@ -67,7 +68,7 @@ function Nav({ history, isLogin, location }) {
             </a>
             <a href="/mypage">
                 <Avatar className={location.pathname === "/mypage" ? classes.curpath : classes.icon}>
-                    <SettingsIcon />
+                    <AccountCircleIcon />
                 </Avatar>
             </a>
             <button

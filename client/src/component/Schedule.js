@@ -78,7 +78,7 @@ export default function Schedule(props) {
     return (
         <div className="schedule">
             <div className="gradient"></div>
-            <h1>Schedule
+            <h1>경조사 기록
                 <button onClick={(e) => {
                     e.preventDefault();
                     setModal(!isOpen);
@@ -99,6 +99,10 @@ export default function Schedule(props) {
             <div className="search">
                 <Search userId={userId} controllUseEffect={controllUseEffect} setUseEffect={setUseEffect} setSchedule={setSchedule} isSchedule={isSchedule}/>
                 </div>
+                <button onClick={(e) => {
+                    e.preventDefault();
+                    setModal(!isOpen);
+                }} className="addBtnTwo">경조사 추가하기</button>
             <ul className={isSchedule ? "schedule_list" : "none"} >
                 {
                     data && data.map((data) => {
