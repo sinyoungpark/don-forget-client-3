@@ -170,6 +170,9 @@
                 background-color: #b5b5b5;
             }
         }
+        .addBtnTwo{
+            display: none;
+        }
         
         // 스크롤바
         &::-webkit-scrollbar {
@@ -257,25 +260,24 @@
         }
         
         .schedule_list{
-            // margin-top: 111px;
-            padding: 0;
-            /* date css */
+            margin: 0px;
+            margin-top: 30px;
+            padding : 0px;
             .date{
                 color : #505050;
-                font-size: 0.1rem;
-                margin-top: auto;
-                margin-bottom: auto;
+                margin-top: 0.8rem;
+                font-size: 0.95rem;
             } 
             /* schedule list css */
             li{
-                border: 1px solid rgb(151, 149, 149);
-                width: 90%;
-                max-height: 30px;
-                padding: 5px 20px;
-                border-radius: 30px;
-                margin: 4px 20px 4px 30px;
-                box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-                
+                  border: 1px solid rgb(151, 149, 149);
+                width: 70%;
+                padding: 2% 4%;
+                border-radius: 40px;
+                margin: 1%;
+                margin-left: 3%;
+                height: 20px;
+              
                 /* 수정, 삭제 button css*/
                 .li_button{
                     display: none;
@@ -370,23 +372,36 @@
         
         /* add schedule button css */
         .addBtn{
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border : none;
-            right: 13%;
-            color: white;
-            // top: 5.5%;
-            // padding-top: 0px;
-            // box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.1);
-            background-color: #3b23a6;
-            // font-size: 1.5rem;
-            // outline:none;
-            &:hover{
-                cursor: pointer;
-                background-color: #b5b5b5;
-            }
+            display: none;
+            // position: relative;
+            // width: 40px;
+            // height: 40px;
+            // border-radius: 50%;
+            // border : none;
+            // right: 13%;
+            // color: white;
+            // // top: 5.5%;
+            // // padding-top: 0px;
+            // // box-shadow: 0px 4px 11px 1px rgba(0, 0, 0, 0.1);
+            // background-color: #3b23a6;
+            // // font-size: 1.5rem;
+            // // outline:none;
+            // &:hover{
+            //     cursor: pointer;
+            //     background-color: #b5b5b5;
+            // }
+        }
+        .addBtnTwo{
+            position: absolute;
+            width : 90%;
+            height: 7%;
+            border-radius: 10px;
+            // margin-top: 5%;
+            top : 40%;
+            background-color: #d7ceff;
+            color : #3b23a6;
+            font-weight: 800;
+            border: none;
         }
         
         // 스크롤바

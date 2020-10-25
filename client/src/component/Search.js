@@ -102,6 +102,7 @@ function Search(props) {
       data: e.target.value
     })
       .then((res) => {
+        console.log(res.data);
         setSearchData(res.data);
         setSchedule(false);
       })
@@ -152,6 +153,7 @@ function Search(props) {
                     <span className={data.type}>{data.giveandtake === "give" ? "→" : "←"}</span>
                     <span className="type">{data.event_target} {data.type}</span>
                     <span className="gift">{data.gift[0]}</span>
+                    {console.log(data.gift)}
                                     <span className="gift">{data.gift[0] === "현금" ? data.gift[1] + ` 원` : data.gift[1]} </span>
                     <Modal isModify={isModify} data_date={curDate} data_event_target={curEventTarget} data_event_type={curEventType} data_gift={curDataGift} schedule_id={curSchduleId} event_id={curEventId} handleModify={handleModify} searchKeyword={searchKeyword} searchData={searchData} setAgain={setAgain} />
                   </li>
