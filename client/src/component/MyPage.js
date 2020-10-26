@@ -95,7 +95,7 @@ function MyPage(props) {
               onChange={(e) => setChangeName(e.target.value)}></input>
             <button className="clickChangeNameBtn" onClick={changeNameHandler}>✔︎</button>
           </> : name}</div>
-          <div>이메일 : {email.split('-')[1] !== undefined? email.split('-')[1] : email}</div>
+          <div>이메일 : {email.split('-')[1] !== undefined ? email.split('-')[1] : email}</div>
           <div className="mypage_buttons">
             <button className="changeBtn" onClick={() => setOpenName(!openName)}>이름 변경</button>
             <button className="changeBtn" onClick={() => setOpenPassword(!openPassword)}>비밀번호 변경</button>
