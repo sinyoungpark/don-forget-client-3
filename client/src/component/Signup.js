@@ -82,7 +82,7 @@ function Signup({ history }) {
     <div className="signup">
       <div className="signup_content">
         <img className="logo" src={Logo} alt="Logo_don-forget" />
-        <h1>Sign up</h1>
+        <h1>회원가입</h1>
         <form className="inputValue">
           <input type="text" name="email" onChange={onChangeHandler} placeholder="이메일 주소 *" label="이메일 주소" />
           <input type="text" name="name" onChange={onChangeHandler} placeholder="이름 *" label="이름 *" />

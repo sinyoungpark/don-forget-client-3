@@ -87,7 +87,7 @@
     background-color: #3b23a6;
     height: 100px;
     z-index:1;
-    width : 96%;
+    width : 100%;
     animation-name: topnav;
     animation-duration: 4s;
   
@@ -122,7 +122,7 @@
   /* topNav animation*/
   @keyframes topnav{
     0% { top : 50%; }
-    25% { top : 1.2%; }
+    25% { top : 0%; }
   }
   
   /*sidenav css*/

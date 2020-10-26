@@ -90,11 +90,11 @@ export default function Signin(props) {
   return (
     <div className="signin">
       <img className="logo" src={Logo} alt="Logo_don-forget" />
-      <h1>Login</h1>
+      <h1>로그인</h1>
       <form className="inputValue">
         <input type="text" placeholder="이메일 주소 *" label="이메일 주소" onChange={(e) => inputEmail(e.target.value)} />
         <input type="password" placeholder="비밀번호 *" label="비밀번호" onChange={(e) => inputPW(e.target.value)} />
-        <button className="login_btn" onClick={handleLoginBtn}>LOGIN</button>
+        <button className="login_btn" onClick={handleLoginBtn}>로그인</button>
         <a href="비밀번호 찾기" onClick={(e) => {
           e.preventDefault();
           inputEmail("");
