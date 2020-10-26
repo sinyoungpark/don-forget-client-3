@@ -115,7 +115,7 @@ function Search(props) {
       <div className="gradient"></div>
       <div className="full_page">
         <input type="text" className="search_input"
-          placeholder="날짜 혹은 이벤트 이름을 입력해주세요."
+          placeholder="이벤트 대상의 이름 혹은 이벤트 종류를 입력해주세요."
           onChange={onChangeHandler}
           onKeyPress={clickSearch} ></input>
         {/* <button className="search_btn"
