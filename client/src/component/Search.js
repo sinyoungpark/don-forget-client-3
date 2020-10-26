@@ -124,7 +124,7 @@ function Search(props) {
             <SearchIcon />
           </Avatar>
         </button> */}
-        <div className="tag">
+        <ul className="tag">
           <button className="생일" onClick={handleTag} value="생일">#생일</button>
           <button className="결혼식" onClick={handleTag} value="결혼식">#결혼식</button>
           <button className="장례식" onClick={handleTag} value="장례식">#장례식</button>
@@ -135,7 +135,7 @@ function Search(props) {
           <button className="돌잔치" onClick={handleTag} value="돌잔치">#돌잔치</button>
           <button className="기념일" onClick={handleTag} value="기념일">#기념일</button>
           <button className="기타" onClick={handleTag} value="기타">#기타</button>
-        </div>
+        </ul>
         <ul className={isSchedule ? "none" : "search_list"} >
           {
             searchData && searchData.map((data) => {
