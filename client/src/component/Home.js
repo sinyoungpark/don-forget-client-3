@@ -242,10 +242,11 @@ function Home({ userId, history }) {
               data.map((obj) => {
                 if (obj.date !== null && obj.date.slice(0, 10) === selectedDate.format().slice(0, 10)) {
                   return (
+                    
                     <li key={obj.id}>
                       <div className={obj.type}>
                         {obj.event_target} {obj.type}
-                        <div className="gift">{obj.gift}</div>
+                  <div className="gift">{obj.gift[0] === "현금" ? obj.gift[0] + " " + new Intl.NumberFormat().format(Number(obj.gift[1])) + "원" : obj.gift[0] + " " +  obj.gift[1]}</div>
                       </div>
                       <span className="transferIcon_home">
                         <span className="kakaobank">

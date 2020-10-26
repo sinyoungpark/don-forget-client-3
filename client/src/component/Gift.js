@@ -201,7 +201,7 @@ function Gift() {
                   if (title.length > 40) {
                     title = title.slice(0, 40) + "..." // 45글자까지만
                   }
-
+                  const price = new Intl.NumberFormat().format(Number(data.lprice));
                   return (
                     <div key={i} className="giftListEntry" onClick={(e) => {
                       clickProduct(data)
@@ -209,7 +209,7 @@ function Gift() {
                     }}>
                       <img src={data.image}></img>
                       <div className="giftList_title">{title}</div>
-                      <div className="giftList_price">{data.lprice}원</div>
+                      <div className="giftList_price">{price}원</div>
                       <div className="giftList_category">{data.category1}</div>
                     </div>
                   )
@@ -226,7 +226,7 @@ function Gift() {
                 if (title.length > 40) {
                   title = title.slice(0, 40) + "..." // 45글자까지만
                 }
-
+                const price = new Intl.NumberFormat().format(Number(data.lprice));
                 return (
                   <div key={i} className="giftListEntry" onClick={(e) => {
                     clickProduct(data)
@@ -235,7 +235,7 @@ function Gift() {
                     <span className="giftList_ranking">{i + 1}</span>
                     <img src={data.image}></img>
                     <div className="giftList_title">{title}</div>
-                    <div className="giftList_price">{data.lprice}원</div>
+                    <div className="giftList_price">{price}원</div>
                     <div className="giftList_category">조회수 {data.clickCount}</div>
                   </div>
                 )
