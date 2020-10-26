@@ -3,7 +3,8 @@ import { withRouter } from "react-router-dom";
 import './MyPage.scss';
 import axios from "axios";
 import Chart from './Mypage_Chart';
-import cookie from 'react-cookies'
+import cookie from 'react-cookies';
+import CsvDownloader from 'react-csv-downloader';
 
 function MyPage(props) {
 
@@ -81,6 +82,37 @@ function MyPage(props) {
     }
   }
 
+  const columns = [{
+    id: '날짜',
+    displayName: '날짜'
+  }, {
+    id: '경조사 종류',
+    displayName: '경조사 종류'
+  }, {
+    id: '경조사 대상',
+    displayName: '경조사 대상'
+  }, {
+    id: '선물 또는 현금',
+    displayName: '선물 또는 현금'
+  }, {
+    id: 'give 또는 take',
+    displayName: 'give 또는 take'
+  }]
+
+  const list = [];
+  axios.get(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`)
+  .then(res => {
+    res.data.map(element => {
+      list.push({
+        "날짜": element.date,
+        "경조사 종류": element.type,
+        "경조사 대상": element.event_target,
+        "선물 또는 현금": element.gift[1],
+        "give 또는 take": element.giveandtake
+      })
+    })
+  })
+
   return (
     <div className="mypage">
       <div className="full_page">
@@ -101,6 +133,16 @@ function MyPage(props) {
             <button className="changeBtn" onClick={() => setOpenPassword(!openPassword)}>비밀번호 변경</button>
             <button className="changeBtn" onClick={signoutHandler}>로그아웃</button>
           </div>
+        </div>
+
+        <div>
+          <CsvDownloader
+            filename="경조사_donforget"
+            separator=";"
+            wrapColumnChar="'"
+            columns={columns}
+            datas={list}
+            text="경조사 정보 엑셀로 내보내기" />
         </div>
 
         <div className={openPassword ? "changePasswordModal" : "none"}>
