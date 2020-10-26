@@ -1,0 +1,8 @@
+@import "./mixin";
+
+
+@include mobile{
+    body{
+        margin : 0;
+    }
+}
