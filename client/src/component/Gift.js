@@ -5,7 +5,9 @@ import Avatar from '@material-ui/core/Avatar';
 import SearchIcon from '@material-ui/icons/Search';
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { KakaoShareButton } from './kakaoShareBtn';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
 function Gift() {
 
@@ -27,6 +29,7 @@ function Gift() {
 
   const [isSearchingEmoticon, setIsSearchingEmoticon] = useState(false);
   const [emoticon, setEmoticon] = useState([]);
+  const [CopyLink, setCopyLink] = useState("");
 
   const updateWidth = () => {
     if (window.innerWidth < 757) {
@@ -123,6 +126,16 @@ function Gift() {
     }, 0);
   }
 
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://developers.kakao.com/sdk/js/kakao.js'
+    script.async = true
+    document.body.appendChild(script)
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
+
   // 스크롤 시 다음 데이터 불러오기
   const clickSearchMore = () => {
     setTimeout(() => {
@@ -161,10 +174,10 @@ function Gift() {
           id="scrollableDiv"
           className="scrollableDiv"
           style={{
-            height: 400,
+            height: 470,
             overflow: 'auto',
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: 'column'
           }}
         >
           {/* 검색 true: 검색 선물 랜더, 검색 false: 추천 선물 랜더*/}
@@ -175,14 +188,25 @@ function Gift() {
                 <h4># 카카오톡 이모티콘 top 10</h4>
                 {emoticon && emoticon.map((data, i) => {
                   return (
-                    <div key={i} className="emoticonEntry" onClick={() => window.open(`https://e.kakao.com/t/${data.titleUrl}`)}>
+                    <div key={i} className="emoticonEntry">
                       <span className="emoticon_ranking">{i + 1}</span>
-                      <img src={data.titleDetailUrl}></img>
+                      <img src={data.titleDetailUrl} onClick={() => window.open(`https://e.kakao.com/t/${data.titleUrl}`)}></img>
                       <div className="emoticon_text">
                         <div className="emoticon_title">{data.title}</div>
                         <div className="emoticon_artist">{data.artist}</div>
                       </div>
-                      <KakaoShareButton data={data}/>
+                      <div className="copyIconDiv">
+                        <CopyToClipboard
+                          style={{ fontSize: 25, color: "#af9eed" }}
+                          text={`https://e.kakao.com/t/${data.titleUrl}`}
+                          onCopy={() => { setCopyLink(i) }}
+                        >
+                          {CopyLink === i ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
+                        </CopyToClipboard>
+                        <div className="copyText" style={{ color: "#af9eed" }}>
+                          {CopyLink === i ? 'Copy' : 'Link'}
+                        </div>
+                      </div>
                     </div>
                   )
                 })}
@@ -198,8 +222,8 @@ function Gift() {
                 {breweries && breweries.map((data, i) => {
                   {/* console.log("breweries.length:", breweries.length) */ }
                   let title = data.title;
-                  title = title.replaceAll("<b>", "");
-                  title = title.replaceAll("</b>", "");
+                  title = title.replace(/<b>/gi, "");
+                  title = title.replace(/<\/b>/gi, "");
                   if (title.length > 40) {
                     title = title.slice(0, 40) + "..." // 45글자까지만
                   }
@@ -223,8 +247,8 @@ function Gift() {
               <h4># 돈't forget 추천선물로 보는 Top 8</h4>
               {topGiftList && topGiftList.map((data, i) => {
                 let title = data.title;
-                title = title.replaceAll("<b>", "#");
-                title = title.replaceAll("</b>", "");
+                title = title.replace(/<b>/gi, "");
+                title = title.replace(/<\/b>/gi, "");
                 if (title.length > 40) {
                   title = title.slice(0, 40) + "..." // 45글자까지만
                 }
