@@ -5,6 +5,7 @@ import Avatar from '@material-ui/core/Avatar';
 import SearchIcon from '@material-ui/icons/Search';
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { KakaoShareButton } from './kakaoShareBtn';
 
 function Gift() {
 
@@ -181,6 +182,7 @@ function Gift() {
                         <div className="emoticon_title">{data.title}</div>
                         <div className="emoticon_artist">{data.artist}</div>
                       </div>
+                      <KakaoShareButton data={data}/>
                     </div>
                   )
                 })}
