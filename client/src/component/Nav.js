@@ -6,6 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 import HomeIcon from '@material-ui/icons/Home';
 import ListIcon from '@material-ui/icons/List';
 import SearchIcon from '@material-ui/icons/Search';
+import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { makeStyles } from "@material-ui/core/styles";
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#ffffff',
         color: '#ff4705',
         border: "2px solid white",
-        width: "35%",
+        width: "37%",
         height: "8%",
         borderRadius: "20px",
         marginBottom: "100px",
@@ -24,23 +25,23 @@ const useStyles = makeStyles((theme) => ({
         '@media(min-width: 1px) and (max-width:  757px)': {
             marginBottom: "0",
             height: "85%",
-            width: "80%",
+            width: "90%",
             borderRadius: "0",
             padding: "6%"
         }
     },
     icon: {
         backgroundColor: '#3b23a6',
-        padding:"6%",
+        padding: "6%",
         marginBottom: "100px",
-        "&:hover":{
-            backgroundColor:"#7354ff"
+        "&:hover": {
+            backgroundColor: "#7354ff"
         },
         '@media(min-width: 1px) and (max-width:  757px)': {
             marginBottom: "0px",
-            padding:"0%",
-            width:"80px",
-            height:"80px"
+            padding: "0%",
+            width: "80px",
+            height: "80px"
         }
     }
 }))
@@ -63,7 +64,7 @@ function Nav({ history, isLogin, location }) {
             </a>
             <a href="/gift" >
                 <Avatar className={location.pathname === "/gift" ? classes.curpath : classes.icon}>
-                    <SearchIcon />
+                    <CardGiftcardIcon />
                 </Avatar>
             </a>
             <a href="/mypage">
