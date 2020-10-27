@@ -123,6 +123,16 @@ function Gift() {
     }, 0);
   }
 
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://developers.kakao.com/sdk/js/kakao.js'
+    script.async = true
+    document.body.appendChild(script)
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
+
   // 스크롤 시 다음 데이터 불러오기
   const clickSearchMore = () => {
     setTimeout(() => {
@@ -161,10 +171,10 @@ function Gift() {
           id="scrollableDiv"
           className="scrollableDiv"
           style={{
-            height: 400,
+            height: 470,
             overflow: 'auto',
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: 'column'
           }}
         >
           {/* 검색 true: 검색 선물 랜더, 검색 false: 추천 선물 랜더*/}
@@ -175,14 +185,13 @@ function Gift() {
                 <h4># 카카오톡 이모티콘 top 10</h4>
                 {emoticon && emoticon.map((data, i) => {
                   return (
-                    <div key={i} className="emoticonEntry" onClick={() => window.open(`https://e.kakao.com/t/${data.titleUrl}`)}>
+                    <div key={i} className="emoticonEntry">
                       <span className="emoticon_ranking">{i + 1}</span>
-                      <img src={data.titleDetailUrl}></img>
+                      <img src={data.titleDetailUrl} onClick={() => window.open(`https://e.kakao.com/t/${data.titleUrl}`)}></img>
                       <div className="emoticon_text">
                         <div className="emoticon_title">{data.title}</div>
                         <div className="emoticon_artist">{data.artist}</div>
                       </div>
-                      <KakaoShareButton data={data}/>
                     </div>
                   )
                 })}
