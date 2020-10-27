@@ -163,11 +163,12 @@
             cursor: pointer;
 
             .emoticon_ranking{
-                flex: none;
                 background-color: red;
+                width: fit-content;
                 padding: 10px;
                 opacity: 0.6;
                 font-size: 1.2rem;
+                z-index: 5000;
                 color: white;
                 position: absolute;
                 top: 0;
@@ -289,6 +290,7 @@
             flex-wrap: wrap;
             padding-bottom: 100px;
             h4{
+                margin-top: 0;
                 display: block;
                 width: 100%;
             }
@@ -353,11 +355,11 @@
     
         .emoticonEntry {
             position: relative;
-            border: 1px solid grey;
+            border: 1px solid rgb(207, 207, 207);;
             border-radius: 20px;
-            padding: 1.2%;
+            width: 43%;
             margin: 1%;
-            width: 45%;
+            padding: 2% 2% 4% 2%;
             font-size: 0.7rem;
             display: flex;
             flex-direction: column;
@@ -365,10 +367,11 @@
             cursor: pointer;
 
             .emoticon_ranking{
-                background-color: red;
+                background-color: rgb(255, 85, 85);
+                width: fit-content;
                 padding: 10px;
-                opacity: 0.6;
                 font-size: 1.2rem;
+                z-index: 5000;
                 color: white;
                 position: absolute;
                 margin-top: 0;
@@ -377,12 +380,9 @@
                 border-radius: 19px 0 0 0;
             }
             img {
-                width: 100px;
-                height: 100px;
+                max-width: 900%;
+                height: 150px;
                 border-radius: 10px;
-                padding: 10px;
-                margin-left: 40px;
-                margin-right: 10px;
             }
             .emoticon_text{
                 display: flex;
