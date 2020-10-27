@@ -124,6 +124,16 @@ function Gift() {
     }, 0);
   }
 
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'https://developers.kakao.com/sdk/js/kakao.js'
+    script.async = true
+    document.body.appendChild(script)
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
+
   // 스크롤 시 다음 데이터 불러오기
   const clickSearchMore = () => {
     setTimeout(() => {
@@ -162,10 +172,10 @@ function Gift() {
           id="scrollableDiv"
           className="scrollableDiv"
           style={{
-            height: 400,
+            height: 470,
             overflow: 'auto',
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: 'column'
           }}
         >
           {/* 검색 true: 검색 선물 랜더, 검색 false: 추천 선물 랜더*/}
