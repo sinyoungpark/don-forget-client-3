@@ -63,7 +63,7 @@
                 }
                 &:hover{
                     // background-color: #d1dfff;
-                    color : white;
+                    // color : white;
                     .li_button{
                         display : flex;
                         float: right;
@@ -72,7 +72,6 @@
                         color: rgb(184, 184, 184);
                         font-size: 0.9rem;
                         cursor: pointer;
-                        padding: 1%;
                     }
                 }
             }
@@ -267,7 +266,6 @@
                         color: rgb(184, 184, 184);
                         font-size: 0.7rem;
                         cursor: pointer;
-                        padding: 1%;
                     }
                 }
             }
