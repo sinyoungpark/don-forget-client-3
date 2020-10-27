@@ -163,6 +163,7 @@
             cursor: pointer;
 
             .emoticon_ranking{
+                flex: none;
                 background-color: red;
                 padding: 10px;
                 opacity: 0.6;
@@ -174,6 +175,7 @@
                 border-radius: 19px 0 0 0;
             }
             img {
+                flex: none;
                 width: 100px;
                 height: 100px;
                 border-radius: 10px;
@@ -181,6 +183,7 @@
                 margin-right: 10px;
             }
             .emoticon_text{
+                flex: none;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -194,7 +197,9 @@
                     color: grey;
                 }
             }
-            
+            .copyIconDiv{
+                margin-left: auto;
+            }
 
         }
         
