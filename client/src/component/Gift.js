@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from "react-router-dom";
 import './Gift.scss';
-import Avatar from '@material-ui/core/Avatar';
-import SearchIcon from '@material-ui/icons/Search';
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { KakaoShareButton } from './kakaoShareBtn';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
 function Gift() {
 
@@ -27,6 +27,7 @@ function Gift() {
 
   const [isSearchingEmoticon, setIsSearchingEmoticon] = useState(false);
   const [emoticon, setEmoticon] = useState([]);
+  const [CopyLink,setCopyLink] = useState("");
 
   const updateWidth = () => {
     if (window.innerWidth < 757) {
@@ -191,6 +192,18 @@ function Gift() {
                       <div className="emoticon_text">
                         <div className="emoticon_title">{data.title}</div>
                         <div className="emoticon_artist">{data.artist}</div>
+                      </div>
+                      <div className="copyIconDiv">
+                        <CopyToClipboard
+                          style={{ fontSize : 25, color : "#af9eed" }} 
+                          text={`https://e.kakao.com/t/${data.titleUrl}`}
+                          onCopy={() => {setCopyLink(i)}}
+                        >
+                          {CopyLink === i ? <CheckCircleIcon/> : <CheckCircleOutlineIcon/>}
+                        </CopyToClipboard>
+                        <div className="copyText" style={{ color : "#af9eed" }}>
+                        {CopyLink === i ? 'Copy' : 'Link'}
+                        </div>
                       </div>
                     </div>
                   )
