@@ -195,15 +195,15 @@ function Gift() {
                         <div className="emoticon_title">{data.title}</div>
                         <div className="emoticon_artist">{data.artist}</div>
                       </div>
-                      <div className="copyIconDiv">
+                      <div className="copyIconDiv-Emoticon">
                         <CopyToClipboard
-                          style={{ fontSize: 25, color: "#af9eed" }}
+                          style={{ fontSize: 25, color: "#ff7e76" }}
                           text={`https://e.kakao.com/t/${data.titleUrl}`}
                           onCopy={() => { setCopyLink(i) }}
                         >
                           {CopyLink === i ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
                         </CopyToClipboard>
-                        <div className="copyText" style={{ color: "#af9eed" }}>
+                        <div className="copyText" style={{ color: "#ff7e76", fontSize: "0.6em" }}>
                           {CopyLink === i ? 'Copy' : 'Link'}
                         </div>
                       </div>
@@ -229,14 +229,26 @@ function Gift() {
                   }
                   const price = new Intl.NumberFormat().format(Number(data.lprice));
                   return (
-                    <div key={i} className="giftListEntry" onClick={(e) => {
-                      clickProduct(data)
-                      window.open(`${data.link}`)
-                    }}>
-                      <img src={data.image}></img>
+                    <div key={i} className="giftListEntry">
+                      <img src={data.image} onClick={(e) => {
+                        clickProduct(data)
+                        window.open(`${data.link}`)
+                      }}></img>
                       <div className="giftList_title">{title}</div>
                       <div className="giftList_price">{price}원</div>
                       <div className="giftList_category">{data.category1}</div>
+                      <div className="copyIconDiv-Gift">
+                        <CopyToClipboard
+                          style={{ fontSize: 25, color: "#ff7e76" }}
+                          text={`https://e.kakao.com/t/${data.titleUrl}`}
+                          onCopy={() => { setCopyLink(i) }}
+                        >
+                          {CopyLink === i ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
+                        </CopyToClipboard>
+                        <div className="copyText" style={{ color: "#ff7e76", fontSize: "0.6em" }}>
+                          {CopyLink === i ? 'Copy' : 'Link'}
+                        </div>
+                      </div>
                     </div>
                   )
                 })}
@@ -254,15 +266,27 @@ function Gift() {
                 }
                 const price = new Intl.NumberFormat().format(Number(data.lprice));
                 return (
-                  <div key={i} className="giftListEntry" onClick={(e) => {
-                    clickProduct(data)
-                    window.open(`${data.link}`)
-                  }}>
+                  <div key={i} className="giftListEntry">
                     <span className="giftList_ranking">{i + 1}</span>
-                    <img src={data.image}></img>
+                    <img src={data.image} onClick={(e) => {
+                      clickProduct(data)
+                      window.open(`${data.link}`)
+                    }}></img>
                     <div className="giftList_title">{title}</div>
                     <div className="giftList_price">{price}원</div>
                     <div className="giftList_category">조회수 {data.clickCount}</div>
+                    <div className="copyIconDiv-Gift">
+                        <CopyToClipboard
+                          style={{ fontSize: 25, color: "#ff7e76" }}
+                          text={`https://e.kakao.com/t/${data.titleUrl}`}
+                          onCopy={() => { setCopyLink(i) }}
+                        >
+                          {CopyLink === i ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
+                        </CopyToClipboard>
+                        <div className="copyText" style={{ color: "#ff7e76", fontSize: "0.6em"}}>
+                          {CopyLink === i ? 'Copy' : 'Link'}
+                        </div>
+                      </div>
                   </div>
                 )
               })}

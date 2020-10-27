@@ -97,7 +97,6 @@
             padding: 1.2%;
             margin: 1%;
             width: 20%;
-            font-size: 0.7rem;
             display: flex;
             flex-direction: column;
             box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
@@ -140,10 +139,12 @@
                 color: #3b23a6;
                 font-size: 1rem;
                 font-weight: 900;
+                text-align: right;
                 margin-top: auto; // 상품명이 짧은 상품이 같은 열에 있을 경우, 줄 맞추기 위해
             }
 
             .giftList_category {
+                text-align: right;
                 font-size: 0.6rem;
                 color: grey;
             }
@@ -198,10 +199,9 @@
                     color: grey;
                 }
             }
-            .copyIconDiv{
+            .copyIconDiv-Emoticon{
                 margin-left: auto;
             }
-
         }
         
     }
@@ -340,6 +340,7 @@
             }
 
             .giftList_price {
+                text-align: right;
                 color: #3b23a6;
                 font-size: 1rem;
                 font-weight: 900;
@@ -347,6 +348,7 @@
             }
 
             .giftList_category {
+                text-align: right;
                 font-size: 0.6rem;
                 color: grey;
             }
