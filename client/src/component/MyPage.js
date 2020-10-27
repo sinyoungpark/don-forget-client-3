@@ -5,8 +5,30 @@ import axios from "axios";
 import Chart from './Mypage_Chart';
 import cookie from 'react-cookies';
 import CsvDownloader from 'react-csv-downloader';
+import GetAppIcon from '@material-ui/icons/GetApp';
+import { makeStyles } from "@material-ui/core/styles";
+import DescriptionIcon from '@material-ui/icons/Description';
+const useStyles = makeStyles((theme) => ({
+  icon: {
+      // backgroundColor: '#3b23a6',
+      // padding:"6%",
+      // marginBottom: "100px",
+      fontSize : 20,
+      // marginLeft : 4,
+      borderRadius : 50,
+      // padding : 8,
+      // "&:hover":{
+      //   backgroundColor : "#ccc9c9",
+      // },
+      '@media(min-width: 1px) and (max-width:  757px)': {
+        fontSize : 18,
+      }
+  }
+}))
+
 
 function MyPage(props) {
+  const classes = useStyles();
 
   const { email, name, setIsLogin, setEmail, setName, history } = props;
 
@@ -116,10 +138,22 @@ function MyPage(props) {
   return (
     <div className="mypage">
       <div className="full_page">
-        <h1>경조사 지출 통계</h1>
+        <h1>경조사 지출 통계 
+        </h1>
         <div className="chart">
           <Chart />
         </div>
+        <CsvDownloader
+            filename="경조사_donforget"
+            separator=";"
+            wrapColumnChar="'"
+            columns={columns}
+            datas={list}
+            className= "backCsvMobile"
+           >
+            <button  className = "csv"> 경조사 기록 엑셀로 내보내기(.csv)</button>
+            <DescriptionIcon className={classes.icon}/>
+            </CsvDownloader>
         <div className="userInfo">
           <h1>사용자 정보</h1>
           <div>이름 : {openName ? <>
@@ -133,16 +167,6 @@ function MyPage(props) {
             <button className="changeBtn" onClick={() => setOpenPassword(!openPassword)}>비밀번호 변경</button>
             <button className="changeBtn" onClick={signoutHandler}>로그아웃</button>
           </div>
-        </div>
-
-        <div>
-          <CsvDownloader
-            filename="경조사_donforget"
-            separator=";"
-            wrapColumnChar="'"
-            columns={columns}
-            datas={list}
-            text="경조사 정보 엑셀로 내보내기" />
         </div>
 
         <div className={openPassword ? "changePasswordModal" : "none"}>
