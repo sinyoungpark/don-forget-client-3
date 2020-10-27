@@ -191,20 +191,22 @@ function Gift() {
                     <div key={i} className="emoticonEntry">
                       <span className="emoticon_ranking">{i + 1}</span>
                       <img src={data.titleDetailUrl} onClick={() => window.open(`https://e.kakao.com/t/${data.titleUrl}`)}></img>
-                      <div className="emoticon_text">
-                        <div className="emoticon_title">{data.title}</div>
-                        <div className="emoticon_artist">{data.artist}</div>
-                      </div>
-                      <div className="copyIconDiv-Emoticon">
-                        <CopyToClipboard
-                          style={{ fontSize: 25, color: "#ff7e76" }}
-                          text={`https://e.kakao.com/t/${data.titleUrl}`}
-                          onCopy={() => { setCopyLink(i) }}
-                        >
-                          {CopyLink === i ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
-                        </CopyToClipboard>
-                        <div className="copyText" style={{ color: "#ff7e76", fontSize: "0.6em" }}>
-                          {CopyLink === i ? 'Copy' : 'Link'}
+                      <div className="emoticon_row">
+                        <div className="copyIconDiv-Emoticon">
+                          <CopyToClipboard
+                            style={{ fontSize: 25, color: "#ff7e76" }}
+                            text={`https://e.kakao.com/t/${data.titleUrl}`}
+                            onCopy={() => { setCopyLink(i) }}
+                          >
+                            {CopyLink === i ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
+                          </CopyToClipboard>
+                          <div className="copyText" style={{ color: "#ff7e76", fontSize: "0.6em" }}>
+                            {CopyLink === i ? 'Copy' : 'Link'}
+                          </div>
+                        </div>
+                        <div className="emoticon_text">
+                          <div className="emoticon_title">{data.title}</div>
+                          <div className="emoticon_artist">{data.artist}</div>
                         </div>
                       </div>
                     </div>
@@ -235,21 +237,27 @@ function Gift() {
                         window.open(`${data.link}`)
                       }}></img>
                       <div className="giftList_title">{title}</div>
-                      <div className="giftList_price">{price}원</div>
-                      <div className="giftList_category">{data.category1}</div>
-                      <div className="copyIconDiv-Gift">
-                        <CopyToClipboard
-                          style={{ fontSize: 25, color: "#ff7e76" }}
-                          text={`https://e.kakao.com/t/${data.titleUrl}`}
-                          onCopy={() => { setCopyLink(i) }}
-                        >
-                          {CopyLink === i ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
-                        </CopyToClipboard>
-                        <div className="copyText" style={{ color: "#ff7e76", fontSize: "0.6em" }}>
-                          {CopyLink === i ? 'Copy' : 'Link'}
+                      <div className="giftList_row">
+                        <div className="copyIconDiv-Gift">
+                          <CopyToClipboard
+                            style={{ fontSize: 25, color: "#ff7e76" }}
+                            text={`https://e.kakao.com/t/${data.titleUrl}`}
+                            onCopy={() => { setCopyLink(i) }}
+                          >
+                            {CopyLink === i ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
+                          </CopyToClipboard>
+                          <div className="copyText" style={{ color: "#ff7e76", fontSize: "0.6em" }}>
+                            {CopyLink === i ? 'Copy' : 'Link'}
+                          </div>
+                        </div>
+                        <div className="giftList_text">
+                          <div className="giftList_price">{price}원</div>
+                          <div className="giftList_category">{data.category1}</div>
                         </div>
                       </div>
+
                     </div>
+
                   )
                 })}
               </InfiniteScroll>}
@@ -273,9 +281,8 @@ function Gift() {
                       window.open(`${data.link}`)
                     }}></img>
                     <div className="giftList_title">{title}</div>
-                    <div className="giftList_price">{price}원</div>
-                    <div className="giftList_category">조회수 {data.clickCount}</div>
-                    <div className="copyIconDiv-Gift">
+                    <div className="giftList_row">
+                      <div className="copyIconDiv-Gift">
                         <CopyToClipboard
                           style={{ fontSize: 25, color: "#ff7e76" }}
                           text={`https://e.kakao.com/t/${data.titleUrl}`}
@@ -283,10 +290,15 @@ function Gift() {
                         >
                           {CopyLink === i ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
                         </CopyToClipboard>
-                        <div className="copyText" style={{ color: "#ff7e76", fontSize: "0.6em"}}>
+                        <div className="copyText" style={{ color: "#ff7e76", fontSize: "0.6em" }}>
                           {CopyLink === i ? 'Copy' : 'Link'}
                         </div>
                       </div>
+                      <div className="giftList_text">
+                        <div className="giftList_price">{price}원</div>
+                        <div className="giftList_category">조회수 {data.clickCount}</div>
+                      </div>
+                    </div>
                   </div>
                 )
               })}
