@@ -207,8 +207,8 @@ function Gift() {
                 {breweries && breweries.map((data, i) => {
                   {/* console.log("breweries.length:", breweries.length) */ }
                   let title = data.title;
-                  title = title.replaceAll("<b>", "");
-                  title = title.replaceAll("</b>", "");
+                  title = title.replace(/<b>/gi, "");
+                  title = title.replace(/<\/b>/gi, "");
                   if (title.length > 40) {
                     title = title.slice(0, 40) + "..." // 45글자까지만
                   }
@@ -232,8 +232,8 @@ function Gift() {
               <h4># 돈't forget 추천선물로 보는 Top 8</h4>
               {topGiftList && topGiftList.map((data, i) => {
                 let title = data.title;
-                title = title.replaceAll("<b>", "#");
-                title = title.replaceAll("</b>", "");
+                title = title.replace(/<b>/gi, "");
+                title = title.replace(/<\/b>/gi, "");
                 if (title.length > 40) {
                   title = title.slice(0, 40) + "..." // 45글자까지만
                 }
