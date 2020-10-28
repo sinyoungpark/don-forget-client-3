@@ -177,10 +177,9 @@
 @include mobile {
     .schedule{
         padding: 8vh 7%;
-        max-height: 80vh;
+        // max-height: 80vh;
         position : relative;
-        overflow: hidden;
-    
+        height: 100%;
         /* schedule h1 css */
         h1{
             color : #4a4a4a;
@@ -189,40 +188,6 @@
             margin: 0;
             z-index: 2;
         }
-        // .transferIcon {
-        //   position: fixed;
-        //   top: 80%;
-        //   right: 8%;
-        //   margin-bottom: 10px;
-        //   .kakaobank {
-        //     margin-right: 5px;
-        //     img {
-        //       height: 30px;
-        //       border: rgba(70, 70, 70, 0.25) 1px solid;
-        //       border-radius: 10px;
-        //       background-color: white;
-        //     }
-        //   }
-        //   .toss {
-        //     img {
-        //       height: 30px;
-        //       border: rgba(70, 70, 70, 0.25) 1px solid;
-        //       border-radius: 10px;
-        //       padding: 0 21px;
-        //       background-color: white;
-        //     }
-        //   }
-        // }
-    
-        // .gradient{
-        //     display: block;
-        //     position: fixed;
-        //     width: 80%;
-        //     height: 100vh;
-        //     top: 10px;
-        //     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 25%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 90%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%);
-        //     pointer-events: none;
-        // }
     
         ul{
             list-style:none;
@@ -234,9 +199,8 @@
         
         .schedule_list{
             padding: 0;
-            height: 200px;
+            height: auto;
             padding-bottom: 30px;
-            overflow: auto;
             .date{
                 color : #4a4a4a;
                 margin-top: auto;

@@ -113,7 +113,7 @@
 @include mobile {
     /*전체정렬 signin 컴포넌트*/
     .signup{
-        padding-top: 10%;
+        padding-top: 30px;
         display : flex;
         flex-direction: column;
         align-items: center;
@@ -136,6 +136,8 @@
             position: relative;
             left : 10%;
             top : 40px;
+            width : 300px;
+            border-radius: 0;
             select {
                 display: block;
                 width: 80%;
@@ -169,6 +171,7 @@
                 border-radius: 5px;
                 padding: 6px;
                 border:none;
+                font-size: 15px;
                 &:hover{
                     background-color:#3436ad;
                     cursor: pointer;
