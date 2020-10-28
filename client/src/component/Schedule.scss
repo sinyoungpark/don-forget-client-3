@@ -234,15 +234,14 @@
         
         .schedule_list{
             padding: 0;
-            height: 350px;
-            padding-bottom: 200px;
+            height: 200px;
+            padding-bottom: 30px;
             overflow: auto;
-
             .date{
                 color : #4a4a4a;
                 margin-top: auto;
                 margin-bottom: auto;
-                font-size: 0.8rem;
+                font-size: 0.6rem;
             } 
             /* schedule list css */
             li{

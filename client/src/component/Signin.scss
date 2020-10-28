@@ -124,6 +124,27 @@
               position: relative;
               left: 28%;
             }
+            &.GoogleLogin {
+                box-shadow: none !important;
+                border-color: rgb(219, 62, 34);
+                display: block;
+                width: 400px;
+                margin: 10px auto;
+                background-image: url("../googleLogo.png");
+                background-position: 25% 50%;
+                background-size: 36px;
+                background-repeat: no-repeat;
+                background-color: rgb(219, 62, 34) !important;
+                height: 42px;
+                border-radius: 5px !important;
+                font-size: 14px;
+                padding-top: 9px !important;
+                padding-left: 46px !important;
+                &:hover{
+                    opacity: 0.9;
+                    cursor: pointer;
+                }
+              }
             &.FBLogin {
               box-shadow: none !important;
               display: block;
@@ -300,14 +321,17 @@
                 }
             }
             .login_btn{
+                font-size: 15px;
                 display: block;
                 width: 300px;
                 margin-top:40px;
                 color:white;
                 background-color: #3b23a6;
                 border-radius: 5px;
-                padding: 12px;
+                padding: 10px;
                 border:none;
+                margin-left : auto;
+                margin-right: auto;
                 &:hover{
                     background-color:#3436ad;
                     cursor: pointer;
@@ -338,7 +362,6 @@
             background-position: 24% 50%;
             background-size: 30px;
             background-repeat: no-repeat;
-            background-color: rgb(209, 53, 50) !important;
             // display : inline-block;
             margin: 0px 10px;
             color:white !important;
@@ -358,6 +381,26 @@
               position: relative;
               left: 20%;
             }
+            &.GoogleLogin {
+                display: block;
+                width: 300px;
+                margin: 10px auto;
+                background-image: url("../googleLogo.png");
+                background-position: 18% 50%;
+                background-size: 30px;
+                background-repeat: no-repeat;
+                background-color: rgb(209, 53, 50)  !important;
+                height: 40px;
+                border-radius: 5px !important;
+                font-size: 14px;
+                padding-top: 9px !important;
+                padding-left: 46px !important;
+                border: 1px solid transparent;
+                &:hover{
+                    opacity: 0.9;
+                    cursor: pointer;
+                }
+              }
             &.FBLogin {
               display: block;
               width: 300px;

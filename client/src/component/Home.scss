@@ -266,9 +266,9 @@
         color: #4a4a4a;
         font-size: 1.3rem;
         position: absolute;
-        left: 45%;
         width: 100px;
         padding-bottom:10px;
+        left : 47%;
       }
     }
     .body{
@@ -574,8 +574,9 @@
         color: #4a4a4a;
         font-size: 1.3rem;
         position: absolute;
-        left: 30%;
         width: 100px;
+        left : 32%;
+        right : 32%;
       }
     }
     .body{
@@ -825,6 +826,7 @@
     min-height: 100vh;
     max-height: 100vh;
     position: relative;
+    margin-bottom: 56px;
   }
 
   // 달력에 일정 표시용
@@ -1126,8 +1128,8 @@
         color: #4a4a4a;
         font-size: 1rem;
         position: absolute;
-        left: 42%;
         width: 100px;
+        left : 42%
       }
     }
     .body{
@@ -1149,7 +1151,8 @@
             .alertNextMonthContent {
               color: #4a4a4a;
               font-size: 0.7rem;
-              margin-right: 0.5rem;
+              margin-top: 0;
+              display: block;
             }
           }
           .MuiAlert-action {
@@ -1430,8 +1433,9 @@
         color: #4a4a4a;
         font-size: 1rem;
         position: absolute;
-        left: 42%;
+        left: 41%;
         width: 100px;
+        top : -4px;
       }
     }
     .body{
@@ -1453,7 +1457,8 @@
             .alertNextMonthContent {
               color: #4a4a4a;
               font-size: 0.7rem;
-              margin-right: 0.5rem;
+              display: block;
+              margin-top: 0;
             }
           }
           .MuiAlert-action {
