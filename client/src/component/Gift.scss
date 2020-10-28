@@ -246,9 +246,26 @@
             list-style:none;
             padding-left: 0;
             li {
+                display:none;
                 font-size: 0.6rem;
                 color: #4a4a4a;
-                display: inline-block;
+                margin: 4px;
+                padding: 5px 10px;
+                background-color: transparent;
+                border: rgb(207, 207, 207) 1px solid;
+                border-radius: 50px;
+                outline:none;
+                &:hover {
+                  cursor: pointer;
+                  color: #3b23a6;
+                  font-weight: 700 !important;
+                  border: 1px solid rgba(59, 35, 166, 0.7);
+                }
+            }
+            .kakaotag{
+                display:inline-block;
+                font-size: 0.6rem;
+                color: #4a4a4a;
                 margin: 4px;
                 padding: 5px 10px;
                 background-color: transparent;
@@ -307,6 +324,8 @@
         }
         
         .giftList{
+            overflow: auto;
+            height: 45%;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;

@@ -30,6 +30,8 @@ function Gift() {
   const [isSearchingEmoticon, setIsSearchingEmoticon] = useState(false);
   const [emoticon, setEmoticon] = useState([]);
   const [CopyLink, setCopyLink] = useState("");
+  
+  const [curClickTag, setClickTag] = useState("");
 
   const updateWidth = () => {
     if (window.innerWidth < 757) {
@@ -91,22 +93,27 @@ function Gift() {
 
   // 태그 클릭으로 검색
   const clickTagSearch = (tag) => {
-    setIsSearching(true);
-    setIsSearchingEmoticon(false);
-    setPreItems(0);
-    setItems(addListNum);
-    setBreweries([]);
-    setSearchKeyword(tag); // 스크롤 검색 위해서 검색어 저장
-    setTimeout(() => {
-      axios.post(`https://don-forget-server.com/gift/find/?text=${tag}`)
-        .then((res) => {
-          // console.log("res.data:", res.data);
-          let fourItems = res.data.slice(preItems, items);
-          setBreweries(fourItems);
-          setPreItems(preItems + addListNum);
-          setItems(items + addListNum);
-        })
-    }, 500);
+    if (curClickTag === tag){
+      setClickTag("");
+    }
+    else {
+      setIsSearching(true);
+      setIsSearchingEmoticon(false);
+      setPreItems(0);
+      setItems(addListNum);
+      setBreweries([]);
+      setSearchKeyword(tag); // 스크롤 검색 위해서 검색어 저장
+      setTimeout(() => {
+        axios.post(`https://don-forget-server.com/gift/find/?text=${tag}`)
+          .then((res) => {
+            // console.log("res.data:", res.data);
+            let fourItems = res.data.slice(preItems, items);
+            setBreweries(fourItems);
+            setPreItems(preItems + addListNum);
+            setItems(items + addListNum);
+          })
+      }, 500);
+    }
   }
 
   // 카카오 이모티콘 순위
@@ -167,7 +174,8 @@ function Gift() {
               onClick={() => clickTagSearch(tag)}>{tag}</li>)
           })}
           <li key={99}
-            onClick={() => clickKakaoSearch()}>카카오톡 이모티콘 순위</li>
+          className="kakaotag"
+            onClick={() => clickKakaoSearch()}>#카카오톡 이모티콘 순위</li>
         </ul>
 
         <div
@@ -181,7 +189,7 @@ function Gift() {
           }}
         >
           {/* 검색 true: 검색 선물 랜더, 검색 false: 추천 선물 랜더*/}
-          {isSearching ? <>
+          {searchKeyword !== "" ? <>
             {/* 카카오이모티콘검색 || 그냥검색 */}
             {isSearchingEmoticon ?
               <div className="giftList">
@@ -218,7 +226,7 @@ function Gift() {
                 dataLength={breweries.length} //This is important field to render the next data
                 next={clickSearchMore}
                 hasMore={hasMore}
-                loader={<h4>Loading...</h4>}
+                // loader={<h4>Loading...</h4>}
                 scrollableTarget="scrollableDiv"
               >
                 {breweries && breweries.map((data, i) => {
