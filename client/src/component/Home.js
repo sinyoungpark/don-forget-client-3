@@ -13,9 +13,19 @@ import { Alert, AlertTitle } from '@material-ui/lab';
 import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import CloseIcon from '@material-ui/icons/Close';
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  icon : {
+     width: "36px",
+    height: "36px",
+    backgroundColor: "white",
+  }
+}))
 
 
 function Home({ userId, history }) {
+  const classes = useStyles();
 
   // 달력 랜더
   const [selectedDate, setSelectedDate] = useState(moment());
@@ -196,13 +206,13 @@ function Home({ userId, history }) {
             <button className="leftBtn" onClick={() => {
               let num = moment().month(month).format("M") - 2;
               setSelectedDate(moment().month(num).date(1))
-            }}><ChevronLeftSharpIcon />
+            }}><ChevronLeftSharpIcon className={classes.icon}/>
             </button>
             <span className="title" onClick={selectMonth} ref={ref}>{month}</span>
             <button className="rightBtn" onClick={() => {
               let num = moment().month(month).format("M");
               setSelectedDate(moment().month(num).date(1))
-            }}><ChevronRightSharpIcon />
+            }}><ChevronRightSharpIcon className={classes.icon}/>
             </button>
           </div>
           {/* 월 선택 모달 */}

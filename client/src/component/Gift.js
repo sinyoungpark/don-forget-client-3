@@ -31,7 +31,7 @@ function Gift() {
   const [emoticon, setEmoticon] = useState([]);
   const [CopyLink, setCopyLink] = useState("");
   
-  const [curClickTag, setClickTag] = useState("");
+  const [isTags, setIsTags] = useState(true);
 
   const updateWidth = () => {
     if (window.innerWidth < 757) {
@@ -93,8 +93,8 @@ function Gift() {
 
   // 태그 클릭으로 검색
   const clickTagSearch = (tag) => {
-    if (curClickTag === tag){
-      setClickTag("");
+    if (searchKeyword === tag){
+      setSearchKeyword("");
     }
     else {
       setIsSearching(true);
@@ -118,19 +118,25 @@ function Gift() {
 
   // 카카오 이모티콘 순위
   const clickKakaoSearch = () => {
-    setIsSearching(true);
-    setIsSearchingEmoticon(true);
-    setPreItems(0);
-    setItems(addListNum);
-    setBreweries([]);
-    // setSearchKeyword("카카오톡 이모티콘 순위");
-    setTimeout(() => {
-      axios.get(`https://don-forget-server.com/gift/imoticonList`)
-        .then((res) => {
-          console.log("res.data:", res.data.items);
-          setEmoticon(res.data.items);
-        })
-    }, 0);
+    if (searchKeyword === "카카오톡 이모티콘 순위"){
+      setSearchKeyword("");
+    }
+    else {
+      setIsSearching(true);
+      setIsSearchingEmoticon(true);
+      setPreItems(0);
+      setItems(addListNum);
+      setBreweries([]);
+      setSearchKeyword("카카오톡 이모티콘 순위")
+      // setSearchKeyword("카카오톡 이모티콘 순위");
+      setTimeout(() => {
+        axios.get(`https://don-forget-server.com/gift/imoticonList`)
+          .then((res) => {
+            console.log("res.data:", res.data.items);
+            setEmoticon(res.data.items);
+          })
+      }, 0);
+    }
   }
 
   useEffect(() => {
@@ -164,18 +170,21 @@ function Gift() {
         <h1>이런 선물 어때요?</h1>
         <input type="text" className="search_input"
           placeholder="선물을 검색해주세요."
-          onChange={(e) => setSearchKeyword(e.target.value)}
+          onChange={(e) =>  {
+           e.target.value !== "" ? setIsTags(false) : setIsTags(true); 
+            setSearchKeyword(e.target.value)
+          }}
           onKeyPress={clickSearch}
         ></input>
 
-        <ul className="gift_tags">
+        <ul className= {isTags ? "gift_tags" : "none"}>
+        <li key={99}
+          className={searchKeyword === "카카오톡 이모티콘 순위" ? "curTag kakaotag" : "tag_list kakaotag"}
+            onClick={() => clickKakaoSearch()}># 카카오톡 이모티콘 순위</li>
           {tags.map((tag, i) => {
-            return (<li key={i}
+            return (<li key={i} className={searchKeyword === tag ? "curTag" : "tag_list"}
               onClick={() => clickTagSearch(tag)}>{tag}</li>)
           })}
-          <li key={99}
-          className="kakaotag"
-            onClick={() => clickKakaoSearch()}>#카카오톡 이모티콘 순위</li>
         </ul>
 
         <div

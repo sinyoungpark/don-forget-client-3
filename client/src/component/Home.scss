@@ -240,35 +240,24 @@
       padding: 0px 12px;
       height: 40px;
       margin-bottom: 20px;
+      position: relative;
       button{
         outline: none;
         border: none;
         background-color: white;
-        &.leftBtn {
-          cursor: pointer;
-          position: absolute;
-          left: 24%;
-        }
-        .MuiSvgIcon-root {
-          width: 36px;
-          height: 36px;
-          background-color: white;
-        }
-        &.rightBtn {
-          cursor: pointer;
-          position: absolute;
-          right: 24%;
+        margin-left :auto;
+        margin-right: auto;
+        &:hover{
+          cursor: pointer; 
+          opacity: 0.4;
         }
       }
       span.title{
-        cursor: pointer;
-        // width: fit-content;
         color: #4a4a4a;
         font-size: 1.3rem;
-        position: absolute;
-        width: 100px;
-        padding-bottom:10px;
-        left : 47%;
+        &:hover{
+          cursor: pointer;
+        }
       }
     }
     .body{
@@ -530,53 +519,16 @@
         outline: none;
         border: none;
         background-color: white;
-        &.leftBtn {
-          cursor: pointer;
-          position: absolute;
-          left: 19%;
-          padding-top: 20px;
-        }
-        .MuiSvgIcon-root {
-          width: 36px;
-          height: 36px;
-          background-color: white;
-        }
-        // &.select_month{
-        //   cursor: pointer;
-        //   display: inline-flex;
-        //   margin: 0px 18px;
-        //   padding-top: 50px;
-        //   background-color: white;
-        //   font-stretch: extra-expanded;
-        //   transform: scaleY(0.5);
-        //   font-size: 2rem;
-        // }
-        // &.add_schedule{
-        //   cursor: pointer;
-        //   width: 30px;
-        //   height: 30px;
-        //   font-size: 1rem;
-        //   color: #3b23a6;
-        //   position: absolute;
-        //   right: 36%;
-        //   padding-top: 2px;
-        // }
-        &.rightBtn {
-          cursor: pointer;
-          position: absolute;
-          right: 48%;
-          padding-top: 20px;
-        }
+        margin-left: auto;
+        margin-right: auto;
       }
       span.title{
-        cursor: pointer;
         // width: fit-content;
+        &:hover{
+          cursor: pointer;
+        }
         color: #4a4a4a;
         font-size: 1.3rem;
-        position: absolute;
-        width: 100px;
-        left : 32%;
-        right : 32%;
       }
     }
     .body{
@@ -1085,51 +1037,13 @@
         outline: none;
         border: none;
         background-color: white;
-        &.leftBtn {
-          cursor: pointer;
-          position: absolute;
-          left: 24%;
-          padding-top: 23px;
-        }
-        .MuiSvgIcon-root {
-          background-color: white;
-        }
-        // &.select_month{
-        //   cursor: pointer;
-        //   display: inline-flex;
-        //   margin: 0px 18px;
-        //   padding-top: 50px;
-        //   background-color: white;
-        //   font-stretch: extra-expanded;
-        //   transform: scaleY(0.5);
-        //   font-size: 2rem;
-        //   position: absolute;
-        //   right: 33%;
-        // }
-        // &.add_schedule{
-        //   cursor: pointer;
-        //   width: 30px;
-        //   height: 30px;
-        //   font-size: 1rem;
-        //   position: absolute;
-        //   right: 6%;
-        //   padding-top: 14px;
-        //   color: #3b23a6;
-        // }
-        &.rightBtn {
-          cursor: pointer;
-          position: absolute;
-          right: 24%;
-          padding-top: 23px;
-        }
+        margin-left: auto;
+        margin-right: auto;
       }
       span.title{
-        cursor: pointer;
+        margin-top: 0;
         color: #4a4a4a;
         font-size: 1rem;
-        position: absolute;
-        width: 100px;
-        left : 42%
       }
     }
     .body{
@@ -1392,25 +1306,8 @@
         outline: none;
         border: none;
         background-color: transparent;
-        &.leftBtn {
-          cursor: pointer;
-          position: absolute;
-          left: 24%;
-          padding-top: 25px;
-        }
-        .MuiSvgIcon-root {
-          background-color: white;
-        }
-        // &.select_month{
-        //   cursor: pointer;
-        //   display: inline-flex;
-        //   margin: 0px 18px;
-        //   padding-top: 50px;
-        //   background-color: white;
-        //   font-stretch: extra-expanded;
-        //   transform: scaleY(0.5);
-        //   font-size: 2rem;
-        // }
+        margin-left : auto;
+        margin-right: auto;
         &.add_schedule{
           cursor: pointer;
           width: 30px;
@@ -1421,21 +1318,11 @@
           padding-top: 12px;
           color: #3b23a6;
         }
-        &.rightBtn {
-          cursor: pointer;
-          position: absolute;
-          right: 24%;
-          padding-top: 25px;
-        }
       }
       span.title{
-        cursor: pointer;
         color: #4a4a4a;
         font-size: 1rem;
-        position: absolute;
-        left: 41%;
-        width: 100px;
-        top : -4px;
+        margin-top: 0;
       }
     }
     .body{

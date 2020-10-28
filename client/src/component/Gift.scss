@@ -16,7 +16,7 @@
             list-style:none;
             padding-left: 0;
             padding: 0 0.7rem;
-            li {
+            .tag_list {
                 font-size: 0.7rem;
                 color: #4a4a4a;
                 display: inline-block;
@@ -32,6 +32,30 @@
                   font-weight: 700 !important;
                   border: 1px solid rgba(59, 35, 166, 0.7);
                 }
+            }
+            .curTag{
+                display:inline-block;
+                font-size: 0.7rem;
+                color:#3b23a6;
+                margin: 4px;
+                padding: 5px 10px;
+                background-color: transparent;
+                border-radius: 50px;
+                outline:none;
+                  border: 1px solid #3b23a6;
+                  &:hover{
+                    cursor: pointer;
+                    color: #3b23a6;
+                    font-weight: 700 !important;
+                    border: 1px solid rgba(59, 35, 166, 0.7);
+                  }
+            }
+            .kakaotag{
+                padding-left: 30px;
+                background-repeat: no-repeat;
+                background-size: 30px;
+                background-color: #FFE812;
+                background-image: url("../kakaoIcon.png");
             }
         }
         
@@ -88,6 +112,7 @@
                 width: 100%;
                 margin-top: 0;
             }
+            
         }
 
         .giftListEntry{
@@ -232,10 +257,8 @@
 @include mobile{
     .gift .full_page {
         padding: 8vh 7%;
-        overflow: hidden;
-        max-height: 80vh;
-        position : relative;
-        
+        // max-height: 80vh;
+        position : relative;    
         h1{
             color : rgb(70, 67, 67);
             font-size: 1.5rem;
@@ -245,39 +268,41 @@
         .gift_tags{
             list-style:none;
             padding-left: 0;
-            li {
-                display:none;
-                font-size: 0.6rem;
+            margin-top : 3px;
+            .tag_list {
+                display:inline-block;
+                font-size: 0.1rem;
                 color: #4a4a4a;
-                margin: 4px;
-                padding: 5px 10px;
+                margin: 1.5px;
+                padding: 0px 10px;
                 background-color: transparent;
                 border: rgb(207, 207, 207) 1px solid;
                 border-radius: 50px;
                 outline:none;
-                &:hover {
-                  cursor: pointer;
-                  color: #3b23a6;
-                  font-weight: 700 !important;
+                // &:hover {
+                //   cursor: pointer;
+                //   color: #3b23a6;
+                //   font-weight: 700 !important;
+                //   border: 1px solid rgba(59, 35, 166, 0.7);
+                // }
+            }
+            .curTag{
+                display:inline-block;
+                font-size: 0.1rem;
+                color: #3b23a6;
+                margin: 1.5px;
+                padding: 0px 10px;
+                background-color: transparent;
+                border-radius: 50px;
+                outline:none;
                   border: 1px solid rgba(59, 35, 166, 0.7);
-                }
             }
             .kakaotag{
-                display:inline-block;
-                font-size: 0.6rem;
-                color: #4a4a4a;
-                margin: 4px;
-                padding: 5px 10px;
-                background-color: transparent;
-                border: rgb(207, 207, 207) 1px solid;
-                border-radius: 50px;
-                outline:none;
-                &:hover {
-                  cursor: pointer;
-                  color: #3b23a6;
-                  font-weight: 700 !important;
-                  border: 1px solid rgba(59, 35, 166, 0.7);
-                }
+                padding-left: 30px;
+                background-repeat: no-repeat;
+                background-size: 28px;
+                background-color: #FFE812;
+                background-image: url("../kakaoIcon.png");
             }
         }
 
@@ -292,6 +317,7 @@
             box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
             border-radius: 50px;
             outline:none;
+            margin-bottom: 3px;
             &:focus{
                 border-color : blue;
                 width : 90%;
@@ -324,12 +350,11 @@
         }
         
         .giftList{
-            overflow: auto;
-            height: 45%;
+            height: auto;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            padding-bottom: 100px;
+            margin-bottom: 15px;
             h4{
                 margin-top: 0;
                 display: block;

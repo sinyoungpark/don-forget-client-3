@@ -5,9 +5,9 @@
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-body{
-  overflow-y:scroll;
-}
+// body{
+//   overflow-y:scroll;
+// }
 
 @include desktop{
 /* 흰 배경 아래로 */
@@ -66,24 +66,10 @@ body{
 }
 }
 
-/* page routing animation */
-/* .App{
-  position: relative;
-  animation-name: App;
-  animation-duration: 2s
-}
-@-webkit-keyframes App {
-  from { bottom:-50px; opacity:0 } 
-  to { bottom:0px; opacity:1 }
-}
-@keyframes App { 
-  from{ bottom:-50px; opacity:0 } 
-  to{ bottom:0; opacity:1 }
-} */
 
 @include mobile {
 body{
-  overflow-y:scroll; 
+  // overflow-y: ; 
   overflow-x: scroll;
 }
 
@@ -121,8 +107,8 @@ body{
 .sideBackground{
   position: absolute;
   display: table;
-  width: 97%;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: #ffffff;
   z-index:3;
   top: -20px;
