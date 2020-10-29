@@ -113,7 +113,6 @@
         
         ul{
             list-style:none;
-            padding-left: 0;
         }
         
         .search_list{
@@ -130,14 +129,13 @@
                 margin: 5px;
                 margin-left: 4%;
                 box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.1);
-                    
+   
                 /* 수정, 삭제 button css*/
                 .li_button{
                     display:none;
                     margin: 0px;
                 }
                 &:hover{
-                    color : white;
                     .li_button{
                         display : flex;
                         float: right;
@@ -357,7 +355,7 @@
                 color : #4a4a4a;
                 margin-top: auto;
                 margin-bottom: auto;
-                font-size: 0.8rem;
+                font-size: 0.6rem;
             } 
 
             li{
