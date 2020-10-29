@@ -18,7 +18,7 @@ function Gift() {
   const [topGiftList, setTopList] = useState([]);
 
   const [searchKeyword, setSearchKeyword] = useState("");
-  const tags = ["20대 여자 생일 선물", "30대 남자 생일 선물", "입학 선물", "30대 여자 집들이 선물", "설 선물", "출산용품", "결혼 선물", "취직 축하 선물", "수능 응원"]
+  const tags = ["20대 여자 생일 선물", "입학 선물", "30대 남자 생일 선물", "30대 여자 집들이 선물", "설 선물", "출산용품", "결혼 선물", "취직 축하 선물", "수능 응원"]
 
   // 데이터 addListNum수 만큼 랜더
   const [preItems, setPreItems] = useState(0);

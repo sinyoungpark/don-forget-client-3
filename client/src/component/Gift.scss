@@ -270,34 +270,31 @@
             padding-left: 0;
             margin-top : 3px;
             .tag_list {
+                padding : 3px 10px;
+                font-weight: 600;
                 display:inline-block;
-                font-size: 0.1rem;
+                font-size: 0.6rem;
                 color: #4a4a4a;
                 margin: 1.5px;
-                padding: 0px 10px;
                 background-color: transparent;
                 border: rgb(207, 207, 207) 1px solid;
                 border-radius: 50px;
                 outline:none;
-                // &:hover {
-                //   cursor: pointer;
-                //   color: #3b23a6;
-                //   font-weight: 700 !important;
-                //   border: 1px solid rgba(59, 35, 166, 0.7);
-                // }
             }
             .curTag{
+                padding : 3px 10px;
+                font-weight: 600;
                 display:inline-block;
-                font-size: 0.1rem;
+                font-size: 0.6rem;
                 color: #3b23a6;
                 margin: 1.5px;
-                padding: 0px 10px;
                 background-color: transparent;
                 border-radius: 50px;
                 outline:none;
                   border: 1px solid rgba(59, 35, 166, 0.7);
             }
             .kakaotag{
+                padding : 3px 10px;
                 padding-left: 30px;
                 background-repeat: no-repeat;
                 background-size: 28px;

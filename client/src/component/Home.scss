@@ -255,6 +255,7 @@
       span.title{
         color: #4a4a4a;
         font-size: 1.3rem;
+        margin-bottom: auto;
         &:hover{
           cursor: pointer;
         }
@@ -524,6 +525,7 @@
       }
       span.title{
         // width: fit-content;
+        margin-bottom: auto;
         &:hover{
           cursor: pointer;
         }
@@ -1041,6 +1043,7 @@
         margin-right: auto;
       }
       span.title{
+        margin-bottom: 8px;
         margin-top: 0;
         color: #4a4a4a;
         font-size: 1rem;
@@ -1320,6 +1323,7 @@
         }
       }
       span.title{
+        margin-bottom: 8px;
         color: #4a4a4a;
         font-size: 1rem;
         margin-top: 0;
