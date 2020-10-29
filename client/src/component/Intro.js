@@ -12,7 +12,7 @@ function Intro() {
         <div className="title_content">
           <img className="logo" src={Logo} alt="Logo_don-forget" />
           <div className="title">돈't forget</div>
-          <div className="desc">laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo </div>
+          <div className="desc">고마운 사람에 대한 기억을 잊고 있진 않으신가요? 당신의 경조사를 쉽고 간편하게 기록해 보세요!</div>
         </div>
       </div>
     </div>
