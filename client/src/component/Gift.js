@@ -30,7 +30,7 @@ function Gift() {
   const [isSearchingEmoticon, setIsSearchingEmoticon] = useState(false);
   const [emoticon, setEmoticon] = useState([]);
   const [CopyLink, setCopyLink] = useState("");
-  
+
   const [isTags, setIsTags] = useState(true);
 
   const updateWidth = () => {
@@ -93,7 +93,7 @@ function Gift() {
 
   // 태그 클릭으로 검색
   const clickTagSearch = (tag) => {
-    if (searchKeyword === tag){
+    if (searchKeyword === tag) {
       setSearchKeyword("");
     }
     else {
@@ -118,7 +118,7 @@ function Gift() {
 
   // 카카오 이모티콘 순위
   const clickKakaoSearch = () => {
-    if (searchKeyword === "카카오톡 이모티콘 순위"){
+    if (searchKeyword === "카카오톡 이모티콘 순위") {
       setSearchKeyword("");
     }
     else {
@@ -170,16 +170,16 @@ function Gift() {
         <h1>이런 선물 어때요?</h1>
         <input type="text" className="search_input"
           placeholder="선물을 검색해주세요."
-          onChange={(e) =>  {
-           e.target.value !== "" ? setIsTags(false) : setIsTags(true); 
+          onChange={(e) => {
+            e.target.value !== "" ? setIsTags(false) : setIsTags(true);
             setSearchKeyword(e.target.value)
           }}
           onKeyPress={clickSearch}
         ></input>
 
-        <ul className= {isTags ? "gift_tags" : "none"}>
-        <li key={99}
-          className={searchKeyword === "카카오톡 이모티콘 순위" ? "curTag kakaotag" : "tag_list kakaotag"}
+        <ul className={isTags ? "gift_tags" : "none"}>
+          <li key={99}
+            className={searchKeyword === "카카오톡 이모티콘 순위" ? "curTag kakaotag" : "tag_list kakaotag"}
             onClick={() => clickKakaoSearch()}># 카카오톡 이모티콘 순위</li>
           {tags.map((tag, i) => {
             return (<li key={i} className={searchKeyword === tag ? "curTag" : "tag_list"}
@@ -258,7 +258,7 @@ function Gift() {
                         <div className="copyIconDiv-Gift">
                           <CopyToClipboard
                             style={{ fontSize: 25, color: "#ff7e76" }}
-                            text={`https://e.kakao.com/t/${data.titleUrl}`}
+                            text={`${data.link}`}
                             onCopy={() => { setCopyLink(i) }}
                           >
                             {CopyLink === i ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
@@ -281,7 +281,7 @@ function Gift() {
           </>
             :
             <div className="giftList">
-              <h4># 돈't forget 추천선물로 보는 Top 8</h4>
+              <h4># 돈't forget 추천선물 Top 8</h4>
               {topGiftList && topGiftList.map((data, i) => {
                 let title = data.title;
                 title = title.replace(/<b>/gi, "");
@@ -302,7 +302,7 @@ function Gift() {
                       <div className="copyIconDiv-Gift">
                         <CopyToClipboard
                           style={{ fontSize: 25, color: "#ff7e76" }}
-                          text={`https://e.kakao.com/t/${data.titleUrl}`}
+                          text={`${data.link}`}
                           onCopy={() => { setCopyLink(i) }}
                         >
                           {CopyLink === i ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}

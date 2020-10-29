@@ -16,8 +16,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  icon : {
-     width: "36px",
+  icon: {
+    width: "36px",
     height: "36px",
     backgroundColor: "white",
   }
@@ -206,13 +206,13 @@ function Home({ userId, history }) {
             <button className="leftBtn" onClick={() => {
               let num = moment().month(month).format("M") - 2;
               setSelectedDate(moment().month(num).date(1))
-            }}><ChevronLeftSharpIcon className={classes.icon}/>
+            }}><ChevronLeftSharpIcon className={classes.icon} />
             </button>
             <span className="title" onClick={selectMonth} ref={ref}>{month}</span>
             <button className="rightBtn" onClick={() => {
               let num = moment().month(month).format("M");
               setSelectedDate(moment().month(num).date(1))
-            }}><ChevronRightSharpIcon className={classes.icon}/>
+            }}><ChevronRightSharpIcon className={classes.icon} />
             </button>
           </div>
           {/* 월 선택 모달 */}
@@ -229,7 +229,7 @@ function Home({ userId, history }) {
                   </IconButton>
                 }>
                   <AlertTitle><div className="alertNextMonthTitle">{nextMonth[0] === undefined ? `이벤트가 아직 없네요!` : `다음달 ${nextMonth[0]}개의 이벤트가 있어요!`}</div></AlertTitle>
-                  <span className="alertNextMonthContent">{nextMonth[2] === undefined ? `` : `지출 예상 금액: ${nextMonth[1]}원`}</span> <span className="alertNextMonthContent">{`지출 예상 선물: ${nextMonth[2]}개`}</span>
+                  <span className="alertNextMonthContent">{nextMonth[2] === undefined ? `` : `지출 예상 금액: ${new Intl.NumberFormat().format(Number(nextMonth[1]))}원`}</span> <span className="alertNextMonthContent">{`지출 예상 선물: ${nextMonth[2]}개`}</span>
                 </Alert>
               </Collapse>
             </div>
@@ -252,11 +252,11 @@ function Home({ userId, history }) {
               data.map((obj) => {
                 if (obj.date !== null && obj.date.slice(0, 10) === selectedDate.format().slice(0, 10)) {
                   return (
-                    
+
                     <li key={obj.id}>
                       <div className={obj.type}>
                         {obj.event_target} {obj.type}
-                  <div className="gift">{obj.gift[0] === "현금" ? obj.gift[0] + " " + new Intl.NumberFormat().format(Number(obj.gift[1])) + "원" : obj.gift[0] + " " +  obj.gift[1]}</div>
+                        <div className="gift">{obj.gift[0] === "현금" ? obj.gift[0] + " " + new Intl.NumberFormat().format(Number(obj.gift[1])) + "원" : obj.gift[0] + " " + obj.gift[1]}</div>
                       </div>
                       <span className="transferIcon_home">
                         <span className="kakaobank">
