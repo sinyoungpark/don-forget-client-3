@@ -379,8 +379,7 @@
       background: whitesmoke;
       box-shadow: 0 0 5px #000;
       width: 60%;
-      height: 67%;
-      padding: 10px 30px;
+      padding: 10px 30px 40px 30px;
       border-radius: 10px;
 
       .giftInput {
@@ -397,7 +396,7 @@
           float: left;
           color: black;
           background-color: whitesmoke;
-          padding-top: 4px;
+          padding-top: 6px;
         }
     
         .gift_money {
@@ -450,6 +449,7 @@
       h3 {
         border-bottom: 2px solid black;
         padding-bottom: 10px;
+        margin-bottom: 40px;
         font-size: 1rem;
       }
 
@@ -477,7 +477,7 @@
         .buttonGroup {
           position: relative;
           left: 0%;
-          top: -50px;
+          top: -40px;
 
           .selected {
             border: 1px solid rgb(201, 199, 199);
@@ -486,7 +486,6 @@
           }
 
           button {
-            top: 47px;
             background-color: white;
             width: 40%;
             padding: 5px 20px;

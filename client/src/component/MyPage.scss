@@ -127,27 +127,11 @@
                 }
         
                 &:hover {
-                  border-width: 2px;
-            // width : 13%;
-            position :absolute;
-            top : 58%;
-            margin-left : 12%;
-            &:hover{
-                color : rgb(41, 91, 255)
-            }
-            .csv {
-                position : relative;
-                top : -13px;
-                left : 6%;
-                background-color: white;
-                border : none;
-                color: rgba(53, 51, 51, 0.733);
-                z-index: -1;
-                &:hover{
-                    cursor: pointer;
-                    color: rgb(41, 91, 255)
+                    border-width: 2px;
+                    position :relative;
+                    top : 58%;
+                    color : rgb(41, 91, 255)
                 }
-            }       }
         
                 &::placeholder {
                   position: relative;
@@ -298,11 +282,87 @@
         color: whitesmoke;
     }
     .changePasswordModal {
-        background-color: rgb(245, 245, 245);
-        border-radius: 30px;
-        width: 80%;
-        padding: 10%;
-    }
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 30;
+            background: rgba(0, 0, 0, 0.3);
+            .changePW_content{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                z-index: 2;
+                transform: translate3d(-50%, -50%, 0);
+                background: whitesmoke;
+                box-shadow: 0 0 5px #000;
+                width: 60%;
+                padding: 45px;
+                border-radius: 10px;
+            }
+            h3 {
+                margin-top: 0;
+                border-bottom: 2px solid black;
+                padding: 10px 0;
+            }
+            h4{
+                margin: 0;
+            }
+            input {
+                display: block;
+                margin: 12px 0px 0px 0px;
+                border: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+                width: 100%;
+                font-size: 15px;
+                outline: none;
+                height: 30px;
+                padding-top: 20px;
+                background-color: whitesmoke;
+        
+                &:focus {
+                  border-color: #3b23a6;
+                }
+        
+                &:hover {
+                    border-width: 2px;
+                    position :relative;
+                    top : 58%;
+                    color : rgb(41, 91, 255)
+                }
+        
+                &::placeholder {
+                  position: relative;
+                  top: 0px;
+                }
+        
+                &:focus::placeholder {
+                  color: #3b23a6;
+                  font-size: 13px;
+                  position: relative;
+                  top: -30px;
+                  -webkit-transition: all .15s;
+                  transition: all .15s;
+                }
+            }
+            button {
+                position: relative;
+                left: 8%;
+                width: 40%;
+                background-color: white;
+                border: 1px solid rgb(201, 199, 199);
+                border-radius: 6px;
+                margin-top: 5%;
+                margin-bottom: 10%;
+                margin-right: 10px;
+                padding: 5px 20px;
+      
+                &:hover {
+                  cursor: pointer;
+                }
+            }
+        }
     .chart {
         width: 100%;
     }
