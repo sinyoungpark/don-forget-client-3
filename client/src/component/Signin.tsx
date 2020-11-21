@@ -1,15 +1,18 @@
 import React, { useState } from "react"
-import Avatar from '@material-ui/core/Avatar';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import "./Signin.scss"
-import { CSSTransitionGroup } from "react-transition-group";
 import axios from "axios";
 import Logo from '../Logo.png';
 import GoogleSignUp from './Google';
 import FacebookSignUp from './Facebook';
 
-export default function Signin(props) {
-  const { setIsLogin, setEmail, setName, setUserId } = props;
+type SigninProps = {
+  setIsLogin : (isLogin:boolean) => void;
+  setEmail : (email :string) => void;
+  setName : (name : string) => void;
+  setUserId : (userId : string) => void;
+}
+
+export default function Signin({setIsLogin, setEmail, setName, setUserId } : SigninProps){
   const [email, inputEmail] = useState("");
   const [password, inputPW] = useState("");
   //findPW
@@ -27,7 +30,8 @@ export default function Signin(props) {
   const [isOpenStepTwo, setStepTwo] = useState(false);
   //로그인 실패 alert 창 !
   const [isOpenAlert, setAlert] = useState(false);
-  function handleLoginBtn(e) {
+  
+  function handleLoginBtn(e:any) {
     e.preventDefault();
     axios.post('https://don-forget-server.com/user/signin', {
       email: email,
@@ -49,7 +53,8 @@ export default function Signin(props) {
       })
       .catch((err) => setAlert(true));
   }
-  function handleFindPw(e) {
+
+  function handleFindPw(e:any) {
     e.preventDefault();
     axios.post('https://don-forget-server.com/user/findpassword/stepone', {
       name: name,
@@ -66,13 +71,15 @@ export default function Signin(props) {
       })
       .catch((err) => console.log(err))
   }
-  function openPwSettingModal(e) {
+
+  function openPwSettingModal(e:any) {
     e.preventDefault();
     if (password_answer === inputValue) {
       setNewPW(true);
     }
   }
-  function setNewPw(e) {
+
+  function setNewPw(e:any) {
     e.preventDefault();
     if (password === passwordCheck) {
       axios.post("https://don-forget-server.com/user/findpassword/resetpassword", {
@@ -87,13 +94,14 @@ export default function Signin(props) {
         })
     }
   }
+
   return (
     <div className="signin">
       <img className="logo" src={Logo} alt="Logo_don-forget" />
       <h1>로그인</h1>
       <form className="inputValue">
-        <input type="text" placeholder="이메일 주소 *" label="이메일 주소" onChange={(e) => inputEmail(e.target.value)} />
-        <input type="password" placeholder="비밀번호 *" label="비밀번호" onChange={(e) => inputPW(e.target.value)} />
+        <input type="text" placeholder="이메일 주소 *" onChange={(e) => inputEmail(e.target.value)} />
+        <input type="password" placeholder="비밀번호 *" onChange={(e) => inputPW(e.target.value)} />
         <button className="login_btn" onClick={handleLoginBtn}>로그인</button>
         <a href="비밀번호 찾기" onClick={(e) => {
           e.preventDefault();

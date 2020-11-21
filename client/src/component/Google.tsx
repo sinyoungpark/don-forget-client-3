@@ -1,8 +1,17 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import GoogleLogin from 'react-google-login';
-export default function GoogleSignUp(props) {
-  function responseGoogle(res) {
+
+type GoogleProps = {
+  setIsLogin : (isLogin:boolean) => void;
+  setEmail : (email :string) => void;
+  setName : (name : string) => void;
+  setUserId : (userId : string) => void;
+}
+
+
+export default function GoogleSignUp({setIsLogin, setEmail, setName, setUserId} : GoogleProps) {
+  function responseGoogle(res:any) {
     axios.post('https://don-forget-server.com/user/signin', {
       email: ['google', res.profileObj.email],
       name: res.profileObj.name
@@ -13,14 +22,14 @@ export default function GoogleSignUp(props) {
         window.sessionStorage.setItem("id", response.id);
         window.sessionStorage.setItem("email", response.email);
         window.sessionStorage.setItem("name", response.name);
-        props.setEmail(response.email);
-        props.setName(response.name);
-        props.setUserId(response.id);
-        props.setIsLogin(true);
+        setEmail(response.email);
+        setName(response.name);
+        setUserId(response.id);
+        setIsLogin(true);
       })
       .catch((err) => console.log(err));
   }
-  function responseFail(err) {
+  function responseFail(err:any) {
     alert(err);
   }
   return (
