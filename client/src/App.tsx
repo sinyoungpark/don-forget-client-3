@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route, Redirect, withRouter, RouteComponentProps } from "react-router-dom";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import Intro from "./component/Intro";
 import Signin from "./component/Signin";
 import Signup from "./component/Signup";
@@ -11,7 +11,7 @@ import Schedule from "./component/Schedule";
 import Gift from './component/Gift';
 
 
-function App(props:RouteComponentProps){
+function App(props:any){
 
   const [isLogin, setIsLogin] = useState<boolean>(false);
   const [email, setEmail] = useState<string | null>("");
@@ -24,13 +24,9 @@ function App(props:RouteComponentProps){
       setUserId(window.sessionStorage.getItem("id"));
       setEmail(window.sessionStorage.getItem("email"));
       setName(window.sessionStorage.getItem("name"));
-      console.log(userId);
     }
   })
 
-  console.log(props.location.pathname);
-  console.log(isLogin)
-  console.log(email, name);
 
   return (
     <div className="App">
@@ -88,7 +84,6 @@ function App(props:RouteComponentProps){
 
         </Switch>
       </div>
-      {/* </svg> */}
     </div>
   );
 }
