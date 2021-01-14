@@ -8,26 +8,18 @@ import CsvDownloader from 'react-csv-downloader';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import { makeStyles } from "@material-ui/core/styles";
 import DescriptionIcon from '@material-ui/icons/Description';
+
 const useStyles = makeStyles((theme) => ({
   icon: {
-      // backgroundColor: '#3b23a6',
-      // padding:"6%",
-      // marginBottom: "100px",
       fontSize : 20,
-      // marginLeft : 4,
       borderRadius : 50,
-      // padding : 8,
-      // "&:hover":{
-      //   backgroundColor : "#ccc9c9",
-      // },
       '@media(min-width: 1px) and (max-width:  757px)': {
         fontSize : 18,
       }
   }
 }))
 
-
-function MyPage(props) {
+function MyPage(props:any) {
   const classes = useStyles();
 
   const { email, name, setIsLogin, setEmail, setName, history } = props;
@@ -54,7 +46,7 @@ function MyPage(props) {
       .catch((err) => console.log(err));
   }
 
-  const changeNameHandler = (e) => {
+  const changeNameHandler = (e:any) => {
     e.preventDefault();
     console.log(changeName);
     axios.post(`https://don-forget-server.com/user/changename/${window.sessionStorage.getItem("id")}`, {
@@ -121,10 +113,10 @@ function MyPage(props) {
     displayName: 'give 또는 take'
   }]
 
-  const list = [];
+  const list : any[] = [];
   axios.get(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`)
   .then(res => {
-    res.data.map(element => {
+    res.data.map((element:any) => {
       list.push({
         "날짜": element.date,
         "경조사 종류": element.type,
