@@ -62,7 +62,7 @@ function App(props:any){
           }} />
           <Route exact path="/gift" render={() => {
             if (window.sessionStorage.getItem("id")) {
-              return <Gift userId={userId} />
+              return <Gift/>
             } else {
               return <Redirect to="/" />
             }
