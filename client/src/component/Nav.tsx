@@ -2,10 +2,7 @@ import React from "react"
 import { withRouter } from "react-router-dom"
 import "./Nav.scss"
 import Avatar from '@material-ui/core/Avatar';
-
-import HomeIcon from '@material-ui/icons/Home';
 import ListIcon from '@material-ui/icons/List';
-import SearchIcon from '@material-ui/icons/Search';
 import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { makeStyles } from "@material-ui/core/styles";
@@ -47,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-function Nav({ history, isLogin, location }) {
+function Nav({ history, isLogin, location } : any) {
     const classes = useStyles();
 
     return (
