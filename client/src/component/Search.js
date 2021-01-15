@@ -118,12 +118,6 @@ function Search(props) {
           placeholder="이벤트 대상의 이름 혹은 이벤트 종류를 입력해주세요."
           onChange={onChangeHandler}
           onKeyPress={clickSearch} ></input>
-        {/* <button className="search_btn"
-          onClick={clickSearch}>
-          <Avatar className="icon">
-            <SearchIcon />
-          </Avatar>
-        </button> */}
         <ul className="tag">
           <button className="생일" onClick={handleTag} value="생일">#생일</button>
           <button className="결혼식" onClick={handleTag} value="결혼식">#결혼식</button>

@@ -3,17 +3,16 @@ import { useState, useEffect, useRef } from 'react';
 import axios from "axios"
 import Modal from "./Modal"
 import "./Schedule.scss"
-import kakaobank from '../kakaobank.png';
-import toss from '../toss.png';
 import AddIcon from '@material-ui/icons/Add';
 import Search from "./Search";
-import { Container, Button, Link } from 'react-floating-action-button';
+import { Container, Link } from 'react-floating-action-button';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
-export default function Schedule(props) {
+
+export default function Schedule(props:any) {
     const { userId } = props;
 
-    const [data, setData] = useState(null);
+    const [data, setData] = useState<null | any[]>(null);
     const [isOpen, setModal] = useState(false);
 
     //수정 모달창 따로 
@@ -41,8 +40,8 @@ export default function Schedule(props) {
             axios.get(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`)
                 .then((res) => {
                     let data = res.data;
-                    data = data.sort(function (a, b) {
-                        return new Date(a.date) - new Date(b.date);
+                    data = data.sort(function (a:any, b:any) {
+                        return new Date(a.date).getTime() - new Date(b.date).getTime();
                     });
 
                     setData(data);
@@ -52,7 +51,7 @@ export default function Schedule(props) {
         }
     });
 
-    function handleDeleteBtn(e) {
+    function handleDeleteBtn(e:any) {
         axios.delete(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
             params: {
                 schedule_id: e.target.name
@@ -62,7 +61,7 @@ export default function Schedule(props) {
     }
     //http://localhost:5000/schedule/:id?event_id=2&schedule_id=3
 
-    function handleModifyBtn(date, event_target, event_type, data_gift, schedule_id, event_id, data_giveandtake) {
+    function handleModifyBtn(date:string, event_target:string, event_type:string, data_gift: any[], schedule_id:string, event_id:string, data_giveandtake:string) {
         console.log(date, event_target, event_type, data_gift, schedule_id, event_id);
         setCurDate(date);
         setCurTarget(event_target);
@@ -84,18 +83,7 @@ export default function Schedule(props) {
                     setModal(!isOpen);
                 }} className="addBtn"><AddIcon /></button>
             </h1>
-            {/* <span className="transferIcon">
-              <span className="kakaobank">
-                <a href="kakaobank://">
-                  <img src={kakaobank}></img>
-                </a>
-              </span>
-              <span className="toss">
-                <a href="supertoss://">
-                  <img src={toss}></img>
-                </a>
-              </span>
-            </span> */}
+
             <div className="search">
                 <Search userId={userId} controllUseEffect={controllUseEffect} setUseEffect={setUseEffect} setSchedule={setSchedule} isSchedule={isSchedule} />
             </div>

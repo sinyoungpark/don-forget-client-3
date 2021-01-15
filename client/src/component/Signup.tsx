@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, DetailedHTMLProps, useState } from 'react';
 import { withRouter } from "react-router-dom";
 import './Signup.scss'
 import Logo from '../Logo.png'
-
 import axios from "axios";
 
 
-function Signup({ history }) {
+function Signup({ history } : any){
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -21,7 +20,7 @@ function Signup({ history }) {
   const [wrongQuestion, setWrongQuestion] = useState(false);
   const [wrongAnswer, setWrongAnswer] = useState(false);
 
-  const onChangeHandler = (e) => {
+  const onChangeHandler = (e:any) => {
     if (e.target.name === "email") {
       setEmail(e.target.value)
     } else if (e.target.name === "name") {
@@ -35,13 +34,11 @@ function Signup({ history }) {
     }
   }
 
-  const selectOptionHandler = (e) => {
-    let questionSelect = document.querySelector('.question');
-    console.log(questionSelect.options[questionSelect.selectedIndex].text);
-    setQuestion(questionSelect.options[questionSelect.selectedIndex].text);
+  const selectOptionHandler = (e:any) => {
+    setQuestion(e);
   }
 
-  const validate = (text) => {
+  const validate = (text:any) => {
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (reg.test(text) === false) {
       return false;
@@ -50,13 +47,7 @@ function Signup({ history }) {
     }
   }
 
-  const signUpBtnHandler = (e) => {
-    console.log("email:", email);
-    console.log("name:", name);
-    console.log("password:", password);
-    console.log("pwCheck:", passwordCheck);
-    console.log("question:", question);
-    console.log("answer:", answer);
+  const signUpBtnHandler = (e:any) => {
     e.preventDefault();
     if (validate(email) && (password === passwordCheck) && (name !== "") && (question !== "") && (answer !== "")) {
       axios.post('https://don-forget-server.com/user/signup', {
@@ -84,17 +75,17 @@ function Signup({ history }) {
         <img className="logo" src={Logo} alt="Logo_don-forget" />
         <h1>회원가입</h1>
         <form className="inputValue">
-          <input type="text" name="email" onChange={onChangeHandler} placeholder="이메일 주소 *" label="이메일 주소" />
-          <input type="text" name="name" onChange={onChangeHandler} placeholder="이름 *" label="이름 *" />
-          <input type="password" name="password" placeholder="비밀번호 *" label="비밀번호" onChange={onChangeHandler} />
-          <input type="password" name="passwordCheck" placeholder="비밀번호 확인 *" label="비밀번호 확인" onChange={onChangeHandler} />
-          <select className="question" onChange={selectOptionHandler}>
+          <input type="text" name="email" onChange={onChangeHandler} placeholder="이메일 주소 *" />
+          <input type="text" name="name" onChange={onChangeHandler} placeholder="이름 *" />
+          <input type="password" name="password" placeholder="비밀번호 *" onChange={onChangeHandler} />
+          <input type="password" name="passwordCheck" placeholder="비밀번호 확인 *" onChange={onChangeHandler} />
+          <select className="question" onChange={(e) => selectOptionHandler(e.target.value)}>
             <option value="" disabled selected>비밀번호 찾기 힌트 질문: *</option>
-            <option value="1">가장 기억에 남는 선생님 성함은?</option>
-            <option value="2">내가 존경하는 인물은?</option>
-            <option value="3">나의 노래방 애창곡은?</option>
+            <option value="가장 기억에 남는 선생님 성함은?">가장 기억에 남는 선생님 성함은?</option>
+            <option value="내가 존경하는 인물은?">내가 존경하는 인물은?</option>
+            <option value="나의 노래방 애창곡은?">나의 노래방 애창곡은?</option>
           </select>
-          <input type="text" name="answer" placeholder="비밀번호 찾기 힌트 답 *" label="비밀번호 찾기 힌트 답" onChange={onChangeHandler} />
+          <input type="text" name="answer" placeholder="비밀번호 찾기 힌트 답 *"  onChange={onChangeHandler} />
           <input name="agree" type="checkbox"></input>
           <label htmlFor="agree">개인정보 수집 동의</label>
           <div className={wrongEmail ? "alert" : "none"}>
